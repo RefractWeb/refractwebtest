@@ -1,7 +1,24 @@
-export default function Home() {
+"use client";
+
+import { Navbar } from "@/components/Navbar";
+import { HeroSection } from "@/components/HeroSection";
+import { ImpactSection } from "@/components/ImpactSection";
+import { WorkSection } from "@/components/WorkSection";
+import { Footer } from "@/components/Footer";
+import { ReactLenis } from "lenis/react";
+
+const App = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      hi
-    </div>
+    <ReactLenis root>
+      <div className="min-h-screen overflow-x-hidden">
+        <Navbar />
+        <HeroSection />
+        <ImpactSection />
+        <WorkSection />
+        <Footer />
+      </div>
+    </ReactLenis>
   );
-}
+};
+
+export default App;
