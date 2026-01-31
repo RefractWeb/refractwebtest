@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import { Button } from "./ui/button";
 
 export const ImpactSection = () => {
   return (
@@ -22,13 +23,14 @@ export const ImpactSection = () => {
             <span className="text-white font-medium">not.</span>
           </p>
           <div className="flex items-center justify-center gap-6 pt-4">
-            <button className="px-6 py-2.5 rounded-full bg-linear-to-r from-[#B05D41] to-[#F59768] text-white text-sm font-medium shadow-[0_0_20px_rgba(176,93,65,0.4)] hover:scale-105 transition-transform">
-              Work with us
-            </button>
-            <button className="group flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+            <Button>Work with us</Button>
+            <Button
+              variant="link"
+              className="group flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+            >
               Explore our services
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Button>
           </div>
         </div>
 

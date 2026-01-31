@@ -9,6 +9,7 @@ import {
   Hexagon,
   Box,
 } from "lucide-react";
+import { Button } from "./ui/button";
 
 export const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -64,7 +65,7 @@ export const HeroSection = () => {
       {/* Hero Content */}
       <main className="relative z-10 container px-6 pt-12 lg:pt-32 grow flex flex-col lg:flex-row items-center mx-auto">
         <div className="w-full lg:w-1/2 text-left space-y-8 pl-4 lg:pl-10">
-          <h1 className="text-4xl lg:text-5xl font-bold tracking-tight leading-tight bg-clip-text text-transparent bg-linear-to-br from-foreground to-foreground via-neutral-400/90 from-10% via-60% to-90% w-fit">
+          <h1 className="text-4xl lg:text-6xl font-bold tracking-tight leading-tight bg-clip-text text-transparent bg-linear-to-br from-foreground to-foreground via-neutral-400/90 from-10% via-60% to-90% w-fit">
             Defining <br /> Digital Identity
           </h1>
           <p className="text-base lg:text-lg max-w-sm leading-tight">
@@ -72,9 +73,7 @@ export const HeroSection = () => {
             orchestrating a single identity that signals authority everywhere.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
-            <button className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-linear-to-b from-[#F59768] to-[#B05D41] text-white font-medium text-sm shadow-[0_4px_30px_rgba(245,151,104,0.3)] hover:shadow-[0_4px_40px_rgba(245,151,104,0.5)] transition-all hover:-translate-y-0.5 border-t border-white/20">
-              Work with us
-            </button>
+            <Button size={"lg"}>Work With Us</Button>
             <button className="group flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
               Explore our services
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
