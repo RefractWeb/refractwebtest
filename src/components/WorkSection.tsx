@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import { ArrowRight, ArrowUpRight, Hexagon } from "lucide-react";
 
 export const WorkSection = () => {
