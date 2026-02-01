@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, ArrowUpRight, Hexagon } from "lucide-react";
+import { Button } from "./ui/button";
 
 export const WorkSection = () => {
   return (
@@ -15,9 +16,7 @@ export const WorkSection = () => {
             build Digital identities that perform.
           </p>
           <div className="pt-6 flex items-center justify-center gap-6">
-            <button className="px-8 py-3 rounded-full bg-[#B05D41] bg-opacity-80 text-white text-sm font-medium border border-white/10 hover:bg-[#B05D41] transition-colors shadow-[0_0_30px_rgba(176,93,65,0.2)]">
-              Work with us
-            </button>
+            <Button>Work with us</Button>
             <a
               href="#"
               className="flex items-center gap-1 text-sm text-gray-300 hover:text-white transition-colors"

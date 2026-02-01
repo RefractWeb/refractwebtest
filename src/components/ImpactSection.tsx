@@ -1,7 +1,11 @@
 "use client";
-import React from "react";
+
 import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
+import Image from "next/image";
+import img1 from "@/assets/impact1.png";
+import img2 from "@/assets/impact2.png";
+import img3 from "@/assets/impact3.svg";
 
 export const ImpactSection = () => {
   return (
@@ -12,11 +16,8 @@ export const ImpactSection = () => {
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight">
-            Impact at{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-white to-gray-400">
-              scale.
-            </span>
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-center mx-auto text-grad">
+            Impact at scale
           </h2>
           <p className="text-[#919191] text-lg">
             Design is subjective. Performance is{" "}
@@ -38,7 +39,7 @@ export const ImpactSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1: Revenue Supported */}
           <div className="relative group bg-linear-to-br from-[#121420] to-[#0A0A0A] border border-white/5 rounded-3xl p-8 overflow-hidden hover:border-white/10 transition-colors">
-            <div className="relative z-10 h-full flex flex-col justify-between min-h-75">
+            <div className="relative z-10 h-full flex flex-col justify-between min-h-72">
               <div>
                 <h3 className="text-gray-400 text-lg mb-2">
                   Revenue Supported
@@ -56,20 +57,14 @@ export const ImpactSection = () => {
             </div>
 
             {/* Histogram Visual */}
-            <div className="absolute bottom-0 right-0 w-2/3 h-1/2 flex items-end justify-end gap-2 px-8 pb-8 opacity-60">
-              {[40, 60, 30, 80, 50, 90, 45, 70, 35, 65, 85].map((h, i) => (
-                <div
-                  key={i}
-                  className="w-3 rounded-t-sm bg-linear-to-t from-[#B05D41]/20 to-[#F59768] shadow-[0_0_10px_rgba(245,151,104,0.3)] transition-all duration-700 ease-in-out"
-                  style={{ height: `${h}%`, opacity: 0.5 + i / 20 }}
-                />
-              ))}
+            <div className="absolute bottom-0 right-0 w-2/5 h-1/2">
+              <Image src={img2} alt="" className="object-cover size-full" />
             </div>
           </div>
 
           {/* Card 2: Assets Deployed */}
           <div className="relative group bg-linear-to-bl from-[#15192b] to-[#0A0A0A] border border-white/5 rounded-3xl p-8 overflow-hidden hover:border-white/10 transition-colors">
-            <div className="relative z-10 h-full flex flex-col justify-between min-h-75">
+            <div className="relative z-10 h-full flex flex-col justify-between min-h-72">
               <div>
                 <h3 className="text-gray-400 text-lg mb-2">Assets Deployed</h3>
                 <div className="text-6xl font-medium tracking-tighter bg-clip-text text-transparent bg-linear-to-b from-white to-gray-500">
@@ -84,33 +79,15 @@ export const ImpactSection = () => {
               </div>
             </div>
 
-            {/* Floating UI Card Visual */}
-            <div className="absolute top-1/2 -right-5 w-64 h-48 bg-[#1a1a1a] rounded-xl border border-white/10 shadow-2xl transform -rotate-12 translate-x-10 translate-y-[-20%] group-hover:-rotate-8 transition-transform duration-500">
-              <div className="p-4 space-y-3">
-                <div className="w-8 h-2 bg-gray-600 rounded-full" />
-                <div className="space-y-1">
-                  <div className="text-white text-lg font-bold leading-tight">
-                    Clear story.
-                  </div>
-                  <div className="text-white text-lg font-bold leading-tight">
-                    Sharp design.
-                  </div>
-                  <div className="text-[#F59768] text-lg font-bold leading-tight">
-                    Built to perform.
-                  </div>
-                </div>
-                <div className="pt-4 flex gap-2">
-                  <div className="w-20 h-6 rounded-full bg-[#B05D41]" />
-                  <div className="w-12 h-6 rounded-full bg-white/10" />
-                </div>
-              </div>
-              {/* Glow under card */}
-              <div className="absolute inset-0 bg-blue-500/10 blur-xl -z-10" />
-            </div>
+            <Image
+              src={img1}
+              alt=""
+              className="object-contain size-full absolute -right-36 top-20"
+            />
           </div>
 
           {/* Card 3: Enterprise DNA (Full Width) */}
-          <div className="relative group md:col-span-2 bg-linear-to-r from-[#0d0d14] to-[#0A0A0A] border border-white/5 rounded-3xl p-8 overflow-hidden min-h-75 hover:border-white/10 transition-colors">
+          <div className="relative group md:col-span-2 bg-linear-to-r from-[#0d0d14] to-[#0A0A0A] border border-white/5 rounded-3xl p-8 overflow-hidden min-h-84 hover:border-white/10 transition-colors">
             <div className="relative z-10 grid md:grid-cols-2 h-full">
               <div className="flex flex-col justify-between h-full space-y-8">
                 <div>
@@ -128,45 +105,11 @@ export const ImpactSection = () => {
             </div>
 
             {/* Sine Wave Visual */}
-            <div className="absolute inset-0 z-0 flex items-end">
-              <svg
-                className="w-full h-full"
-                viewBox="0 0 1000 300"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M0,300 L0,250 Q250,250 350,150 T700,100 T1000,50 L1000,300 Z"
-                  fill="url(#gradientFill)"
-                  opacity="0.1"
-                />
-                <path
-                  d="M0,250 Q250,250 350,150 T700,100 T1000,50"
-                  fill="none"
-                  stroke="url(#lineGradient)"
-                  strokeWidth="8"
-                  className="drop-shadow-[0_0_15px_rgba(245,151,104,0.5)]"
-                />
-                <circle
-                  cx="700"
-                  cy="100"
-                  r="8"
-                  fill="#0A0A0A"
-                  stroke="#F59768"
-                  strokeWidth="4"
-                />
-                <defs>
-                  <linearGradient id="gradientFill" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stopColor="#F59768" />
-                    <stop offset="100%" stopColor="transparent" />
-                  </linearGradient>
-                  <linearGradient id="lineGradient" x1="0" x2="1" y1="0" y2="0">
-                    <stop offset="0%" stopColor="#F59768" stopOpacity="0" />
-                    <stop offset="40%" stopColor="#F59768" />
-                    <stop offset="100%" stopColor="#white" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
+            <Image
+              src={img3}
+              alt=""
+              className="object-contain size-full absolute -right-50 top-10"
+            />
           </div>
         </div>
       </div>

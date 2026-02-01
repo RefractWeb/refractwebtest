@@ -65,7 +65,7 @@ export const HeroSection = () => {
       {/* Hero Content */}
       <main className="relative z-10 container px-6 pt-12 lg:pt-32 grow flex flex-col lg:flex-row items-center mx-auto">
         <div className="w-full lg:w-1/2 text-left space-y-8 pl-4 lg:pl-10">
-          <h1 className="text-4xl lg:text-6xl font-bold tracking-tight leading-tight bg-clip-text text-transparent bg-linear-to-br from-foreground to-foreground via-neutral-400/90 from-10% via-60% to-90% w-fit">
+          <h1 className="text-4xl lg:text-6xl font-bold tracking-tight leading-tight text-grad">
             Defining <br /> Digital Identity
           </h1>
           <p className="text-base lg:text-lg max-w-sm leading-tight">
