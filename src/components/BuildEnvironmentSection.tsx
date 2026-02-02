@@ -1,24 +1,6 @@
 "use client";
 
-import { Cloud, Command } from "lucide-react";
 import { Button } from "./ui/button";
-
-const GlassToolCard = ({
-  icon,
-  label,
-}: {
-  icon: React.ReactNode;
-  label: string;
-}) => (
-  <div className="bg-white/5 backdrop-blur-xl border border-border rounded-2xl p-6 flex flex-col items-center justify-center gap-4 hover:bg-white/10 transition-colors group aspect-square">
-    <div className="text-muted-foreground group-hover:text-foreground group-hover:scale-110 transition-all duration-300">
-      {icon}
-    </div>
-    <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest">
-      {label}
-    </span>
-  </div>
-);
 
 export const BuildEnvironmentSection = () => {
   return (

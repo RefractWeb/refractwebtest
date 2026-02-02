@@ -4,6 +4,7 @@ import { motion, useSpring } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import AnimatedLogoCloud from "./LogoCloud";
+import BgGrad from "./ui/bg-grad";
 
 export const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -46,14 +47,7 @@ export const HeroSection = () => {
             transform: `translate(${mousePosition.x * -10}px, ${mousePosition.y * -10}px)`,
           }}
         /> */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `linear-gradient(to right, #333 1px, transparent 1px), linear-gradient(to bottom, #333 1px, transparent 1px)`,
-            backgroundSize: "80px 80px",
-            maskImage: "linear-gradient(to right, transparent, black 60%)",
-          }}
-        />
+        <BgGrad />
       </div>
 
       {/* Hero Content */}

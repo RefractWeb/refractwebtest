@@ -6,6 +6,7 @@ import { Triangle, Activity, Zap, Hexagon, Box } from "lucide-react";
 import { ContactCard } from "@/components/ContactCard";
 import SmoothContainer from "@/lib/SmoothContainer";
 import AnimatedLogoCloud from "@/components/LogoCloud";
+import BgGrad from "@/components/ui/bg-grad";
 
 const TECH_STACK = [
   { icon: Triangle, label: "Vercel", showIcon: true },
@@ -78,14 +79,7 @@ const ContactPage = () => {
               transform: `translate(${mousePosition.x * -20}px, ${mousePosition.y * -20}px)`,
             }}
           />
-          <div
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: `linear-gradient(to right, #333 1px, transparent 1px), linear-gradient(to bottom, #333 1px, transparent 1px)`,
-              backgroundSize: "80px 80px",
-              maskImage: "linear-gradient(to right, transparent, black 60%)",
-            }}
-          />
+          <BgGrad />
         </div>
 
         {/* Main Content */}
