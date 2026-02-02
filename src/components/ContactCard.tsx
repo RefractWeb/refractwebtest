@@ -24,6 +24,7 @@ export const ContactCard = ({
   return (
     <CardComponent
       {...cardProps}
+      target="_blank"
       className="group relative bg-white/2 hover:bg-white/10 border border-white/20 rounded-2xl p-5 transition-all duration-300 cursor-pointer overflow-hidden"
       style={{
         boxShadow: "#ffffff2f 0px 0px 13px inset",

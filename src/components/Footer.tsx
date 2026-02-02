@@ -18,7 +18,7 @@ export const Footer = () => {
       <div className="container mx-auto px-2 relative z-10">
         <div className="select-none">
           <h1
-            className="leading-none font-bold text-center tracking-[-0.07em] bg-clip-text text-transparent bg-radial from-primary to-primary2 opacity-90 hover:opacity-100 transition-all cursor-pointer duration-500"
+            className="leading-none font-bold text-center tracking-[-0.07em] bg-clip-text text-transparent bg-linear-to-b from-primary to-primary2 opacity-90 hover:opacity-100 transition-all cursor-pointer duration-500"
             style={{
               fontFamily: "'Helvetica', sans-serif",
               WebkitTextStroke: "1px rgba(255, 255, 255, 0.4)",

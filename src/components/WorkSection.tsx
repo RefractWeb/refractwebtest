@@ -46,9 +46,10 @@ export const WorkSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-grad mx-auto">
-            Selected <span className="font-light text-gray-400">work</span>
+            Selected{" "}
+            <span className="font-light text-muted-foreground">work</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Redefining the standard. We sharpen clarity, elevate design, and
             build digital identities that perform at the highest level.
           </p>
@@ -63,13 +64,13 @@ export const WorkSection = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-6 overflow-x-auto pb-12 snap-x scrollbar-hide">
+        <div className="flex flex-col lg:flex-row gap-6 overflow-x-auto pb-12 snap-x">
           {works.map((work, index) => (
             <div
               key={index}
-              className="min-w-[85vw] lg:min-w-[520px] snap-center group"
+              className="min-w-[85vw] lg:min-w-130 snap-center group bg-linear-to-br from-card via-background to-card rounded-2xl"
             >
-              <div className="h-[400px] bg-card rounded-t-2xl relative overflow-hidden">
+              <div className="h-100 relative overflow-hidden">
                 <Image
                   src={work.image}
                   alt={work.title}
@@ -77,7 +78,7 @@ export const WorkSection = () => {
                   fill
                 />
               </div>
-              <div className="bg-card p-6 lg:p-8 rounded-b-xl">
+              <div className="p-6 lg:p-8">
                 <div className="flex justify-between items-start mb-2">
                   <h4 className="text-white font-bold text-xl lg:text-2xl group-hover:text-gray-300 transition-colors">
                     {work.title}

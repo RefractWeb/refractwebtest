@@ -25,7 +25,7 @@ const CONTACT_METHODS = [
     label: "Video Call",
     content: "Start the Conversation",
     isLink: true,
-    href: "#",
+    href: "https://calendly.com/d/ctmb-trz-z3c/introduction",
   },
   {
     label: "Email",

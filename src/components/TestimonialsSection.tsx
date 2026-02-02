@@ -2,21 +2,29 @@
 
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import shaun from "@/assets/Shaun Olson.png";
+import chasen from "@/assets/Chasen McNaughton.png";
+import tanner from "@/assets/Tanner Balisky.png";
+import Image from "next/image";
 
 const testimonials = [
   {
     text: "RefractWeb has been instrumental in reducing our overhead in more than one area of our business. We are excited to continue to work with them to identify areas where AI can be leveraged to streamline processes and use our human resources in more valuable ways to move our business forward.",
     name: "Shaun Olson",
-    role: "pulse",
-    image:
-      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=400&h=400&fit=crop",
+    role: "Cobe Construction Inc.",
+    image: shaun,
+  },
+  {
+    text: "Working with Refract Web was an exceptional experience from start to finish. They took the time to truly understand our brand and vision, translating it into a website that feels both polished and authentic to Milk and Cookies. Their attention to detail, creativity, and technical skill resulted in a site that not only looks incredible but performs seamlessly. We couldn’t be happier with the outcome and the partnership.",
+    name: "Chasen McNaughton",
+    role: "Milk & Cookies",
+    image: chasen,
   },
   {
     text: "The architectural precision they brought to our platform was unmatched. They didn't just build a website; they built a scalable digital ecosystem that has grown with us flawlessly.",
-    name: "Elena Rodriguez",
-    role: "Vanguard Tech",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    name: "Tanner Balisky",
+    role: "Bad Birdie",
+    image: tanner,
   },
 ];
 
@@ -34,7 +42,7 @@ export const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-32 bg-background relative flex items-center justify-center overflow-hidden">
+    <section className="py-20 relative flex items-center justify-center overflow-hidden min-h-screen">
       <div className="container max-w-5xl px-6 relative z-10">
         {/* Navigation Arrows */}
         <button
@@ -61,9 +69,13 @@ export const TestimonialsSection = () => {
           </p>
 
           <div className="flex justify-center">
-            <div className="inline-flex items-center gap-3 bg-linear-to-b from-background to-card rounded-full px-2 py-2 pr-6 border-b border-border">
-              <img
+            <div className="inline-flex items-center gap-3 bg-linear-to-b from-background to-card rounded-full px-2 py-2 pr-6 border">
+              <Image
                 src={testimonials[activeIndex].image}
+                loading="lazy"
+                width={50}
+                height={50}
+                placeholder="blur"
                 alt={testimonials[activeIndex].name}
                 className="size-10 rounded-full object-cover grayscale border"
               />
