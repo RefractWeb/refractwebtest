@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 
 export const WorkSection = () => {
   return (
-    <section className="relative py-24 bg-black overflow-hidden">
+    <section className="relative py-24 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-white">

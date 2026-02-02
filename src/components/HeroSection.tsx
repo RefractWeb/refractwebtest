@@ -1,15 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, useSpring } from "motion/react";
-import {
-  ArrowRight,
-  Triangle,
-  Activity,
-  Zap,
-  Hexagon,
-  Box,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
+import AnimatedLogoCloud from "./LogoCloud";
 
 export const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -39,7 +33,7 @@ export const HeroSection = () => {
     <div className="relative min-h-screen flex flex-col">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-linear-to-br from-[#1E2E5E]/40 via-[#050505] to-[#050505]" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#1E2E5E]/40 via-background to-background" />
         <div
           className="absolute top-[-10%] left-[1%] w-[50vw] h-[50vw] rounded-full bg-[#B05D41] opacity-20 blur-[120px]"
           style={{
@@ -63,7 +57,7 @@ export const HeroSection = () => {
       </div>
 
       {/* Hero Content */}
-      <main className="relative z-10 container px-6 pt-12 lg:pt-32 grow flex flex-col lg:flex-row items-center mx-auto">
+      <main className="relative z-10 container px-6 pt-16 grow flex flex-col lg:flex-row items-center mx-auto">
         <div className="w-full lg:w-1/2 text-left space-y-8 pl-4 lg:pl-10">
           <h1 className="text-4xl lg:text-6xl font-bold tracking-tight leading-tight text-grad">
             Defining <br /> Digital Identity
@@ -100,50 +94,7 @@ export const HeroSection = () => {
           />
         </div>
       </main>
-
-      {/* Logo Strip */}
-      <div className="relative z-10 w-full mt-auto py-12 border-t border-white/5 bg-black/20 backdrop-blur-sm">
-        <div className="container mx-auto px-6 overflow-hidden">
-          <div className="flex flex-wrap justify-center lg:justify-between items-center gap-8 lg:gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            <div className="flex items-center gap-2 group cursor-default">
-              <Triangle className="fill-white text-white w-5 h-5" />
-              <span className="text-lg font-semibold tracking-tight">
-                Vercel
-              </span>
-            </div>
-            <div className="flex items-center gap-2 group cursor-default">
-              <span className="text-lg font-semibold">React</span>
-            </div>
-            <div className="flex items-center gap-2 group cursor-default">
-              <span className="text-xl font-black tracking-tighter">GSAP</span>
-            </div>
-            <div className="flex items-center gap-2 group cursor-default">
-              <Activity className="w-5 h-5" />
-              <span className="text-lg font-medium">blender</span>
-            </div>
-            <div className="flex items-center gap-1 group cursor-default">
-              <span className="text-lg font-medium">Figma</span>
-            </div>
-            <div className="flex items-center gap-2 group cursor-default">
-              <span className="text-lg font-bold">aws</span>
-            </div>
-            <div className="flex items-center gap-2 group cursor-default">
-              <Zap className="w-5 h-5" />
-              <span className="text-lg font-bold lowercase">hotjar</span>
-            </div>
-            <div className="flex items-center gap-2 group cursor-default">
-              <Hexagon className="w-5 h-5" />
-              <span className="text-lg font-bold uppercase tracking-wider">
-                Hostinger
-              </span>
-            </div>
-            <div className="flex items-center gap-2 group cursor-default">
-              <Box className="w-5 h-5" />
-              <span className="text-lg font-medium">Notion</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <AnimatedLogoCloud />
     </div>
   );
 };

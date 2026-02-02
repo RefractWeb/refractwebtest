@@ -111,10 +111,6 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --font-serif: var(--font-serif);
-
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -128,6 +124,16 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
+
+  --animate-logo-cloud: logo-cloud 30s linear infinite;
+  @keyframes logo-cloud {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - 4rem));
+    }
+  }
 }
 
 @layer base {
@@ -138,6 +144,7 @@
     @apply bg-background text-foreground;
   }
 }
+
 @layer components {
   .button {
     @apply text-white border border-muted shadow-[0px_1px_0px_0px_#FFFFFF66_inset,0px_-6px_4px_0px_#00000033_inset,0px_4px_10px_0px_#00000036,0px_4px_40px_0px_#F597684D] [background:radial-gradient(57.04%_86.47%_at_50%_105%,var(--primary2)_0%,var(--primary)_100%)] hover:opacity-90 rounded-full text-sm px-3 py-1 font-medium inline-flex items-center justify-center gap-2 tracking-tight cursor-pointer transition-all;
