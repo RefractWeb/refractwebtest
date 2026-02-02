@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${geistMono.variable} antialiased`}>
+      <body className={`${inter.className} ${geistMono.variable} antialiased selection:bg-primary selection:text-primary-foreground`}>
         <Navbar />
         {children}
         <Footer />
