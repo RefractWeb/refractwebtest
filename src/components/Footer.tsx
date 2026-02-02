@@ -1,19 +1,30 @@
 "use client";
-import React from "react";
+
 import { Twitter, Linkedin, Instagram, Copyright } from "lucide-react";
+import Image from "next/image";
 
 export const Footer = () => {
   return (
-    <footer className="relative bg-[#050505] pt-20 pb-10 overflow-hidden">
+    <footer className="relative bg-linear-to-t from-black to-background pt-20 pb-10 overflow-hidden">
+      <Image
+        src={"/logo.svg"}
+        alt="logo"
+        className="absolute top-14 -left-24 opacity-4"
+        width={600}
+        height={200}
+      />
+
       {/* Massive Background Text */}
       <div className="container mx-auto px-2 relative z-10">
-        <div className="select-none pointer-events-none">
+        <div className="select-none">
           <h1
-            className="text-[12vw] leading-none font-bold text-center tracking-tighter"
+            className="leading-none font-bold text-center tracking-[-0.07em] bg-clip-text text-transparent bg-radial from-primary to-primary2 opacity-90 hover:opacity-100 transition-all cursor-pointer duration-500"
             style={{
-              WebkitTextStroke: "1px rgba(255,255,255,0.3)",
-              color: "#B05D41",
-              textShadow: "0 0 100px rgba(176,93,65,0.2)",
+              fontFamily: "'Helvetica', sans-serif",
+              WebkitTextStroke: "1px rgba(255, 255, 255, 0.4)",
+              textShadow:
+                "0 0 100px rgba(176,93,65,0.2), 0 0 100px rgba(203, 104, 71, 0.2)",
+              fontSize: "clamp(1.2rem, 13vw, 15rem)",
             }}
           >
             REFRACTWEB
@@ -139,8 +150,7 @@ export const Footer = () => {
       </div>
 
       {/* Ambient Corner Glows for Footer */}
-      <div className="absolute bottom-0 left-0 w-125 h-125 bg-[#1E2E5E] opacity-10 blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-125 h-125 bg-[#B05D41] opacity-5 blur-[150px] pointer-events-none" />
+      <div className="absolute -bottom-60 right-40 w-125 h-125 bg-blue-700/15 opacity-100 blur-[150px] pointer-events-none" />
     </footer>
   );
 };
