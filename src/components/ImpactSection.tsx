@@ -38,7 +38,7 @@ export const ImpactSection = () => {
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1: Revenue Supported */}
-          <div className="relative group bg-linear-to-br from-[#121420] to-[#0A0A0A] border border-white/5 rounded-3xl p-8 overflow-hidden hover:border-white/10 transition-colors">
+          <div className="relative group bg-linear-to-br from-[#121420] to-[#0A0A0A] border border-white/5 rounded-2xl p-8 overflow-hidden hover:border-white/10 transition-colors">
             <div className="relative z-10 h-full flex flex-col justify-between min-h-72">
               <div>
                 <h3 className="text-gray-400 text-lg mb-2">
@@ -63,7 +63,7 @@ export const ImpactSection = () => {
           </div>
 
           {/* Card 2: Assets Deployed */}
-          <div className="relative group bg-linear-to-bl from-[#15192b] to-[#0A0A0A] border border-white/5 rounded-3xl p-8 overflow-hidden hover:border-white/10 transition-colors">
+          <div className="relative group bg-linear-to-bl from-[#15192b] to-[#0A0A0A] border border-white/5 rounded-2xl p-8 overflow-hidden hover:border-white/10 transition-colors">
             <div className="relative z-10 h-full flex flex-col justify-between min-h-72">
               <div>
                 <h3 className="text-gray-400 text-lg mb-2">Assets Deployed</h3>
@@ -87,7 +87,7 @@ export const ImpactSection = () => {
           </div>
 
           {/* Card 3: Enterprise DNA (Full Width) */}
-          <div className="relative group md:col-span-2 bg-linear-to-r from-[#0d0d14] to-[#0A0A0A] border border-white/5 rounded-3xl p-8 overflow-hidden min-h-84 hover:border-white/10 transition-colors">
+          <div className="relative group md:col-span-2 bg-linear-to-r from-[#0d0d14] to-[#0A0A0A] border border-white/5 rounded-2xl p-8 overflow-hidden min-h-90 hover:border-white/10 transition-colors">
             <div className="relative z-10 grid md:grid-cols-2 h-full">
               <div className="flex flex-col justify-between h-full space-y-8">
                 <div>
