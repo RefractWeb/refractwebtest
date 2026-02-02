@@ -1,27 +1,27 @@
 "use client";
 
-import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { ImpactSection } from "@/components/ImpactSection";
+import { BentoSection } from "@/components/BentoSection";
 import { WorkSection } from "@/components/WorkSection";
 import { BuildEnvironmentSection } from "@/components/BuildEnvironmentSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CTASection } from "@/components/CTASection";
-import { Footer } from "@/components/Footer";
-import { ReactLenis } from "lenis/react";
+import SmoothContainer from "@/lib/SmoothContainer";
 
 const App = () => {
   return (
-    <ReactLenis root>
+    <SmoothContainer>
       <div className="min-h-screen overflow-x-hidden">
         <HeroSection />
         <ImpactSection />
+        {/* <BentoSection /> */}
         <WorkSection />
         <BuildEnvironmentSection />
         <TestimonialsSection />
         <CTASection />
       </div>
-    </ReactLenis>
+    </SmoothContainer>
   );
 };
 
