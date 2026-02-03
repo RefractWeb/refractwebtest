@@ -194,9 +194,9 @@ export function HolographicWall({
             <motion.div
               key={index}
               data-cell-index={index}
-              initial={{ opacity: 0.05 }}
+              initial={{ opacity: 0.001 }}
               animate={{
-                opacity: isRevealed ? 0.05 + cellIntensity * 0.95 : 0,
+                opacity: isRevealed ? 0.01 + cellIntensity * 0.95 : 0.02,
               }}
               transition={{
                 type: "spring",
