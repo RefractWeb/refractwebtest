@@ -10,10 +10,12 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import img1 from "@/assets/works/Landing page 3.jpg";
 import img2 from "@/assets/iconsgrp.png";
+import img3 from "@/assets/Code.png";
+import img4 from "@/assets/3danim.png";
 
 export const BentoSection = () => {
   return (
-    <section className="py-24 px-6 md:px-12 lg:px-24 bg-background overflow-hidden">
+    <section className="py-24 px-6 md:px-12 lg:px-24 bg-background overflow-hidden tracking-tight">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col items-center text-center mb-16">
@@ -65,14 +67,16 @@ export const BentoSection = () => {
                 Transform concepts into high-performance experiences.
                 Engineering story-driven websites and premium digital products.
               </p>
-              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-colors">
+              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-all">
                 <span className="text-sm font-medium">See More</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
 
             <Image
               src={img1}
+              placeholder="blur"
+              loading="lazy"
               alt="Web Development Illustration"
               className="object-cover opacity-100 group-hover:scale-105 transition-all duration-700 absolute right-[-12%] top-[-6%] w-auto h-[300px] pointer-events-none select-none rounded-2xl overflow-hidden bg-red-50"
             />
@@ -94,14 +98,19 @@ export const BentoSection = () => {
                 We build strategic identities designed to secure a premium
                 market position.
               </p>
-              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-colors">
+              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-all">
                 <span className="text-sm font-medium">See More</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
 
             <div className="absolute bottom-30 z-10 left-0 w-full">
-              <Image src={img2} alt="Branding Illustration" />
+              <Image
+                src={img2}
+                placeholder="blur"
+                loading="lazy"
+                alt="Branding Illustration"
+              />
             </div>
 
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 blur-[320px] size-110 bg-primary/50 rounded-full pointer-events-none" />
@@ -112,49 +121,28 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="md:row-span-2 relative bg-card/40 border border-border/50 rounded-2xl overflow-hidden group flex flex-col"
+            className="md:row-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group flex flex-col items-center justify-end"
           >
-            {/* Code Visual */}
-            <div className="h-[250px] relative bg-[#0d1117]/80 rounded-t-[40px] border-b border-border/50 overflow-hidden">
-              <div className="absolute top-4 left-6 flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                <div className="w-3 h-3 rounded-full bg-green-500/50" />
-              </div>
-              <div className="p-8 pt-12 font-mono text-sm space-y-2 opacity-60 group-hover:opacity-100 transition-all duration-500">
-                <div className="text-purple-400">
-                  function <span className="text-blue-400">optimizeAI</span>(){" "}
-                  {"{"}
-                </div>
-                <div className="pl-4 text-foreground/80">
-                  const results = {"["}
-                </div>
-                <div className="pl-8 text-green-400">"neural_path",</div>
-                <div className="pl-8 text-green-400">"data_sync",</div>
-                <div className="pl-4 text-foreground/80">{"]"};</div>
-                <div className="pl-4 text-purple-400">
-                  return <span className="text-foreground/80">network.</span>
-                  <span className="text-blue-400">process</span>(results);
-                </div>
-                <div className="text-purple-400">{"}"}</div>
-              </div>
-              <div className="absolute inset-0 bg-linear-to-t from-[#0d1117] to-transparent" />
-            </div>
+            <Image
+              src={img3}
+              placeholder="blur"
+              loading="lazy"
+              alt="Software / AI Illustration"
+              className="absolute top-0 left-0 object-cover"
+            />
+            <div className="relative z-10 p-8 md:p-14 flex flex-col gap-4">
+              <Code className="size-6 text-foreground/80" />
 
-            <div className="relative z-10 p-8 md:p-10 flex flex-col h-full">
-              <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 border border-white/10 group-hover:scale-110 transition-transform duration-500">
-                <Code className="size-6 text-foreground/80" />
-              </div>
-              <h3 className="text-2xl font-semibold text-foreground mb-4">
+              <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-grad">
                 Software / AI:
               </h3>
-              <p className="text-muted-foreground text-lg mb-8">
+              <p className="text-grad max-w-xs">
                 We replace manual processes with intelligent software tailored
                 to your specific operations.
               </p>
-              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-colors">
+              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-all">
                 <span className="text-sm font-medium">See More</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
 
@@ -166,19 +154,25 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative bg-card/40 border border-border/50 rounded-2xl overflow-hidden group p-8 md:p-10 flex items-center justify-center text-center"
+            className="relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-8 md:p-14 flex items-center justify-center text-center"
           >
-            <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent" />
+            <Image
+              src={"/logo.svg"}
+              width={300}
+              height={300}
+              loading="lazy"
+              alt="Everything Illustration"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover inset-0 opacity-5"
+            />
             <div className="relative z-10">
-              <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-4 mx-auto border border-white/10 group-hover:rotate-12 transition-transform duration-500">
-                <Sparkles className="size-6 text-foreground/80" />
-              </div>
-              <h3 className="text-2xl font-semibold text-foreground">
+              <h3 className="text-3xl md:text-5xl tracking-tight leading-snug text-foreground">
                 Everything
                 <br />
                 in One Place
               </h3>
             </div>
+            <div className="absolute -bottom-10 -left-2 size-50 bg-primary rounded-full blur-3xl"></div>
+            <div className="absolute -top-20 left-0 size-50 bg-secondary2 rounded-full blur-[100px]"></div>
           </motion.div>
 
           {/* 3D Animation - Bottom Right (2x1) */}
@@ -186,36 +180,34 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="md:col-span-2 relative bg-card/40 border border-border/50 rounded-2xl overflow-hidden group p-8 md:p-10"
+            className="md:col-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-8 md:p-14"
           >
-            <div className="relative z-10 flex flex-col h-full">
-              <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 border border-white/10 group-hover:scale-110 transition-transform duration-500">
-                <Video className="size-6 text-foreground/80" />
-              </div>
-              <h3 className="text-2xl font-semibold text-foreground mb-4">
+            <div className="relative z-10 flex flex-col h-full gap-4">
+              <Video className="size-6 text-foreground/80" />
+              <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-grad">
                 3D Animation
               </h3>
-              <p className="text-muted-foreground text-lg max-w-sm mb-auto">
+              <p className="text-grad max-w-xs pr-2">
                 We build cinematic 3D assets designed to give your brand a
                 premium feel.
               </p>
-              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-colors mt-6">
+              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-all">
                 <span className="text-sm font-medium">See More</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
 
             {/* Illustration */}
-            <div className="absolute right-[-5%] bottom-[-10%] w-[400px] h-[250px] md:w-[600px] md:h-[400px] pointer-events-none select-none">
+            <div className="absolute inset-y-0 h-full w-2/3 right-0 pointer-events-none select-none">
               <Image
-                src="/animation_ui.png"
+                src={img4}
+                placeholder="blur"
+                loading="lazy"
                 alt="3D Animation Illustration"
-                fill
-                className="object-contain opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700"
+                className="h-full group-hover:scale-105 transition-all duration-700"
               />
             </div>
-
-            <div className="absolute inset-0 bg-linear-to-l from-purple-500/10 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-l from-secondary3/60 via-transparent to-transparent pointer-events-none" />
           </motion.div>
         </div>
       </div>
