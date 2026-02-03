@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import React, { CSSProperties } from "react";
 
 const dotBgColor = "#101010"; // Dark background
@@ -35,13 +34,11 @@ const LightMorphWrapper = ({
   switchGrad?: boolean;
 }) => {
   return (
-    <div
-      className={cn("border h-max w-max p-1 rounded-2xl", containerClass)}
-    >
+    <div className={cn("size-max rounded-2xl", containerClass)}>
       <div
         style={dottedBackgroundStyle}
         className={cn(
-          "border rounded-xl overflow-hidden relative flex items-center justify-center group",
+          "rounded-xl overflow-hidden relative flex items-center justify-center group",
           inerContainerClass,
         )}
       >
@@ -53,7 +50,7 @@ const LightMorphWrapper = ({
         >
           <div
             className={cn(
-              "opacity-75 z-10 w-[50%] h-[50%] rounded-full -bottom-[13%] absolute -left-[13%] group-hover:opacity-100 transition-opacity duration-300",
+              "opacity-75 z-10 size-1/2 rounded-full -bottom-[13%] absolute -left-[13%] group-hover:opacity-100 transition-opacity duration-300",
               gardient1,
               blurOnGradients,
             )}
@@ -61,7 +58,7 @@ const LightMorphWrapper = ({
 
           <div
             className={cn(
-              "opacity-75 z-10 w-[50%] h-[50%] rounded-full -top-[13%] absolute -right-[13%] group-hover:opacity-100 transition-opacity duration-300",
+              "opacity-75 z-10 size-1/2 rounded-full -top-[13%] absolute -right-[13%] group-hover:opacity-100 transition-opacity duration-300",
               gradient2,
               blurOnGradients,
             )}
@@ -79,7 +76,7 @@ export default LightMorphWrapper;
 const Noise = () => {
   return (
     <svg
-      className="pointer-events-none absolute isolate z-50 opacity-[0.05] size-full inset-0"
+      className="pointer-events-none absolute isolate z-50 opacity-1 size-full inset-0"
       width="100%"
       height="100%"
     >

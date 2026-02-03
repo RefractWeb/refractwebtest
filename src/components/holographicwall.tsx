@@ -38,13 +38,13 @@ const TECH_ICONS = [
   { name: "Tailwind", path: "/icons/4.svg" },
   { name: "Node.js", path: "/icons/5.svg" },
   { name: "AWS", path: "/icons/6.svg" },
-]
+];
 
 export function HolographicWall({
   rows = 3,
   cols = 4,
-  intensity = 0.8,
-  radius = 250,
+  intensity = 1,
+  radius = 200,
 }: HolographicWallProps) {
   const [mousePosition, setMousePosition] = useState<{
     x: number;
@@ -121,7 +121,7 @@ export function HolographicWall({
       clearTimeout(timer);
       window.removeEventListener("resize", updateCellPositions);
     };
-  }, [rows, cols]);
+  }, [rows, cols]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!initialRevealComplete) return;
@@ -133,7 +133,24 @@ export function HolographicWall({
 
   const handleMouseLeave = () => {
     if (!initialRevealComplete) return;
-    setMousePosition(null);
+
+    // Return spotlight to center
+    const container = document.getElementById("grid-container");
+    if (!container) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const gridRect = container.querySelector(".grid")?.getBoundingClientRect();
+
+    if (gridRect) {
+      const relativeX = gridRect.left - containerRect.left + gridRect.width / 2;
+      const relativeY = gridRect.top - containerRect.top + gridRect.height / 2;
+      setMousePosition({ x: relativeX, y: relativeY });
+    } else {
+      setMousePosition({
+        x: containerRect.width / 2,
+        y: containerRect.height / 2,
+      });
+    }
   };
 
   const totalCells = rows * cols;
@@ -152,12 +169,13 @@ export function HolographicWall({
         }}
       >
         {Array.from({ length: totalCells }).map((_, index) => {
-          const gradientIndex = index % GRADIENT_COMBINATIONS.length;
-          const iconIndex = index % TECH_ICONS.length;
-          const gradient = GRADIENT_COMBINATIONS[gradientIndex];
-          const icon = TECH_ICONS[iconIndex];
-
           const cell = cells[index];
+
+          // Provide fallback values while positions are being calculated
+          const gradient =
+            cell?.gradient ||
+            GRADIENT_COMBINATIONS[index % GRADIENT_COMBINATIONS.length];
+          const icon = cell?.icon || TECH_ICONS[index % TECH_ICONS.length];
           const distance =
             mousePosition && cell
               ? Math.sqrt(
@@ -165,13 +183,12 @@ export function HolographicWall({
                     Math.pow(cell.y - mousePosition.y, 2),
                 )
               : Infinity;
-
           const cellIntensity =
-            mousePosition && distance < radius
+            distance < radius
               ? Math.max(0, 1 - distance / radius) * intensity
               : 0;
 
-          const isRevealed = mousePosition && distance < radius;
+          const isRevealed = distance < radius;
 
           return (
             <motion.div
@@ -179,7 +196,7 @@ export function HolographicWall({
               data-cell-index={index}
               initial={{ opacity: 0.05 }}
               animate={{
-                opacity: isRevealed ? 0.05 + cellIntensity * 0.95 : 0.05,
+                opacity: isRevealed ? 0.05 + cellIntensity * 0.95 : 0,
               }}
               transition={{
                 type: "spring",
@@ -191,12 +208,12 @@ export function HolographicWall({
               <LightMorphWrapper
                 gardient1={gradient.gradient1}
                 gradient2={gradient.gradient2}
-                blurOnGradients="blur-[22px]"
-                inerContainerClass="h-[100px] w-[100px] md:h-[115px] md:w-[115px]"
+                inerContainerClass="h-28 md:h-30"
                 containerClass="w-full"
+                blurOnGradients="blur-xl"
                 switchGrad={gradient.switchGrad}
               >
-                <div className="relative z-20 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white/90">
+                <div className="relative z-20 size-12 md:size-14 flex items-center justify-center">
                   <Image
                     src={icon.path}
                     alt={icon.name}
@@ -204,7 +221,6 @@ export function HolographicWall({
                     height={56}
                     className="w-full h-full object-contain"
                   />
-                 
                 </div>
               </LightMorphWrapper>
             </motion.div>
@@ -218,11 +234,10 @@ export function HolographicWall({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="absolute inset-0 pointer-events-none"
-          style={{ zIndex: 10 }}
+          className="absolute inset-0 pointer-events-none z-10"
         >
           <div
-            className="absolute"
+            className="absolute pointer-events-none"
             style={{
               left: mousePosition.x,
               top: mousePosition.y,
@@ -231,10 +246,7 @@ export function HolographicWall({
               transform: "translate(-50%, -50%)",
               background:
                 "radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 30%, rgba(13,16,23,1) 90%)",
-
               filter: "blur(60px)",
-              pointerEvents: "none",
-              position: "absolute",
             }}
           />
         </motion.div>
