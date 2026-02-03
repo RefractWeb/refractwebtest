@@ -1,5 +1,7 @@
 "use client";
 
+import BgGrad from "@/components/ui/bg-grad";
+
 export default function CookiePolicyPage() {
   const sections = [
     {
@@ -33,7 +35,7 @@ export default function CookiePolicyPage() {
     <main className="min-h-screen bg-background text-foreground py-20">
       {/* Header */}
       <div>
-        <div className="max-w-3xl mx-auto px-6 py-16">
+        <div className="max-w-3xl mx-auto px-6 pt-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-3 text-foreground">
             Cookie Policy
           </h1>

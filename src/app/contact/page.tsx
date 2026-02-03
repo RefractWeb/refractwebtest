@@ -79,7 +79,6 @@ const ContactPage = () => {
               transform: `translate(${mousePosition.x * -20}px, ${mousePosition.y * -20}px)`,
             }}
           />
-          <BgGrad />
         </div>
 
         {/* Main Content */}

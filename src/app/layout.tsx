@@ -3,6 +3,7 @@ import { Geist_Mono, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import BgGrad from "@/components/ui/bg-grad";
 
 const inter = Inter_Tight({
   variable: "--font-inter-sans",
@@ -28,7 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${geistMono.variable} antialiased selection:bg-primary selection:text-primary-foreground`}>
+      <body
+        className={`${inter.className} ${geistMono.variable} antialiased selection:bg-primary selection:text-primary-foreground`}
+      >
+        <BgGrad />
         <Navbar />
         {children}
         <Footer />

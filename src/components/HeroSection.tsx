@@ -34,7 +34,7 @@ export const HeroSection = () => {
     <div className="relative min-h-screen flex flex-col">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-linear-to-br from-[#1E2E5E]/40 via-background to-background" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#1E2E5E]/40 via-transparent to-transparent" />
         <div
           className="absolute top-[-10%] left-[1%] w-[50vw] h-[50vw] rounded-full bg-[#B05D41] opacity-20 blur-[120px]"
           style={{
@@ -47,7 +47,6 @@ export const HeroSection = () => {
             transform: `translate(${mousePosition.x * -10}px, ${mousePosition.y * -10}px)`,
           }}
         /> */}
-        <BgGrad />
       </div>
 
       {/* Hero Content */}
