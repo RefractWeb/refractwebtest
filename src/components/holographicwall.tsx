@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { MouseEvent, useEffect, useState } from "react";
 import LightMorphWrapper from "./ui/lightmorph-wrapper";
 import Image from "next/image";
