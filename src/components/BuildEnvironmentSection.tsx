@@ -18,10 +18,10 @@ export const BuildEnvironmentSection = () => {
 
           {/* Left Content */}
           <div className="relative flex items-start flex-col justify-center  pl-12 pr-0 z-10 max-w-lg space-y-6 ">
-            <h2 className="text-4xl lg:text-5xl font-bold tracking-tighter text-foreground">
+            <h2 className="text-4xl lg:text-5xl font-bold tracking-tighter text-grad">
               The build environment.
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-grad max-w-sm">
               A proven stack for speed and scale. We leverage these tools to
               ensure reliability and uncompromising polish.
             </p>

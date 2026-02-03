@@ -7,7 +7,9 @@ import {
   Video,
 } from "lucide-react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+import img1 from "@/assets/works/Landing page 3.jpg";
+import img2 from "@/assets/iconsgrp.png";
 
 export const BentoSection = () => {
   return (
@@ -44,44 +46,36 @@ export const BentoSection = () => {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px] md:auto-rows-[300px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[250px] md:auto-rows-[350px]">
           {/* Web Development - Top Left (2x1) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="md:col-span-2 relative bg-card/40 border border-border/50 rounded-[40px] overflow-hidden group p-8 md:p-10"
+            className="md:col-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-8 md:p-14"
           >
-            <div className="absolute top-0 right-0 w-1/2 h-full opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-              <div className="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full" />
-            </div>
+            <div className="absolute -left-10 blur-[540px] size-250 bg-secondary3 rounded-full"></div>
 
-            <div className="relative z-10 flex flex-col h-full">
-              <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 border border-white/10 group-hover:scale-110 transition-transform duration-500">
-                <Globe className="w-6 h-6 text-white/80" />
-              </div>
-              <h3 className="text-2xl font-semibold text-white mb-4">
-                Web Development:
+            <div className="relative z-10 flex flex-col h-full gap-4">
+              <Globe className="size-6 text-foreground/80" />
+              <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-grad">
+                Web Development
               </h3>
-              <p className="text-muted-foreground text-lg max-w-xs mb-auto">
+              <p className="text-grad max-w-xs">
                 Transform concepts into high-performance experiences.
                 Engineering story-driven websites and premium digital products.
               </p>
-              <div className="flex items-center gap-2 text-white/60 group-hover:text-white transition-colors mt-6">
+              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-colors">
                 <span className="text-sm font-medium">See More</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
 
-            {/* Illustration */}
-            <div className="absolute right-[-10%] top-[-10%] w-[350px] h-[350px] md:w-[450px] md:h-[450px] pointer-events-none select-none">
-              <Image
-                src="/torus.png"
-                alt="Web Development Illustration"
-                fill
-                className="object-contain opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-              />
-            </div>
+            <Image
+              src={img1}
+              alt="Web Development Illustration"
+              className="object-cover opacity-100 group-hover:scale-105 transition-all duration-700 absolute right-[-12%] top-[-6%] w-auto h-[300px] pointer-events-none select-none rounded-2xl overflow-hidden bg-red-50"
+            />
           </motion.div>
 
           {/* Branding - Right (1x2) */}
@@ -89,50 +83,28 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="md:row-span-2 relative bg-card/40 border border-border/50 rounded-[40px] overflow-hidden group p-8 md:p-10"
+            className="md:row-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-8 md:p-14"
           >
-            <div className="relative z-10 flex flex-col h-full">
-              <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 border border-white/10 group-hover:scale-110 transition-transform duration-500">
-                <Palette className="w-6 h-6 text-white/80" />
-              </div>
-              <h3 className="text-2xl font-semibold text-white mb-4">
-                Branding:
+            <div className="relative z-10 flex flex-col h-full gap-4">
+              <Palette className="size-6 text-foreground/80" />
+              <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-grad">
+                Branding
               </h3>
-              <p className="text-muted-foreground text-lg mb-8">
+              <p className="text-grad max-w-xs">
                 We build strategic identities designed to secure a premium
                 market position.
               </p>
-              <div className="flex items-center gap-2 text-white/60 group-hover:text-white transition-colors mb-auto">
+              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-colors">
                 <span className="text-sm font-medium">See More</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
-
-              {/* Branding UI Elements */}
-              <div className="mt-12 space-y-4">
-                <div className="flex items-center gap-3 bg-white/5 border border-white/10 p-4 rounded-3xl group-hover:bg-white/10 transition-colors">
-                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center font-bold text-lg italic">
-                    R
-                  </div>
-                  <div className="space-y-1">
-                    <div className="w-20 h-2 bg-white/20 rounded-full" />
-                    <div className="w-12 h-2 bg-white/10 rounded-full" />
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="aspect-square bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center group-hover:bg-white/10 transition-colors">
-                    <div className="w-6 h-6 bg-orange-500/20 rounded-full blur-md" />
-                    <div className="w-3 h-3 bg-orange-500/80 rounded-full absolute" />
-                  </div>
-                  <div className="aspect-square bg-white/5 border border-white/10 rounded-2xl flex flex-col justify-center items-center gap-1 group-hover:bg-white/10 transition-colors">
-                    <div className="w-8 h-1 bg-white/20 rounded-full" />
-                    <div className="w-8 h-1 bg-white/10 rounded-full" />
-                    <div className="w-8 h-1 bg-white/5 rounded-full" />
-                  </div>
-                </div>
-              </div>
             </div>
 
-            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-orange-500/10 to-transparent pointer-events-none" />
+            <div className="absolute bottom-30 z-10 left-0 w-full">
+              <Image src={img2} alt="Branding Illustration" />
+            </div>
+
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 blur-[320px] size-110 bg-primary/50 rounded-full pointer-events-none" />
           </motion.div>
 
           {/* Software / AI - Bottom Left (1x2) */}
@@ -140,7 +112,7 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="md:row-span-2 relative bg-card/40 border border-border/50 rounded-[40px] overflow-hidden group flex flex-col"
+            className="md:row-span-2 relative bg-card/40 border border-border/50 rounded-2xl overflow-hidden group flex flex-col"
           >
             {/* Code Visual */}
             <div className="h-[250px] relative bg-[#0d1117]/80 rounded-t-[40px] border-b border-border/50 overflow-hidden">
@@ -149,17 +121,19 @@ export const BentoSection = () => {
                 <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
                 <div className="w-3 h-3 rounded-full bg-green-500/50" />
               </div>
-              <div className="p-8 pt-12 font-mono text-sm space-y-2 opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="p-8 pt-12 font-mono text-sm space-y-2 opacity-60 group-hover:opacity-100 transition-all duration-500">
                 <div className="text-purple-400">
                   function <span className="text-blue-400">optimizeAI</span>(){" "}
                   {"{"}
                 </div>
-                <div className="pl-4 text-white/80">const results = {"["}</div>
+                <div className="pl-4 text-foreground/80">
+                  const results = {"["}
+                </div>
                 <div className="pl-8 text-green-400">"neural_path",</div>
                 <div className="pl-8 text-green-400">"data_sync",</div>
-                <div className="pl-4 text-white/80">{"]"};</div>
+                <div className="pl-4 text-foreground/80">{"]"};</div>
                 <div className="pl-4 text-purple-400">
-                  return <span className="text-white/80">network.</span>
+                  return <span className="text-foreground/80">network.</span>
                   <span className="text-blue-400">process</span>(results);
                 </div>
                 <div className="text-purple-400">{"}"}</div>
@@ -169,16 +143,16 @@ export const BentoSection = () => {
 
             <div className="relative z-10 p-8 md:p-10 flex flex-col h-full">
               <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 border border-white/10 group-hover:scale-110 transition-transform duration-500">
-                <Code className="w-6 h-6 text-white/80" />
+                <Code className="size-6 text-foreground/80" />
               </div>
-              <h3 className="text-2xl font-semibold text-white mb-4">
+              <h3 className="text-2xl font-semibold text-foreground mb-4">
                 Software / AI:
               </h3>
               <p className="text-muted-foreground text-lg mb-8">
                 We replace manual processes with intelligent software tailored
                 to your specific operations.
               </p>
-              <div className="flex items-center gap-2 text-white/60 group-hover:text-white transition-colors">
+              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-colors">
                 <span className="text-sm font-medium">See More</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
@@ -192,14 +166,14 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative bg-card/40 border border-border/50 rounded-[40px] overflow-hidden group p-8 md:p-10 flex items-center justify-center text-center"
+            className="relative bg-card/40 border border-border/50 rounded-2xl overflow-hidden group p-8 md:p-10 flex items-center justify-center text-center"
           >
             <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent" />
             <div className="relative z-10">
               <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-4 mx-auto border border-white/10 group-hover:rotate-12 transition-transform duration-500">
-                <Sparkles className="w-6 h-6 text-white/80" />
+                <Sparkles className="size-6 text-foreground/80" />
               </div>
-              <h3 className="text-2xl font-semibold text-white">
+              <h3 className="text-2xl font-semibold text-foreground">
                 Everything
                 <br />
                 in One Place
@@ -212,20 +186,20 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="md:col-span-2 relative bg-card/40 border border-border/50 rounded-[40px] overflow-hidden group p-8 md:p-10"
+            className="md:col-span-2 relative bg-card/40 border border-border/50 rounded-2xl overflow-hidden group p-8 md:p-10"
           >
             <div className="relative z-10 flex flex-col h-full">
               <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 border border-white/10 group-hover:scale-110 transition-transform duration-500">
-                <Video className="w-6 h-6 text-white/80" />
+                <Video className="size-6 text-foreground/80" />
               </div>
-              <h3 className="text-2xl font-semibold text-white mb-4">
+              <h3 className="text-2xl font-semibold text-foreground mb-4">
                 3D Animation
               </h3>
               <p className="text-muted-foreground text-lg max-w-sm mb-auto">
                 We build cinematic 3D assets designed to give your brand a
                 premium feel.
               </p>
-              <div className="flex items-center gap-2 text-white/60 group-hover:text-white transition-colors mt-6">
+              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-colors mt-6">
                 <span className="text-sm font-medium">See More</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>

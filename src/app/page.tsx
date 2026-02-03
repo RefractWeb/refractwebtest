@@ -15,7 +15,7 @@ const App = () => {
       <div className="min-h-screen overflow-x-hidden">
         <HeroSection />
         <ImpactSection />
-        {/* <BentoSection /> */}
+        <BentoSection />
         <WorkSection />
         <BuildEnvironmentSection />
         <TestimonialsSection />
