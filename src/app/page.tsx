@@ -14,9 +14,9 @@ const App = () => {
     <SmoothContainer>
       <div className="min-h-screen overflow-x-hidden">
         <HeroSection />
-        <ImpactSection />
         <BentoSection />
         <WorkSection />
+        <ImpactSection />
         <BuildEnvironmentSection />
         <TestimonialsSection />
         <CTASection />
