@@ -1,4 +1,4 @@
-import { ArrowUpRight, Monitor } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Monitor } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import webDevImg from "@/assets/works/Landing page 3.jpg";
@@ -22,25 +22,26 @@ export default function () {
         </div>
 
         <div className="relative group">
-          <div className="absolute -inset-10 bg-linear-to-r from-primary/20 to-primary2/20 blur-[120px] opacity-100 group-hover:opacity-100 transition-opacity" />
-          <div className="relative bg-black/40 backdrop-blur-3xl rounded-[3rem] border border-white/10 p-10 md:p-16 overflow-hidden flex flex-col lg:flex-row gap-16 items-center shadow-2xl">
-            <div className="w-full lg:w-3/5 relative aspect-video rounded-3xl overflow-hidden border border-white/10 group-hover:border-white/20 transition-all shadow-2xl bg-neutral-900">
+          {/* <div className="absolute -inset-10 bg-linear-to-r from-primary/20 to-primary2/20 blur-[120px] opacity-100 group-hover:opacity-100 transition-opacity" /> */}
+          <div className="relative bg-[#0E111B] rounded-3xl p-10 md:p-16 overflow-hidden flex flex-col lg:flex-row gap-16 items-center shadow-2xl">
+            <div
+              className="w-full lg:w-3/5 relative aspect-video rounded-2xl overflow-hidden transition-all bg-[#1423547a]"
+              style={{
+                boxShadow: "#01030a6e 0px 6px 30px",
+              }}
+            >
               <Image
                 src={webDevImg}
                 alt="Web Development Showcase"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                className="group-hover:scale-105 transition-all absolute w-5/6 duration-1000 bottom-0 left-1/2 -translate-x-1/2 object-cover rounded-t-2xl shadow-xl"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
             </div>
-            <div className="w-full lg:w-2/5 space-y-8">
-              <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 shadow-inner">
-                <Monitor className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="text-5xl font-bold tracking-tight leading-tight">
-                Web <br /> Development
+            <div className="w-full lg:w-2/5 space-y-4">
+              <h3 className="text-2xl md:text-3xl font-semibold text-grad tracking-tight leading-tight">
+                Web Development
               </h3>
-              <p className="text-muted-foreground text-xl leading-relaxed">
+              <Monitor className="size-5 text-muted-foreground" />
+              <p className="text-sm md:text-base text-grad leading-relaxed">
                 Transform concepts into high-performance experiences. We
                 engineer story-driven websites that turn your brand into a
                 premium digital product. Every layout and interaction feels
@@ -48,10 +49,10 @@ export default function () {
               </p>
               <Link
                 href="/work"
-                className="group/link text-primary hover:text-primary2 font-semibold text-xl flex items-center gap-3 transition-colors"
+                className="group/link flex items-center gap-3 text-muted-foreground"
               >
-                See More{" "}
-                <ArrowUpRight className="w-6 h-6 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                <span className="text-grad">See More </span>
+                <ArrowRight className="size-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
               </Link>
             </div>
           </div>
