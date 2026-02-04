@@ -29,9 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} ${geistMono.variable} antialiased selection:bg-primary selection:text-primary-foreground`}
-      >
+      <body className={inter.className + " " + geistMono.variable}>
         <BgGrad />
         <Navbar />
         {children}
