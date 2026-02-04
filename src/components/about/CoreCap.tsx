@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Monitor } from "lucide-react";
+import { ArrowRight, Monitor } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import webDevImg from "@/assets/works/Landing page 3.jpg";
@@ -12,8 +12,8 @@ export default function () {
           <h2 className="text-grad text-6xl font-semibold tracking-tighter p-2 inline-block">
             Core capabilities
           </h2>
-          <p className="text-grad text-xl max-w-md mx-auto font-medium leading-relaxed">
-            integrated execution. We blend strategy, design, and code to build
+          <p className="text-grad text-xl max-w-md mx-auto leading-relaxed">
+            Integrated execution. We blend strategy, design, and code to build
             platforms that perform.
           </p>
           <Link href="/contact" className="inline-block">
