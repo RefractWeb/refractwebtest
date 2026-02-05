@@ -1,6 +1,7 @@
 "use client";
 
 import AnimatedText from "@/components/ui/animated-text";
+import gsap from "gsap";
 
 export const AnimatedTextDemo = () => {
   return (
@@ -70,9 +71,9 @@ export const AnimatedTextDemo = () => {
           animationType="slideUp"
           useScrollTrigger={true}
           scrollTriggerConfig={{
-            start: "top center",
-            end: "bottom center",
-            scrub: true,
+            start: "top 80%",
+            end: "bottom 60%",
+            scrub: false,
           }}
           className="text-3xl font-bold leading-tight max-w-3xl"
         >

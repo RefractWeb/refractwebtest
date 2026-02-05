@@ -9,7 +9,7 @@ export const Footer = () => {
       <Image
         src={"/logo.svg"}
         alt="logo"
-        className="absolute top-14 -left-24 opacity-4"
+        className="absolute top-14 -left-24 opacity-4 size-150"
         width={600}
         height={200}
       />

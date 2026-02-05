@@ -84,7 +84,7 @@ const Noise = () => {
         <feTurbulence
           type="fractalNoise"
           baseFrequency="0.9"
-          numOctaves="0.8"
+          numOctaves="1"
           stitchTiles="stitch"
         ></feTurbulence>
       </filter>

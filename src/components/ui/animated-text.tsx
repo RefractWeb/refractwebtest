@@ -266,7 +266,7 @@ export const AnimatedText = ({
                 trigger: containerRef.current,
                 start: "top 80%",
                 end: "bottom 20%",
-                scrub: true,
+                scrub: false,
                 markers: false,
               };
 
@@ -275,9 +275,8 @@ export const AnimatedText = ({
                 ...scrollTriggerConfig,
               };
 
-              // Return animation with ScrollTrigger
-              return gsap.from(targets, {
-                duration,
+              // Set initial state for targets
+              const fromVars = {
                 yPercent: animationType.includes("slide")
                   ? animationType === "slideUp"
                     ? 100
@@ -294,6 +293,19 @@ export const AnimatedText = ({
                 opacity: 0,
                 scale: animationType === "scaleIn" ? 0 : 1,
                 rotate: animationType === "rotateIn" ? -20 : 0,
+              };
+
+              // Set initial hidden state
+              gsap.set(targets, fromVars);
+
+              // Create animation with ScrollTrigger using fromTo for proper scrub behavior
+              return gsap.to(targets, {
+                duration,
+                yPercent: 0,
+                xPercent: 0,
+                opacity: 1,
+                scale: 1,
+                rotate: 0,
                 stagger,
                 scrollTrigger: mergedConfig,
               });

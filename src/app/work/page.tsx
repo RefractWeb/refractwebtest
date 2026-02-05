@@ -1,5 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Marquee, MarqueeContent, MarqueeItem } from "@/components/ui/marquee";
+import {
+  Marquee,
+  MarqueeItem,
+  DraggableMarquee,
+} from "@/components/ui/marquee";
 import Image from "next/image";
 import Link from "next/link";
 import project1 from "@/assets/works/Landing page 1.jpg";
@@ -29,11 +33,11 @@ const page = () => {
           </div>
 
           <div className="relative group">
-            <div className="flex items-center justify-center flex-col">
+            <div className="flex items-center justify-center flex-col gap-4">
               <Marquee>
-                <MarqueeContent speed={40}>
+                <DraggableMarquee speed={1.2} direction="right">
                   {projects.map((project, i) => (
-                    <MarqueeItem key={i} className="mx-2">
+                    <MarqueeItem key={i}>
                       <div className="p-3 rounded-2xl bg-linear-to-br from-card to-muted/20 border border-border/40">
                         <Image
                           src={project}
@@ -42,17 +46,17 @@ const page = () => {
                           height={300}
                           placeholder="blur"
                           loading="lazy"
-                          className="object-cover rounded-xl shadow"
+                          className="object-cover rounded-xl shadow pointer-events-none"
                         />
                       </div>
                     </MarqueeItem>
                   ))}
-                </MarqueeContent>
+                </DraggableMarquee>
               </Marquee>
               <Marquee>
-                <MarqueeContent speed={35} direction="left">
+                <DraggableMarquee speed={2} direction="left">
                   {projects.map((project, i) => (
-                    <MarqueeItem key={i} className="mx-2">
+                    <MarqueeItem key={i}>
                       <div className="p-3 rounded-2xl bg-linear-to-br from-card to-muted/20 border border-border/40">
                         <Image
                           src={project}
@@ -61,12 +65,12 @@ const page = () => {
                           height={300}
                           placeholder="blur"
                           loading="lazy"
-                          className="object-cover rounded-xl shadow"
+                          className="object-cover rounded-xl shadow pointer-events-none"
                         />
                       </div>
                     </MarqueeItem>
                   ))}
-                </MarqueeContent>
+                </DraggableMarquee>
               </Marquee>
             </div>
           </div>

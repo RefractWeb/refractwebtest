@@ -1,10 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useRef, useState } from "react";
-
 import Work1 from "@/assets/works/Landing page 1.jpg";
 import Work2 from "@/assets/works/Landing page 2.jpg";
 import Work3 from "@/assets/works/Landing page 3.jpg";
@@ -12,31 +11,30 @@ import Work4 from "@/assets/works/Landing page 4.jpg";
 
 const works = [
   {
-    title: "Ethereal Landscapes",
-    category: "Digital Design",
-    description:
-      "Creating immersive digital environments that blend art and functionality for modern brands.",
+    title: "PROJECT AETHER",
+    category: "VISUAL ENGINEERING",
+    description: "Zero-latency WebGL rendering for immersive luxury commerce.",
     image: Work1,
   },
   {
-    title: "Minimal Systems",
-    category: "Web Architecture",
+    title: "PROJECT SENTINEL",
+    category: "SYSTEM ARCHITECTURE",
     description:
-      "High-performance website built with a focus on speed, accessibility, and clean aesthetics.",
+      "Trustless biometric authentication protocols with fluid user experience.",
     image: Work2,
   },
   {
-    title: "Neural Interfaces",
-    category: "Product Design",
+    title: "PROJECT CORTEX",
+    category: "INTELLIGENT INTERFACES",
     description:
-      "Next-generation user interfaces that bridge the gap between human intuition and machine logic.",
+      "Adaptive dashboard logic designed to visualize complex AI outputs.",
     image: Work3,
   },
   {
-    title: "Fluid Identities",
-    category: "Brand Strategy",
+    title: "PROJECT FLUX",
+    category: "IDENTITY SYSTEMS",
     description:
-      "Dynamic brand identities that adapt and evolve across all digital and physical touchpoints.",
+      "A molecular design system engineered for infinite digital scale.",
     image: Work4,
   },
 ];
