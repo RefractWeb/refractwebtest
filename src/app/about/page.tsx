@@ -11,7 +11,6 @@ export default function AboutPage() {
   return (
     <SmoothContainer>
       <main className="min-h-screen relative overflow-hidden">
-        <AnimatedTextDemo />
         <Teams />
         <About />
         <CoreCap />

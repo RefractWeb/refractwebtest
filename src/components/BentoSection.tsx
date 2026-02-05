@@ -15,7 +15,10 @@ import img4 from "@/assets/3danim.png";
 
 export const BentoSection = () => {
   return (
-    <section className="py-24 px-6 md:px-12 lg:px-24 bg-background overflow-hidden tracking-tight">
+    <section
+      id="services"
+      className="py-24 px-6 md:px-12 lg:px-24 bg-background overflow-hidden tracking-tight"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col items-center text-center mb-16">
@@ -78,7 +81,7 @@ export const BentoSection = () => {
               placeholder="blur"
               loading="lazy"
               alt="Web Development Illustration"
-              className="object-cover opacity-100 group-hover:scale-105 transition-all duration-700 absolute right-[-12%] top-[-6%] w-auto h-[300px] pointer-events-none select-none rounded-2xl overflow-hidden bg-red-50"
+              className="object-cover opacity-100 group-hover:scale-105 transition-all duration-700 absolute right-[-12%] top-[-6%] w-auto h-75 pointer-events-none select-none rounded-2xl overflow-hidden"
             />
           </motion.div>
 

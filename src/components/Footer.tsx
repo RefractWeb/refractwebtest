@@ -2,6 +2,7 @@
 
 import { Twitter, Linkedin, Instagram, Copyright } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
@@ -43,36 +44,34 @@ export const Footer = () => {
               </h3>
               <ul className="space-y-2 text-lg font-medium text-gray-300">
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#F59768] transition-colors"
-                  >
+                  <Link href="/" className="hover:text-primary2 transition-all">
                     HOME
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#F59768] transition-colors"
+                  <Link
+                    href="/#services"
+                    className="hover:text-primary2 transition-all"
                   >
                     SERVICES
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#F59768] transition-colors"
+                  <Link
+                    href="/about"
+                    className="hover:text-primary2 transition-all"
                   >
                     ABOUT
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#F59768] transition-colors"
+                  <Link
+                    href="/contact"
+                    aria-label="Schedule an introduction"
+                    className="hover:text-primary2 transition-all"
                   >
                     WORK WITH US
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -86,28 +85,28 @@ export const Footer = () => {
               </h3>
               <ul className="space-y-2 text-lg font-medium text-gray-300">
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#F59768] transition-colors"
+                  <Link
+                    href="/terms-of-service"
+                    className="hover:text-primary2 transition-all"
                   >
                     TERMS OF SERVICE
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#F59768] transition-colors"
+                  <Link
+                    href="/privacy-policy"
+                    className="hover:text-primary2 transition-all"
                   >
                     PRIVACY POLICY
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="hover:text-[#F59768] transition-colors"
+                  <Link
+                    href="/cookie-policy"
+                    className="hover:text-primary2 transition-all"
                   >
                     COOKIE POLICY
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -116,34 +115,37 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-gray-600 text-xs tracking-widest uppercase">
+          <div className="text-muted-foreground text-xs tracking-widest uppercase">
             copyright © 2026 RefractWeb. All rights reserved
           </div>
 
           <div className="flex items-center gap-6">
             <a
-              href="#"
-              className="text-white hover:text-[#F59768] transition-colors"
+              href="https://x.com/RefractWeb"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="RefractWeb on X"
+              className="hover:text-primary2 transition-all"
             >
-              <Twitter className="w-5 h-5" />
+              <Twitter className="size-5" />
             </a>
             <a
-              href="#"
-              className="text-white hover:text-[#F59768] transition-colors"
+              href="https://www.linkedin.com/company/refractweb"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="RefractWeb on LinkedIn"
+              className="hover:text-primary2 transition-all"
             >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="size-5" />
             </a>
             <a
-              href="#"
-              className="text-white hover:text-[#F59768] transition-colors"
+              href="https://www.instagram.com/refractweb"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="RefractWeb on Instagram"
+              className="hover:text-primary2 transition-all"
             >
-              <Instagram className="w-5 h-5" />
-            </a>
-            <a
-              href="#"
-              className="text-white hover:text-[#F59768] transition-colors"
-            >
-              <Copyright className="w-5 h-5" />
+              <Instagram className="size-5" />
             </a>
           </div>
         </div>
