@@ -12,6 +12,7 @@ import img1 from "@/assets/works/Landing page 3.jpg";
 import img2 from "@/assets/iconsgrp.png";
 import img3 from "@/assets/Code.png";
 import img4 from "@/assets/3danim.png";
+import { AnimatedText } from "./ui/animated-text";
 
 export const BentoSection = () => {
   return (
@@ -22,24 +23,25 @@ export const BentoSection = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col items-center text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <AnimatedText
+            useScrollTrigger={true}
+            animationType="slideUp"
+            splitType="lines"
             className="text-4xl md:text-5xl lg:text-6xl font-semibold text-grad mb-6"
           >
             The full spectrum of core capabilities
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+          </AnimatedText>
+          <AnimatedText
+            useScrollTrigger={true}
+            animationType="slideUp"
+            splitType="lines"
+            delay={0.1}
             className="text-muted-foreground text-lg md:text-xl max-w-2xl mb-10"
           >
             We replace the need for multiple vendors. From brand identity to
             custom software, we build the entire ecosystem your business runs
             on.
-          </motion.p>
+          </AnimatedText>
           <motion.button
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}

@@ -2,6 +2,7 @@
 
 import { HolographicWall } from "./holographicwall";
 import { Button } from "./ui/button";
+import { AnimatedText } from "./ui/animated-text";
 
 export const BuildEnvironmentSection = () => {
   return (
@@ -19,13 +20,24 @@ export const BuildEnvironmentSection = () => {
 
           {/* Left Content */}
           <div className="relative flex items-start flex-col justify-center pl-12 pr-0 z-10 max-w-lg space-y-6 ">
-            <h2 className="text-4xl lg:text-5xl font-bold tracking-tighter text-grad">
+            <AnimatedText
+              useScrollTrigger={true}
+              animationType="slideUp"
+              splitType="lines"
+              className="text-4xl lg:text-5xl font-bold tracking-tighter text-grad"
+            >
               The build environment.
-            </h2>
-            <p className="text-grad max-w-sm">
+            </AnimatedText>
+            <AnimatedText
+              useScrollTrigger={true}
+              animationType="slideUp"
+              splitType="lines"
+              delay={0.1}
+              className="text-grad max-w-sm"
+            >
               A proven stack for speed and scale. We leverage these tools to
               ensure reliability and uncompromising polish.
-            </p>
+            </AnimatedText>
             <div className="pt-4">
               <Button>Start a project</Button>
             </div>

@@ -3,6 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import Image from "next/image";
+import { AnimatedText } from "./ui/animated-text";
 import img1 from "@/assets/impact1.png";
 import img2 from "@/assets/impact2.png";
 import img3 from "@/assets/impact3.svg";
@@ -16,13 +17,24 @@ export const ImpactSection = () => {
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-center mx-auto text-grad">
+          <AnimatedText
+            useScrollTrigger={true}
+            animationType="slideUp"
+            splitType="lines"
+            className="text-4xl lg:text-5xl font-bold tracking-tight text-center mx-auto text-grad"
+          >
             Impact at scale
-          </h2>
-          <p className="text-[#919191] text-lg">
+          </AnimatedText>
+          <AnimatedText
+            useScrollTrigger={true}
+            animationType="slideUp"
+            splitType="lines"
+            delay={0.1}
+            className="text-[#919191] text-lg"
+          >
             Design is subjective. Performance is{" "}
             <span className="text-white font-medium">not.</span>
-          </p>
+          </AnimatedText>
           <div className="flex items-center justify-center gap-6 pt-4">
             <Button>Work with us</Button>
             <Button

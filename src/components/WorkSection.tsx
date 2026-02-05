@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useRef, useState } from "react";
+import { AnimatedText } from "./ui/animated-text";
 import Work1 from "@/assets/works/Landing page 1.jpg";
 import Work2 from "@/assets/works/Landing page 2.jpg";
 import Work3 from "@/assets/works/Landing page 3.jpg";
@@ -66,14 +67,25 @@ export const WorkSection = () => {
     <section className="relative py-24 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-grad mx-auto">
+          <AnimatedText
+            useScrollTrigger={true}
+            animationType="slideUp"
+            splitType="lines"
+            className="text-4xl lg:text-5xl font-bold tracking-tight text-grad mx-auto"
+          >
             Selected{" "}
             <span className="font-light text-muted-foreground">work</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          </AnimatedText>
+          <AnimatedText
+            useScrollTrigger={true}
+            animationType="slideUp"
+            splitType="lines"
+            delay={0.1}
+            className="text-muted-foreground text-lg max-w-2xl mx-auto"
+          >
             Redefining the standard. We sharpen clarity, elevate design, and
             build digital identities that perform at the highest level.
-          </p>
+          </AnimatedText>
           <div className="pt-6 flex items-center justify-center gap-6">
             <Button>Work with us</Button>
             <a

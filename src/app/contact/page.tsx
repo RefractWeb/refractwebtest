@@ -1,12 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, useSpring } from "motion/react";
+import { motion } from "motion/react";
 import { Triangle, Activity, Zap, Hexagon, Box } from "lucide-react";
 import { ContactCard } from "@/components/ContactCard";
 import SmoothContainer from "@/lib/SmoothContainer";
 import AnimatedLogoCloud from "@/components/LogoCloud";
-import BgGrad from "@/components/ui/bg-grad";
+import { useMouseTilt } from "@/hooks/useMouseTilt";
 
 const TECH_STACK = [
   { icon: Triangle, label: "Vercel", showIcon: true },
@@ -47,25 +46,7 @@ const CONTACT_METHODS = [
 ];
 
 const ContactPage = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const springConfig = { stiffness: 90, damping: 30, mass: 0.5 };
-  const rotateX = useSpring(0, springConfig);
-  const rotateY = useSpring(0, springConfig);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 2 - 1;
-      const y = (e.clientY / window.innerHeight) * 2 - 1;
-
-      setMousePosition({ x, y });
-      rotateX.set(y * -15);
-      rotateY.set(x * 15);
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [rotateX, rotateY]);
+  const { rotateX, rotateY, mousePosition } = useMouseTilt();
 
   return (
     <SmoothContainer>

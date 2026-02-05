@@ -5,7 +5,6 @@ import About from "@/components/about/About";
 import CoreCap from "@/components/about/CoreCap";
 import { CTASection } from "@/components/CTASection";
 import SmoothContainer from "@/lib/SmoothContainer";
-import AnimatedTextDemo from "@/components/ui/animated-text-demo";
 
 export default function AboutPage() {
   return (

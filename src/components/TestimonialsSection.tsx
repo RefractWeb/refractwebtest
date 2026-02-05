@@ -6,6 +6,7 @@ import shaun from "@/assets/Shaun Olson.png";
 import chasen from "@/assets/Chasen McNaughton.png";
 import tanner from "@/assets/Tanner Balisky.png";
 import Image from "next/image";
+import { AnimatedText } from "./ui/animated-text";
 
 const testimonials = [
   {
@@ -64,9 +65,14 @@ export const TestimonialsSection = () => {
 
         {/* Content */}
         <div className="text-center space-y-12 transition-opacity duration-500 ease-in-out">
-          <p className="text-2xl md:text-3xl lg:text-4xl leading-relaxed text-grad">
+          <AnimatedText
+            useScrollTrigger={true}
+            animationType="slideUp"
+            splitType="lines"
+            className="text-2xl md:text-3xl lg:text-4xl leading-relaxed text-grad"
+          >
             "{testimonials[activeIndex].text}"
-          </p>
+          </AnimatedText>
 
           <div className="flex justify-center">
             <div className="inline-flex items-center gap-3 bg-linear-to-b from-background to-card rounded-full px-2 py-2 pr-6 border">

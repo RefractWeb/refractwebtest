@@ -1,34 +1,13 @@
 "use client";
-import { useState, useEffect } from "react";
-import { motion, useSpring } from "motion/react";
+import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
+import { useMouseTilt } from "@/hooks/useMouseTilt";
 import { Button } from "./ui/button";
 import AnimatedLogoCloud from "./LogoCloud";
-import BgGrad from "./ui/bg-grad";
+import { AnimatedText } from "./ui/animated-text";
 
 export const HeroSection = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const springConfig = { stiffness: 90, damping: 30, mass: 0.5 };
-  const rotateX = useSpring(0, springConfig);
-  const rotateY = useSpring(0, springConfig);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 2 - 1;
-      const y = (e.clientY / window.innerHeight) * 2 - 1;
-
-      setMousePosition({ x, y });
-
-      rotateX.set(y * -15); // Tilt up/down based on mouse Y
-      rotateY.set(x * 15); // Tilt left/right based on mouse X
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [rotateX, rotateY]);
+  const { rotateX, rotateY, mousePosition } = useMouseTilt();
 
   return (
     <div className="relative min-h-screen flex flex-col">
@@ -52,13 +31,22 @@ export const HeroSection = () => {
       {/* Hero Content */}
       <main className="relative z-10 container px-6 pt-16 grow flex flex-col lg:flex-row items-center mx-auto">
         <div className="w-full lg:w-1/2 text-left space-y-8 pl-4 lg:pl-10">
-          <h1 className="text-4xl lg:text-6xl font-bold tracking-tight leading-tight text-grad">
+          <AnimatedText
+            animationType="slideUp"
+            splitType="lines"
+            className="text-4xl lg:text-6xl font-bold tracking-tight leading-tight text-grad"
+          >
             Defining <br /> Digital Identity
-          </h1>
-          <p className="text-base lg:text-lg max-w-sm leading-tight">
+          </AnimatedText>
+          <AnimatedText
+            animationType="slideUp"
+            splitType="lines"
+            delay={0.2}
+            className="text-base lg:text-lg max-w-sm leading-tight"
+          >
             We merge the precision of code with the power of design,
             orchestrating a single identity that signals authority everywhere.
-          </p>
+          </AnimatedText>
           <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
             <Button size={"lg"}>Work With Us</Button>
             <button className="group flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">

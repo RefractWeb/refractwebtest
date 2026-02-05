@@ -52,8 +52,8 @@ export interface AnimatedTextOptions {
 }
 
 // Basic animation defaults
-const defaultDuration = 0.6;
-const defaultEase = "expo.out";
+// const defaultDuration = 0.6;
+// const defaultEase = "expo.out";
 
 export const AnimatedText = ({
   splitType = "lines",
@@ -202,6 +202,7 @@ export const AnimatedText = ({
         animationType,
         delay,
         useScrollTrigger,
+        children,
       ],
       revertOnUpdate: true,
     },

@@ -1,40 +1,13 @@
 "use client";
 
 import { ArrowRight } from "lucide-react";
-import { motion, useSpring } from "motion/react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
+import { useMouseTilt } from "@/hooks/useMouseTilt";
 import { Button } from "./ui/button";
+import { AnimatedText } from "./ui/animated-text";
 
 export const CTASection = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const frameRef = useRef<number | undefined>(null);
-  const springConfig = { stiffness: 90, damping: 30, mass: 0.5 };
-  const rotateX = useSpring(0, springConfig);
-  const rotateY = useSpring(0, springConfig);
-
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    if (frameRef.current) cancelAnimationFrame(frameRef.current);
-
-    frameRef.current = requestAnimationFrame(() => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 2 - 1,
-        y: (e.clientY / window.innerHeight) * 2 - 1,
-      });
-    });
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      if (frameRef.current) cancelAnimationFrame(frameRef.current);
-    };
-  }, [handleMouseMove]);
-
-  useEffect(() => {
-    rotateX.set(mousePosition.y * -15);
-    rotateY.set(mousePosition.x * 15);
-  }, [mousePosition, rotateX, rotateY]);
+  const { rotateX, rotateY } = useMouseTilt();
 
   return (
     <section className="py-24 px-6 bg-background flex justify-center relative overflow-hidden">
@@ -46,13 +19,24 @@ export const CTASection = () => {
 
       <div className="container max-w-6xl relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
         <div className="w-full lg:w-1/2 space-y-8">
-          <h2 className="text-5xl lg:text-6xl font-bold tracking-tight leading-[1.2] text-grad">
+          <AnimatedText
+            useScrollTrigger={true}
+            animationType="slideUp"
+            splitType="lines"
+            className="text-5xl lg:text-6xl font-bold tracking-tight leading-[1.2] text-grad"
+          >
             Ready for <br />
             what's next?
-          </h2>
-          <p className="text-muted-foreground text-xl max-w-md">
+          </AnimatedText>
+          <AnimatedText
+            useScrollTrigger={true}
+            animationType="slideUp"
+            splitType="lines"
+            delay={0.1}
+            className="text-muted-foreground text-xl max-w-md"
+          >
             Let's discuss your vision and see if we are the right fit.
-          </p>
+          </AnimatedText>
           <div className="flex items-center gap-6 pt-4">
             <Button>Start the conversation</Button>
             <a
