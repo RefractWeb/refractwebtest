@@ -3,6 +3,7 @@ import Link from "next/link";
 import adamImg from "@/assets/adam.png";
 import jakeImg from "@/assets/jake.png";
 import TeamMember, { Member } from "./MemberCard";
+import { AnimatedText } from "../ui/animated-text";
 
 export default function Teams() {
   const members: Member[] = [
@@ -29,12 +30,23 @@ export default function Teams() {
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-24">
           <div className="space-y-6">
-            <h2 className="text-grad text-5xl md:text-6xl font-semibold tracking-tighter leading-[0.9]">
+            <AnimatedText
+              useScrollTrigger={true}
+              animationType="slideUp"
+              splitType="lines"
+              className="text-grad text-5xl md:text-6xl font-semibold tracking-tighter leading-[0.9]"
+            >
               Working with those <br /> who set the standard
-            </h2>
-            <p className="text-muted-foreground text-xl font-medium">
+            </AnimatedText>
+            <AnimatedText
+              useScrollTrigger={true}
+              animationType="slideUp"
+              splitType="lines"
+              delay={0.1}
+              className="text-muted-foreground text-xl font-medium"
+            >
               Across media, technology, and high-visibility environments.
-            </p>
+            </AnimatedText>
           </div>
           <Link href="/contact" className="hidden md:block">
             <Button size="lg">Work with us</Button>

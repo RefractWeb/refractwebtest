@@ -12,6 +12,7 @@ import project3 from "@/assets/works/Landing page 3.jpg";
 import project4 from "@/assets/works/Landing page 4.jpg";
 import { CTASection } from "@/components/CTASection";
 import SmoothContainer from "@/lib/SmoothContainer";
+import { AnimatedText } from "@/components/ui/animated-text";
 
 const projects = [project1, project2, project3, project4];
 
@@ -21,12 +22,23 @@ const page = () => {
       <section className="py-32 px-6 relative">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center space-y-4 mb-24">
-            <h2 className="text-grad text-6xl font-semibold tracking-tighter p-2 inline-block">
+            <AnimatedText
+              useScrollTrigger={true}
+              animationType="slideUp"
+              splitType="lines"
+              className="text-grad text-6xl font-semibold tracking-tighter p-2 inline-block"
+            >
               Recent Works
-            </h2>
-            <p className="text-grad text-xl max-w-md mx-auto leading-relaxed">
+            </AnimatedText>
+            <AnimatedText
+              useScrollTrigger={true}
+              animationType="slideUp"
+              splitType="lines"
+              delay={0.1}
+              className="text-grad text-xl max-w-md mx-auto leading-relaxed"
+            >
               Let’s discuss scope, timing, and fit.
-            </p>
+            </AnimatedText>
             <Link href="/contact" className="inline-block">
               <Button size="lg">Work with us</Button>
             </Link>

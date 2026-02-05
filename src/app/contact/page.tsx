@@ -6,6 +6,7 @@ import { ContactCard } from "@/components/ContactCard";
 import SmoothContainer from "@/lib/SmoothContainer";
 import AnimatedLogoCloud from "@/components/LogoCloud";
 import { useMouseTilt } from "@/hooks/useMouseTilt";
+import { AnimatedText } from "@/components/ui/animated-text";
 
 const TECH_STACK = [
   { icon: Triangle, label: "Vercel", showIcon: true },
@@ -67,13 +68,24 @@ const ContactPage = () => {
           {/* Left Section */}
           <div className="w-full lg:w-1/2 space-y-8">
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-6xl font-bold tracking-tight text-grad">
+              <AnimatedText
+                useScrollTrigger={true}
+                animationType="slideUp"
+                splitType="lines"
+                className="text-5xl lg:text-6xl font-bold tracking-tight text-grad"
+              >
                 Work With Us
-              </h1>
-              <p className="text-muted-foreground text-lg lg:text-xl font-light leading-relaxed max-w-md">
+              </AnimatedText>
+              <AnimatedText
+                useScrollTrigger={true}
+                animationType="slideUp"
+                splitType="lines"
+                delay={0.1}
+                className="text-muted-foreground text-lg lg:text-xl font-light leading-relaxed max-w-md"
+              >
                 Have a vision in mind? Let's explore how we can bring it to
                 life.
-              </p>
+              </AnimatedText>
             </div>
 
             {/* Contact Cards */}
