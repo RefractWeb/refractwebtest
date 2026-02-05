@@ -169,5 +169,12 @@
   .text-grad {
     @apply bg-clip-text text-transparent bg-linear-to-br from-foreground to-foreground via-neutral-400/90 from-10% via-60% to-90% w-fit;
   }
-}
 
+  /* SplitText masking styles */
+  .line,
+  .word,
+  .char {
+    overflow: hidden;
+    display: inline-block;
+  }
+}

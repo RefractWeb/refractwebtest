@@ -21,17 +21,16 @@ export function TeamMember({ member }: { member: Member }) {
       <div
         className={cn(
           "flex flex-col rounded-2xl overflow-hidden group relative",
-          member.gradientClass ?? "bg-linear-to-b to-[#f59566] from-[#0C112D]",
+          member.gradientClass ?? "saturate-110 bg-linear-to-b to-[#f59566] from-[#0C112D]",
         )}
       >
         <Image
           src={member.img}
           alt={member.name}
-          className="object-cover mt-auto group-hover:scale-105 transition-all duration-700"
+          className="object-cover mt-auto group-hover:scale-105 transition-all duration-700 brightness-105"
           placeholder="blur"
         />
-        <div className="absolute bottom-0 inset-x-0 h-1/2 bg-linear-to-t from-black" />
-        <div className="absolute inset-0" />
+        <div className="absolute bottom-0 inset-x-0 h-1/3 bg-linear-to-t from-background via-background/60" />
         <div className="absolute bottom-6 left-6">
           <h3 className="text-2xl font-bold tracking-tight">{member.name}</h3>
           <p className="text-muted-foreground text-xs font-medium">
