@@ -72,8 +72,7 @@ export const WorkSection = () => {
             splitType="lines"
             className="text-4xl lg:text-5xl font-bold tracking-tight text-grad mx-auto"
           >
-            Selected{" "}
-            <span className="font-light text-muted-foreground">work</span>
+            Selected work
           </AnimatedText>
           <AnimatedText
             useScrollTrigger={true}

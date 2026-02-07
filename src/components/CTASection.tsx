@@ -9,7 +9,7 @@ export const CTASection = () => {
   const { rotateX, rotateY } = useMouseTilt();
 
   return (
-    <section className="py-24 mb-100 px-6 bg-background flex justify-center relative">
+    <section className="py-24 mb-32 px-6 bg-background flex justify-center relative">
       <div className="container max-w-6xl relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
         <div className="w-full lg:w-1/2 space-y-8">
           <AnimatedText

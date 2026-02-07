@@ -12,7 +12,7 @@ export const BentoSection = () => {
   return (
     <section
       id="services"
-      className="py-24 px-6 md:px-12 lg:px-24 bg-background overflow-hidden tracking-tight"
+      className="py-24 md:pt-40 px-6 md:px-12 lg:px-24 bg-background overflow-hidden tracking-tight"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
@@ -21,7 +21,7 @@ export const BentoSection = () => {
             useScrollTrigger={true}
             animationType="slideUp"
             splitType="lines"
-            className="text-4xl md:text-5xl lg:text-6xl font-semibold text-grad mb-6"
+            className="text-4xl md:text-5xl lg:text-5xl tracking-tight font-semibold text-grad mb-6"
           >
             The full spectrum of core capabilities
           </AnimatedText>
