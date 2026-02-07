@@ -1,9 +1,7 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useMouseTilt } from "@/hooks/useMouseTilt";
-import { Button } from "./ui/button";
 import { AnimatedText } from "./ui/animated-text";
 import ActionButtons from "./ActionButtons";
 

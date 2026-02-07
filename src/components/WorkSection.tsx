@@ -1,8 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
-import { Button } from "./ui/button";
 import { useEffect, useRef, useState } from "react";
 import { AnimatedText } from "./ui/animated-text";
 import Work1 from "@/assets/works/Landing page 1.jpg";

@@ -2,14 +2,14 @@ import { ArrowRight, Monitor } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import webDevImg from "@/assets/works/Landing page 3.jpg";
-import { Button } from "@/components/ui/button";
 import { AnimatedText } from "../ui/animated-text";
+import ActionButtons from "../ActionButtons";
 
 export default function () {
   return (
     <section className="py-32 px-6 relative">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center space-y-8 mb-24">
+        <div className="text-center space-y-6 mb-24">
           <AnimatedText
             useScrollTrigger={true}
             animationType="slideUp"
@@ -28,9 +28,7 @@ export default function () {
             Integrated execution. We blend strategy, design, and code to build
             platforms that perform.
           </AnimatedText>
-          <Link href="/contact" className="inline-block">
-            <Button size="lg">Work with us</Button>
-          </Link>
+          <ActionButtons className="justify-center" />
         </div>
 
         <div className="relative group">

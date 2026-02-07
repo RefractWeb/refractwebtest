@@ -1,8 +1,6 @@
 "use client";
 import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
 import { useMouseTilt } from "@/hooks/useMouseTilt";
-import { Button } from "./ui/button";
 import AnimatedLogoCloud from "./LogoCloud";
 import { AnimatedText } from "./ui/animated-text";
 import ActionButtons from "./ActionButtons";
@@ -48,7 +46,7 @@ export const HeroSection = () => {
             We merge the precision of code with the power of design,
             orchestrating a single identity that signals authority everywhere.
           </AnimatedText>
-          <ActionButtons/>
+          <ActionButtons />
         </div>
 
         <div className="w-full lg:w-1/2 mt-16 lg:mt-0 flex justify-center relative isolate perspective-[1000px]">

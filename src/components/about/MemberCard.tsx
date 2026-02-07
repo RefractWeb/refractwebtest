@@ -21,13 +21,14 @@ export function TeamMember({ member }: { member: Member }) {
       <div
         className={cn(
           "flex flex-col rounded-2xl overflow-hidden group relative",
-          member.gradientClass ?? "saturate-110 bg-linear-to-b to-[#f59566] from-[#0C112D]",
+          member.gradientClass ??
+            "saturate-110 bg-linear-to-b to-[#f59566] from-[#0C112D]",
         )}
       >
         <Image
           src={member.img}
           alt={member.name}
-          className="object-cover mt-auto group-hover:scale-105 transition-all duration-700 brightness-105"
+          className="object-cover mt-auto group-hover:scale-105 transition-all duration-700 brightness-110"
           placeholder="blur"
         />
         <div className="absolute bottom-0 inset-x-0 h-1/3 bg-linear-to-t from-background via-background/60" />
@@ -49,18 +50,18 @@ export function TeamMember({ member }: { member: Member }) {
             {member.bio}
           </p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-4">
           <Link
             href={`mailto:${member.email}`}
-            className="p-2.5 bg-white/5 rounded-xl text-muted-foreground hover:text-primary transition-colors border border-white/10 hover:bg-white/10"
+            className="text-muted-foreground hover:text-primary2 transition-colors duration-300"
           >
-            <Mail className="size-5" />
+            <Mail className="size-4" />
           </Link>
           <Link
             href={member.linkedin ?? "https://linkedin.com"}
-            className="p-2.5 bg-white/5 rounded-xl text-muted-foreground hover:text-primary transition-colors border border-white/10 hover:bg-white/10"
+            className="text-muted-foreground hover:text-primary2 transition-colors duration-300"
           >
-            <Linkedin className="size-5" />
+            <Linkedin className="size-4" />
           </Link>
         </div>
       </div>

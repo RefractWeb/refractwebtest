@@ -4,6 +4,7 @@ import adamImg from "@/assets/adam.png";
 import jakeImg from "@/assets/jake.png";
 import TeamMember, { Member } from "./MemberCard";
 import { AnimatedText } from "../ui/animated-text";
+import ActionButtons from "../ActionButtons";
 
 export default function Teams() {
   const members: Member[] = [
@@ -28,7 +29,7 @@ export default function Teams() {
   return (
     <section className="py-40 px-6 relative">
       <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-24">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-16">
           <div className="space-y-6">
             <AnimatedText
               animationType="slideUp"
@@ -45,10 +46,8 @@ export default function Teams() {
             >
               Across media, technology, and high-visibility environments.
             </AnimatedText>
+            <ActionButtons />
           </div>
-          <Link href="/contact" className="hidden md:block">
-            <Button size="lg">Work with us</Button>
-          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
