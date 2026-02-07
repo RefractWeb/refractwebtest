@@ -7,6 +7,7 @@ import { AnimatedText } from "./ui/animated-text";
 import img1 from "@/assets/impact1.png";
 import img2 from "@/assets/impact2.png";
 import img3 from "@/assets/impact3.svg";
+import ActionButtons from "./ActionButtons";
 
 export const ImpactSection = () => {
   return (
@@ -30,21 +31,12 @@ export const ImpactSection = () => {
             animationType="slideUp"
             splitType="lines"
             delay={0.1}
-            className="text-[#919191] text-lg"
+            className="text-muted-foreground text-lg"
           >
             Design is subjective. Performance is{" "}
             <span className="text-white font-medium">not.</span>
           </AnimatedText>
-          <div className="flex items-center justify-center gap-6 pt-4">
-            <Button>Work with us</Button>
-            <Button
-              variant="link"
-              className="group flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
-            >
-              Explore our services
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
+          <ActionButtons className="pt-4 justify-center" />
         </div>
 
         {/* Bento Grid */}

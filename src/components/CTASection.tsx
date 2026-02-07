@@ -5,18 +5,13 @@ import { motion } from "motion/react";
 import { useMouseTilt } from "@/hooks/useMouseTilt";
 import { Button } from "./ui/button";
 import { AnimatedText } from "./ui/animated-text";
+import ActionButtons from "./ActionButtons";
 
 export const CTASection = () => {
   const { rotateX, rotateY } = useMouseTilt();
 
   return (
-    <section className="py-24 px-6 bg-background flex justify-center relative overflow-hidden">
-      {/* Diagonal Light Streak Background */}
-      <div className="absolute inset-0 bg-background">
-        <div className="absolute top-0 left-[-20%] w-[140%] h-full bg-linear-to-b from-transparent via-primary/10 to-transparent transform -skew-x-12 pointer-events-none" />
-        <div className="absolute top-0 left-[-20%] w-[140%] h-px bg-linear-to-r from-transparent via-primary2 to-transparent transform -skew-x-12 translate-y-75 opacity-50 blur-sm pointer-events-none" />
-      </div>
-
+    <section className="py-24 mb-100 px-6 bg-background flex justify-center relative">
       <div className="container max-w-6xl relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
         <div className="w-full lg:w-1/2 space-y-8">
           <AnimatedText
@@ -37,27 +32,27 @@ export const CTASection = () => {
           >
             Let's discuss your vision and see if we are the right fit.
           </AnimatedText>
-          <div className="flex items-center gap-6 pt-4">
-            <Button>Start the conversation</Button>
-            <a
-              href="#"
-              className="flex items-center gap-2 text-sm text-foreground hover:text-primary2 transition-colors duration-200 group"
-            >
-              Explore our services
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-            </a>
-          </div>
+          <ActionButtons />
         </div>
 
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative isolate">
+          <div className="absolute inset-0">
+            {/* <div className="absolute h-2 bg-white z-10 w-200 bottom-20 -right-86 mix-blend-color blur-[1px] rotate-25"></div> */}
+            <div className="absolute h-2 rounded-full bg-linear-to-r to-white via-white rotate-25 z-10 w-300 mix-blend-soft-light blur-[2px] -left-211"></div>
+            <div className="absolute w-300 h-100 rotate-25 -top-80 -right-4 overflow-hidden">
+              <div className="absolute size-100 rounded-full bg-primary2 z-10 -bottom-80 left-1/2 -translate-x-1/2 blur-[130px]"></div>
+            </div>
+
+            <div className="absolute h-2 rounded-full bg-white rotate-25 top-99 z-10 w-300 mix-blend-soft-light blur-[2px]"></div>
+            <div className="absolute w-250 h-100 rotate-25 top-94 left-0 overflow-hidden">
+              <div className="absolute size-100 rounded-full bg-[#4661BE] z-10 -top-90 left-1/2 -translate-x-1/2 blur-[130px]"></div>
+            </div>
+          </div>
           <motion.img
-            className="w-full max-w-md lg:max-w-full h-auto object-contain brightness-120 saturate-110 drop-shadow-2xl"
+            className="w-full max-w-md lg:max-w-full h-auto object-contain brightness-120 saturate-110 drop-shadow-2xl z-30"
             src="/chip.png"
             alt="Refract Web Services Chip"
             loading="lazy"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
             style={{
               rotateX,
               rotateY,

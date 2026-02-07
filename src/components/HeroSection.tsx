@@ -5,6 +5,7 @@ import { useMouseTilt } from "@/hooks/useMouseTilt";
 import { Button } from "./ui/button";
 import AnimatedLogoCloud from "./LogoCloud";
 import { AnimatedText } from "./ui/animated-text";
+import ActionButtons from "./ActionButtons";
 
 export const HeroSection = () => {
   const { rotateX, rotateY, mousePosition } = useMouseTilt();
@@ -47,13 +48,7 @@ export const HeroSection = () => {
             We merge the precision of code with the power of design,
             orchestrating a single identity that signals authority everywhere.
           </AnimatedText>
-          <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
-            <Button size={"lg"}>Work With Us</Button>
-            <button className="group flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
-              Explore our services
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
+          <ActionButtons/>
         </div>
 
         <div className="w-full lg:w-1/2 mt-16 lg:mt-0 flex justify-center relative isolate perspective-[1000px]">

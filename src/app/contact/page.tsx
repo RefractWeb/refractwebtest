@@ -69,7 +69,6 @@ const ContactPage = () => {
           <div className="w-full lg:w-1/2 space-y-8">
             <div className="space-y-4">
               <AnimatedText
-                useScrollTrigger={true}
                 animationType="slideUp"
                 splitType="lines"
                 className="text-5xl lg:text-6xl font-bold tracking-tight text-grad"
@@ -77,7 +76,6 @@ const ContactPage = () => {
                 Work With Us
               </AnimatedText>
               <AnimatedText
-                useScrollTrigger={true}
                 animationType="slideUp"
                 splitType="lines"
                 delay={0.1}

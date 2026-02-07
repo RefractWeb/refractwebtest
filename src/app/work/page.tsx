@@ -23,7 +23,6 @@ const page = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center space-y-4 mb-24">
             <AnimatedText
-              useScrollTrigger={true}
               animationType="slideUp"
               splitType="lines"
               className="text-grad text-6xl font-semibold tracking-tighter p-2 inline-block"
@@ -31,7 +30,6 @@ const page = () => {
               Recent Works
             </AnimatedText>
             <AnimatedText
-              useScrollTrigger={true}
               animationType="slideUp"
               splitType="lines"
               delay={0.1}

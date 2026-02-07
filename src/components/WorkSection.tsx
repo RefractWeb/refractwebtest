@@ -9,6 +9,7 @@ import Work1 from "@/assets/works/Landing page 1.jpg";
 import Work2 from "@/assets/works/Landing page 2.jpg";
 import Work3 from "@/assets/works/Landing page 3.jpg";
 import Work4 from "@/assets/works/Landing page 4.jpg";
+import ActionButtons from "./ActionButtons";
 
 const works = [
   {
@@ -86,15 +87,7 @@ export const WorkSection = () => {
             Redefining the standard. We sharpen clarity, elevate design, and
             build digital identities that perform at the highest level.
           </AnimatedText>
-          <div className="pt-6 flex items-center justify-center gap-6">
-            <Button>Work with us</Button>
-            <a
-              href="#"
-              className="flex items-center gap-1 text-sm text-gray-300 hover:text-white transition-colors"
-            >
-              Explore our services <ArrowRight className="w-3 h-3" />
-            </a>
-          </div>
+          <ActionButtons className="pt-4 justify-center" />
         </div>
 
         <div className="relative pb-10">

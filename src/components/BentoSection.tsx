@@ -13,6 +13,8 @@ import img2 from "@/assets/iconsgrp.png";
 import img3 from "@/assets/Code.png";
 import img4 from "@/assets/3danim.png";
 import { AnimatedText } from "./ui/animated-text";
+import { Button } from "./ui/button";
+import ActionButtons from "./ActionButtons";
 
 export const BentoSection = () => {
   return (
@@ -42,14 +44,7 @@ export const BentoSection = () => {
             custom software, we build the entire ecosystem your business runs
             on.
           </AnimatedText>
-          <motion.button
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="button"
-          >
-            Work with us
-          </motion.button>
+          <ActionButtons className="justify-center" />
         </div>
 
         {/* Bento Grid */}

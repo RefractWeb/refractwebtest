@@ -31,15 +31,13 @@ export default function Teams() {
         <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-24">
           <div className="space-y-6">
             <AnimatedText
-              useScrollTrigger={true}
               animationType="slideUp"
               splitType="lines"
-              className="text-grad text-5xl md:text-6xl font-semibold tracking-tighter leading-[0.9]"
+              className="text-grad text-5xl md:text-6xl font-semibold tracking-tighter leading-[1.1]"
             >
               Working with those <br /> who set the standard
             </AnimatedText>
             <AnimatedText
-              useScrollTrigger={true}
               animationType="slideUp"
               splitType="lines"
               delay={0.1}
