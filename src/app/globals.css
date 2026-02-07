@@ -167,7 +167,8 @@
     @apply text-white border border-muted shadow-[0px_1px_0px_0px_#FFFFFF66_inset,0px_-6px_4px_0px_#00000033_inset,0px_4px_10px_0px_#00000036,0px_4px_40px_0px_#F597684D] [background:radial-gradient(57.04%_86.47%_at_50%_105%,var(--primary2)_0%,var(--primary)_100%)] hover:opacity-90 rounded-full text-sm px-3 py-1 font-medium inline-flex items-center justify-center gap-2 tracking-tight cursor-pointer transition-all;
   }
   .text-grad {
-    @apply bg-clip-text text-transparent bg-linear-to-br from-foreground to-foreground via-neutral-400/90 from-10% via-60% to-90% w-fit;
+    @apply text-foreground;
+    /* @apply bg-clip-text text-transparent bg-linear-to-br from-foreground to-foreground via-neutral-400/90 from-10% via-60% to-90% w-fit; */
   }
 
   /* SplitText masking styles */
@@ -177,5 +178,6 @@
     overflow: hidden;
     display: inline-block;
     will-change: transform;
+    /* @apply bg-clip-text text-transparent bg-linear-to-br from-foreground to-foreground via-neutral-400/90 from-10% via-60% to-90% w-fit; */
   }
 }

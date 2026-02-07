@@ -1,11 +1,9 @@
-import { Button } from "@/components/ui/button";
 import {
   Marquee,
   MarqueeItem,
   DraggableMarquee,
 } from "@/components/ui/marquee";
 import Image from "next/image";
-import Link from "next/link";
 import project1 from "@/assets/works/Landing page 1.jpg";
 import project2 from "@/assets/works/Landing page 2.jpg";
 import project3 from "@/assets/works/Landing page 3.jpg";

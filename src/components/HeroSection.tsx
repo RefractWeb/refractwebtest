@@ -1,4 +1,6 @@
 "use client";
+
+import { useState, useRef } from "react";
 import { motion } from "motion/react";
 import { useMouseTilt } from "@/hooks/useMouseTilt";
 import AnimatedLogoCloud from "./LogoCloud";
@@ -7,6 +9,12 @@ import ActionButtons from "./ActionButtons";
 
 export const HeroSection = () => {
   const { rotateX, rotateY, mousePosition } = useMouseTilt();
+  const [currentVideo, setCurrentVideo] = useState<"chip1" | "chip2">("chip1");
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleVideoEnd = () => {
+    setCurrentVideo((prev) => (prev === "chip1" ? "chip2" : "chip1"));
+  };
 
   return (
     <div className="relative min-h-screen flex flex-col">
@@ -51,21 +59,29 @@ export const HeroSection = () => {
 
         <div className="w-full lg:w-1/2 mt-16 lg:mt-0 flex justify-center relative isolate perspective-[1000px]">
           <motion.video
+            ref={videoRef}
             autoPlay
-            loop
             muted
             playsInline
-            className="w-full h-full object-contain brightness-120 saturate-110 -translate-x-14 -translate-y-10 drop-shadow-2xl scale-125"
-            src="/chip.webm"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            onEnded={handleVideoEnd}
+            key={currentVideo}
+            className="w-full h-full object-contain brightness-120 saturate-110 -translate-x-14 -translate-y-10 drop-shadow-2xl scale-110"
             style={{
               rotateX,
               rotateY,
               transformStyle: "preserve-3d",
             }}
-          />
+          >
+            <source
+              src={`/safari/${currentVideo}.hevc.mov`}
+              type="video/mp4; codecs=hvc1"
+            />
+            <source
+              src={`/chrome/${currentVideo}-vp9-chrome.webm`}
+              type="video/webm"
+            />
+            video not supported
+          </motion.video>
         </div>
       </main>
       <AnimatedLogoCloud />
