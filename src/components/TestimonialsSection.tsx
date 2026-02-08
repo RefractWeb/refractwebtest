@@ -23,7 +23,7 @@ const testimonials = [
     image: chasen,
   },
   {
-    text: "The architectural precision they brought to our platform was unmatched. They didn't just build a website; they built a scalable digital ecosystem that has grown with us flawlessly.",
+    text: "I reached out with a vision, and Refract executed it perfectly. They were on time at every step, and their attention to detail was exactly what we were looking for. They took our ideas and turned them into a result that elevated the brand.",
     name: "Tanner Balisky",
     role: "Bad Birdie",
     image: tanner,
@@ -70,7 +70,7 @@ export const TestimonialsSection = () => {
             useScrollTrigger={true}
             animationType="skewIn"
             splitType="lines"
-            className="text-2xl md:text-3xl lg:text-4xl leading-relaxed text-grad"
+            className="text-2xl md:text-3xl lg:text-4xl leading-normal text-grad"
           >
             "{testimonials[activeIndex].text}"
           </AnimatedText>

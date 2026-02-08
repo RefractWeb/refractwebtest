@@ -1,6 +1,5 @@
 "use client";
-
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import { useMouseTilt } from "@/hooks/useMouseTilt";
 import AnimatedLogoCloud from "./LogoCloud";
@@ -8,12 +7,13 @@ import { AnimatedText } from "./ui/animated-text";
 import ActionButtons from "./ActionButtons";
 
 export const HeroSection = () => {
+  const [currentChip, setCurrentChip] = useState(1);
   const { rotateX, rotateY, mousePosition } = useMouseTilt();
-  const [currentVideo, setCurrentVideo] = useState<"chip1" | "chip2">("chip1");
-  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handleVideoEnd = () => {
-    setCurrentVideo((prev) => (prev === "chip1" ? "chip2" : "chip1"));
+  const handleVideoEnded = () => {
+    if (currentChip === 1) {
+      setCurrentChip(2);
+    }
   };
 
   return (
@@ -59,12 +59,12 @@ export const HeroSection = () => {
 
         <div className="w-full lg:w-1/2 mt-16 lg:mt-0 flex justify-center relative isolate perspective-[1000px]">
           <motion.video
-            ref={videoRef}
+            key={currentChip}
             autoPlay
             muted
             playsInline
-            onEnded={handleVideoEnd}
-            key={currentVideo}
+            loop={currentChip === 2}
+            onEnded={handleVideoEnded}
             className="w-full h-full object-contain brightness-120 saturate-110 -translate-x-14 -translate-y-10 drop-shadow-2xl scale-110"
             style={{
               rotateX,
@@ -73,11 +73,19 @@ export const HeroSection = () => {
             }}
           >
             <source
-              src={`/safari/${currentVideo}.hevc.mov`}
+              src={
+                currentChip === 1
+                  ? "/safari/chip1.hevc.mov"
+                  : "/safari/chip2.hevc.mov"
+              }
               type="video/mp4; codecs=hvc1"
             />
             <source
-              src={`/chrome/${currentVideo}-vp9-chrome.webm`}
+              src={
+                currentChip === 1
+                  ? "/chrome/chip1-vp9-chrome.webm"
+                  : "/chrome/chip2-vp9-chrome.webm"
+              }
               type="video/webm"
             />
             video not supported
