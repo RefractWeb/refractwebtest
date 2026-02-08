@@ -17,7 +17,7 @@ export default function () {
           splitType="lines"
           duration={1.4}
           delay={0.4}
-          className="text-grad text-5xl font-semibold leading-[1.2] tracking-tight mx-auto max-w-5xl p-2"
+          className="text-5xl font-semibold leading-[1.2] tracking-tight mx-auto max-w-5xl p-2"
         >
           The Gap Between Reality And Perception ... We Exist To Ensure No Great
           Company Is Held Back By A Quiet Digital Presence

@@ -7,6 +7,7 @@ import img3 from "@/assets/Code.png";
 import img4 from "@/assets/3danim.png";
 import { AnimatedText } from "./ui/animated-text";
 import ActionButtons from "./ActionButtons";
+import { AnimatedLogoStroke } from "./SvgAnimation";
 
 export const BentoSection = () => {
   return (
@@ -21,7 +22,7 @@ export const BentoSection = () => {
             useScrollTrigger={true}
             animationType="slideUp"
             splitType="lines"
-            className="text-4xl md:text-5xl lg:text-5xl tracking-tight font-semibold text-grad mb-6"
+            className="text-4xl md:text-5xl lg:text-5xl tracking-tight font-semibold mb-6"
           >
             The full spectrum of core capabilities
           </AnimatedText>
@@ -148,14 +149,15 @@ export const BentoSection = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-8 md:p-14 flex items-center justify-center text-center"
           >
-            <Image
+            {/* <Image
               src={"/logo.svg"}
               width={300}
               height={300}
               loading="lazy"
               alt="Everything Illustration"
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover inset-0 opacity-5"
-            />
+            /> */}
+            <AnimatedLogoStroke className="absolute top-1/2 left-1/2 -translate-x-[46%] -translate-y-1/2 object-cover inset-0" />
             <div className="relative z-10">
               <h3 className="text-3xl md:text-5xl tracking-tight leading-snug text-foreground">
                 Everything
@@ -190,13 +192,13 @@ export const BentoSection = () => {
             </div>
 
             {/* Illustration */}
-            <div className="absolute inset-y-0 h-full w-2/3 right-0 pointer-events-none select-none">
+            <div className="absolute inset-y-0 h-full w-2/3 -right-8 pointer-events-none select-none">
               <Image
                 src={img4}
                 placeholder="blur"
                 loading="lazy"
                 alt="3D Animation Illustration"
-                className="h-full group-hover:scale-105 transition-all duration-700"
+                className="h-full group-hover:scale-125 transition-all duration-700 object-contain scale-120"
               />
             </div>
             <div className="absolute inset-0 bg-linear-to-l from-secondary3/60 via-transparent to-transparent pointer-events-none" />

@@ -33,7 +33,7 @@ export const HeroSection = () => {
           <AnimatedText
             animationType="slideUp"
             splitType="lines"
-            className="text-4xl lg:text-6xl font-bold tracking-tight leading-tight text-grad"
+            className="text-4xl lg:text-6xl font-bold tracking-tight leading-tight"
           >
             Defining <br /> Digital Identity
           </AnimatedText>

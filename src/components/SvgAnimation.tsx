@@ -14,8 +14,8 @@ type Props = {
 export function AnimatedLogoStroke({
   className,
   style,
-  strokeWidth = 2.25,
-  baseOpacity = 0.1,
+  strokeWidth = 1,
+  baseOpacity = 0.08,
   glowOpacity = 1,
   durationSec = 6,
 }: Props) {

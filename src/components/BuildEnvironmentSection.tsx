@@ -24,7 +24,7 @@ export const BuildEnvironmentSection = () => {
               useScrollTrigger={true}
               animationType="slideUp"
               splitType="lines"
-              className="text-4xl lg:text-5xl font-bold tracking-tighter text-grad"
+              className="text-4xl lg:text-5xl font-bold tracking-tighter"
             >
               The build environment.
             </AnimatedText>
@@ -33,7 +33,7 @@ export const BuildEnvironmentSection = () => {
               animationType="slideUp"
               splitType="lines"
               delay={0.1}
-              className="text-grad max-w-sm"
+              className="max-w-sm"
             >
               A proven stack for speed and scale. We leverage these tools to
               ensure reliability and uncompromising polish.

@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { AnimatedText } from "./ui/animated-text";
-import img1 from "@/assets/impact1.png";
+import img1 from "@/assets/works/Landing page 1.jpg";
 import img2 from "@/assets/impact2.png";
 import img3 from "@/assets/impact3.svg";
 import ActionButtons from "./ActionButtons";
+import BarAnim from "./BarAnim";
+import ChartAnim from "./ChartAnim";
 
 export const ImpactSection = () => {
   return (
@@ -20,7 +22,7 @@ export const ImpactSection = () => {
             useScrollTrigger={true}
             animationType="slideUp"
             splitType="lines"
-            className="text-4xl lg:text-5xl font-bold tracking-tight text-center mx-auto text-grad"
+            className="text-4xl lg:text-5xl font-bold tracking-tight text-center mx-auto"
           >
             Impact at scale
           </AnimatedText>
@@ -43,15 +45,15 @@ export const ImpactSection = () => {
           <div className="relative group bg-linear-to-br from-[#121420] to-[#0A0A0A] border border-white/5 rounded-2xl p-8 overflow-hidden hover:border-white/10 transition-colors">
             <div className="relative z-10 h-full flex flex-col justify-between min-h-72">
               <div>
-                <h3 className="text-gray-400 text-lg mb-2">
+                <h3 className="text-muted-foreground text-lg mb-2">
                   Revenue Supported
                 </h3>
-                <div className="text-6xl font-medium tracking-tighter bg-clip-text text-transparent bg-linear-to-b from-white to-gray-500">
+                <div className="text-6xl font-medium tracking-tighter line">
                   $100M+
                 </div>
               </div>
               <div className="max-w-xs mt-auto">
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   Systems backing nine-figure revenue. When performance is
                   non-negotiable, we deliver.
                 </p>
@@ -59,8 +61,8 @@ export const ImpactSection = () => {
             </div>
 
             {/* Histogram Visual */}
-            <div className="absolute bottom-0 right-0 w-2/5 h-1/2">
-              <Image src={img2} alt="" className="object-cover size-full" />
+            <div className="absolute -bottom-2 right-1">
+              <BarAnim />
             </div>
           </div>
 
@@ -68,50 +70,50 @@ export const ImpactSection = () => {
           <div className="relative group bg-linear-to-bl from-[#15192b] to-[#0A0A0A] border border-white/5 rounded-2xl p-8 overflow-hidden hover:border-white/10 transition-colors">
             <div className="relative z-10 h-full flex flex-col justify-between min-h-72">
               <div>
-                <h3 className="text-gray-400 text-lg mb-2">Assets Deployed</h3>
-                <div className="text-6xl font-medium tracking-tighter bg-clip-text text-transparent bg-linear-to-b from-white to-gray-500">
+                <h3 className="text-muted-foreground text-lg mb-2">
+                  Assets Deployed
+                </h3>
+                <div className="text-6xl font-medium tracking-tighter line">
                   100+
                 </div>
               </div>
               <div className="max-w-xs mt-auto">
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   Production-ready assets for every channel. Ship campaigns and
                   launches with confidence.
                 </p>
               </div>
             </div>
-
-            <Image
-              src={img1}
-              alt=""
-              className="object-contain size-full absolute -right-36 top-20"
-            />
+            <div className="bg-white/5 p-2 rounded-lg overflow-hidden absolute -right-50 top-26 w-3/4 -rotate-6 hover:-rotate-3 hover:scale-110 transition-all duration-500 cursor-pointer z-30">
+              <Image
+                src={img1}
+                width={400}
+                loading="lazy"
+                placeholder="blur"
+                alt="works illustration"
+                className="object-contain size-full rounded-md"
+              />
+            </div>
           </div>
 
           {/* Card 3: Enterprise DNA (Full Width) */}
-          <div className="relative group md:col-span-2 bg-linear-to-r from-[#0d0d14] to-[#0A0A0A] border border-white/5 rounded-2xl p-8 overflow-hidden min-h-90 hover:border-white/10 transition-colors">
-            <div className="relative z-10 grid md:grid-cols-2 h-full">
-              <div className="flex flex-col justify-between h-full space-y-8">
-                <div>
-                  <h3 className="text-gray-400 text-lg mb-2">Enterprise DNA</h3>
-                  <div className="text-6xl font-medium tracking-tighter bg-clip-text text-transparent bg-linear-to-b from-white to-gray-500">
-                    $2.65B
-                  </div>
+          <div className="relative group md:col-span-2 bg-linear-to-r from-[#0d0d14] to-[#0A0A0A] border border-white/5 rounded-2xl p-8 overflow-hidden h-90 hover:border-white/10 transition-colors">
+            <div className="flex flex-col justify-between h-full space-y-8">
+              <div>
+                <h3 className="text-muted-foreground text-lg mb-2">
+                  Enterprise DNA
+                </h3>
+                <div className="text-6xl font-medium tracking-tighter line px-1">
+                  $2.65B
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-                  Applying the architectural standards of a multi-billion dollar
-                  valuation to{" "}
-                  <span className="text-white font-medium">your brand.</span>
-                </p>
               </div>
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+                Applying the architectural standards of a multi-billion dollar
+                valuation to{" "}
+                <span className="text-white font-medium">your brand.</span>
+              </p>
             </div>
-
-            {/* Sine Wave Visual */}
-            <Image
-              src={img3}
-              alt=""
-              className="object-contain size-full absolute -right-50 top-10"
-            />
+            <ChartAnim />
           </div>
         </div>
       </div>

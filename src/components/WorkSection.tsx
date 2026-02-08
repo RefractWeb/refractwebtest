@@ -70,7 +70,7 @@ export const WorkSection = () => {
             useScrollTrigger={true}
             animationType="slideUp"
             splitType="lines"
-            className="text-4xl lg:text-5xl font-bold tracking-tight text-grad mx-auto"
+            className="text-4xl lg:text-5xl font-bold tracking-tight mx-auto"
           >
             Selected work
           </AnimatedText>

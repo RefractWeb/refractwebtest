@@ -25,7 +25,7 @@ const page = () => {
               <AnimatedText
                 animationType="slideUp"
                 splitType="lines"
-                className="text-grad text-6xl font-semibold tracking-tighter p-2 inline-block"
+                className="text-6xl font-semibold tracking-tighter p-2 inline-block"
               >
                 Recent Works
               </AnimatedText>
@@ -33,7 +33,7 @@ const page = () => {
                 animationType="slideUp"
                 splitType="lines"
                 delay={0.1}
-                className="text-grad text-xl max-w-md mx-auto leading-relaxed"
+                className="text-xl max-w-md mx-auto leading-relaxed"
               >
                 Let’s discuss scope, timing, and fit.
               </AnimatedText>

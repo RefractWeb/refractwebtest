@@ -72,7 +72,7 @@ const ContactPage = () => {
               <AnimatedText
                 animationType="slideUp"
                 splitType="lines"
-                className="text-5xl lg:text-6xl font-bold tracking-tight text-grad"
+                className="text-5xl lg:text-6xl font-bold tracking-tight"
               >
                 Work With Us
               </AnimatedText>

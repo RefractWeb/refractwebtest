@@ -70,7 +70,7 @@ export const TestimonialsSection = () => {
             useScrollTrigger={true}
             animationType="skewIn"
             splitType="lines"
-            className="text-2xl md:text-3xl lg:text-4xl leading-normal text-grad"
+            className="text-2xl md:text-3xl lg:text-4xl leading-normal"
           >
             "{testimonials[activeIndex].text}"
           </AnimatedText>

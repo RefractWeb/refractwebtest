@@ -14,7 +14,7 @@ export default function () {
             useScrollTrigger={true}
             animationType="slideUp"
             splitType="lines"
-            className="text-grad text-6xl font-semibold tracking-tighter p-2 inline-block"
+            className="text-6xl font-semibold tracking-tighter p-2 inline-block"
           >
             Core capabilities
           </AnimatedText>
@@ -23,7 +23,7 @@ export default function () {
             animationType="slideUp"
             splitType="lines"
             delay={0.1}
-            className="text-grad text-xl max-w-md mx-auto leading-relaxed"
+            className="text-xl max-w-md mx-auto leading-relaxed"
           >
             Integrated execution. We blend strategy, design, and code to build
             platforms that perform.

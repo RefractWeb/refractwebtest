@@ -13,7 +13,7 @@ export const CTASection = () => {
             useScrollTrigger={true}
             animationType="slideUp"
             splitType="lines"
-            className="text-5xl lg:text-6xl font-bold tracking-tight leading-[1.2] text-grad"
+            className="text-5xl lg:text-6xl font-bold tracking-tight leading-[1.2]"
           >
             Ready for <br />
             what's next?
