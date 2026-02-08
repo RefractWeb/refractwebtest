@@ -49,7 +49,10 @@ export const HeroSection = () => {
           <ActionButtons />
         </div>
 
-        <AnimatedChip containerClassName="w-full lg:w-1/2 mt-16 lg:mt-0" />
+        <AnimatedChip
+          containerClassName="w-full lg:w-1/2 flex justify-center lg:justify-end relative isolate perspective-[1000px]"
+          className="-translate-x-12"
+        />
       </main>
       <AnimatedLogoCloud />
     </div>

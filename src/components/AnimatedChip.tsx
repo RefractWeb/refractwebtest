@@ -46,12 +46,7 @@ export const AnimatedChip = ({
   };
 
   return (
-    <div
-      className={cn(
-        "w-full lg:w-1/2 flex justify-center lg:justify-end relative isolate perspective-[1000px]",
-        containerClassName,
-      )}
-    >
+    <div className={containerClassName}>
       {/* Secondary Video */}
       {
         <motion.video
@@ -61,7 +56,7 @@ export const AnimatedChip = ({
           loop
           preload="auto"
           className={cn(
-            "absolute inset-0 w-full h-[80vh] object-contain brightness-110 saturate-110 translate-x-14 -translate-y-10 drop-shadow-2xl scale-110",
+            "absolute inset-0 w-full h-[80vh] object-contain brightness-110 saturate-110 -translate-y-10 drop-shadow-2xl scale-110",
             className,
           )}
           initial={{ opacity: 0 }}
@@ -85,7 +80,7 @@ export const AnimatedChip = ({
         preload="auto"
         onEnded={handlePrimaryEnded}
         className={cn(
-          "w-full h-[80vh] object-contain brightness-110 saturate-110 translate-x-14 -translate-y-10 drop-shadow-2xl scale-110",
+          "w-full h-[80vh] object-contain brightness-110 saturate-110 -translate-y-10 drop-shadow-2xl scale-110",
           className,
         )}
         initial={{ opacity: 0, scale: 0.8 }}

@@ -65,7 +65,7 @@ const ContactPage = () => {
         </div>
 
         {/* Main Content */}
-        <main className="relative z-10 container mx-auto px-6 pt-12 lg:pt-32 grow flex flex-col lg:flex-row items-center gap-12">
+        <main className="relative z-10 container mx-auto px-6 pt-12 lg:pt-32 grow flex flex-col lg:flex-row items-center gap-12 overflow-hidden">
           {/* Left Section */}
           <div className="w-full lg:w-1/2 space-y-8">
             <div className="space-y-4">
@@ -103,7 +103,7 @@ const ContactPage = () => {
           </div>
 
           {/* Right Section - Video */}
-          <AnimatedChip />
+          <AnimatedChip containerClassName="w-full lg:w-1/2 flex justify-center lg:justify-end relative isolate perspective-[1000px]" className="translate-x-10" />
         </main>
 
         <AnimatedLogoCloud />

@@ -43,7 +43,7 @@ export const CTASection = () => {
               <div className="absolute size-100 rounded-full bg-[#4661BE] z-10 -top-90 left-1/2 -translate-x-1/2 blur-[130px]"></div>
             </div>
           </div>
-          <AnimatedChip className="z-100" />
+          <AnimatedChip className="z-10" />
         </div>
       </div>
     </section>
