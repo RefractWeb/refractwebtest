@@ -13,13 +13,13 @@ const App = () => {
   return (
     <SmoothContainer>
       <div className="min-h-screen overflow-hidden">
-        {/* <HeroSection /> */}
-        {/* <BentoSection /> */}
-        {/* <WorkSection /> */}
+        <HeroSection />
+        <BentoSection />
+        <WorkSection />
         <ImpactSection />
-        {/* <BuildEnvironmentSection /> */}
-        {/* <TestimonialsSection /> */}
-        {/* <CTASection /> */}
+        <BuildEnvironmentSection />
+        <TestimonialsSection />
+        <CTASection />
       </div>
     </SmoothContainer>
   );
