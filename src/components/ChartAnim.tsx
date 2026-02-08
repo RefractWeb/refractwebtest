@@ -1,19 +1,39 @@
-import { useRef, useEffect, useState } from "react";
-import { motion, useMotionValue } from "motion/react";
+import { useRef, useEffect, useState, useMemo, useCallback } from "react";
+import { motion, useMotionValue, useSpring } from "motion/react";
+import { useMousePosition } from "@/hooks/useMousePosition";
+
+const PATH_D =
+  "M14.1801 437.215C58.7608 259.002 104.348 213.657 140.658 210.81C205.774 205.739 241.108 337.67 311.958 333.183C399.409 327.69 419.843 122.101 506.399 117C577.42 112.835 607.573 248.72 677.699 244.826C766.649 239.856 791.973 17.1338 870.087 14.3569C899.516 13.3106 939.68 43.3731 990.408 169.358";
+
+const TARGET_STOP = 0.7;
+const HOVER_RADIUS = 150; // Distance in pixels for hover effect
+
+const FILTER_CONFIG = {
+  x: "-1.23978e-05",
+  y: "4.86374e-05",
+  width: "1005",
+  height: "448",
+  filterUnits: "userSpaceOnUse" as const,
+  colorInterpolationFilters: "sRGB" as const,
+};
 
 const ChartAnim = () => {
   const pathRef = useRef<SVGPathElement | null>(null);
+  const svgRef = useRef<SVGSVGElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [pathLength, setPathLength] = useState<number>(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  // Motion value for progress (0 to 1)
   const progress = useMotionValue(0);
+  const targetProgress = useMotionValue(0);
+  const mousePosition = useMousePosition();
 
-  // We'll stop the circle at roughly 68% of the way through,
-  // which aligns visually with the original placement of the circle in your SVG.
-  const targetStop = 0.675;
-
-  const pathD =
-    "M14.1801 437.215C58.7608 259.002 104.348 213.657 140.658 210.81C205.774 205.739 241.108 337.67 311.958 333.183C399.409 327.69 419.843 122.101 506.399 117C577.42 112.835 607.573 248.72 677.699 244.826C766.649 239.856 791.973 17.1338 870.087 14.3569C899.516 13.3106 939.68 43.3731 990.408 169.358";
+  // Smooth spring animation for progress
+  const smoothProgress = useSpring(targetProgress, {
+    stiffness: 50,
+    damping: 20,
+    mass: 0.5,
+  });
 
   useEffect(() => {
     if (pathRef.current) {
@@ -21,176 +41,163 @@ const ChartAnim = () => {
     }
   }, []);
 
-  // Calculate coordinates based on path progress
   const [point, setPoint] = useState<{ x: number; y: number }>({
-    x: 14.1801,
-    y: 437.215,
+    x: 14,
+    y: 437,
   });
 
+  // Find closest point on path to mouse
+  const getClosestPointOnPath = useCallback(
+    (mouseX: number, mouseY: number): number => {
+      if (!pathRef.current || pathLength === 0) return progress.get();
+
+      let minDistance = Infinity;
+      let closestProgress = progress.get();
+      const samples = 100;
+
+      for (let i = 0; i <= samples; i++) {
+        const t = i / samples;
+        const pathPoint = pathRef.current.getPointAtLength(t * pathLength);
+        const distance = Math.sqrt(
+          Math.pow(pathPoint.x - mouseX, 2) + Math.pow(pathPoint.y - mouseY, 2),
+        );
+
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestProgress = t;
+        }
+      }
+
+      return minDistance < HOVER_RADIUS ? closestProgress : progress.get();
+    },
+    [pathLength, progress],
+  );
+
+  // Handle mouse hover effect
   useEffect(() => {
-    const unsubscribe = progress.on("change", (latest: number) => {
-      if (pathRef.current) {
+    if (!isHovered || !svgRef.current || !containerRef.current) return;
+
+    const svg = svgRef.current;
+    const container = containerRef.current;
+    const rect = container.getBoundingClientRect();
+
+    // Convert normalized mouse position to SVG coordinates
+    const mouseXPx = ((mousePosition.x + 1) / 2) * window.innerWidth;
+    const mouseYPx = ((mousePosition.y + 1) / 2) * window.innerHeight;
+
+    // Check if mouse is near the SVG area
+    if (
+      mouseXPx >= rect.left &&
+      mouseXPx <= rect.right &&
+      mouseYPx >= rect.top &&
+      mouseYPx <= rect.bottom
+    ) {
+      const pt = svg.createSVGPoint();
+      pt.x = mouseXPx;
+      pt.y = mouseYPx;
+      const svgP = pt.matrixTransform(svg.getScreenCTM()?.inverse());
+
+      const closestProgress = getClosestPointOnPath(svgP.x, svgP.y);
+      targetProgress.set(closestProgress);
+    }
+  }, [mousePosition, isHovered, getClosestPointOnPath, targetProgress]);
+
+  const updatePoint = useCallback(
+    (latest: number) => {
+      if (pathRef.current && pathLength > 0) {
         const p = pathRef.current.getPointAtLength(latest * pathLength);
         setPoint({ x: p.x, y: p.y });
       }
+    },
+    [pathLength],
+  );
+
+  useEffect(() => {
+    const unsubscribe = smoothProgress.on("change", (latest) => {
+      progress.set(latest);
+      updatePoint(latest);
     });
-    return () => unsubscribe();
-  }, [pathLength, progress]);
+    return unsubscribe;
+  }, [smoothProgress, progress, updatePoint]);
+
+  const onProgressUpdate = useCallback(
+    (latest: any) => {
+      const x = typeof latest.x === "number" ? latest.x : Number(latest.x);
+      if (Number.isFinite(x)) {
+        targetProgress.set(x);
+      }
+    },
+    [targetProgress],
+  );
+
+  // Memoize filter elements
+  const filterDefs = useMemo(
+    () => (
+      <>
+        {[0, 1, 2].map((i) => (
+          <filter key={i} id={`filter${i}`} {...FILTER_CONFIG}>
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="4.65"
+              result="effect1_foregroundBlur_3_19"
+            />
+          </filter>
+        ))}
+      </>
+    ),
+    [],
+  );
+
+  // Memoize blur layers
+  const blurLayers = useMemo(
+    () =>
+      [0, 1, 2].map((i) => (
+        <g
+          key={i}
+          filter={`url(#filter${i})`}
+          style={{ mixBlendMode: "plus-lighter" }}
+        >
+          <path
+            d={PATH_D}
+            stroke="#F59768"
+            strokeWidth="10"
+            strokeMiterlimit="10"
+          />
+        </g>
+      )),
+    [],
+  );
 
   return (
-    <div className="absolute -bottom-[65%] -right-[10%] w-full max-w-4xl">
+    <div
+      ref={containerRef}
+      className="absolute -bottom-[65%] -right-[10%] w-full max-w-4xl"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <svg
+        ref={svgRef}
         viewBox="0 0 1005 448"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="size-200"
+        className="size-200 cursor-grab"
       >
-        <defs>
-          {/* Gaussian blur filter matching SVG configuration */}
-          <filter
-            id="filter0_f_3_19"
-            x="-1.23978e-05"
-            y="4.86374e-05"
-            width="1004.37"
-            height="447.735"
-            filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
-          >
-            <feFlood floodOpacity="0" result="BackgroundImageFix" />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            />
-            <feGaussianBlur
-              stdDeviation="4.65"
-              result="effect1_foregroundBlur_3_19"
-            />
-          </filter>
+        <defs>{filterDefs}</defs>
 
-          <filter
-            id="filter1_f_3_19"
-            x="-1.23978e-05"
-            y="4.86374e-05"
-            width="1004.37"
-            height="447.735"
-            filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
-          >
-            <feFlood floodOpacity="0" result="BackgroundImageFix" />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            />
-            <feGaussianBlur
-              stdDeviation="4.65"
-              result="effect1_foregroundBlur_3_19"
-            />
-          </filter>
-
-          <filter
-            id="filter2_f_3_19"
-            x="-1.23978e-05"
-            y="4.86374e-05"
-            width="1004.37"
-            height="447.735"
-            filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
-          >
-            <feFlood floodOpacity="0" result="BackgroundImageFix" />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            />
-            <feGaussianBlur
-              stdDeviation="4.65"
-              result="effect1_foregroundBlur_3_19"
-            />
-          </filter>
-
-          <filter
-            id="filter3_f_3_19"
-            x="-1.23978e-05"
-            y="4.86374e-05"
-            width="1004.37"
-            height="447.735"
-            filterUnits="userSpaceOnUse"
-            colorInterpolationFilters="sRGB"
-          >
-            <feFlood floodOpacity="0" result="BackgroundImageFix" />
-            <feBlend
-              mode="normal"
-              in="SourceGraphic"
-              in2="BackgroundImageFix"
-              result="shape"
-            />
-            <feGaussianBlur
-              stdDeviation="4.65"
-              result="effect1_foregroundBlur_3_19"
-            />
-          </filter>
-        </defs>
-
-        {/* Stacked blur layers with plus-lighter blend mode */}
-        <g
-          filter="url(#filter0_f_3_19)"
-          style={{ mixBlendMode: "plus-lighter" }}
-        >
-          <path
-            d={pathD}
-            stroke="#F59768"
-            strokeWidth="10.0611"
-            strokeMiterlimit="10"
-          />
-        </g>
-
-        <g
-          filter="url(#filter1_f_3_19)"
-          style={{ mixBlendMode: "plus-lighter" }}
-        >
-          <path
-            d={pathD}
-            stroke="#F59768"
-            strokeWidth="10.0611"
-            strokeMiterlimit="10"
-          />
-        </g>
-
-        <g
-          filter="url(#filter2_f_3_19)"
-          style={{ mixBlendMode: "plus-lighter" }}
-        >
-          <path
-            d={pathD}
-            stroke="#F59768"
-            strokeWidth="10.0611"
-            strokeMiterlimit="10"
-          />
-        </g>
-
-        <g
-          filter="url(#filter3_f_3_19)"
-          style={{ mixBlendMode: "plus-lighter" }}
-        >
-          <path
-            d={pathD}
-            stroke="#F59768"
-            strokeWidth="10.0611"
-            strokeMiterlimit="10"
-          />
-        </g>
+        {blurLayers}
 
         {/* Main white path for tracing */}
         <path
           ref={pathRef}
-          d={pathD}
+          d={PATH_D}
           stroke="white"
-          strokeWidth="10.0611"
+          strokeWidth="10"
           strokeMiterlimit="10"
         />
 
@@ -203,24 +210,23 @@ const ChartAnim = () => {
           stroke="#F59768"
           strokeWidth="8.20966"
           initial={false}
-          animate={{ scale: [0, 1.2, 1] }}
-          transition={{ duration: 0.5 }}
+          animate={{
+            scale: isHovered ? 1.15 : 1,
+          }}
+          transition={{
+            scale: { type: "spring", stiffness: 300, damping: 20 },
+          }}
           style={{
             filter: "drop-shadow(0px 0px 8px rgba(245, 151, 104, 0.8))",
           }}
         />
 
-        {/* Motion element to drive `progress` (SVG-safe element) */}
+        {/* Motion element to drive auto-animation `progress` */}
         <motion.g
           initial={{ opacity: 0 }}
-          animate={{ x: targetStop }}
+          animate={{ x: TARGET_STOP }}
           transition={{ duration: 3, ease: "easeInOut", delay: 0.5 }}
-          // `latest.x` may arrive as a string; coerce to number safely
-          onUpdate={(latest: any) => {
-            const rawX = (latest as any).x;
-            const x = typeof rawX === "number" ? rawX : Number(rawX);
-            progress.set(Number.isFinite(x) ? x : 0);
-          }}
+          onUpdate={onProgressUpdate}
         />
       </svg>
     </div>
