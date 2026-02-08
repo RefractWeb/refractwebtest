@@ -1,20 +1,12 @@
 "use client";
-import { useState } from "react";
-import { motion } from "motion/react";
 import { useMouseTilt } from "@/hooks/useMouseTilt";
 import AnimatedLogoCloud from "./LogoCloud";
 import { AnimatedText } from "./ui/animated-text";
 import ActionButtons from "./ActionButtons";
+import { AnimatedChip } from "./AnimatedChip";
 
 export const HeroSection = () => {
-  const [currentChip, setCurrentChip] = useState(1);
-  const { rotateX, rotateY, mousePosition } = useMouseTilt();
-
-  const handleVideoEnded = () => {
-    if (currentChip === 1) {
-      setCurrentChip(2);
-    }
-  };
+  const { mousePosition } = useMouseTilt();
 
   return (
     <div className="relative min-h-screen flex flex-col">
@@ -57,40 +49,7 @@ export const HeroSection = () => {
           <ActionButtons />
         </div>
 
-        <div className="w-full lg:w-1/2 mt-16 lg:mt-0 flex justify-center relative isolate perspective-[1000px]">
-          <motion.video
-            key={currentChip}
-            autoPlay
-            muted
-            playsInline
-            loop={currentChip === 2}
-            onEnded={handleVideoEnded}
-            className="w-full h-full object-contain brightness-120 saturate-110 -translate-x-14 -translate-y-10 drop-shadow-2xl scale-110"
-            style={{
-              rotateX,
-              rotateY,
-              transformStyle: "preserve-3d",
-            }}
-          >
-            <source
-              src={
-                currentChip === 1
-                  ? "/safari/chip1.hevc.mov"
-                  : "/safari/chip2.hevc.mov"
-              }
-              type="video/mp4; codecs=hvc1"
-            />
-            <source
-              src={
-                currentChip === 1
-                  ? "/chrome/chip1-vp9-chrome.webm"
-                  : "/chrome/chip2-vp9-chrome.webm"
-              }
-              type="video/webm"
-            />
-            video not supported
-          </motion.video>
-        </div>
+        <AnimatedChip containerClassName="w-full lg:w-1/2 mt-16 lg:mt-0" />
       </main>
       <AnimatedLogoCloud />
     </div>

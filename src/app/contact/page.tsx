@@ -7,6 +7,7 @@ import SmoothContainer from "@/lib/SmoothContainer";
 import AnimatedLogoCloud from "@/components/LogoCloud";
 import { useMouseTilt } from "@/hooks/useMouseTilt";
 import { AnimatedText } from "@/components/ui/animated-text";
+import { AnimatedChip } from "@/components/AnimatedChip";
 
 const TECH_STACK = [
   { icon: Triangle, label: "Vercel", showIcon: true },
@@ -102,24 +103,7 @@ const ContactPage = () => {
           </div>
 
           {/* Right Section - Video */}
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative isolate perspective-[1000px]">
-            <motion.video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full max-w-md lg:max-w-full h-auto object-contain brightness-120 saturate-110 drop-shadow-2xl"
-              src="/chip.webm"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              style={{
-                rotateX,
-                rotateY,
-                transformStyle: "preserve-3d",
-              }}
-            />
-          </div>
+          <AnimatedChip />
         </main>
 
         <AnimatedLogoCloud />

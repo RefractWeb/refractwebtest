@@ -1,13 +1,10 @@
 "use client";
 
-import { motion } from "motion/react";
-import { useMouseTilt } from "@/hooks/useMouseTilt";
 import { AnimatedText } from "./ui/animated-text";
 import ActionButtons from "./ActionButtons";
+import { AnimatedChip } from "./AnimatedChip";
 
 export const CTASection = () => {
-  const { rotateX, rotateY } = useMouseTilt();
-
   return (
     <section className="py-24 mb-32 px-6 bg-background flex justify-center relative">
       <div className="container max-w-6xl relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
@@ -46,17 +43,7 @@ export const CTASection = () => {
               <div className="absolute size-100 rounded-full bg-[#4661BE] z-10 -top-90 left-1/2 -translate-x-1/2 blur-[130px]"></div>
             </div>
           </div>
-          <motion.img
-            className="w-full max-w-md lg:max-w-full h-auto object-contain brightness-120 saturate-110 drop-shadow-2xl z-30"
-            src="/chip.png"
-            alt="Refract Web Services Chip"
-            loading="lazy"
-            style={{
-              rotateX,
-              rotateY,
-              transformStyle: "preserve-3d",
-            }}
-          />
+          <AnimatedChip className="z-100" />
         </div>
       </div>
     </section>
