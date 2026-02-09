@@ -10,6 +10,8 @@ export default function () {
           backgroundSize: "80px 80px",
         }}
       />
+      <div className="absolute top-[8%] -right-[2%] w-[50vw] h-[50vw] rounded-full bg-[#253a7a] opacity-20 blur-[500px]" />
+      <div className="absolute top-[20%] -right-[24%] w-[50vw] h-[50vw] rounded-full bg-[#B05D41]/30 blur-[250px]" />
       <div className="container mx-auto max-w-5xl text-center relative z-10">
         <AnimatedText
           useScrollTrigger={true}

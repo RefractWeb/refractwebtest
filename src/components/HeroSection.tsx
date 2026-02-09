@@ -10,7 +10,7 @@ export const HeroSection = () => {
     <div className="relative min-h-screen flex flex-col">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#253a7a] opacity-30 blur-[220px]" />
+        <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#253a7a] opacity-30 blur-[500px]" />
         <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#B05D41]/35 blur-[250px]" />
       </div>
 

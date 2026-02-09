@@ -13,8 +13,11 @@ export const BentoSection = () => {
   return (
     <section
       id="services"
-      className="py-24 md:pt-40 px-6 md:px-12 lg:px-24 bg-background overflow-hidden tracking-tight"
+      className="py-24 md:pt-40 px-6 md:px-12 lg:px-24 bg-background tracking-tight relative"
     >
+      <div className="absolute top-[10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#253a7a] opacity-20 blur-[500px]" />
+      <div className="absolute top-[14%] left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#B05D41]/15 blur-[250px]" />
+      <div className="absolute top-[35%] -right-[20%] w-[50vw] h-[50vw] rounded-full bg-[#253a7a] opacity-15 blur-[500px]" />
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col items-center text-center mb-16">

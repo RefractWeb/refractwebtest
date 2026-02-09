@@ -50,7 +50,7 @@ const page = () => {
                   <DraggableMarquee speed={1.2} direction="right">
                     {projects.map((project, i) => (
                       <MarqueeItem key={i}>
-                        <div className="p-3 rounded-2xl bg-linear-to-br from-card to-muted/20 border border-border/40">
+                        <div className="p-3 rounded-2xl bg-linear-to-br from-card/40 to-muted/20 border border-border/40 backdrop-blur-lg shadow-xl">
                           <Image
                             src={project}
                             alt={project + " " + i}
