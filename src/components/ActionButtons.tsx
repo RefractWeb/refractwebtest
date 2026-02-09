@@ -6,7 +6,7 @@ import Link from "next/link";
 const ActionButtons = ({ className }: { className?: string }) => {
   return (
     <div
-      className={cn("flex flex-col sm:flex-row items-center gap-6", className)}
+      className={cn("flex flex-col sm:flex-row items-center gap-6 relative z-30", className)}
     >
       <Link href="/contact">
         <Button size={"lg"}>Work With Us</Button>
