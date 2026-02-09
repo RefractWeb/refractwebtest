@@ -1,7 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  type PanInfo,
+} from "motion/react";
 import { AnimatedText } from "./ui/animated-text";
 import Work1 from "@/assets/works/Landing page 1.jpg";
 import Work2 from "@/assets/works/Landing page 2.jpg";
@@ -40,28 +47,44 @@ const works = [
 ];
 
 export const WorkSection = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [dragConstraint, setDragConstraint] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const x = useMotionValue(0);
+  const smoothX = useSpring(x, {
+    damping: 40,
+    stiffness: 200,
+    mass: 0.8,
+  });
+
+  const progress = useTransform(smoothX, (latest) => {
+    if (dragConstraint === 0) return 10;
+    return Math.max(10, (Math.abs(latest) / Math.abs(dragConstraint)) * 100);
+  });
+
+  const [displayProgress, setDisplayProgress] = useState(10);
 
   useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
+    const unsubscribe = progress.on("change", (v) => {
+      setDisplayProgress(v);
+    });
+    return unsubscribe;
+  }, [progress]);
 
-    const handleScroll = () => {
-      const scrollLeft = scrollContainer.scrollLeft;
-      const scrollWidth =
-        scrollContainer.scrollWidth - scrollContainer.clientWidth;
-      const progress = (scrollLeft / scrollWidth) * 100;
-      setScrollProgress(progress);
-    };
-
-    scrollContainer.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => scrollContainer.removeEventListener("scroll", handleScroll);
+  const calcConstraints = useCallback(() => {
+    if (!containerRef.current) return;
+    const scrollWidth = containerRef.current.scrollWidth;
+    const clientWidth = containerRef.current.clientWidth;
+    setDragConstraint(-(scrollWidth - clientWidth));
   }, []);
 
-  const displayProgress = Math.max(scrollProgress, 10);
+  useEffect(() => {
+    calcConstraints();
+    window.addEventListener("resize", calcConstraints);
+    return () => window.removeEventListener("resize", calcConstraints);
+  }, [calcConstraints]);
+
   return (
     <section className="relative py-24 overflow-hidden">
       <div className="container mx-auto px-6">
@@ -87,36 +110,53 @@ export const WorkSection = () => {
           <ActionButtons className="pt-4 justify-center" />
         </div>
 
-        <div className="relative pb-10">
+        <div className="relative pb-10 overflow-hidden">
           {/* Progress indicator */}
-          <div
-            className="absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ease-out shadow-[0_0_12px_var(--primary)] z-10 rounded-2xl"
+          <motion.div
+            className="absolute bottom-0 left-0 bg-primary z-10 rounded-2xl shadow-[0_0_12px_var(--primary)]"
             style={{
               width: `${displayProgress}%`,
-              height: `4px`,
+              height: 4,
             }}
           />
 
-          <div
-            ref={scrollRef}
-            className="flex flex-col lg:flex-row gap-6 overflow-x-auto pb-12 snap-x"
-            style={{
-              scrollbarWidth: "none",
+          <motion.div
+            ref={containerRef}
+            drag="x"
+            dragConstraints={{
+              left: dragConstraint,
+              right: 0,
             }}
+            dragElastic={0.1}
+            dragTransition={{
+              bounceStiffness: 300,
+              bounceDamping: 40,
+              power: 0.3,
+              timeConstant: 400,
+            }}
+            onDragStart={() => setIsDragging(true)}
+            onDragEnd={(_: PointerEvent, info: PanInfo) => {
+              setTimeout(() => setIsDragging(false), 150);
+            }}
+            style={{ x: smoothX }}
+            className="flex gap-6 pb-12 cursor-grab active:cursor-grabbing select-none"
           >
             {works.map((work, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="min-w-[85vw] lg:min-w-130 snap-center group bg-linear-to-br from-card via-background to-card rounded-2xl"
+                className="min-w-[85vw] lg:min-w-130 group bg-linear-to-br from-card via-background to-card rounded-2xl"
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
               >
-                <div className="h-100 relative overflow-hidden">
+                <div className="h-100 relative overflow-hidden rounded-t-2xl">
                   <Image
                     src={work.image}
                     alt={work.title}
                     placeholder="blur"
                     loading="lazy"
-                    className="object-cover object-left translate-x-10 transition-transform duration-700 group-hover:scale-105 rounded-bl-2xl"
+                    className="object-cover object-left translate-x-10 transition-transform duration-700 group-hover:scale-105 rounded-bl-2xl select-none pointer-events-none"
                     fill
+                    draggable={false}
                   />
                 </div>
                 <div className="p-6 lg:p-8">
@@ -132,9 +172,9 @@ export const WorkSection = () => {
                     {work.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
