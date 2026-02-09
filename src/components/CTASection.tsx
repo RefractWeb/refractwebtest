@@ -32,7 +32,6 @@ export const CTASection = () => {
 
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative isolate">
           <div className="absolute inset-0">
-            {/* <div className="absolute h-2 bg-white z-10 w-200 bottom-20 -right-86 mix-blend-color blur-[1px] rotate-25"></div> */}
             <div className="absolute h-2 rounded-full bg-linear-to-r to-white via-white rotate-25 z-10 w-300 mix-blend-soft-light blur-[2px] -left-211"></div>
             <div className="absolute w-300 h-100 rotate-25 -top-80 -right-4 overflow-hidden">
               <div className="absolute size-100 rounded-full bg-primary2 z-10 -bottom-80 left-1/2 -translate-x-1/2 blur-[130px]"></div>
@@ -43,7 +42,7 @@ export const CTASection = () => {
               <div className="absolute size-100 rounded-full bg-[#4661BE] z-10 -top-90 left-1/2 -translate-x-1/2 blur-[130px]"></div>
             </div>
           </div>
-          <AnimatedChip className="z-10" />
+          <AnimatedChip className="z-20" />
         </div>
       </div>
     </section>

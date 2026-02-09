@@ -48,27 +48,25 @@ export const AnimatedChip = ({
   return (
     <div className={containerClassName}>
       {/* Secondary Video */}
-      {
-        <motion.video
-          ref={secondaryRef}
-          muted
-          playsInline
-          loop
-          preload="auto"
-          className={cn(
-            "absolute inset-0 w-full h-[80vh] object-contain brightness-110 saturate-110 -translate-y-10 drop-shadow-2xl scale-110",
-            className,
-          )}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: showSecondary ? 1 : 0 }}
-          transition={{ duration: 0 }}
-          style={tiltStyle}
-        >
-          {VIDEO_SOURCES.secondary.map((source, idx) => (
-            <source key={idx} src={source.src} type={source.type} />
-          ))}
-        </motion.video>
-      }
+      <motion.video
+        ref={secondaryRef}
+        muted
+        playsInline
+        loop
+        preload="auto"
+        className={cn(
+          "absolute inset-0 w-full h-[80vh] object-contain brightness-110 saturate-110 -translate-y-10 drop-shadow-2xl scale-110",
+          className,
+        )}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: showSecondary ? 1 : 0 }}
+        transition={{ duration: 0 }}
+        style={tiltStyle}
+      >
+        {VIDEO_SOURCES.secondary.map((source, idx) => (
+          <source key={idx} src={source.src} type={source.type} />
+        ))}
+      </motion.video>
 
       {/* Primary Video */}
       <motion.video
@@ -80,7 +78,7 @@ export const AnimatedChip = ({
         preload="auto"
         onEnded={handlePrimaryEnded}
         className={cn(
-          "w-full h-[80vh] object-contain brightness-110 saturate-110 -translate-y-10 drop-shadow-2xl scale-110",
+          "w-full h-[80vh] object-contain brightness-110 saturate-110 -translate-y-10 drop-shadow-2xl scale-110 relative",
           className,
         )}
         initial={{ opacity: 0, scale: 0.8 }}
