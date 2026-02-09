@@ -44,19 +44,19 @@ export const ImpactSection = () => {
           {/* Card 1: Revenue Supported */}
           <div className="relative group bg-linear-to-br from-[#121420] to-[#0A0A0A] border border-white/5 rounded-2xl p-8 overflow-hidden hover:border-white/10 transition-colors">
             <div className="relative z-10 h-full flex flex-col justify-between min-h-72">
-              <div>
+              <div className="flex flex-col gap-3">
                 <h3 className="text-muted-foreground text-lg mb-2">
                   Revenue Supported
                 </h3>
                 <div className="text-6xl font-medium tracking-tighter line">
                   $100M+
                 </div>
-              </div>
-              <div className="max-w-xs mt-auto">
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Systems backing nine-figure revenue. When performance is
-                  non-negotiable, we deliver.
-                </p>
+                <div className="max-w-xs">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    Systems backing nine-figure revenue. When performance is
+                    non-negotiable, we deliver.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -69,19 +69,19 @@ export const ImpactSection = () => {
           {/* Card 2: Assets Deployed */}
           <div className="relative group bg-linear-to-bl from-[#15192b] to-[#0A0A0A] border border-white/5 rounded-2xl p-8 overflow-hidden hover:border-white/10 transition-colors">
             <div className="relative z-10 h-full flex flex-col justify-between min-h-72">
-              <div>
+              <div className="flex flex-col h-full gap-3 relative z-10">
                 <h3 className="text-muted-foreground text-lg mb-2">
                   Assets Deployed
                 </h3>
                 <div className="text-6xl font-medium tracking-tighter line">
                   100+
                 </div>
-              </div>
-              <div className="max-w-xs mt-auto">
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Production-ready assets for every channel. Ship campaigns and
-                  launches with confidence.
-                </p>
+                <div className="max-w-xs">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    Production-ready assets for every channel. Ship campaigns
+                    and launches with confidence.
+                  </p>
+                </div>
               </div>
             </div>
             <div className="bg-white/5 p-2 rounded-lg overflow-hidden absolute -right-50 top-26 w-3/4 -rotate-6 hover:-rotate-3 hover:scale-110 transition-all duration-500 cursor-pointer z-30">
@@ -98,14 +98,12 @@ export const ImpactSection = () => {
 
           {/* Card 3: Enterprise DNA (Full Width) */}
           <div className="relative group md:col-span-2 bg-linear-to-r from-[#0d0d14] to-[#0A0A0A] border border-white/5 rounded-2xl p-8 overflow-hidden h-90 hover:border-white/10 transition-colors">
-            <div className="flex flex-col justify-between h-full space-y-8">
-              <div>
-                <h3 className="text-muted-foreground text-lg mb-2">
-                  Enterprise DNA
-                </h3>
-                <div className="text-6xl font-medium tracking-tighter line px-1">
-                  $2.65B
-                </div>
+            <div className="flex flex-col h-full gap-3 relative z-10">
+              <h3 className="text-muted-foreground text-lg mb-2">
+                Enterprise DNA
+              </h3>
+              <div className="text-6xl font-medium tracking-tighter line px-1">
+                $2.65B
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
                 Applying the architectural standards of a multi-billion dollar

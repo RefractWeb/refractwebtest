@@ -6,25 +6,12 @@ import ActionButtons from "./ActionButtons";
 import { AnimatedChip } from "./AnimatedChip";
 
 export const HeroSection = () => {
-  const { mousePosition } = useMouseTilt();
-
   return (
     <div className="relative min-h-screen flex flex-col">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-linear-to-br from-[#1E2E5E]/40 via-transparent to-transparent" />
-        <div
-          className="absolute top-[-10%] left-[1%] w-[50vw] h-[50vw] rounded-full bg-[#B05D41] opacity-20 blur-[120px]"
-          style={{
-            transform: `translate(${mousePosition.x * -20}px, ${mousePosition.y * -20}px)`,
-          }}
-        />
-        {/* <div
-          className="absolute top-[20%] left-[20%] w-[30vw] h-[30vw] rounded-full bg-[#F59768] opacity-10 blur-[100px]"
-          style={{
-            transform: `translate(${mousePosition.x * -10}px, ${mousePosition.y * -10}px)`,
-          }}
-        /> */}
+        <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#253a7a] opacity-30 blur-[220px]" />
+        <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#B05D41]/35 blur-[250px]" />
       </div>
 
       {/* Hero Content */}
