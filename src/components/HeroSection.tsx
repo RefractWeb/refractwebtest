@@ -6,7 +6,7 @@ import { AnimatedChip } from "./AnimatedChip";
 
 export const HeroSection = () => {
   return (
-    <div className="relative min-h-screen flex flex-col">
+    <div className="relative md:min-h-screen flex flex-col">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#253a7a] opacity-30 blur-[500px]" />
@@ -14,7 +14,7 @@ export const HeroSection = () => {
       </div>
 
       {/* Hero Content */}
-      <main className="relative z-10 container px-6 pt-16 grow flex flex-col lg:flex-row items-center mx-auto">
+      <main className="relative z-10 container px-6 pt-32 md:pt-16 grow flex flex-col lg:flex-row items-center mx-auto">
         <div className="w-full lg:w-1/2 text-left space-y-8 pl-4 lg:pl-10">
           <AnimatedText
             animationType="slideUp"
@@ -36,8 +36,8 @@ export const HeroSection = () => {
         </div>
 
         <AnimatedChip
-          containerClassName="w-full lg:w-1/2 flex justify-center lg:justify-end relative isolate perspective-[1000px]"
-          className="-translate-x-12"
+          containerClassName="w-full md:w-1/2 relative isolate perspective-[1000px] min-h-[40vh]"
+          className="md:-translate-x-12"
         />
       </main>
       <AnimatedLogoCloud />
