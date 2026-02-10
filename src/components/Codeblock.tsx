@@ -6,6 +6,7 @@ export default function CodeEditorReplica() {
   const [isHovered, setIsHovered] = useState(false);
   const charsRef = useRef<HTMLSpanElement[]>([]);
   const isPrepared = useRef(false);
+  const animationTimeouts = useRef<NodeJS.Timeout[]>([]);
 
   // Prepare spans on mount
   useEffect(() => {
@@ -46,11 +47,20 @@ export default function CodeEditorReplica() {
 
     charsRef.current = allChars;
     isPrepared.current = true;
+
+    // Cleanup on unmount
+    return () => {
+      animationTimeouts.current.forEach(clearTimeout);
+    };
   }, []);
 
   // Animate on hover
   useEffect(() => {
     if (!isHovered || charsRef.current.length === 0) return;
+
+    // Clear any existing animation
+    animationTimeouts.current.forEach(clearTimeout);
+    animationTimeouts.current = [];
 
     // Reset all to hidden
     charsRef.current.forEach((char) => {
@@ -58,7 +68,6 @@ export default function CodeEditorReplica() {
     });
 
     let index = 0;
-    let timeoutId: NodeJS.Timeout;
 
     function typeChar(): void {
       if (index < charsRef.current.length) {
@@ -66,14 +75,14 @@ export default function CodeEditorReplica() {
         charSpan.style.opacity = "1";
 
         const delay = charSpan.textContent === " " ? 0 : Math.random();
-        timeoutId = setTimeout(typeChar, delay);
+        const timeoutId = setTimeout(typeChar, delay);
+        animationTimeouts.current.push(timeoutId);
         index++;
       }
     }
 
-    timeoutId = setTimeout(typeChar, 100);
-
-    return () => clearTimeout(timeoutId);
+    const initialTimeout = setTimeout(typeChar, 100);
+    animationTimeouts.current.push(initialTimeout);
   }, [isHovered]);
 
   return (
