@@ -19,8 +19,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RefractWeb",
-  description: "RefractWeb",
+  title: "RefractWeb - Defining Digital Identity",
+  description:
+    "We merge the precision of code with the power of design, orchestrating a single identity that signals authority everywhere.",
   metadataBase: new URL("https://refractweb.com"),
 };
 
