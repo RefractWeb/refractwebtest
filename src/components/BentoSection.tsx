@@ -91,7 +91,7 @@ export const BentoSection = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="md:row-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-8 md:p-14"
           >
-            <div className="absolute z-5 bg-primary2 blur-[100px] -rotate-90 size-40 bottom-20 left-1/2 -translate-x-1/2"></div>
+            t
             <div className="relative z-10 flex flex-col h-full gap-4">
               <Palette className="size-6 text-foreground/80" />
               <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-grad">

@@ -4,7 +4,7 @@ import Link from "next/link";
 import webDevImg from "@/assets/works/Landing page 3.jpg";
 import { AnimatedText } from "../ui/animated-text";
 import ActionButtons from "../ActionButtons";
-import StackCards from "../ui/stack-card";
+import HowItWorks from "../ui/stack-card";
 
 export default function () {
   return (
@@ -32,7 +32,7 @@ export default function () {
           <ActionButtons className="justify-center" />
         </div>
 
-        <StackCards />
+        <HowItWorks />
       </div>
     </section>
   );

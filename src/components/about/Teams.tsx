@@ -13,7 +13,7 @@ export default function Teams() {
       role: "Co-Founder and COO",
       bio: "Adam orchestrates creative strategy and production for high-growth organizations and enterprise partners. He bridges the gap between ambitious visual concepts and operational reality, driving projects from direction to delivery. Trusted to execute in high-stakes environments, he brings the structure required to turn digital initiatives into commercial impact.",
       email: "adam@refractweb.com",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/adam-guarino/",
       img: adamImg,
     },
     {
@@ -21,7 +21,7 @@ export default function Teams() {
       role: "Co-Founder and CEO",
       bio: "Jake operates across major creative markets including San Diego and London, contributing to work built for global visibility and commercial impact. He works alongside creative and marketing teams to move projects from direction to delivery, supporting brand and campaign platforms where precision, judgment, and reliability matter.",
       email: "jake@refractweb.com",
-      linkedin: "https://linkedin.com",
+      linkedin: "https://www.linkedin.com/in/jacob-young9/",
       img: jakeImg,
     },
   ];
