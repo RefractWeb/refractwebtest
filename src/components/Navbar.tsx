@@ -112,7 +112,7 @@ export const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 bg-background/90 backdrop-blur-3xl z-60 md:hidden flex flex-col"
           >
-            <div className="flex-1 flex flex-col justify-center px-10 gap-6">
+            <div className="flex-1 flex flex-col justify-center px-10 gap-6 border-y">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -129,10 +129,11 @@ export const Navbar = () => {
                   <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-6xl font-bold tracking-tighter text-muted-foreground hover:text-primary2 transition-colors inline-block"
+                    className="text-6xl font-semibold tracking-tighter text-grad px-1 transition-colors inline-block"
                   >
                     {item.label}
                   </Link>
+                  <div className="border-y mt-4"></div>
                 </motion.div>
               ))}
             </div>

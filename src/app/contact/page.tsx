@@ -56,7 +56,7 @@ const ContactPage = () => {
         </div>
 
         {/* Main Content */}
-        <main className="relative z-10 container mx-auto px-6 pt-12 lg:pt-32 grow flex flex-col lg:flex-row items-center gap-12 overflow-hidden">
+        <main className="relative z-10 container mx-auto px-6 pt-32 grow flex flex-col lg:flex-row items-center gap-12 overflow-hidden">
           {/* Left Section */}
           <div className="w-full lg:w-1/2 space-y-8">
             <div className="space-y-4">
@@ -70,8 +70,8 @@ const ContactPage = () => {
               <AnimatedText
                 animationType="slideUp"
                 splitType="lines"
-                delay={0.1}
-                className="text-muted-foreground text-lg lg:text-xl font-light leading-relaxed max-w-md"
+                delay={0.2}
+                className="text-lg lg:text-xl leading-relaxed max-w-md"
               >
                 Have a vision in mind? Let's explore how we can bring it to
                 life.
@@ -96,8 +96,8 @@ const ContactPage = () => {
 
           {/* Right Section - Video */}
           <AnimatedChip
-            containerClassName="w-full lg:w-1/2 flex justify-center lg:justify-end relative isolate perspective-[1000px]"
-            className="translate-x-10"
+            containerClassName="w-full md:w-1/2 isolate perspective-[1000px] min-h-[40vh]"
+            className="md:translate-x-10"
           />
         </main>
 

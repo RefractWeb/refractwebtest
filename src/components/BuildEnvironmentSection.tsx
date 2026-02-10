@@ -6,9 +6,9 @@ import { AnimatedText } from "./ui/animated-text";
 
 export const BuildEnvironmentSection = () => {
   return (
-    <section className="py-24 px-6 flex justify-center relative! overflow-hidden">
+    <section className="py-12 px-4 md:py-24 md:px-6 flex justify-center relative! overflow-hidden">
       <div className="container max-w-6xl relative">
-        <div className="w-full bg-[#0D101A] rounded-3xl relative overflow-hidden grid md:grid-cols-2 grid-cols-1 justify-between">
+        <div className="w-full bg-[#0D101A] rounded-3xl relative overflow-hidden grid md:grid-cols-2 grid-cols-1 justify-between pt-10 md:pt-0">
           {/* Background noise/texture */}
           {/* <div
             className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay"
@@ -19,12 +19,12 @@ export const BuildEnvironmentSection = () => {
           /> */}
 
           {/* Left Content */}
-          <div className="relative flex items-start flex-col justify-center pl-12 pr-0 z-10 max-w-lg space-y-6 ">
+          <div className="relative flex flex-col justify-center z-10 max-w-lg space-y-6 p-6 items-center text-center md:items-start md:text-left md:pl-12 md:pr-0 md:py-0">
             <AnimatedText
               useScrollTrigger={true}
               animationType="slideUp"
               splitType="lines"
-              className="text-4xl lg:text-5xl font-bold tracking-tighter"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter"
             >
               The build environment.
             </AnimatedText>
@@ -44,7 +44,7 @@ export const BuildEnvironmentSection = () => {
           </div>
 
           {/* Right Grid */}
-          <div className="relative z-10 gap-4 w-full bg-transparent">
+          <div className="relative z-10 gap-4 w-full bg-transparent pb-8 md:pb-0">
             <HolographicWall />
           </div>
 

@@ -29,14 +29,14 @@ const page = () => {
               <AnimatedText
                 animationType="slideUp"
                 splitType="lines"
-                className="text-6xl font-semibold tracking-tighter p-2 inline-block"
+                className="text-5xl md:text-6xl font-semibold tracking-tighter px-2"
               >
                 Recent Works
               </AnimatedText>
               <AnimatedText
                 animationType="slideUp"
                 splitType="lines"
-                delay={0.1}
+                delay={0.2}
                 className="text-xl max-w-md mx-auto leading-relaxed"
               >
                 Let’s discuss scope, timing, and fit.

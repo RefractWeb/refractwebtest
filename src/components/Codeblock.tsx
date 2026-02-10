@@ -94,7 +94,7 @@ export default function CodeEditorReplica() {
       `}</style>
 
       <div /* Code block */
-        className="relative w-full max-w-90 bg-[#0C112DED] rounded-bl-xl overflow-hidden shadow-lg border border-border/50 group font-mono"
+        className="relative w-full max-w-90 bg-[#0C112DED] rounded-bl-xl overflow-hidden shadow-lg border border-border/50 group"
         style={{
           boxShadow: "-15px 15px 115px rgba(245, 151, 104, 0.12)",
         }}

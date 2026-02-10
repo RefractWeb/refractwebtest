@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MouseEvent, useEffect, useRef, useState } from "react";
+import { MouseEvent, TouchEvent, useEffect, useRef, useState } from "react";
 import LightMorphWrapper from "./ui/lightmorph-wrapper";
 import Image from "next/image";
 
@@ -51,9 +51,11 @@ export function HolographicWall({
     y: number;
   } | null>(null);
 
-  // 2. Mandatory center initialization
+  // 2. Mandatory center initialization and mobile detection
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
-    const updateCenter = () => {
+    const updateDimensions = () => {
       if (containerRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
         setMousePosition({
@@ -61,11 +63,12 @@ export function HolographicWall({
           y: rect.height / 2,
         });
       }
+      setIsMobile(window.innerWidth < 768);
     };
 
-    updateCenter();
-    window.addEventListener("resize", updateCenter);
-    return () => window.removeEventListener("resize", updateCenter);
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
@@ -77,13 +80,25 @@ export function HolographicWall({
     });
   };
 
-  const totalCells = rows * cols;
+  const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const touch = e.touches[0];
+    setMousePosition({
+      x: touch.clientX - rect.left,
+      y: touch.clientY - rect.top,
+    });
+  };
+
+  const currentCols = isMobile ? 3 : cols;
+  const currentRows = isMobile ? 3 : rows;
+  const totalCells = currentRows * currentCols;
 
   const GridContent = ({ opacity = 1 }) => (
     <div
       className="grid gap-2 md:gap-3 max-w-5xl mx-auto"
       style={{
-        gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
+        gridTemplateColumns: `repeat(${currentCols}, minmax(0, 1fr))`,
         opacity: opacity,
       }}
     >
@@ -97,7 +112,7 @@ export function HolographicWall({
             <LightMorphWrapper
               gardient1={gradient.gradient1}
               gradient2={gradient.gradient2}
-              inerContainerClass="h-28 md:h-30"
+              inerContainerClass="h-26 md:h-30"
               containerClass="w-full"
               blurOnGradients="blur-xl"
               switchGrad={gradient.switchGrad}
@@ -123,6 +138,8 @@ export function HolographicWall({
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
+      onTouchMove={handleTouchMove}
+      onTouchStart={handleTouchMove}
       className="relative w-full py-4 overflow-hidden"
     >
       {/* LAYER 1: Base */}
