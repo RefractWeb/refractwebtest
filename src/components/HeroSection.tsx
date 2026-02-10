@@ -14,7 +14,7 @@ export const HeroSection = () => {
       </div>
 
       {/* Hero Content */}
-      <main className="relative z-10 container px-6 pt-32 md:pt-16 grow flex flex-col lg:flex-row items-center mx-auto">
+      <main className="relative z-10 container px-6 pt-20 md:pt-16 grow flex-col-reverse flex md:flex-row items-center mx-auto">
         <div className="w-full lg:w-1/2 text-left space-y-8 pl-4 lg:pl-10">
           <AnimatedText
             animationType="slideUp"
@@ -36,7 +36,7 @@ export const HeroSection = () => {
         </div>
 
         <AnimatedChip
-          containerClassName="w-full md:w-1/2 relative isolate perspective-[1000px] min-h-[40vh]"
+          containerClassName="w-full md:w-1/2 isolate perspective-[1000px] min-h-[40vh]"
           className="md:-translate-x-12"
         />
       </main>

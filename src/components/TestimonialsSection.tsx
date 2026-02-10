@@ -44,71 +44,100 @@ export const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-20 relative flex items-center justify-center overflow-hidden min-h-screen">
-      <div className="container max-w-5xl px-6 relative z-10">
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevTestimonial}
-          type="button"
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-20 w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-white/10 transition-colors z-20 bg-linear-to-bl from-background to-card"
-          aria-label="Previous testimonial"
-        >
-          <ChevronLeft className="size-5" />
-        </button>
-        <button
-          onClick={nextTestimonial}
-          type="button"
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-20 w-12 h-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-white/10 transition-colors z-20 bg-linear-to-br from-background to-card"
-          aria-label="Next testimonial"
-        >
-          <ChevronRight className="size-5" />
-        </button>
-
-        {/* Content */}
-        <div className="text-center space-y-12 transition-opacity duration-500 ease-in-out">
-          <AnimatedText
-            useScrollTrigger={true}
-            animationType="skewIn"
-            splitType="lines"
-            className="text-2xl md:text-3xl lg:text-4xl leading-normal"
+    <section className="relative flex items-center justify-center py-24 min-h-[800px] overflow-hidden">
+      <div className="container max-w-5xl px-6 md:px-10 relative z-10">
+        <div className="relative">
+          {/* Desktop Navigation Arrows */}
+          <button
+            onClick={prevTestimonial}
+            type="button"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 lg:-translate-x-24 size-12 rounded-full border border-border items-center justify-center text-foreground hover:bg-white/10 active:scale-90 transition-all z-20 bg-linear-to-bl from-background to-card"
+            aria-label="Previous testimonial"
           >
-            "{testimonials[activeIndex].text}"
-          </AnimatedText>
+            <ChevronLeft className="size-6" />
+          </button>
+          <button
+            onClick={nextTestimonial}
+            type="button"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 lg:translate-x-24 size-12 rounded-full border border-border items-center justify-center text-foreground hover:bg-white/10 active:scale-90 transition-all z-20 bg-linear-to-br from-background to-card"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="size-6" />
+          </button>
 
-          <div className="flex justify-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                layout
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="inline-flex items-center gap-3 bg-linear-to-b from-background to-card rounded-full px-2 py-2 pr-6 border"
+          {/* Content */}
+          <div className="text-center space-y-10 md:space-y-14">
+            <div className="min-h-[400px] flex items-center justify-center">
+              <AnimatedText
+                key={activeIndex}
+                useScrollTrigger={false}
+                animationType="skewIn"
+                splitType="lines"
+                className="text-lg md:text-3xl lg:text-4xl leading-relaxed font-light tracking-tight"
               >
-                <Image
-                  src={testimonials[activeIndex].image}
-                  loading="lazy"
-                  width={50}
-                  height={50}
-                  placeholder="blur"
-                  alt={testimonials[activeIndex].name}
-                  className="size-10 rounded-full object-cover grayscale border"
-                />
+                "{testimonials[activeIndex].text}"
+              </AnimatedText>
+            </div>
+
+            <div className="flex flex-col items-center gap-8">
+              <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIndex}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
+                  layout
                   transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="text-left inline-flex items-center gap-1"
+                  className="inline-flex items-center gap-3 bg-linear-to-b from-background to-card rounded-full px-2 py-2 md:py-2.5 pr-6 md:pr-8 border shadow-sm"
                 >
-                  <div className="text-base font-medium text-foreground overflow-hidden">
-                    {testimonials[activeIndex].name}
-                  </div>
-                  <div className="text-xs text-muted-foreground uppercase tracking-wider">
-                    {" "}
-                    - {testimonials[activeIndex].role}
+                  <Image
+                    src={testimonials[activeIndex].image}
+                    loading="lazy"
+                    width={50}
+                    height={50}
+                    placeholder="blur"
+                    alt={testimonials[activeIndex].name}
+                    className="md:size-12 size-10 rounded-full object-cover grayscale border border-white/10"
+                  />
+                  <div className="text-left flex flex-col justify-center">
+                    <motion.div
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 10 }}
+                      className="text-base md:text-lg font-semibold text-foreground leading-tight"
+                    >
+                      {testimonials[activeIndex].name}
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 10 }}
+                      transition={{ delay: 0.1 }}
+                      className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-[0.2em] font-medium"
+                    >
+                      {testimonials[activeIndex].role}
+                    </motion.div>
                   </div>
                 </motion.div>
-              </motion.div>
-            </AnimatePresence>
+              </AnimatePresence>
+
+              {/* Mobile Navigation Arrows */}
+              <div className="flex md:hidden items-center gap-6">
+                <button
+                  onClick={prevTestimonial}
+                  type="button"
+                  className="size-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-white/10 active:scale-95 transition-all bg-linear-to-bl from-background to-card"
+                  aria-label="Previous testimonial"
+                >
+                  <ChevronLeft className="size-5" />
+                </button>
+                <button
+                  onClick={nextTestimonial}
+                  type="button"
+                  className="size-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-white/10 active:scale-95 transition-all bg-linear-to-br from-background to-card"
+                  aria-label="Next testimonial"
+                >
+                  <ChevronRight className="size-5" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

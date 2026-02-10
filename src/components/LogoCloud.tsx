@@ -40,7 +40,7 @@ const logos = [
 
 const AnimatedLogoCloud = () => {
   return (
-  <div className="w-full pb-6 max-w-8xl mx-auto">
+    <div className="w-full pb-6 pt-10 max-w-8xl mx-auto">
       <div className="mx-auto w-full px-4 md:px-8">
         <div className="group relative mt-6 flex gap-6 overflow-hidden p-2 mask-x-from-80%">
           {Array(5)

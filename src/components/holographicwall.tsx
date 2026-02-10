@@ -30,12 +30,12 @@ const GRADIENT_COMBINATIONS = [
 
 // Technology icons
 const TECH_ICONS = [
-  { name: "Next.js", path: "/icons/1.svg" },
-  { name: "React", path: "/icons/2.svg" },
-  { name: "TypeScript", path: "/icons/3.svg" },
-  { name: "Tailwind", path: "/icons/4.svg" },
-  { name: "Node.js", path: "/icons/5.svg" },
-  { name: "AWS", path: "/icons/6.svg" },
+  { name: "AWS", path: "/icons/1.svg" },
+  { name: "vercel", path: "/icons/6.svg" },
+  { name: "Figma", path: "/icons/3.svg" },
+  { name: "Blender", path: "/icons/5.svg" },
+  { name: "PS", path: "/icons/2.svg" },
+  { name: "NextJS", path: "/icons/4.svg" },
 ];
 
 export function HolographicWall({
@@ -45,9 +45,11 @@ export function HolographicWall({
   radius = 200,
 }: HolographicWallProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  
   // 1. Start with null so we can detect if the user has moved the mouse yet
-  const [mousePosition, setMousePosition] = useState<{ x: number; y: number } | null>(null);
+  const [mousePosition, setMousePosition] = useState<{
+    x: number;
+    y: number;
+  } | null>(null);
 
   // 2. Mandatory center initialization
   useEffect(() => {
@@ -86,7 +88,8 @@ export function HolographicWall({
       }}
     >
       {Array.from({ length: totalCells }).map((_, index) => {
-        const gradient = GRADIENT_COMBINATIONS[index % GRADIENT_COMBINATIONS.length];
+        const gradient =
+          GRADIENT_COMBINATIONS[index % GRADIENT_COMBINATIONS.length];
         const icon = TECH_ICONS[index % TECH_ICONS.length];
 
         return (
@@ -104,6 +107,7 @@ export function HolographicWall({
                   src={icon.path}
                   alt={icon.name}
                   width={56}
+                  loading="lazy"
                   height={56}
                   className="w-full h-full object-contain"
                 />
@@ -123,7 +127,7 @@ export function HolographicWall({
     >
       {/* LAYER 1: Base */}
       <div className="relative pointer-events-none grayscale">
-         <GridContent opacity={0} />
+        <GridContent opacity={0} />
       </div>
 
       {/* LAYER 2: Masked Reveal */}

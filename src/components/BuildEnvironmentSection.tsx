@@ -8,7 +8,7 @@ export const BuildEnvironmentSection = () => {
   return (
     <section className="py-24 px-6 flex justify-center relative! overflow-hidden">
       <div className="container max-w-6xl relative">
-        <div className="w-full bg-[#0D101A] rounded-3xl relative overflow-hidden grid grid-cols-2 justify-between">
+        <div className="w-full bg-[#0D101A] rounded-3xl relative overflow-hidden grid md:grid-cols-2 grid-cols-1 justify-between">
           {/* Background noise/texture */}
           {/* <div
             className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay"
