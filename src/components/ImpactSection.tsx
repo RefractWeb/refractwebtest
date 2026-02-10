@@ -3,8 +3,6 @@
 import Image from "next/image";
 import { AnimatedText } from "./ui/animated-text";
 import img1 from "@/assets/works/Landing page 1.jpg";
-import img2 from "@/assets/impact2.png";
-import img3 from "@/assets/impact3.svg";
 import ActionButtons from "./ActionButtons";
 import BarAnim from "./BarAnim";
 import ChartAnim from "./ChartAnim";
@@ -13,7 +11,7 @@ export const ImpactSection = () => {
   return (
     <section className="relative py-24 px-6">
       {/* Background glow for this section */}
-      <div className="absolute top-[30%] right-0 w-[40vw] h-[40vw] bg-[#1E2E5E] opacity-20 blur-[150px] pointer-events-none" />
+      <div className="absolute top-[30%] right-0 w-[40vw] h-[40vw] bg-[#1E2E5E] opacity-20 blur-[150px] pointer-events-none -z-1" />
 
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
@@ -33,8 +31,7 @@ export const ImpactSection = () => {
             delay={0.1}
             className="text-muted-foreground text-lg"
           >
-            Design is subjective. Performance is{" "}
-            <span className="text-white font-medium">not.</span>
+            Design is subjective. Performance is not.
           </AnimatedText>
           <ActionButtons className="pt-4 justify-center" />
         </div>

@@ -116,7 +116,8 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-muted-foreground text-xs tracking-widest uppercase">
-            copyright © 2026 Price Partners AI LLC. All rights reserved
+            copyright © 2026 Pulse Partners AI LLC DBA RefractWeb. All rights
+            reserved
           </div>
 
           <div className="flex items-center gap-6">

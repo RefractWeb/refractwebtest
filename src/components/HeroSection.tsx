@@ -1,5 +1,4 @@
 "use client";
-import { useMouseTilt } from "@/hooks/useMouseTilt";
 import AnimatedLogoCloud from "./LogoCloud";
 import { AnimatedText } from "./ui/animated-text";
 import ActionButtons from "./ActionButtons";

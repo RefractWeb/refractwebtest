@@ -2,8 +2,6 @@ import { ArrowRight, Code, Globe, Palette, Video } from "lucide-react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import img1 from "@/assets/works/Landing page 3.jpg";
-import img2 from "@/assets/iconsgrp.png";
-import img3 from "@/assets/Code.png";
 import img4 from "@/assets/3danim.png";
 import { AnimatedText } from "./ui/animated-text";
 import ActionButtons from "./ActionButtons";
@@ -15,11 +13,13 @@ import marqueeImg3 from "@/assets/branding/3.svg";
 import marqueeImg4 from "@/assets/branding/4.svg";
 import CodeEditorReplica from "./Codeblock";
 
+const marqueeItems = [marqueeImg1, marqueeImg2, marqueeImg3, marqueeImg4];
+
 export const BentoSection = () => {
   return (
     <section
       id="services"
-      className="py-24 md:pt-40 px-6 md:px-12 lg:px-24 bg-background tracking-tight relative"
+      className="py-24 md:pt-40 px-6 md:px-12 lg:px-24 tracking-tight relative"
     >
       <div className="absolute top-[10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#253a7a] opacity-20 blur-[500px]" />
       <div className="absolute top-[14%] left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#B05D41]/15 blur-[250px]" />
@@ -91,7 +91,6 @@ export const BentoSection = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="md:row-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-8 md:p-14"
           >
-            t
             <div className="relative z-10 flex flex-col h-full gap-4">
               <Palette className="size-6 text-foreground/80" />
               <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-grad">
@@ -106,86 +105,26 @@ export const BentoSection = () => {
                 <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
-
             <div className="absolute bottom-30 z-10 left-0 w-full">
               <Marquee>
                 <DraggableMarquee speed={0.5} direction="right" gap={10}>
-                  <MarqueeItem className="w-fit rounded-md m-auto">
-                    <Image
-                      src={marqueeImg1}
-                      alt="Branding Marquee 1"
-                      className="size-20"
-                      width={100}
-                      height={100}
-                    />
-                  </MarqueeItem>
-                  <MarqueeItem className="w-fit rounded-md m-auto">
-                    <Image
-                      src={marqueeImg2}
-                      alt="Branding Marquee 1"
-                      className="size-20"
-                      width={100}
-                      height={100}
-                    />
-                  </MarqueeItem>
-                  <MarqueeItem className="w-fit rounded-md m-auto">
-                    <Image
-                      src={marqueeImg3}
-                      alt="Branding Marquee 1"
-                      className="size-24"
-                      width={100}
-                      height={100}
-                    />
-                  </MarqueeItem>
-                  <MarqueeItem className="w-fit rounded-md m-auto">
-                    <Image
-                      src={marqueeImg4}
-                      alt="Branding Marquee 1"
-                      className="size-20"
-                      width={100}
-                      height={100}
-                    />
-                  </MarqueeItem>
-                  <MarqueeItem className="w-fit rounded-md m-auto">
-                    <Image
-                      src={marqueeImg1}
-                      alt="Branding Marquee 1"
-                      className="size-20"
-                      width={100}
-                      height={100}
-                    />
-                  </MarqueeItem>
-                  <MarqueeItem className="w-fit rounded-md m-auto">
-                    <Image
-                      src={marqueeImg2}
-                      alt="Branding Marquee 1"
-                      className="size-20"
-                      width={100}
-                      height={100}
-                    />
-                  </MarqueeItem>
-                  <MarqueeItem className="w-fit rounded-md m-auto">
-                    <Image
-                      src={marqueeImg3}
-                      alt="Branding Marquee 1"
-                      className="size-24"
-                      width={100}
-                      height={100}
-                    />
-                  </MarqueeItem>
-                  <MarqueeItem className="w-fit rounded-md m-auto">
-                    <Image
-                      src={marqueeImg4}
-                      alt="Branding Marquee 1"
-                      className="size-20"
-                      width={100}
-                      height={100}
-                    />
-                  </MarqueeItem>
+                  {[...marqueeItems].map((item, index) => (
+                    <MarqueeItem
+                      key={index}
+                      className="w-fit rounded-md m-auto"
+                    >
+                      <Image
+                        src={item.src}
+                        alt={`Marquee ${index}`}
+                        className="size-20"
+                        width={100}
+                        height={100}
+                      />
+                    </MarqueeItem>
+                  ))}
                 </DraggableMarquee>
               </Marquee>
             </div>
-
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 blur-[320px] size-110 bg-primary/50 rounded-full pointer-events-none" />
           </motion.div>
 
@@ -230,14 +169,6 @@ export const BentoSection = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-8 md:p-14 flex items-center justify-center text-center"
           >
-            {/* <Image
-              src={"/logo.svg"}
-              width={300}
-              height={300}
-              loading="lazy"
-              alt="Everything Illustration"
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover inset-0 opacity-5"
-            /> */}
             <AnimatedLogoStroke className="absolute top-1/2 left-1/2 -translate-x-[46%] -translate-y-1/2 object-cover inset-0" />
             <div className="relative z-10">
               <h3 className="text-3xl md:text-5xl tracking-tight leading-snug text-foreground">

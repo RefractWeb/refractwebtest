@@ -268,10 +268,10 @@ export default function CodeEditorReplica() {
 
         {/* Footer */}
         <div className="flex items-center gap-3 pb-4 px-6">
-          <button className="text-muted-foreground/50 hover:text-foreground transition">
+          <button className="text-muted-foreground hover:text-foreground transition">
             <Clipboard size={13} strokeWidth={1.5} />
           </button>
-          <button className="text-muted-foreground/50 hover:text-foreground transition">
+          <button className="text-muted-foreground hover:text-foreground transition">
             <Maximize2 size={13} strokeWidth={1.5} />
           </button>
         </div>
