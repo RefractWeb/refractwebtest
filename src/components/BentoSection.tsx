@@ -89,7 +89,7 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="md:row-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 min-h-[400px] md:min-h-0"
+            className="md:row-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 min-h-100 md:min-h-0"
           >
             <div className="relative z-10 flex flex-col h-full gap-4">
               <Palette className="size-6 text-foreground/80" />
@@ -134,7 +134,7 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="md:row-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group flex flex-col items-center justify-end min-h-[630px] md:min-h-0"
+            className="md:row-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group flex flex-col items-center justify-end min-h-158 md:min-h-0"
           >
             <CodeEditorReplica />
             <div className="relative z-10 p-6 md:p-14 flex flex-col gap-4 w-full">
@@ -161,7 +161,7 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 flex items-center justify-center text-center min-h-[250px] md:min-h-0"
+            className="relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 flex items-center justify-center text-center min-h-63 md:min-h-0"
           >
             <AnimatedLogoStroke className="absolute top-1/2 left-1/2 -translate-x-[46%] -translate-y-1/2 object-contain scale-75 md:scale-100 opacity-50 md:opacity-100" />
             <div className="relative z-10">
@@ -180,7 +180,7 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="md:col-span-1 lg:col-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 min-h-[400px] md:min-h-0"
+            className="md:col-span-1 lg:col-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 min-h-100 md:min-h-0"
           >
             <div className="relative z-10 flex flex-col gap-4">
               <Video className="size-6 text-foreground/80" />

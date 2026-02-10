@@ -21,6 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "RefractWeb",
   description: "RefractWeb",
+  metadataBase: new URL("https://refractweb.com"),
 };
 
 export default function RootLayout({
