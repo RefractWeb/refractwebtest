@@ -44,6 +44,7 @@ export default function SmoothContainer({
   return (
     <ReactLenis
       root
+      className="max-w-screen overflow-x-hidden"
       options={{
         // Smoothness & feel
         lerp: 0.05, // Lower = smoother but slower (0.05-0.15 range)

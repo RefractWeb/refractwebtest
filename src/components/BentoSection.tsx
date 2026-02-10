@@ -8,6 +8,12 @@ import img4 from "@/assets/3danim.png";
 import { AnimatedText } from "./ui/animated-text";
 import ActionButtons from "./ActionButtons";
 import { AnimatedLogoStroke } from "./SvgAnimation";
+import { DraggableMarquee, Marquee, MarqueeItem } from "./ui/marquee";
+import marqueeImg1 from "@/assets/branding/1.svg";
+import marqueeImg2 from "@/assets/branding/2.svg";
+import marqueeImg3 from "@/assets/branding/3.svg";
+import marqueeImg4 from "@/assets/branding/4.svg";
+import CodeEditorReplica from "./Codeblock";
 
 export const BentoSection = () => {
   return (
@@ -85,6 +91,7 @@ export const BentoSection = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="md:row-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-8 md:p-14"
           >
+            <div className="absolute z-5 bg-primary2 blur-[100px] -rotate-90 size-40 bottom-20 left-1/2 -translate-x-1/2"></div>
             <div className="relative z-10 flex flex-col h-full gap-4">
               <Palette className="size-6 text-foreground/80" />
               <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-grad">
@@ -101,12 +108,82 @@ export const BentoSection = () => {
             </div>
 
             <div className="absolute bottom-30 z-10 left-0 w-full">
-              <Image
-                src={img2}
-                placeholder="blur"
-                loading="lazy"
-                alt="Branding Illustration"
-              />
+              <Marquee>
+                <DraggableMarquee speed={0.5} direction="right" gap={10}>
+                  <MarqueeItem className="w-fit rounded-md m-auto">
+                    <Image
+                      src={marqueeImg1}
+                      alt="Branding Marquee 1"
+                      className="size-20"
+                      width={100}
+                      height={100}
+                    />
+                  </MarqueeItem>
+                  <MarqueeItem className="w-fit rounded-md m-auto">
+                    <Image
+                      src={marqueeImg2}
+                      alt="Branding Marquee 1"
+                      className="size-20"
+                      width={100}
+                      height={100}
+                    />
+                  </MarqueeItem>
+                  <MarqueeItem className="w-fit rounded-md m-auto">
+                    <Image
+                      src={marqueeImg3}
+                      alt="Branding Marquee 1"
+                      className="size-24"
+                      width={100}
+                      height={100}
+                    />
+                  </MarqueeItem>
+                  <MarqueeItem className="w-fit rounded-md m-auto">
+                    <Image
+                      src={marqueeImg4}
+                      alt="Branding Marquee 1"
+                      className="size-20"
+                      width={100}
+                      height={100}
+                    />
+                  </MarqueeItem>
+                  <MarqueeItem className="w-fit rounded-md m-auto">
+                    <Image
+                      src={marqueeImg1}
+                      alt="Branding Marquee 1"
+                      className="size-20"
+                      width={100}
+                      height={100}
+                    />
+                  </MarqueeItem>
+                  <MarqueeItem className="w-fit rounded-md m-auto">
+                    <Image
+                      src={marqueeImg2}
+                      alt="Branding Marquee 1"
+                      className="size-20"
+                      width={100}
+                      height={100}
+                    />
+                  </MarqueeItem>
+                  <MarqueeItem className="w-fit rounded-md m-auto">
+                    <Image
+                      src={marqueeImg3}
+                      alt="Branding Marquee 1"
+                      className="size-24"
+                      width={100}
+                      height={100}
+                    />
+                  </MarqueeItem>
+                  <MarqueeItem className="w-fit rounded-md m-auto">
+                    <Image
+                      src={marqueeImg4}
+                      alt="Branding Marquee 1"
+                      className="size-20"
+                      width={100}
+                      height={100}
+                    />
+                  </MarqueeItem>
+                </DraggableMarquee>
+              </Marquee>
             </div>
 
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 blur-[320px] size-110 bg-primary/50 rounded-full pointer-events-none" />
@@ -119,13 +196,14 @@ export const BentoSection = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="md:row-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group flex flex-col items-center justify-end"
           >
-            <Image
+            {/* <Image
               src={img3}
               placeholder="blur"
               loading="lazy"
               alt="Software / AI Illustration"
               className="absolute top-0 left-0 object-cover"
-            />
+            /> */}
+            <CodeEditorReplica />
             <div className="relative z-10 p-8 md:p-14 flex flex-col gap-4">
               <Code className="size-6 text-foreground/80" />
 
