@@ -19,11 +19,10 @@ export const BuildEnvironmentSection = () => {
             }}
           /> */}
 
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            <div className="absolute top-[-10%] left-[12%] size-60 rounded-full bg-[#3150aa] opacity-80 blur-[80px]" />
-            <div className="absolute top-[-10%] left-[2%] size-50 rounded-full bg-[#3150aa] blur-[90px] opacity-90" />
-            <div className="absolute bottom-[-10%] left-[1%] size-55 rounded-full bg-[#c46241] opacity-90 blur-[70px]" />
-          </div>
+          <div className="absolute -top-10 left-100 w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-3xl" />
+          <div className="absolute top-[-30%] left-[5%] w-90 h-90 rounded-full bg-[#3150aa] opacity-60 blur-[100px]" />
+          <div className="absolute bottom-[-20%] -left-[10%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px]" />
+
           {/* Left Content */}
           <div className="relative flex flex-col justify-center z-10 max-w-lg space-y-6 px-10 py-36 items-center text-center md:items-start md:text-left md:pl-12 md:pr-0">
             <AnimatedText

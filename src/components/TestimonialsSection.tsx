@@ -44,7 +44,12 @@ export const TestimonialsSection = () => {
   };
 
   return (
-    <section className="relative flex items-center justify-center py-16 md:py-24 md:min-h-[800px] overflow-hidden">
+    <section className="relative flex items-center justify-center py-16 md:py-24 md:min-h-200">
+      <div className="absolute -top-10 left-100 w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-[100px]" />
+      <div className="absolute top-[-30%] left-[5%] w-50 h-50 rounded-full bg-[#3150aa] opacity-60 blur-[120px]" />
+
+      <div className="absolute -bottom-3 right-100 w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-[100px]" />
+      <div className="absolute bottom-0 right-[5%] w-50 h-50 rounded-full bg-[#3150aa] opacity-60 blur-[120px]" />
       <div className="container max-w-5xl px-6 md:px-10 relative z-10">
         <div className="relative">
           {/* Desktop Navigation Arrows */}
@@ -67,7 +72,7 @@ export const TestimonialsSection = () => {
 
           {/* Content */}
           <div className="text-center space-y-10 md:space-y-14">
-            <div className="min-h-[400px] flex items-center justify-center">
+            <div className="min-h-100 flex items-center justify-center">
               <AnimatedText
                 key={activeIndex}
                 useScrollTrigger={false}

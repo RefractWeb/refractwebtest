@@ -19,7 +19,6 @@ export const HeroSection = () => {
           <AnimatedText
             animationType="slideUp"
             splitType="lines"
-            delay={3.9}
             className="text-4xl lg:text-6xl font-bold tracking-tight leading-tight"
           >
             Defining <br /> Digital Identity
@@ -27,7 +26,6 @@ export const HeroSection = () => {
           <AnimatedText
             animationType="slideUp"
             splitType="lines"
-            delay={4}
             className="text-base lg:text-lg max-w-sm leading-tight"
           >
             We merge the precision of code with the power of design,
