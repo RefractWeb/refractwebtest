@@ -7,8 +7,9 @@ interface ContactCardProps {
   label: string;
   content: string | ReactNode;
   isLink?: boolean;
-  href?: string;
+  href?: string | null;
   icon?: ReactNode;
+  onClick?: () => void;
 }
 
 export const ContactCard = ({
@@ -17,15 +18,18 @@ export const ContactCard = ({
   isLink = false,
   href,
   icon,
+  onClick,
 }: ContactCardProps) => {
-  const CardComponent = isLink && href ? "a" : "div";
+  const CardComponent = isLink && href ? "a" : "button";
   const cardProps = isLink && href ? { href } : {};
 
   return (
     <CardComponent
       {...cardProps}
-      target="_blank"
-      className="group relative bg-white/2 hover:bg-white/10 border border-white/20 rounded-2xl p-5 transition-all duration-300 cursor-pointer overflow-hidden"
+      onClick={onClick}
+      type={isLink ? undefined : "button"}
+      target={isLink ? "_blank" : undefined}
+      className="group relative bg-white/2 hover:bg-white/10 border border-white/20 rounded-2xl p-5 transition-all duration-300 cursor-pointer overflow-hidden w-full text-left"
       style={{
         boxShadow: "#ffffff2f 0px 0px 13px inset",
       }}

@@ -1,32 +1,23 @@
 "use client";
 
-import { motion } from "motion/react";
-import { Triangle, Activity, Zap, Hexagon, Box } from "lucide-react";
 import { ContactCard } from "@/components/ContactCard";
 import SmoothContainer from "@/lib/SmoothContainer";
 import AnimatedLogoCloud from "@/components/LogoCloud";
 import { useMouseTilt } from "@/hooks/useMouseTilt";
 import { AnimatedText } from "@/components/ui/animated-text";
 import { AnimatedChip } from "@/components/AnimatedChip";
-
-const TECH_STACK = [
-  { icon: Triangle, label: "Vercel", showIcon: true },
-  { icon: null, label: "React", showIcon: false },
-  { icon: null, label: "GSAP", showIcon: false },
-  { icon: Activity, label: "blender", showIcon: true },
-  { icon: null, label: "Figma", showIcon: false },
-  { icon: null, label: "aws", showIcon: false },
-  { icon: Zap, label: "hotjar", showIcon: true },
-  { icon: Hexagon, label: "Hostinger", showIcon: true },
-  { icon: Box, label: "Notion", showIcon: true },
-];
+import {
+  openCalendlyDialog,
+  CalendlyWidget,
+} from "@/components/CalendlyWidget";
 
 const CONTACT_METHODS = [
   {
     label: "Video Call",
     content: "Start the Conversation",
-    isLink: true,
-    href: "https://calendly.com/d/ctmb-trz-z3c/introduction",
+    isLink: false,
+    href: null,
+    onClick: () => openCalendlyDialog(),
   },
   {
     label: "Email",
@@ -48,7 +39,7 @@ const CONTACT_METHODS = [
 ];
 
 const ContactPage = () => {
-  const { rotateX, rotateY, mousePosition } = useMouseTilt();
+  const { mousePosition } = useMouseTilt();
 
   return (
     <SmoothContainer>
@@ -96,6 +87,7 @@ const ContactPage = () => {
                   content={method.content}
                   isLink={method.isLink}
                   href={method.href}
+                  onClick={method.onClick}
                   icon={method.isLink ? undefined : null}
                 />
               ))}
@@ -103,11 +95,15 @@ const ContactPage = () => {
           </div>
 
           {/* Right Section - Video */}
-          <AnimatedChip containerClassName="w-full lg:w-1/2 flex justify-center lg:justify-end relative isolate perspective-[1000px]" className="translate-x-10" />
+          <AnimatedChip
+            containerClassName="w-full lg:w-1/2 flex justify-center lg:justify-end relative isolate perspective-[1000px]"
+            className="translate-x-10"
+          />
         </main>
 
         <AnimatedLogoCloud />
       </div>
+      <CalendlyWidget />
     </SmoothContainer>
   );
 };

@@ -46,20 +46,18 @@ export function TeamMember({ member }: { member: Member }) {
           <h3 className="text-xl text-grad font-bold tracking-tight mb-52">
             {member.name}
           </h3>
-          <p className="text-muted-foreground text-xs font-medium">
-            {member.bio}
-          </p>
+          <p className="text-foreground/90 text-xs font-medium">{member.bio}</p>
         </div>
         <div className="flex gap-4">
           <Link
             href={`mailto:${member.email}`}
-            className="text-muted-foreground hover:text-primary2 transition-colors duration-300"
+            className="text-foreground/90 hover:text-primary2 transition-colors duration-300"
           >
             <Mail className="size-4" />
           </Link>
           <Link
             href={member.linkedin ?? "https://linkedin.com"}
-            className="text-muted-foreground hover:text-primary2 transition-colors duration-300"
+            className="text-foreground/90 hover:text-primary2 transition-colors duration-300"
           >
             <Linkedin className="size-4" />
           </Link>

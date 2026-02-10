@@ -31,6 +31,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="overflow-x-hidden">
       {process.env.NODE_ENV === "production" && <Clarity />}
+      <head>
+        <link
+          href="https://assets.calendly.com/assets/external/widget.css"
+          rel="stylesheet"
+        />
+      </head>
       <body className={inter.className + " " + geistMono.variable}>
         <BgGrad />
         <Navbar />

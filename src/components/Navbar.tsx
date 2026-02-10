@@ -11,13 +11,26 @@ export const Navbar = () => {
           <div className="button">RefractWeb</div>
         </Link>
         <div className="flex items-center gap-8 px-4 text-sm font-medium text-muted-foreground">
-          {["Home", "About", "Work"].map((item) => (
+          {[
+            {
+              label: "Home",
+              href: "/",
+            },
+            {
+              label: "About",
+              href: "/about",
+            },
+            {
+              label: "Works",
+              href: "/work",
+            },
+          ].map((item) => (
             <Link
-              key={item}
-              href={`/${item.toLowerCase()}`}
+              key={item.label}
+              href={item.href}
               className="hover:text-foreground transition-all"
             >
-              {item}
+              {item.label}
             </Link>
           ))}
         </div>
