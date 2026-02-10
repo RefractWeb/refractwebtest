@@ -17,7 +17,7 @@ export type MarqueeProps = HTMLAttributes<HTMLDivElement>;
 
 export const Marquee = ({ className, ...props }: MarqueeProps) => (
   <div
-    className={cn("relative w-full overflow-hidden mask-x-from-90%", className)}
+    className={cn("relative w-full overflow-hidden bg-red-500", className)}
     {...(props as any)}
   />
 );
@@ -44,7 +44,7 @@ export type MarqueeItemProps = HTMLAttributes<HTMLDivElement>;
 
 export const MarqueeItem = ({ className, ...props }: MarqueeItemProps) => (
   <div
-    className={cn("mx-2 shrink-0 object-contain", className)}
+    className={cn("mx-2 shrink-0 object-contain py-10", className)}
     {...(props as any)}
   />
 );

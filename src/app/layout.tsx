@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import BgGrad from "@/components/ui/bg-grad";
+import Clarity from "@/lib/Clarity";
 
 const inter = Inter_Tight({
   variable: "--font-inter-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="overflow-x-hidden">
+      {process.env.NODE_ENV === "production" && <Clarity />}
       <body className={inter.className + " " + geistMono.variable}>
         <BgGrad />
         <Navbar />

@@ -116,7 +116,7 @@ export const BentoSection = () => {
                       <Image
                         src={item.src}
                         alt={`Marquee ${index}`}
-                        className="size-20"
+                        className="size-20 pointer-events-none"
                         width={100}
                         height={100}
                       />
