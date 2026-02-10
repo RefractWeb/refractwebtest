@@ -126,7 +126,7 @@ export const BentoSection = () => {
                 </DraggableMarquee>
               </Marquee>
             </div>
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 blur-[320px] size-110 bg-primary/50 rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 blur-[120px] size-100 bg-primary/60 rounded-full pointer-events-none" />
           </motion.div>
 
           {/* Software / AI - Bottom Left (1x2) */}

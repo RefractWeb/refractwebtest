@@ -37,7 +37,7 @@ const SOCIAL_LINKS = [
 
 export const Footer = () => {
   return (
-    <footer className="relative bg-linear-to-t from-black to-background pt-20 pb-10 overflow-hidden">
+    <footer className="relative bg-linear-to-t from-black pt-20 pb-10 overflow-hidden">
       <Image
         src={"/logo.svg"}
         alt="logo"

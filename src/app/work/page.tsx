@@ -21,8 +21,8 @@ const page = () => {
       <div className="overflow-hidden">
         <section className="py-32 px-6 relative">
           <div className="absolute inset-0 z-0 pointer-events-none">
-            <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#253a7a] opacity-30 blur-[320px]" />
-            <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#B05D41]/35 blur-[350px]" />
+            <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[240px]" />
+            <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[250px]" />
           </div>
           <div className="container mx-auto max-w-6xl">
             <div className="text-center space-y-4 mb-24">

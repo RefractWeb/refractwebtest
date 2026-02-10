@@ -39,24 +39,17 @@ const CONTACT_METHODS = [
 ];
 
 const ContactPage = () => {
-  const { mousePosition } = useMouseTilt();
-
   return (
     <SmoothContainer>
       <div className="relative min-h-screen flex flex-col bg-background">
         {/* Background Elements */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute inset-0 bg-linear-to-br from-secondary2/40 via-background to-background" />
-          <div
-            className="absolute top-[-10%] left-[1%] w-[50vw] h-[50vw] rounded-full bg-primary opacity-20 blur-[120px]"
-            style={{
-              transform: `translate(${mousePosition.x * -20}px, ${mousePosition.y * -20}px)`,
-            }}
-          />
+          <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[240px]" />
+          <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[250px]" />
         </div>
 
         {/* Main Content */}
-        <main className="relative z-10 container mx-auto px-6 pt-32 grow flex flex-col lg:flex-row items-center gap-12 overflow-hidden">
+        <main className="relative z-10 container mx-auto px-6 pt-32 grow flex flex-col lg:flex-row items-center gap-12 overflow-x-clip">
           {/* Left Section */}
           <div className="w-full lg:w-1/2 space-y-8">
             <div className="space-y-4">

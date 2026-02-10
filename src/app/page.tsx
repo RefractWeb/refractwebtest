@@ -12,7 +12,7 @@ import SmoothContainer from "@/lib/SmoothContainer";
 const App = () => {
   return (
     <SmoothContainer>
-      <div className="min-h-screen overflow-hidden">
+      <div className="min-h-screen overflow-x-clip">
         <HeroSection />
         <BentoSection />
         <WorkSection />

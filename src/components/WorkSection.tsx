@@ -2,13 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState, useCallback } from "react";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  type PanInfo,
-} from "motion/react";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { AnimatedText } from "./ui/animated-text";
 import Work1 from "@/assets/works/Landing page 1.jpg";
 import Work2 from "@/assets/works/Landing page 2.jpg";
@@ -49,7 +43,6 @@ const works = [
 export const WorkSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [dragConstraint, setDragConstraint] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
 
   const x = useMotionValue(0);
   const smoothX = useSpring(x, {
@@ -134,17 +127,13 @@ export const WorkSection = () => {
               power: 0.3,
               timeConstant: 400,
             }}
-            onDragStart={() => setIsDragging(true)}
-            onDragEnd={(_: PointerEvent, info: PanInfo) => {
-              setTimeout(() => setIsDragging(false), 150);
-            }}
             style={{ x: smoothX }}
             className="flex gap-6 pb-12 cursor-grab active:cursor-grabbing select-none"
           >
             {works.map((work, index) => (
               <motion.div
                 key={index}
-                className="min-w-[85vw] lg:min-w-130 group bg-linear-to-br from-card via-background to-card rounded-2xl"
+                className="min-w-[85vw] lg:min-w-130 group bg-linear-to-br from-card via-card/70 to-card rounded-2xl border"
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               >

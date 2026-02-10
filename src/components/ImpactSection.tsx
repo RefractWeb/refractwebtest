@@ -10,8 +10,11 @@ import ChartAnim from "./ChartAnim";
 export const ImpactSection = () => {
   return (
     <section className="relative py-24 px-6">
-      {/* Background glow for this section */}
-      {/* <div className="absolute top-[30%] right-0 w-[40vw] h-[40vw] bg-[#1E2E5E] opacity-20 blur-[150px] pointer-events-none -z-1" /> */}
+      <div className="absolute top-[-10%] left-[15%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-50 blur-[220px]" />
+      <div className="absolute top-[-14%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-50 blur-[250px]" />
+
+      <div className="absolute bottom-[-30%] right-[15%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-50 blur-[220px]" />
+      <div className="absolute bottom-[-34%] -right-[20%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-50 blur-[250px]" />
 
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
@@ -39,10 +42,17 @@ export const ImpactSection = () => {
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1: Revenue Supported */}
-          <div className="relative group bg-linear-to-br from-[#121420] to-[#0A0A0A] border border-white/5 rounded-2xl p-8 overflow-hidden hover:border-white/10 transition-colors">
+          <div
+            className="relative group bg-linear-to-br from-[#121420] to-[#0A0A0A] rounded-3xl p-8 overflow-hidden"
+            style={{
+              boxShadow: "0 0 18px rgba(0,0,0, 0.45)",
+            }}
+          >
             <div className="relative z-10 flex flex-col justify-between h-80 md:min-h-72">
               <div className="flex flex-col gap-3">
-                <h3 className="text-grad text-lg mb-2">Revenue Supported</h3>
+                <h3 className="text-grad text-lg mb-2 md:mb-6">
+                  Revenue Supported
+                </h3>
                 <div className="text-6xl font-medium tracking-tighter text-grad">
                   $100M+
                 </div>
@@ -62,10 +72,17 @@ export const ImpactSection = () => {
           </div>
 
           {/* Card 2: Assets Deployed */}
-          <div className="relative group bg-linear-to-bl from-[#15192b] to-[#0A0A0A] border border-white/5 rounded-2xl p-8 overflow-hidden hover:border-white/10 transition-colors">
+          <div
+            className="relative group bg-linear-to-bl from-[#15192b] to-[#0A0A0A]  rounded-3xl p-8 overflow-hidden"
+            style={{
+              boxShadow: "0 0 18px rgba(0,0,0, 0.45)",
+            }}
+          >
             <div className="relative z-10 flex flex-col justify-between h-80 md:min-h-72">
               <div className="flex flex-col h-full gap-3 relative z-10">
-                <h3 className="text-grad text-lg mb-2">Assets Deployed</h3>
+                <h3 className="text-grad text-lg mb-2 md:mb-6">
+                  Assets Deployed
+                </h3>
                 <div className="text-6xl font-medium tracking-tighter text-grad">
                   100+
                 </div>
@@ -90,9 +107,14 @@ export const ImpactSection = () => {
           </div>
 
           {/* Card 3: Enterprise DNA (Full Width) */}
-          <div className="relative group md:col-span-2 bg-linear-to-r from-[#0d0d14] to-[#0A0A0A] border border-white/5 rounded-2xl p-8 overflow-hidden h-100 hover:border-white/10 transition-colors">
+          <div
+            className="relative group md:col-span-2 bg-linear-to-r from-[#0d0d14] to-[#0A0A0A] rounded-3xl p-8 overflow-hidden h-100"
+            style={{
+              boxShadow: "0 0 18px rgba(0,0,0, 0.45)",
+            }}
+          >
             <div className="flex flex-col h-full gap-3 relative z-10">
-              <h3 className="text-grad text-lg mb-2">Enterprise DNA</h3>
+              <h3 className="text-grad text-lg mb-2 md:mb-6">Enterprise DNA</h3>
               <div className="text-6xl font-medium tracking-tighter text-grad px-1">
                 $2.65B
               </div>

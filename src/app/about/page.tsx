@@ -11,8 +11,8 @@ export default function AboutPage() {
     <SmoothContainer>
       <main className="relative">
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute top-[-2%] -left-[15%] w-[50vw] h-[50vw] rounded-full bg-[#253a7a] opacity-30 blur-[500px]" />
-          <div className="absolute top-[-8%] left-[15%] w-[50vw] h-[50vw] rounded-full bg-[#B05D41]/30 blur-[500px]" />
+          <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[240px]" />
+          <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[250px]" />
         </div>
         <Teams />
         <About />
