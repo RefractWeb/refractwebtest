@@ -44,7 +44,7 @@ export type MarqueeItemProps = HTMLAttributes<HTMLDivElement>;
 
 export const MarqueeItem = ({ className, ...props }: MarqueeItemProps) => (
   <div
-    className={cn("mx-2 shrink-0 object-contain py-10", className)}
+    className={cn("mx-2 shrink-0 object-contain py-4", className)}
     {...(props as any)}
   />
 );
@@ -115,7 +115,7 @@ export const DraggableMarquee = ({
     <div
       ref={containerRef}
       className={cn(
-        "overflow-hidden cursor-grab active:cursor-grabbing w-full",
+        "overflow-hidden cursor-grab active:cursor-grabbing w-full mask-x-from-95%",
         className,
       )}
       onMouseEnter={() => setIsHovering(true)}
@@ -128,7 +128,7 @@ export const DraggableMarquee = ({
         dragElastic={1}
         onDragStart={() => setIsDragging(true)}
         onDragEnd={() => setIsDragging(false)}
-        onDrag={(event, info) => {
+        onDrag={(_, info) => {
           baseX.set(baseX.get() + info.delta.x);
         }}
         className="flex shrink-0 whitespace-nowrap"

@@ -189,3 +189,12 @@
 code {
   font-family: var(--font-geist-mono);
 }
+
+.bg-grad-up {
+  background-image: radial-gradient(
+    145% 100% at 50% 10%,
+    transparent 35%,
+    var(--color-primary) 80%,
+    var(--color-primary2) 100%
+  );
+}

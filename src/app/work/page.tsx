@@ -45,7 +45,7 @@ const page = () => {
             </div>
 
             <div className="relative group">
-              <div className="flex items-center justify-center flex-col gap-4">
+              <div className="flex items-center justify-center flex-col">
                 <Marquee>
                   <DraggableMarquee speed={1.2} direction="right">
                     {projects.map((project, i) => (

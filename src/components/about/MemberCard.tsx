@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Linkedin, Mail } from "lucide-react";
 import type { StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
+import BgGrad from "../ui/bg-grad";
 
 export type Member = {
   name: string;
@@ -41,7 +42,7 @@ export function TeamMember({ member }: { member: Member }) {
       </div>
 
       {/* Bio Card */}
-      <div className="flex flex-col bg-neutral-900/40 rounded-2xl border border-white/5 p-6 justify-between hover:border-white/10 transition-all duration-500">
+      <div className="flex flex-col bg-neutral-900/40 rounded-2xl p-6 justify-between hover:border-white/10 transition-all duration-500 relative backdrop-blur bg-grad-up">
         <div className="space-y-4">
           <h3 className="text-xl text-grad font-bold tracking-tight mb-12 md:mb-52">
             {member.name}
@@ -51,13 +52,13 @@ export function TeamMember({ member }: { member: Member }) {
         <div className="flex gap-4 mt-4">
           <Link
             href={`mailto:${member.email}`}
-            className="text-foreground/90 hover:text-primary2 transition-colors duration-300"
+            className="text-foreground/90 hover:text-primary transition-colors duration-300"
           >
             <Mail className="size-4" />
           </Link>
           <Link
             href={member.linkedin ?? "https://linkedin.com"}
-            className="text-foreground/90 hover:text-primary2 transition-colors duration-300"
+            className="text-foreground/90 hover:text-primary transition-colors duration-300"
           >
             <Linkedin className="size-4" />
           </Link>

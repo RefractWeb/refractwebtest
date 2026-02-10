@@ -8,10 +8,12 @@ import { BuildEnvironmentSection } from "@/components/BuildEnvironmentSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CTASection } from "@/components/CTASection";
 import SmoothContainer from "@/lib/SmoothContainer";
+import SVGPreloader from "@/components/SVGPreloader";
 
 const App = () => {
   return (
     <SmoothContainer>
+      <SVGPreloader />
       <div className="min-h-screen overflow-x-clip">
         <HeroSection />
         <BentoSection />

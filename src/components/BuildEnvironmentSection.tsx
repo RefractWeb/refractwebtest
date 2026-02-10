@@ -3,6 +3,7 @@
 import { HolographicWall } from "./holographicwall";
 import { Button } from "./ui/button";
 import { AnimatedText } from "./ui/animated-text";
+import Link from "next/link";
 
 export const BuildEnvironmentSection = () => {
   return (
@@ -44,7 +45,9 @@ export const BuildEnvironmentSection = () => {
               ensure reliability and uncompromising polish.
             </AnimatedText>
             <div className="pt-4">
-              <Button>Start a project</Button>
+              <Link href="/contact">
+                <Button>Start a project</Button>
+              </Link>
             </div>
           </div>
 
