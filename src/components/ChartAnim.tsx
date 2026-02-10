@@ -3,16 +3,19 @@ import { motion, useMotionValue, useSpring } from "motion/react";
 import { useMousePosition } from "@/hooks/useMousePosition";
 
 const PATH_D =
-  "M14.1801 437.215C58.7608 259.002 104.348 213.657 140.658 210.81C205.774 205.739 241.108 337.67 311.958 333.183C399.409 327.69 419.843 122.101 506.399 117C577.42 112.835 607.573 248.72 677.699 244.826C766.649 239.856 791.973 17.1338 870.087 14.3569C899.516 13.3106 939.68 43.3731 990.408 169.358";
+  "M48.7041 447C93.2848 268.788 138.872 223.443 175.182 220.595C240.298 215.524 275.632 347.456 346.482 342.968C433.933 337.475 454.367 131.887 540.923 126.786C611.944 122.62 642.097 258.505 712.223 254.612C801.173 249.642 826.497 26.9192 904.611 24.1423C934.04 23.096 974.204 53.1585 1024.93 179.144";
+
+const FILL_PATH_D =
+  "M54.6318 444.432C98.9418 267.302 144.252 222.232 180.342 219.402C245.062 214.362 280.182 345.492 350.602 341.032C437.522 335.572 457.832 131.232 543.862 126.162C614.452 122.022 644.422 257.082 714.122 253.212C802.532 248.272 827.702 26.9021 905.342 24.1421C934.592 23.1021 974.512 52.9821 1024.93 178.202V444.432";
 
 const TARGET_STOP = 0.7;
 const HOVER_RADIUS = 150; // Distance in pixels for hover effect
 
 const FILTER_CONFIG = {
-  x: "-1.23978e-05",
-  y: "4.86374e-05",
-  width: "1005",
-  height: "448",
+  x: "0.000106812",
+  y: "-30.5155",
+  width: "1039.32",
+  height: "489.335",
   filterUnits: "userSpaceOnUse" as const,
   colorInterpolationFilters: "sRGB" as const,
 };
@@ -42,8 +45,8 @@ const ChartAnim = () => {
   }, []);
 
   const [point, setPoint] = useState<{ x: number; y: number }>({
-    x: 14,
-    y: 437,
+    x: 712.223,
+    y: 254.732,
   });
 
   // Find closest point on path to mouse
@@ -157,7 +160,7 @@ const ChartAnim = () => {
   // Memoize blur layers
   const blurLayers = useMemo(
     () =>
-      [0, 1, 2].map((i) => (
+      [0, 1, 2, 3].map((i) => (
         <g
           key={i}
           filter={`url(#filter${i})`}
@@ -166,7 +169,7 @@ const ChartAnim = () => {
           <path
             d={PATH_D}
             stroke="#F59768"
-            strokeWidth="10"
+            strokeWidth="10.0611"
             strokeMiterlimit="10"
           />
         </g>
@@ -177,18 +180,38 @@ const ChartAnim = () => {
   return (
     <div
       ref={containerRef}
-      className="absolute -bottom-[65%] -right-[10%] w-full max-w-4xl"
+      className="absolute -bottom-[65%] -right-[10%] w-full max-w-4xl z-10"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <svg
         ref={svgRef}
-        viewBox="0 0 1005 448"
+        viewBox="0 0 1025 447"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="size-200 cursor-grab"
       >
-        <defs>{filterDefs}</defs>
+        <defs>
+          {filterDefs}
+          <linearGradient
+            id="gradientFill"
+            x1="1024.93"
+            y1="24.1163"
+            x2="19.3345"
+            y2="148.758"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stopColor="#1E2E5E" stopOpacity="0" />
+            <stop offset="1" stopColor="#F59768" />
+          </linearGradient>
+        </defs>
+
+        {/* Gradient fill area */}
+        <path
+          d={FILL_PATH_D}
+          fill="url(#gradientFill)"
+          shapeRendering="crispEdges"
+        />
 
         {blurLayers}
 
@@ -197,7 +220,7 @@ const ChartAnim = () => {
           ref={pathRef}
           d={PATH_D}
           stroke="white"
-          strokeWidth="10"
+          strokeWidth="10.0611"
           strokeMiterlimit="10"
         />
 

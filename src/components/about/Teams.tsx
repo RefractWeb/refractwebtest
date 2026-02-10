@@ -34,7 +34,7 @@ export default function Teams() {
             <AnimatedText
               animationType="slideUp"
               splitType="lines"
-              className="text-5xl md:text-6xl font-semibold tracking-tighter leading-[1.1]"
+              className="text-5xl md:text-6xl font-semibold tracking-tighter leading-[1.15]"
             >
               Working with those <br /> who set the standard
             </AnimatedText>
