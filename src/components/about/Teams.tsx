@@ -29,39 +29,29 @@ export default function Teams() {
   return (
     <section className="py-40 px-6 relative">
       <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-16">
-          <div className="space-y-6">
-            <AnimatedText
-              animationType="slideUp"
-              splitType="lines"
-              className="text-5xl md:text-6xl font-semibold tracking-tighter leading-[1.15]"
-            >
-              Working with those <br /> who set the standard
-            </AnimatedText>
-            <AnimatedText
-              animationType="slideUp"
-              splitType="lines"
-              delay={0.1}
-              className="text-muted-foreground text-xl font-medium"
-            >
-              Across media, technology, and high-visibility environments.
-            </AnimatedText>
-            <ActionButtons />
-          </div>
+        <div className="space-y-6 mb-16">
+          <AnimatedText
+            animationType="slideUp"
+            splitType="lines"
+            className="text-4xl md:text-6xl font-semibold tracking-tighter leading-[1.15]"
+          >
+            Working with those <br /> who set the standard
+          </AnimatedText>
+          <AnimatedText
+            animationType="slideUp"
+            splitType="lines"
+            delay={0.1}
+            className="text-xl"
+          >
+            Across media, technology, and high-visibility environments.
+          </AnimatedText>
+          <ActionButtons />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
           {members.map((m) => (
             <TeamMember key={m.name} member={m} />
           ))}
-        </div>
-
-        <div className="mt-12 md:hidden text-center">
-          <Link href="/contact">
-            <Button size="lg" className="w-full py-7 text-xl rounded-full">
-              Work with us
-            </Button>
-          </Link>
         </div>
       </div>
     </section>

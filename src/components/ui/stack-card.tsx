@@ -3,7 +3,6 @@
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { ArrowRight, Monitor } from "lucide-react";
-
 import webDevImg from "@/assets/works/Landing page 3.jpg";
 import designImg from "@/assets/works/Landing page 2.jpg";
 import brandImg from "@/assets/works/Landing page 1.jpg";
@@ -37,22 +36,24 @@ const CARDS: CardData[] = [
 
 export default function StackCards() {
   return (
-    <div className="relative space-y-40">
+    <div className="relative">
+      <div className="absolute -inset-10 bg-linear-to-r from-primary/20 to-primary2/20 blur-[120px] opacity-40 transition-opacity" />
       {CARDS.map((card, index) => {
-        const topOffset = 120 + index * 80;
-
+        const topOffset = 120 + index * 60;
         return (
           <div
             key={index}
-            className="sticky w-full max-w-6xl mx-auto"
+            className="sticky w-full max-w-6xl mx-auto flex flex-col mt-10"
             style={{ top: topOffset, zIndex: index }}
           >
             <div className="relative group">
-              {/* glow */}
-              <div className="absolute -inset-10 bg-gradient-to-r from-primary/20 to-primary2/20 blur-[120px] opacity-60 transition-opacity" />
-
               {/* main card */}
-              <div className="relative bg-[#0E111B] rounded-3xl p-10 md:p-16 overflow-hidden flex flex-col lg:flex-row gap-16 items-center shadow-2xl">
+              <div
+                className="relative bg-[#0E111B] rounded-3xl p-6 md:p-12 flex flex-col lg:flex-row gap-16 items-center"
+                style={{
+                  boxShadow: "#02071861 0px 2px 20px",
+                }}
+              >
                 {/* image side */}
                 <div
                   className="w-full lg:w-3/5 relative aspect-video rounded-2xl overflow-hidden transition-all bg-[#1423547a]"

@@ -2,7 +2,7 @@ import { AnimatedText } from "../ui/animated-text";
 
 export default function () {
   return (
-    <section className="relative pt-48 pb-32 px-6">
+    <section className="relative py-20 md:pt-48 md:pb-32 px-6">
       <div
         className="absolute inset-0 mask-radial-at-top mask-t-from-80% mask-radial-to-60% opacity-50 pointer-events-none"
         style={{
@@ -17,11 +17,11 @@ export default function () {
           useScrollTrigger={true}
           animationType="skewIn"
           splitType="lines"
-          duration={1.4}
+          duration={1.6}
           delay={0.4}
-          className="text-2xl md:text-5xl font-semibold leading-[1.2] tracking-tight mx-auto max-w-5xl p-2"
+          className="text-3xl md:text-5xl font-semibold leading-[1.2] tracking-tight mx-auto max-w-5xl p-2"
         >
-          The Gap Between Reality And Perception ... We Exist To Ensure No Great
+          The Gap Between Reality And Perception... We Exist To Ensure No Great
           Company Is Held Back By A Quiet Digital Presence
         </AnimatedText>
       </div>

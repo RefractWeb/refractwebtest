@@ -1,7 +1,3 @@
-import { ArrowRight, Monitor } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import webDevImg from "@/assets/works/Landing page 3.jpg";
 import { AnimatedText } from "../ui/animated-text";
 import ActionButtons from "../ActionButtons";
 import HowItWorks from "../ui/stack-card";
@@ -15,7 +11,7 @@ export default function () {
             useScrollTrigger={true}
             animationType="slideUp"
             splitType="lines"
-            className="text-6xl font-semibold tracking-tighter p-2 inline-block"
+            className="text-4xl md:text-6xl font-semibold tracking-tighter"
           >
             Core capabilities
           </AnimatedText>
@@ -24,7 +20,7 @@ export default function () {
             animationType="slideUp"
             splitType="lines"
             delay={0.1}
-            className="text-xl max-w-md mx-auto leading-relaxed"
+            className="text-base md:text-xl max-w-md mx-auto md:leading-relaxed"
           >
             Integrated execution. We blend strategy, design, and code to build
             platforms that perform.
