@@ -40,7 +40,7 @@ export const BentoSection = () => {
             animationType="slideUp"
             splitType="lines"
             delay={0.1}
-            className="text-muted-foreground text-lg md:text-xl max-w-2xl mb-10"
+            className="text-muted-foreground text-base md:text-xl max-w-2xl mb-10"
           >
             We replace the need for multiple vendors. From brand identity to
             custom software, we build the entire ecosystem your business runs
@@ -50,17 +50,17 @@ export const BentoSection = () => {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-min md:auto-rows-[350px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:auto-rows-[350px]">
           {/* Web Development - Top Left (2x1) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="md:col-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 min-h-[350px] md:min-h-0"
+            className="md:col-span-2 relative bg-secondary3 border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 md:min-h-0"
           >
             <div className="absolute -left-10 blur-[540px] size-250 bg-secondary3 rounded-full"></div>
 
-            <div className="relative z-10 flex flex-col justify-center md:justify-start h-full gap-4">
+            <div className="relative z-10 flex flex-col justify-center md:justify-start gap-4 mt-52 md:mt-0">
               <Globe className="size-6 text-foreground/80" />
               <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-grad">
                 Web Development
@@ -105,7 +105,7 @@ export const BentoSection = () => {
                 <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
-            <div className="absolute bottom-20 md:bottom-30 z-10 left-0 w-full">
+            <div className="absolute bottom-6 md:bottom-30 z-10 left-0 w-full">
               <Marquee>
                 <DraggableMarquee speed={0.5} direction="right" gap={10}>
                   {[...marqueeItems].map((item, index) => (
@@ -117,7 +117,7 @@ export const BentoSection = () => {
                         src={item.src}
                         loading="lazy"
                         alt={`Marquee ${index}`}
-                        className="size-16 md:size-26 pointer-events-none"
+                        className="size-20 md:size-26 pointer-events-none"
                         width={150}
                         height={150}
                       />
@@ -134,7 +134,7 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="md:row-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group flex flex-col items-center justify-end min-h-[500px] md:min-h-0"
+            className="md:row-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group flex flex-col items-center justify-end min-h-[630px] md:min-h-0"
           >
             <CodeEditorReplica />
             <div className="relative z-10 p-6 md:p-14 flex flex-col gap-4 w-full">
@@ -180,9 +180,9 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="md:col-span-1 lg:col-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 min-h-[350px] md:min-h-0"
+            className="md:col-span-1 lg:col-span-2 relative bg-secondary3/20 border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 min-h-[400px] md:min-h-0"
           >
-            <div className="relative z-10 flex flex-col h-full gap-4">
+            <div className="relative z-10 flex flex-col gap-4">
               <Video className="size-6 text-foreground/80" />
               <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-grad">
                 3D Animation
@@ -198,13 +198,13 @@ export const BentoSection = () => {
             </div>
 
             {/* Illustration */}
-            <div className="absolute inset-y-0 h-full w-2/3 -right-8 pointer-events-none select-none">
+            <div className="md:absolute inset-y-0 md:h-full md:w-2/3 -right-8 pointer-events-none select-none -mb-6">
               <Image
                 src={img4}
                 placeholder="blur"
                 loading="lazy"
                 alt="3D Animation Illustration"
-                className="h-full group-hover:scale-125 transition-all duration-700 object-contain scale-110 md:scale-120 opacity-40 md:opacity-100"
+                className="h-full group-hover:scale-125 transition-all duration-700 object-contain scale-110 md:scale-120 opacity-100"
               />
             </div>
             <div className="absolute inset-0 bg-linear-to-l from-secondary3/60 via-transparent to-transparent pointer-events-none" />

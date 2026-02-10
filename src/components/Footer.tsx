@@ -51,22 +51,22 @@ export const Footer = () => {
         <Image
           src={text}
           alt="RefractWeb"
-          className="w-[120vw] h-auto px-1 scale-110 mx-auto select-none pointer-events-none drop-shadow-2xl drop-shadow-primary/5"
+          className="w-[120vw] h-auto px-6 md:px-1 scale-110 mx-auto select-none pointer-events-none drop-shadow-2xl drop-shadow-primary/5"
           width={2000}
           height={400}
         />
       </div>
 
       {/* Links & Info */}
-      <div className="container mx-auto px-6 mt-20 relative z-20">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+      <div className="container mx-auto px-6 mt-10 md:mt-20 relative z-20">
+        <div className="flex flex-wrap flex-row justify-between items-start gap-12">
           {/* Left Column */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-gray-500 font-bold mb-4 tracking-wider text-sm">
+              <h3 className="text-gray-500 font-bold mb-4 tracking-wider text-xs md:text-sm">
                 WEBSITE
               </h3>
-              <ul className="space-y-2 text-lg font-medium text-gray-300">
+              <ul className="space-y-2 text-sm md:text-lg font-medium text-gray-300">
                 {WEBSITE_LINKS.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -84,10 +84,10 @@ export const Footer = () => {
           {/* Right Column */}
           <div className="space-y-6 text-right md:text-left">
             <div>
-              <h3 className="text-gray-500 font-bold mb-4 tracking-wider text-sm">
+              <h3 className="text-gray-500 font-bold mb-4 tracking-wider text-xs md:text-sm">
                 LEGAL
               </h3>
-              <ul className="space-y-2 text-lg font-medium text-gray-300">
+              <ul className="space-y-2 text-sm md:text-lg font-medium text-gray-300">
                 {LEGAL_LINKS.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -128,7 +128,7 @@ export const Footer = () => {
       </div>
 
       {/* Ambient Corner Glows for Footer */}
-      <div className="absolute -bottom-60 right-40 w-125 h-125 bg-blue-700/15 opacity-100 blur-[150px] pointer-events-none" />
+      <div className="absolute -bottom-60 right-40 w-125 h-125 bg-blue-700/15 blur-[150px] pointer-events-none" />
     </footer>
   );
 };

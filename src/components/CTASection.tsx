@@ -6,7 +6,7 @@ import { AnimatedChip } from "./AnimatedChip";
 
 export const CTASection = () => {
   return (
-    <section className="py-24 mb-10 px-6 bg-background flex justify-center relative">
+    <section className="pt-16 md:py-24 md:mb-10 px-6 bg-background flex justify-center relative">
       <div className="container max-w-6xl relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
         <div className="w-full lg:w-1/2 space-y-8">
           <AnimatedText

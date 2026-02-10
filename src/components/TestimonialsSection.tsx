@@ -44,7 +44,7 @@ export const TestimonialsSection = () => {
   };
 
   return (
-    <section className="relative flex items-center justify-center py-24 min-h-[800px] overflow-hidden">
+    <section className="relative flex items-center justify-center py-16 md:py-24 md:min-h-[800px] overflow-hidden">
       <div className="container max-w-5xl px-6 md:px-10 relative z-10">
         <div className="relative">
           {/* Desktop Navigation Arrows */}
