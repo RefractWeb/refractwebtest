@@ -10,12 +10,27 @@ import { CTASection } from "@/components/CTASection";
 import SmoothContainer from "@/lib/SmoothContainer";
 import SVGPreloader from "@/components/SVGPreloader";
 
+let hasLoaded = false;
+
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!hasLoaded);
+  const [isPreloaderVisible, setIsPreloaderVisible] = useState(!hasLoaded);
 
   return (
     <SmoothContainer>
-      <SVGPreloader onCompleteAction={() => setLoading(false)} />
+      {isPreloaderVisible && (
+        <SVGPreloader
+          onCompleteAction={() => {
+            setLoading(false);
+            // Delay unmounting to let the exit animation finish
+            // Animation duration is 1s, onCompleteAction triggers at 0.6s
+            setTimeout(() => {
+              setIsPreloaderVisible(false);
+              hasLoaded = true;
+            }, 500);
+          }}
+        />
+      )}
       <div className="min-h-screen overflow-x-clip">
         <HeroSection isStarted={!loading} />
         <BentoSection />

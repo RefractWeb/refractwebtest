@@ -21,7 +21,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
             animationType="slideUp"
             splitType="lines"
             shouldAnimate={isStarted}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight"
+            className="text-4xl md:text-6xl lg:text-[68px] font-bold tracking-tight leading-[1.18]"
           >
             Defining <br /> Digital Identity
           </AnimatedText>
@@ -49,7 +49,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
           isStarted={isStarted}
         />
       </main>
-      <AnimatedLogoCloud />
+      <AnimatedLogoCloud className="md:-translate-y-12" />
     </div>
   );
 };

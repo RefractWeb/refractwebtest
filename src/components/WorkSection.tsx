@@ -74,13 +74,13 @@ export const WorkSection = () => {
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
             >
-              <div className="h-60 md:h-100 relative overflow-hidden rounded-t-2xl">
+              <div className="h-60 md:h-76 relative overflow-hidden rounded-t-2xl">
                 <Image
                   src={work.image}
                   alt={work.title}
                   placeholder="blur"
                   loading="lazy"
-                  className="object-cover object-left translate-x-4 md:translate-x-10 transition-transform duration-700 group-hover:scale-105 rounded-bl-2xl select-none pointer-events-none bg-background"
+                  className="object-cover object-left translate-x-4 md:translate-x-6 transition-transform duration-700 group-hover:scale-105 rounded-bl-2xl select-none pointer-events-none bg-background"
                   fill
                   draggable={false}
                 />

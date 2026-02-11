@@ -107,7 +107,8 @@ export const ImpactSection = () => {
                 loading="lazy"
                 placeholder="blur"
                 alt="works illustration"
-                className="object-cover object-left size-full rounded-md"
+                draggable={false}
+                className="object-cover object-left size-full rounded-md pointer-events-none"
               />
             </div>
           </div>

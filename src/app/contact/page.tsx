@@ -24,9 +24,9 @@ const CONTACT_METHODS = [
     label: "Address",
     content: (
       <div className="leading-snug">
-        6977 Navajo Rd #520
+        4545 La Jolla Village Dr,
         <br />
-        San Diego, CA 92119
+        San Diego, CA 92122
       </div>
     ),
     isLink: false,
@@ -67,7 +67,7 @@ const ContactPage = () => {
             </div>
 
             {/* Contact Cards */}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 max-w-lg">
               {CONTACT_METHODS.map((method, idx) => (
                 <ContactCard
                   key={idx}
@@ -89,7 +89,7 @@ const ContactPage = () => {
           />
         </main>
 
-        <AnimatedLogoCloud />
+        <AnimatedLogoCloud className="md:-translate-y-12" />
       </div>
     </SmoothContainer>
   );
