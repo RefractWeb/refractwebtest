@@ -83,10 +83,7 @@ const ContactPage = () => {
           </div>
 
           {/* Right Section - Video */}
-          <AnimatedChip
-            containerClassName="w-full md:w-1/2 isolate perspective-[1000px] min-h-[40vh]"
-            className="md:translate-x-10"
-          />
+          <AnimatedChip containerClassName="w-full md:w-1/2 isolate perspective-[1000px] min-h-[40vh]" />
         </main>
 
         <AnimatedLogoCloud className="md:-translate-y-12" />
