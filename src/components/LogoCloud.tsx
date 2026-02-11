@@ -45,7 +45,7 @@ const AnimatedLogoCloud = () => {
         <div className="group relative mt-6 flex gap-6 overflow-hidden p-2 mask-x-from-80%">
           {Array(5)
             .fill(null)
-            .map((index) => (
+            .map((_, index) => (
               <div
                 key={index}
                 className="flex shrink-0 animate-logo-cloud flex-row justify-around gap-5 md:gap-8"

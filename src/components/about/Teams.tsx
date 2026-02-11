@@ -28,6 +28,10 @@ export default function Teams() {
 
   return (
     <section className="py-40 px-6 relative">
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute pointer-events-none top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[200px] -z-10" />
+        <div className="absolute pointer-events-none top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[230px] -z-10" />
+      </div>
       <div className="container mx-auto max-w-6xl">
         <div className="space-y-6 mb-16">
           <AnimatedText

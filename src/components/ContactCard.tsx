@@ -1,7 +1,8 @@
 "use client";
 
-import { ExternalLink } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { ReactNode } from "react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 interface ContactCardProps {
   label: string;
@@ -10,6 +11,7 @@ interface ContactCardProps {
   href?: string | null;
   icon?: ReactNode;
   onClick?: () => void;
+  calendlyLink?: string;
 }
 
 export const ContactCard = ({
@@ -19,11 +21,12 @@ export const ContactCard = ({
   href,
   icon,
   onClick,
+  calendlyLink,
 }: ContactCardProps) => {
   const CardComponent = isLink && href ? "a" : "button";
   const cardProps = isLink && href ? { href } : {};
 
-  return (
+  const Card = (
     <CardComponent
       {...cardProps}
       onClick={onClick}
@@ -40,13 +43,31 @@ export const ContactCard = ({
         </span>
         <div className="text-lg font-medium text-foreground group-hover:text-primary2 transition-colors flex items-center gap-2">
           {content}
-          {isLink && icon && (
-            <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
-          )}
+          {(isLink && icon) || calendlyLink ? (
+            <Calendar className="size-4 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
+          ) : null}
         </div>
       </div>
-      {/* Hover Glow */}
-      <div className="absolute inset-0 bg-linear-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </CardComponent>
   );
+
+  if (calendlyLink) {
+    return (
+      <Dialog>
+        <DialogTrigger asChild>{Card}</DialogTrigger>
+        <DialogContent className="sm:max-w-5xl md:h-[660px] h-[80vh] p-1 md:p-4 overflow-hidden border border-white/20 bg-muted/10 backdrop-blur-md rounded-2xl">
+          <iframe
+            src={calendlyLink}
+            width="100%"
+            height="100%"
+            frameBorder="0"
+            className="rounded-xl"
+            title="Select a Date & Time - Calendly"
+          />
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
+  return Card;
 };

@@ -3,13 +3,8 @@
 import { ContactCard } from "@/components/ContactCard";
 import SmoothContainer from "@/lib/SmoothContainer";
 import AnimatedLogoCloud from "@/components/LogoCloud";
-import { useMouseTilt } from "@/hooks/useMouseTilt";
 import { AnimatedText } from "@/components/ui/animated-text";
 import { AnimatedChip } from "@/components/AnimatedChip";
-import {
-  openCalendlyDialog,
-  CalendlyWidget,
-} from "@/components/CalendlyWidget";
 
 const CONTACT_METHODS = [
   {
@@ -17,7 +12,7 @@ const CONTACT_METHODS = [
     content: "Start the Conversation",
     isLink: false,
     href: null,
-    onClick: () => openCalendlyDialog(),
+    calendlyLink: "https://calendly.com/d/ctmb-trz-z3c/introduction",
   },
   {
     label: "Email",
@@ -80,7 +75,7 @@ const ContactPage = () => {
                   content={method.content}
                   isLink={method.isLink}
                   href={method.href}
-                  onClick={method.onClick}
+                  calendlyLink={method.calendlyLink}
                   icon={method.isLink ? undefined : null}
                 />
               ))}
@@ -96,7 +91,6 @@ const ContactPage = () => {
 
         <AnimatedLogoCloud />
       </div>
-      <CalendlyWidget />
     </SmoothContainer>
   );
 };

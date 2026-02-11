@@ -42,7 +42,7 @@ export function TeamMember({ member }: { member: Member }) {
       </div>
 
       {/* Bio Card */}
-      <div className="flex flex-col bg-neutral-900/40 rounded-2xl p-6 justify-between hover:border-white/10 transition-all duration-500 relative backdrop-blur bg-grad-up">
+      <div className="flex flex-col bg-background/90 rounded-2xl p-6 justify-between hover:border-white/10 transition-all duration-500 relative backdrop-blur bg-grad-up">
         <div className="space-y-4">
           <h3 className="text-xl text-grad font-bold tracking-tight mb-12 md:mb-52">
             {member.name}

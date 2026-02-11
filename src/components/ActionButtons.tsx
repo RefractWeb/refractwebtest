@@ -2,6 +2,7 @@ import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import LetterSwapForward from "./ui/LetterSwap";
 
 const ActionButtons = ({ className }: { className?: string }) => {
   return (
@@ -16,7 +17,11 @@ const ActionButtons = ({ className }: { className?: string }) => {
       </Link>
       <Link href="/about#core-capabilities">
         <Button variant={"ghost"} className="group">
-          Explore our services
+          <LetterSwapForward
+            staggerDuration={0.001}
+            reverse={false}
+            label="Explore our services"
+          />
           <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
         </Button>
       </Link>
