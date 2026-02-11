@@ -29,6 +29,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
             animationType="slideUp"
             splitType="lines"
             shouldAnimate={isStarted}
+            delay={0.4}
             className="text-base md:text-lg lg:text-xl max-w-md leading-tight"
           >
             We merge the precision of code with the power of design,

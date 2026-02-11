@@ -59,9 +59,9 @@ export interface AnimatedTextOptions {
 export const AnimatedText = ({
   splitType = "lines",
   maskType = "lines",
-  duration = 0.8,
+  duration = 1,
   ease = "expo.out",
-  stagger = 0.1,
+  stagger = 0.14,
   animationType = "slideUp",
   customAnimation,
   delay = 0,
