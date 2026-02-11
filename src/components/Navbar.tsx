@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import Image from "next/image";
 
 const navItems = [
   {
@@ -50,7 +51,18 @@ export const Navbar = () => {
       {/* Desktop Pill Menu */}
       <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-saturate-150 backdrop-brightness-110 backdrop-blur-lg border border-white/5 border-b-white/20 rounded-full p-2 items-center gap-8 shadow-xl shadow-black/10">
         <Link href="/">
-          <div className="button">RefractWeb</div>
+          <div className="button">
+            <span>
+              <Image
+                src={"/logo.svg"}
+                alt="logo"
+                className="size-[11px] -translate-y-[0.5px]"
+                width={12}
+                height={12}
+              />
+            </span>
+            <span className="leading-none">efractWeb</span>
+          </div>
         </Link>
         <div className="flex items-center gap-8 px-4 text-sm font-medium text-muted-foreground">
           {navItems.map((item) => (
