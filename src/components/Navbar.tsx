@@ -49,14 +49,14 @@ export const Navbar = () => {
       </Link>
 
       {/* Desktop Pill Menu */}
-      <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-saturate-150 backdrop-brightness-110 backdrop-blur-lg border border-white/5 border-b-white/20 rounded-full p-2 items-center gap-8 shadow-xl shadow-black/10">
+      <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-saturate-180 backdrop-brightness-120 backdrop-blur-lg border border-white/5 border-b-white/20 rounded-full p-2 items-center gap-8 shadow-xl shadow-black/10">
         <Link href="/">
           <div className="button">
             <span>
               <Image
                 src={"/logo.svg"}
                 alt="logo"
-                className="size-[11px] -translate-y-[0.5px]"
+                className="size-2.75 -translate-y-[0.5px]"
                 width={12}
                 height={12}
               />
