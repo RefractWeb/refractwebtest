@@ -12,6 +12,22 @@ import marqueeImg2 from "@/assets/branding/2.svg";
 import marqueeImg3 from "@/assets/branding/3.svg";
 import marqueeImg4 from "@/assets/branding/4.svg";
 import CodeEditorReplica from "./Codeblock";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+
+const SeeMore = ({ className }: { className?: string }) => (
+  <Link href={"/about#core-capabilities"}>
+    <div
+      className={cn(
+        "flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-all",
+        className,
+      )}
+    >
+      <span className="text-sm font-medium">See More</span>
+      <ArrowRight className="size-4 group-hover:translate-x-1 transition-all" />
+    </div>
+  </Link>
+);
 
 const marqueeItems = [marqueeImg1, marqueeImg2, marqueeImg3, marqueeImg4];
 
@@ -69,10 +85,7 @@ export const BentoSection = () => {
                 Transform concepts into high-performance experiences.
                 Engineering story-driven websites and premium digital products.
               </p>
-              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-all">
-                <span className="text-sm font-medium">See More</span>
-                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-              </div>
+              <SeeMore />
             </div>
 
             <Image
@@ -100,10 +113,7 @@ export const BentoSection = () => {
                 We build strategic identities designed to secure a premium
                 market position.
               </p>
-              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-all">
-                <span className="text-sm font-medium">See More</span>
-                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-              </div>
+              <SeeMore />
             </div>
             <div className="absolute bottom-6 md:bottom-30 z-10 left-0 w-full">
               <Marquee>
@@ -147,10 +157,7 @@ export const BentoSection = () => {
                 We replace manual processes with intelligent software tailored
                 to your specific operations.
               </p>
-              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-all">
-                <span className="text-sm font-medium">See More</span>
-                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-              </div>
+              <SeeMore />
             </div>
 
             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-blue-500/5 to-transparent pointer-events-none" />
@@ -191,10 +198,7 @@ export const BentoSection = () => {
                 We build cinematic 3D assets designed to give your brand a
                 premium feel.
               </p>
-              <div className="flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-all">
-                <span className="text-sm font-medium">See More</span>
-                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-              </div>
+              <SeeMore />
             </div>
 
             {/* Illustration */}
