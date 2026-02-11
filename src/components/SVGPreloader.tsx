@@ -29,12 +29,12 @@ export default function SVGPreloader({
   return (
     <motion.div
       className="fixed inset-0 flex items-center justify-center bg-linear-to-b from-primary/30 to-secondary3/50 via-black z-100 w-full bg-black"
-      // animate={isComplete ? { y: "-130%", scale: 1.5 } : { y: 0, scale: 1 }}
-      // transition={{
-      //   duration: 1,
-      //   ease: "circInOut",
-      //   delay: isComplete ? 0 : 0,
-      // }}
+      animate={isComplete ? { y: "-130%", scale: 1.5 } : { y: 0, scale: 1 }}
+      transition={{
+        duration: 1,
+        ease: "circInOut",
+        delay: isComplete ? 0 : 0,
+      }}
     >
       <motion.svg
         width="383"
