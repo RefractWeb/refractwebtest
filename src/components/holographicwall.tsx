@@ -50,6 +50,7 @@ export function HolographicWall({
     x: number;
     y: number;
   } | null>(null);
+  const [isHovering, setIsHovering] = useState(false);
 
   // 2. Mandatory center initialization and mobile detection
   const [isMobile, setIsMobile] = useState(false);
@@ -78,6 +79,18 @@ export function HolographicWall({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
     });
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      setMousePosition({
+        x: rect.width / 2,
+        y: rect.height / 2,
+      });
+    }
   };
 
   const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
@@ -88,6 +101,7 @@ export function HolographicWall({
       x: touch.clientX - rect.left,
       y: touch.clientY - rect.top,
     });
+    setIsHovering(true);
   };
 
   const currentCols = isMobile ? 3 : cols;
@@ -138,6 +152,7 @@ export function HolographicWall({
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       onTouchMove={handleTouchMove}
       onTouchStart={handleTouchMove}
       className="relative w-full py-4 overflow-hidden"
@@ -151,16 +166,26 @@ export function HolographicWall({
       {mousePosition && (
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={{
+            opacity: 1,
+            "--x": `${mousePosition.x}px`,
+            "--y": `${mousePosition.y}px`,
+          }}
+          transition={{
+            type: "tween",
+            ease: "backOut",
+            duration: isHovering ? 0 : 1,
+            opacity: { duration: 0.2 },
+          }}
           className="absolute inset-0 p-4 pointer-events-none"
           style={{
             maskImage: `radial-gradient(
-              ${radius}px circle at ${mousePosition.x}px ${mousePosition.y}px,
+              ${radius}px circle at var(--x) var(--y),
               black 0%,
               transparent 100%
             )`,
             WebkitMaskImage: `radial-gradient(
-              ${radius}px circle at ${mousePosition.x}px ${mousePosition.y}px,
+              ${radius}px circle at var(--x) var(--y),
               black 0%,
               transparent 100%
             )`,
