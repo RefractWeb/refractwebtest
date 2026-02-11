@@ -21,7 +21,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
             animationType="slideUp"
             splitType="lines"
             shouldAnimate={isStarted}
-            className="text-4xl lg:text-6xl font-bold tracking-tight leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight"
           >
             Defining <br /> Digital Identity
           </AnimatedText>
@@ -29,7 +29,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
             animationType="slideUp"
             splitType="lines"
             shouldAnimate={isStarted}
-            className="text-base lg:text-lg max-w-sm leading-tight"
+            className="text-base md:text-lg lg:text-xl max-w-md leading-tight"
           >
             We merge the precision of code with the power of design,
             orchestrating a single identity that signals authority everywhere.

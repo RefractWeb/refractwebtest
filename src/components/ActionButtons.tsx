@@ -15,7 +15,7 @@ const ActionButtons = ({ className }: { className?: string }) => {
         <Button size={"lg"}>Work With Us</Button>
       </Link>
       <Link href="/about#core-capabilities">
-        <Button variant={"ghost"} className="group ">
+        <Button variant={"ghost"} className="group">
           Explore our services
           <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
         </Button>
