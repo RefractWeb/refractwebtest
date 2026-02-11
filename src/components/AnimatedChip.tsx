@@ -1,14 +1,16 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
 import { useMouseTilt } from "@/hooks/useMouseTilt";
 import { cn } from "@/lib/utils";
+import { useEffect } from "react";
 
 interface AnimatedChipProps {
   className?: string;
   containerClassName?: string;
   loop?: boolean;
+  isStarted?: boolean;
 }
 
 const VIDEO_SOURCES = {
@@ -26,11 +28,20 @@ export const AnimatedChip = ({
   className,
   containerClassName,
   loop = false,
+  isStarted = true,
 }: AnimatedChipProps) => {
   const [showSecondary, setShowSecondary] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
   const primaryRef = useRef<HTMLVideoElement>(null);
   const secondaryRef = useRef<HTMLVideoElement>(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.1 });
   const { rotateX, rotateY } = useMouseTilt();
+
+  useEffect(() => {
+    if (isStarted && isInView && primaryRef.current) {
+      primaryRef.current.play().catch(console.error);
+    }
+  }, [isStarted, isInView]);
 
   const handlePrimaryEnded = () => {
     if (!loop) {
@@ -46,7 +57,7 @@ export const AnimatedChip = ({
   };
 
   return (
-    <div className={cn("relative", containerClassName)}>
+    <div ref={containerRef} className={cn("relative", containerClassName)}>
       {/* Secondary Video */}
       <motion.video
         ref={secondaryRef}
@@ -71,7 +82,6 @@ export const AnimatedChip = ({
       {/* Primary Video */}
       <motion.video
         ref={primaryRef}
-        autoPlay
         loop={loop}
         muted
         playsInline

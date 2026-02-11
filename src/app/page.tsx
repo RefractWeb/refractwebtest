@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 
 import { HeroSection } from "@/components/HeroSection";
 import { ImpactSection } from "@/components/ImpactSection";
@@ -11,11 +12,13 @@ import SmoothContainer from "@/lib/SmoothContainer";
 import SVGPreloader from "@/components/SVGPreloader";
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+
   return (
     <SmoothContainer>
-      <SVGPreloader />
+      <SVGPreloader onComplete={() => setLoading(false)} />
       <div className="min-h-screen overflow-x-clip">
-        <HeroSection />
+        <HeroSection isStarted={!loading} />
         <BentoSection />
         <WorkSection />
         <ImpactSection />

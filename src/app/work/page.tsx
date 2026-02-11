@@ -24,7 +24,7 @@ const page = () => {
             <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[240px]" />
             <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[250px]" />
           </div>
-          <div className="container mx-auto max-w-6xl">
+          <div className="container mx-auto max-w-8xl">
             <div className="text-center space-y-4 mb-24">
               <AnimatedText
                 animationType="slideUp"
@@ -54,7 +54,7 @@ const page = () => {
                           <Image
                             src={project}
                             alt={project + " " + i}
-                            width={460}
+                            width={530}
                             height={300}
                             placeholder="blur"
                             loading="lazy"
@@ -73,7 +73,7 @@ const page = () => {
                           <Image
                             src={project}
                             alt={project + " " + i}
-                            width={460}
+                            width={530}
                             height={300}
                             placeholder="blur"
                             loading="lazy"

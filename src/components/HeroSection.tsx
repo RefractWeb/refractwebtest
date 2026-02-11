@@ -3,8 +3,9 @@ import AnimatedLogoCloud from "./LogoCloud";
 import { AnimatedText } from "./ui/animated-text";
 import ActionButtons from "./ActionButtons";
 import { AnimatedChip } from "./AnimatedChip";
+import { motion } from "motion/react";
 
-export const HeroSection = () => {
+export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
   return (
     <div className="relative md:min-h-screen flex flex-col">
       {/* Background Elements */}
@@ -19,6 +20,7 @@ export const HeroSection = () => {
           <AnimatedText
             animationType="slideUp"
             splitType="lines"
+            shouldAnimate={isStarted}
             className="text-4xl lg:text-6xl font-bold tracking-tight leading-tight"
           >
             Defining <br /> Digital Identity
@@ -26,17 +28,25 @@ export const HeroSection = () => {
           <AnimatedText
             animationType="slideUp"
             splitType="lines"
+            shouldAnimate={isStarted}
             className="text-base lg:text-lg max-w-sm leading-tight"
           >
             We merge the precision of code with the power of design,
             orchestrating a single identity that signals authority everywhere.
           </AnimatedText>
-          <ActionButtons />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isStarted ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+          >
+            <ActionButtons />
+          </motion.div>
         </div>
 
         <AnimatedChip
           containerClassName="w-full md:w-1/2 isolate perspective-[1000px] min-h-[40vh]"
           className="md:-translate-x-12"
+          isStarted={isStarted}
         />
       </main>
       <AnimatedLogoCloud />

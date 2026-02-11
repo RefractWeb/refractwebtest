@@ -49,6 +49,7 @@ export interface AnimatedTextOptions {
   className?: string;
   children: ReactNode;
   onAnimationComplete?: () => void;
+  shouldAnimate?: boolean;
 }
 
 // Basic animation defaults
@@ -69,6 +70,7 @@ export const AnimatedText = ({
   className = "",
   children,
   onAnimationComplete,
+  shouldAnimate = true,
 }: AnimatedTextOptions) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -90,6 +92,7 @@ export const AnimatedText = ({
 
       // Only run if we're not using scroll trigger and we're in view,
       // OR if we ARE using scroll trigger (it will handle its own visibility)
+      if (!shouldAnimate) return;
       if (!useScrollTrigger && !inView) return;
 
       // Set initial opacity for the text container
@@ -203,6 +206,7 @@ export const AnimatedText = ({
         delay,
         useScrollTrigger,
         children,
+        shouldAnimate,
       ],
       revertOnUpdate: true,
     },
