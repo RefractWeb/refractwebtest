@@ -19,10 +19,46 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RefractWeb - Defining Digital Identity",
+  title: {
+    default: "RefractWeb - Defining Digital Identity",
+    template: "%s | RefractWeb",
+  },
   description:
     "We merge the precision of code with the power of design, orchestrating a single identity that signals authority everywhere.",
   metadataBase: new URL("https://refractweb.com"),
+  keywords: [
+    "Digital Identity",
+    "Web Design",
+    "Software Development",
+    "Branding",
+    "RefractWeb",
+  ],
+  authors: [{ name: "RefractWeb x AuraDevs" }],
+  creator: "RefractWeb",
+  publisher: "RefractWeb",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: "RefractWeb - Defining Digital Identity",
+    description: "We merge the precision of code with the power of design.",
+    url: "https://refractweb.com",
+    siteName: "RefractWeb",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RefractWeb - Defining Digital Identity",
+    description: "We merge the precision of code with the power of design.",
+    creator: "@refractweb",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
