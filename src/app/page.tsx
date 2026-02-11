@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <SmoothContainer>
-      <SVGPreloader onComplete={() => setLoading(false)} />
+      <SVGPreloader onCompleteAction={() => setLoading(false)} />
       <div className="min-h-screen overflow-x-clip">
         <HeroSection isStarted={!loading} />
         <BentoSection />

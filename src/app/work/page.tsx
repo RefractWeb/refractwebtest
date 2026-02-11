@@ -21,8 +21,12 @@ const page = () => {
       <div className="overflow-hidden">
         <section className="py-32 px-6 relative">
           <div className="absolute inset-0 z-0 pointer-events-none">
-            <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[240px]" />
-            <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[250px]" />
+            <div className="absolute pointer-events-none top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[200px]" />
+            <div className="absolute pointer-events-none top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[230px]" />
+            <div className="absolute pointer-events-none -bottom-40 left-[10%] size-150 rounded-full bg-[#d6795a] opacity-40 blur-[200px]" />
+
+            <div className="absolute pointer-events-none bottom-[-10%] right-[10%] w-200 h-200 rounded-full bg-[#3150aa] opacity-30 blur-[170px] -z-10" />
+            <div className="absolute pointer-events-none bottom-[-14%] -right-[10%] w-200 h-200 rounded-full bg-[#d6795a] opacity-30 blur-[170px] -z-10" />
           </div>
           <div className="container mx-auto max-w-8xl">
             <div className="text-center space-y-4 mb-24">
