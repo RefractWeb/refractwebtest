@@ -17,10 +17,10 @@ const LetterSwapForward = ({
   label,
   reverse = true,
   transition = {
-    type: "spring",
-    duration: 0.7,
+    type: "tween",
+    duration: 0.3,
   },
-  staggerDuration = 0.03,
+  staggerDuration = 0.02,
   staggerFrom = "first",
   className,
   onClick,

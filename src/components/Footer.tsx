@@ -4,6 +4,7 @@ import { Twitter, Linkedin, Instagram } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import text from "@/assets/footer.svg";
+import LetterSwapForward from "./ui/LetterSwap";
 const WEBSITE_LINKS = [
   { label: "HOME", href: "/" },
   { label: "SERVICES", href: "/#services" },
@@ -63,17 +64,24 @@ export const Footer = () => {
           {/* Left Column */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-gray-500 font-bold mb-4 tracking-wider text-xs md:text-sm">
+              <h3 className="text-gray-500 font-bold select-none mb-4 tracking-wider text-xs md:text-sm">
                 WEBSITE
               </h3>
-              <ul className="space-y-2 text-sm md:text-lg font-medium text-gray-300">
+              <ul className="space-y-2 text-sm md:text-lg font-medium text-gray-300 flex flex-col items-start">
                 {WEBSITE_LINKS.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
                       className="hover:text-primary2 transition-all"
                     >
-                      {link.label}
+                      <LetterSwapForward
+                        staggerDuration={0}
+                        reverse={false}
+                        transition={{
+                          duration: 0.4,
+                        }}
+                        label={link.label}
+                      />
                     </Link>
                   </li>
                 ))}
@@ -84,17 +92,24 @@ export const Footer = () => {
           {/* Right Column */}
           <div className="space-y-6 text-right md:text-left">
             <div>
-              <h3 className="text-gray-500 font-bold mb-4 tracking-wider text-xs md:text-sm">
+              <h3 className="text-gray-500 font-bold select-none mb-4 tracking-wider text-xs md:text-sm">
                 LEGAL
               </h3>
-              <ul className="space-y-2 text-sm md:text-lg font-medium text-gray-300">
+              <ul className="space-y-2 text-sm md:text-lg font-medium text-gray-300 flex flex-col items-start">
                 {LEGAL_LINKS.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
                       className="hover:text-primary2 transition-all"
                     >
-                      {link.label}
+                      <LetterSwapForward
+                        staggerDuration={0}
+                        reverse={false}
+                        transition={{
+                          duration: 0.4,
+                        }}
+                        label={link.label}
+                      />
                     </Link>
                   </li>
                 ))}
@@ -128,7 +143,7 @@ export const Footer = () => {
       </div>
 
       {/* Ambient Corner Glows for Footer */}
-      <div className="absolute -bottom-60 right-40 w-125 h-125 bg-blue-700/15 blur-[150px] pointer-events-none" />
+      <div className="absolute -bottom-65 right-40 size-125 bg-blue-700 opacity-20 blur-[150px] pointer-events-none" />
     </footer>
   );
 };

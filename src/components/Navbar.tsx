@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
+import LetterSwapForward from "./ui/LetterSwap";
 
 const navItems = [
   {
@@ -51,7 +52,7 @@ export const Navbar = () => {
       {/* Desktop Pill Menu */}
       <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-saturate-180 backdrop-brightness-120 backdrop-blur-lg border border-white/5 border-b-white/20 rounded-full p-2 items-center gap-8 shadow-xl shadow-black/10">
         <Link href="/">
-          <div className="button">
+          <div className="button h-9">
             <span>
               <Image
                 src={"/logo.svg"}
@@ -71,7 +72,12 @@ export const Navbar = () => {
               href={item.href}
               className="hover:text-foreground transition-all"
             >
-              {item.label}
+              <LetterSwapForward
+                staggerDuration={0}
+                className="hover:scale-98"
+                label={item.label}
+                reverse={false}
+              />
             </Link>
           ))}
         </div>

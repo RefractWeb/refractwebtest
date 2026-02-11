@@ -23,7 +23,7 @@ export const CTASection = () => {
             animationType="slideUp"
             splitType="lines"
             delay={0.1}
-            className="text-muted-foreground text-xl max-w-md"
+            className="text-muted-foreground text-xl max-w-xs"
           >
             Let's discuss your vision and see if we are the right fit.
           </AnimatedText>

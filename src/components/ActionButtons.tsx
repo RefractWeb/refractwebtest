@@ -18,7 +18,7 @@ const ActionButtons = ({ className }: { className?: string }) => {
       <Link href="/about#core-capabilities">
         <Button variant={"ghost"} className="group">
           <LetterSwapForward
-            staggerDuration={0.001}
+            staggerDuration={0}
             reverse={false}
             label="Explore our services"
           />
