@@ -48,7 +48,7 @@ export default function SmoothContainer({
       options={{
         // Smoothness & feel
         lerp: 0.05, // Lower = smoother but slower (0.05-0.15 range)
-        duration: 1.6, // Duration of scroll animation in seconds
+        duration: 1.8, // Duration of scroll animation in seconds
         wheelMultiplier: 0.9, // Wheel scroll sensitivity (lower = slower)
         touchMultiplier: 1.5, // Touch scroll sensitivity
 

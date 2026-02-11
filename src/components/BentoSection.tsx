@@ -25,16 +25,16 @@ const AnimatedLogoStroke = dynamic(
   },
 );
 
-const SeeMore = ({ className }: { className?: string }) => (
+export const SeeMore = ({ className }: { className?: string }) => (
   <Link href={"/about#core-capabilities"}>
     <div
       className={cn(
-        "flex items-center gap-2 text-foreground/60 group-hover:text-foreground transition-all",
+        "flex items-center gap-2 text-foreground/60 hover:text-foreground transition-all group/link",
         className,
       )}
     >
       <span className="text-sm font-medium">See More</span>
-      <ArrowRight className="size-4 group-hover:translate-x-1 transition-all" />
+      <ArrowRight className="size-4 group-hover/link:translate-x-1 transition-all" />
     </div>
   </Link>
 );
