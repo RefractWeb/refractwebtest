@@ -29,7 +29,8 @@ export function TeamMember({ member }: { member: Member }) {
         <Image
           src={member.img}
           alt={member.name}
-          className="object-cover mt-auto group-hover:scale-105 transition-all duration-700 brightness-110"
+          draggable={false}
+          className="object-cover mt-auto group-hover:scale-105 transition-all duration-700 brightness-110 select-none"
           placeholder="blur"
         />
         <div className="absolute bottom-0 inset-x-0 h-1/3 bg-linear-to-t from-background via-background/60" />
