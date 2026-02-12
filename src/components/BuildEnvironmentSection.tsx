@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export const BuildEnvironmentSection = () => {
   return (
-    <section className="py-12 px-4 md:py-24 md:px-6 flex justify-center relative! overflow-hidden">
+    <section className="py-2 px-4 md:py-24 md:px-6 flex justify-center relative! overflow-hidden">
       <div className="container max-w-6xl relative">
         <div className="w-full bg-[#0D101A] rounded-3xl relative overflow-hidden grid md:grid-cols-2 grid-cols-1 justify-between pt-10 md:pt-0 ">
           {/* Background noise/texture */}
@@ -19,12 +19,12 @@ export const BuildEnvironmentSection = () => {
             }}
           /> */}
 
-          <div className="absolute -top-10 left-100 w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-3xl" />
+          <div className="absolute -top-10 left-100 w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-3xl hidden md:block" />
           <div className="absolute top-[-30%] left-[5%] w-90 h-90 rounded-full bg-[#3150aa] opacity-60 blur-[100px]" />
-          <div className="absolute bottom-[-20%] -left-[10%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px]" />
+          <div className="absolute bottom-[-20%] -left-[10%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px] hidden md:block" />
 
           {/* Left Content */}
-          <div className="relative flex flex-col justify-center z-10 max-w-lg space-y-6 px-10 py-36 items-center text-center md:items-start md:text-left md:pl-12 md:pr-0">
+          <div className="relative flex flex-col justify-center z-10 max-w-lg space-y-6 px-10 pb-6 md:py-36 items-center text-center md:items-start md:text-left md:pl-12 md:pr-0">
             <AnimatedText
               useScrollTrigger={true}
               animationType="slideUp"

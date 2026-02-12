@@ -33,10 +33,6 @@ export default function CookiePolicyPage() {
 
   return (
     <main className="min-h-screen py-20">
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-25 blur-[240px]" />
-        <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-25 blur-[250px]" />
-      </div>
       <div>
         <div className="max-w-3xl mx-auto px-6 pt-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-3 text-foreground">

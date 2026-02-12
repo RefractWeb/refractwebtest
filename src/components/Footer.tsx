@@ -38,11 +38,11 @@ const SOCIAL_LINKS = [
 
 export const Footer = () => {
   return (
-    <footer className="relative bg-linear-to-t from-black pt-20 pb-10 overflow-hidden">
+    <footer className="relative bg-linear-to-t from-black py-20 overflow-hidden">
       <Image
         src={"/logo.svg"}
         alt="logo"
-        className="absolute top-14 -left-24 opacity-4 size-150"
+        className="absolute top-14 -left-24 opacity-3 size-160"
         width={600}
         height={200}
       />
@@ -95,7 +95,7 @@ export const Footer = () => {
               <h3 className="text-gray-500 font-bold select-none mb-4 tracking-wider text-xs md:text-sm">
                 LEGAL
               </h3>
-              <ul className="space-y-2 text-sm md:text-lg font-medium text-gray-300 flex flex-col items-start">
+              <ul className="space-y-2 text-sm md:text-lg font-medium text-gray-300 flex flex-col md:items-start items-end">
                 {LEGAL_LINKS.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -125,7 +125,7 @@ export const Footer = () => {
             reserved
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-10">
             {SOCIAL_LINKS.map(({ href, icon: Icon, label }) => (
               <a
                 key={href}

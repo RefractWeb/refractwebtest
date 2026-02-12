@@ -149,7 +149,7 @@ export function SmoothCarousel({
               <button
                 onClick={onPrevButtonClick}
                 disabled={prevBtnDisabled}
-                className="h-10 w-10 flex items-center justify-center rounded-full bg-linear-to-br from-background to-card border hover:bg-secondary/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-secondary-foreground"
+                className="h-10 w-10 flex items-center justify-center rounded-full bg-linear-to-br from-background to-card border hover:brightness-125 transition-all active:scale-97 disabled:opacity-50 disabled:cursor-not-allowed text-secondary-foreground"
                 type="button"
                 aria-label="Previous slide"
               >
@@ -158,7 +158,7 @@ export function SmoothCarousel({
               <button
                 onClick={onNextButtonClick}
                 disabled={nextBtnDisabled}
-                className="h-10 w-10 flex items-center justify-center rounded-full bg-linear-to-br from-background to-card border hover:bg-secondary/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-secondary-foreground"
+                className="h-10 w-10 flex items-center justify-center rounded-full bg-linear-to-br from-background to-card border hover:brightness-125 transition-all active:scale-97 disabled:opacity-50 disabled:cursor-not-allowed text-secondary-foreground"
                 type="button"
                 aria-label="Next slide"
               >

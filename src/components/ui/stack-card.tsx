@@ -77,6 +77,7 @@ function WebDevVisual() {
         src={webDevImg}
         alt="Web Development"
         fill
+        draggable={false}
         className="object-cover hover:scale-105 transition-all duration-700"
         placeholder="blur"
       />
@@ -115,7 +116,7 @@ function SoftwareVisual() {
   return (
     <div className="w-full h-full relative rounded-2xl overflow-hidden flex items-center justify-center">
       {/* <div className="absolute bottom-0 left-1/2 blur-[100px] size-80 bg-secondary2/50 rounded-full pointer-events-none" /> */}
-      <div className="relative z-10 size-full translate-y-10 scale-80 md:scale-100 translate-x-9 md:-translate-x-18 rounded-2xl">
+      <div className="relative z-10 size-full translate-y-10 scale-80 md:scale-120 translate-x-12 md:-translate-x-34 rounded-2xl">
         <CodeEditorReplica />
       </div>
     </div>

@@ -44,7 +44,7 @@ export const WorkSection = () => {
   return (
     <section className="relative py-24 overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-4 md:mb-16 space-y-4">
           <AnimatedText
             useScrollTrigger={true}
             animationType="slideUp"
@@ -74,7 +74,7 @@ export const WorkSection = () => {
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
             >
-              <div className="h-60 md:h-76 relative overflow-hidden rounded-t-2xl">
+              <div className="h-52 md:h-76 relative overflow-hidden rounded-t-2xl">
                 <Image
                   src={work.image}
                   alt={work.title}

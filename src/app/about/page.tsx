@@ -9,7 +9,7 @@ import SmoothContainer from "@/lib/SmoothContainer";
 export default function AboutPage() {
   return (
     <SmoothContainer>
-      <main className="relative">
+      <main className="relative overflow-x-clip">
         <Teams />
         <About />
         <CoreCap />

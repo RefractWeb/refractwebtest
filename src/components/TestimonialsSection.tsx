@@ -56,22 +56,22 @@ export const TestimonialsSection = () => {
           <button
             onClick={prevTestimonial}
             type="button"
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 lg:-translate-x-24 size-12 rounded-full border border-border items-center justify-center text-foreground hover:bg-white/10 active:scale-90 transition-all z-20 bg-linear-to-bl from-background to-card"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 lg:-translate-x-24 size-12 rounded-full border border-border items-center justify-center text-foreground hover:bg-white/10 active:scale-98 transition-all z-20 bg-linear-to-bl from-background to-card group cursor-pointer hover:brightness-125"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="size-6" />
+            <ChevronLeft className="size-6 group-hover:-translate-x-0.5 transition-all duration-300" />
           </button>
           <button
             onClick={nextTestimonial}
             type="button"
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 lg:translate-x-24 size-12 rounded-full border border-border items-center justify-center text-foreground hover:bg-white/10 active:scale-90 transition-all z-20 bg-linear-to-br from-background to-card"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 lg:translate-x-24 size-12 rounded-full border border-border items-center justify-center text-foreground hover:bg-white/10 active:scale-98 transition-all z-20 bg-linear-to-br from-background to-card group cursor-pointer hover:brightness-125"
             aria-label="Next testimonial"
           >
-            <ChevronRight className="size-6" />
+            <ChevronRight className="size-6 group-hover:translate-x-0.5 transition-all duration-300" />
           </button>
 
           {/* Content */}
-          <div className="text-center space-y-10 md:space-y-14">
+          <div className="text-center space-y-2 md:space-y-12">
             <div className="min-h-100 flex items-center justify-center">
               <AnimatedText
                 key={activeIndex}
@@ -128,7 +128,7 @@ export const TestimonialsSection = () => {
                 <button
                   onClick={prevTestimonial}
                   type="button"
-                  className="size-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-white/10 active:scale-95 transition-all bg-linear-to-bl from-background to-card"
+                  className="size-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-white/10 hover:brightness-125 group transition-all bg-linear-to-bl from-background to-card active:scale-95 cursor-pointer"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft className="size-5" />
@@ -136,7 +136,7 @@ export const TestimonialsSection = () => {
                 <button
                   onClick={nextTestimonial}
                   type="button"
-                  className="size-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-white/10 active:scale-95 transition-all bg-linear-to-br from-background to-card"
+                  className="size-12 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-white/10 hover:brightness-125 group transition-all bg-linear-to-br from-background to-card active:scale-95 cursor-pointer"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight className="size-5" />
