@@ -1,8 +1,39 @@
 "use client";
 
 import { Calendar } from "lucide-react";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+
+const CalendlyFrame = ({ src }: { src: string }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const iframe = containerRef.current.querySelector(
+      "iframe",
+    ) as HTMLIFrameElement | null;
+    if (!iframe) return;
+
+    iframe.style.background = "transparent";
+    iframe.style.borderRadius = "16px";
+    iframe.style.filter =
+      "invert(1) hue-rotate(180deg) brightness(1.08) contrast(0.9) saturate(0.90)";
+  }, []);
+
+  return (
+    <div ref={containerRef} className="w-full h-full">
+      <iframe
+        src={src}
+        width="100%"
+        height="100%"
+        frameBorder="0"
+        className="rounded-xl"
+        title="Select a Date & Time - Calendly"
+      />
+    </div>
+  );
+};
 
 interface ContactCardProps {
   label: string;
@@ -55,15 +86,8 @@ export const ContactCard = ({
     return (
       <Dialog>
         <DialogTrigger asChild>{Card}</DialogTrigger>
-        <DialogContent className="sm:max-w-5xl md:h-[660px] h-[80vh] p-1 md:p-4 overflow-hidden border border-white/20 bg-muted/10 backdrop-blur-md rounded-2xl">
-          <iframe
-            src={calendlyLink}
-            width="100%"
-            height="100%"
-            frameBorder="0"
-            className="rounded-xl"
-            title="Select a Date & Time - Calendly"
-          />
+        <DialogContent className="sm:max-w-7xl md:h-180 max-h-[90vh] h-[80vh] p-1 md:p-4 overflow-hidden border border-white/20 bg-muted/10 backdrop-blur-lg rounded-2xl">
+          <CalendlyFrame src={calendlyLink} />
         </DialogContent>
       </Dialog>
     );

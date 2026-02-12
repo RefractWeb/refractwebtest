@@ -50,7 +50,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
           isStarted={isStarted}
         />
       </main>
-      <AnimatedLogoCloud className="md:-translate-y-12" />
+      <AnimatedLogoCloud className="md:-translate-y-20" />
     </div>
   );
 };

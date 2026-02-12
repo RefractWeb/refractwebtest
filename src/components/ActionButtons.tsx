@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -15,7 +17,28 @@ const ActionButtons = ({ className }: { className?: string }) => {
       <Link href="/contact">
         <Button size={"lg"}>Work With Us</Button>
       </Link>
-      <Link href="/about#core-capabilities">
+      <Link
+        href="/about#core-capabilities"
+        onClick={(e) => {
+          // If we're already on the /about page, force-scroll the target every click
+          const targetId = "core-capabilities";
+          const aboutPath = "/about";
+          if (
+            typeof window !== "undefined" &&
+            window.location.pathname.startsWith(aboutPath)
+          ) {
+            e.preventDefault();
+            const el = document.getElementById(targetId);
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth", block: "start" });
+              el.setAttribute("tabindex", "-1");
+              (el as HTMLElement).focus();
+              // ensure URL shows the fragment without adding a new history entry
+              history.replaceState(null, "", `${aboutPath}#${targetId}`);
+            }
+          }
+        }}
+      >
         <Button variant={"ghost"} className="group">
           <LetterSwapForward
             staggerDuration={0}

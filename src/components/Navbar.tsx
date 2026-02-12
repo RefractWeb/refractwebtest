@@ -46,7 +46,18 @@ export const Navbar = () => {
     <nav className="fixed top-8 px-6 z-50 w-full flex justify-between items-center">
       {/* Mobile Logo */}
       <Link href="/" className="md:hidden z-70 relative">
-        <div className="button">RefractWeb</div>
+        <div className="button h-9">
+          <span>  
+            <Image
+              src={"/logo.svg"}
+              alt="logo"
+              className="size-2.75 -translate-y-[0.5px] translate-x-px"
+              width={12}
+              height={12}
+            />
+          </span>
+          <span className="leading-none font-bold">efractWeb</span>
+        </div>
       </Link>
 
       {/* Desktop Pill Menu */}
@@ -57,12 +68,12 @@ export const Navbar = () => {
               <Image
                 src={"/logo.svg"}
                 alt="logo"
-                className="size-2.75 -translate-y-[0.5px]"
+                className="size-2.75 -translate-y-[0.5px] translate-x-px"
                 width={12}
                 height={12}
               />
             </span>
-            <span className="leading-none">efractWeb</span>
+            <span className="leading-none font-bold">efractWeb</span>
           </div>
         </Link>
         <div className="flex items-center gap-8 px-4 text-sm font-medium text-muted-foreground">
