@@ -25,7 +25,7 @@ const AnimatedLogoStroke = dynamic(
   },
 );
 
-export const SeeMore = ({ className }: { className?: string }) => (
+const SeeMore = ({ className }: { className?: string }) => (
   <Link href={"/about#core-capabilities"}>
     <div
       className={cn(

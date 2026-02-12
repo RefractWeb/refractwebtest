@@ -43,11 +43,11 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-8 px-6 z-50 w-full flex justify-between items-center">
+    <nav className="fixed top-4 md:top-8 px-6 z-100 w-full flex justify-between items-center">
       {/* Mobile Logo */}
       <Link href="/" className="md:hidden z-70 relative">
         <div className="button h-9">
-          <span>  
+          <span>
             <Image
               src={"/logo.svg"}
               alt="logo"
@@ -158,7 +158,7 @@ export const Navbar = () => {
                   <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-6xl font-semibold tracking-tighter text-grad px-1 transition-colors inline-block"
+                    className="text-5xl font-semibold tracking-tighter text-grad px-1 transition-all inline-block"
                   >
                     {item.label}
                   </Link>

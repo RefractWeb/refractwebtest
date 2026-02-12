@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Code, Globe, Palette, Video } from "lucide-react";
+import { ArrowRight, Code, Globe, Palette, Video } from "lucide-react";
 import webDevImg from "@/assets/works/Landing page 3.jpg";
 import img3d from "@/assets/3danim.png";
 import marqueeImg1 from "@/assets/branding/1.svg";
@@ -9,8 +9,22 @@ import marqueeImg2 from "@/assets/branding/2.svg";
 import marqueeImg3 from "@/assets/branding/3.svg";
 import marqueeImg4 from "@/assets/branding/4.svg";
 import { DraggableMarquee, Marquee, MarqueeItem } from "./marquee";
-import { SeeMore } from "../BentoSection";
 import dynamic from "next/dynamic";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+const SeeMore = ({ className }: { className?: string }) => (
+  <Link href={"/contact"}>
+    <div
+      className={cn(
+        "flex items-center gap-2 text-foreground/60 hover:text-foreground transition-all group/link",
+        className,
+      )}
+    >
+      <span className="text-sm font-medium">Get in Touch</span>
+      <ArrowRight className="size-4 group-hover/link:translate-x-1 transition-all" />
+    </div>
+  </Link>
+);
 
 const CodeEditorReplica = dynamic(() => import("../Codeblock"), {
   ssr: false,

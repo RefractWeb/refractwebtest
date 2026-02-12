@@ -62,7 +62,7 @@ const page = () => {
                             height={300}
                             placeholder="blur"
                             loading="lazy"
-                            className="object-cover rounded-xl shadow pointer-events-none"
+                            className="object-cover rounded-xl shadow pointer-events-none w-75 xs:w-80 sm:w-100 md:w-120 lg:w-130 xl:w-140"
                           />
                         </div>
                       </MarqueeItem>
