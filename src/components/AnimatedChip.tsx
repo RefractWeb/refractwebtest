@@ -57,7 +57,13 @@ export const AnimatedChip = ({
   };
 
   return (
-    <div ref={containerRef} className={cn("relative", containerClassName)}>
+    <div
+      ref={containerRef}
+      className={cn(
+        "relative -mb-12 -mt-6 sm:mb-0 sm:mt-0",
+        containerClassName,
+      )}
+    >
       {/* Secondary Video */}
       <motion.video
         ref={secondaryRef}

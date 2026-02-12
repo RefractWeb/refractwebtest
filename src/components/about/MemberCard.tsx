@@ -50,7 +50,7 @@ export function TeamMember({ member }: { member: Member }) {
         }}
       >
         <div className="space-y-4">
-          <h3 className="text-xl xl:text-2xl font-bold tracking-tight mb-12 md:mb-52">
+          <h3 className="text-xl xl:text-2xl font-bold tracking-tight mb-12 md:mb-62">
             {member.name}
           </h3>
           <p className="text-foreground/90 text-xs xl:text-[12.5px] font-medium">

@@ -94,7 +94,7 @@ export default function CodeEditorReplica() {
       `}</style>
 
       <div /* Code block */
-        className="relative w-full max-w-120 bg-[#0C112DED] rounded-bl-xl overflow-hidden shadow-lg border border-border/50 group"
+        className="relative w-full max-w-sm bg-[#0C112DED] rounded-bl-xl overflow-hidden shadow-lg border border-border/50 group"
         style={{
           boxShadow: "-15px 15px 115px rgba(245, 151, 104, 0.12)",
         }}
@@ -102,7 +102,7 @@ export default function CodeEditorReplica() {
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* Glow */}
-        <div className="absolute z-5 bg-[#B05D41] blur-[100px] -rotate-90 size-70 -bottom-40 right-0"></div>
+        <div className="absolute z-5 bg-[#B05D41] blur-3xl opacity-80 size-70 -bottom-40 right-0"></div>
         <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-primary2/10 blur-[60px] rounded-full pointer-events-none z-0" />
 
         <div className="relative z-10 flex flex-row pt-3 pb-2 px-3">

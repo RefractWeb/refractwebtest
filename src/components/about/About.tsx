@@ -10,14 +10,15 @@ export default function () {
           backgroundSize: "80px 80px",
         }}
       />
-
+      <div className="absolute pointer-events-none -z-10 top-[8%] -right-[2%] w-200 h-200 rounded-full bg-[#253a7a] opacity-30 blur-[200px]" />
+      <div className="absolute pointer-events-none -z-10 top-[20%] -right-[24%] w-200 h-200 rounded-full bg-[#B05D41] opacity-40 blur-[200px]" />
       <div className="container mx-auto max-w-5xl text-center relative z-10">
         <AnimatedText
           useScrollTrigger={true}
           animationType="skewIn"
           splitType="lines"
           duration={1.6}
-          delay={0.4}
+          delay={0.1}
           className="text-3xl md:text-5xl font-semibold leading-[1.2] tracking-tight mx-auto max-w-5xl p-2"
         >
           The Gap Between Reality And Perception... We Exist To Ensure No Great

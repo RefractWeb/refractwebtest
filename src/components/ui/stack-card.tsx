@@ -88,7 +88,7 @@ function BrandingVisual() {
   return (
     <div className="w-full h-full relative rounded-2xl overflow-hidden flex items-center justify-center">
       <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-primary2/10" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 blur-[100px] size-80 bg-primary/40 rounded-full pointer-events-none" />
+      {/* <div className="absolute bottom-0 left-1/2 -translate-x-1/2 blur-[100px] size-80 bg-primary/40 rounded-full pointer-events-none" /> */}
       <div className="w-full relative z-10">
         <Marquee>
           <DraggableMarquee speed={0.5} direction="right" gap={10}>
@@ -114,7 +114,7 @@ function BrandingVisual() {
 function SoftwareVisual() {
   return (
     <div className="w-full h-full relative rounded-2xl overflow-hidden flex items-center justify-center">
-      <div className="absolute bottom-0 left-1/2 blur-[100px] size-80 bg-secondary2/50 rounded-full pointer-events-none" />
+      {/* <div className="absolute bottom-0 left-1/2 blur-[100px] size-80 bg-secondary2/50 rounded-full pointer-events-none" /> */}
       <div className="relative z-10 size-full translate-y-10 scale-80 md:scale-100 translate-x-9 md:-translate-x-18 rounded-2xl">
         <CodeEditorReplica />
       </div>
@@ -125,7 +125,7 @@ function SoftwareVisual() {
 function ThreeDVisual() {
   return (
     <div className="w-full h-full relative rounded-2xl overflow-hidden flex items-center justify-center">
-      <div className="absolute -bottom-20 -right-10 blur-[80px] size-80 bg-[#1E2E5E]/60 rounded-full pointer-events-none" />
+      <div className="absolute -bottom-20 -right-10 blur-2xl size-80 bg-[#1E2E5E] opacity-50 rounded-full pointer-events-none" />
       <Image
         src={img3d}
         alt="3D Animation"
@@ -146,7 +146,7 @@ const VISUALS: Record<CapabilityCard["visual"], React.FC> = {
 export default function StackCards() {
   return (
     <div className="relative">
-      <div className="absolute -inset-10 bg-linear-to-r from-primary/20 to-primary2/20 blur-[120px] opacity-40 transition-opacity" />
+      {/* <div className="absolute  -inset-10 bg-linear-to-r from-primary/20 to-primary2/20 blur-[120px] opacity-40 transition-opacity" /> */}
       {CARDS.map((card, index) => {
         const topOffset = 120 + index * 60;
         const Visual = VISUALS[card.visual];
