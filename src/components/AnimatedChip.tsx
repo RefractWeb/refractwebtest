@@ -58,48 +58,7 @@ export const AnimatedChip = ({
 
   return (
     <div ref={containerRef} className={cn("relative", containerClassName)}>
-      {/* Secondary Video */}
-      <motion.video
-        ref={secondaryRef}
-        muted
-        playsInline
-        loop
-        preload="auto"
-        className={cn(
-          "absolute inset-0 size-full object-contain brightness-110 saturate-110 -translate-y-10 drop-shadow-2xl scale-110",
-          className,
-        )}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: showSecondary ? 1 : 0 }}
-        transition={{ duration: 0 }}
-        style={tiltStyle}
-      >
-        {VIDEO_SOURCES.secondary.map((source, idx) => (
-          <source key={idx} src={source.src} type={source.type} />
-        ))}
-      </motion.video>
 
-      {/* Primary Video */}
-      <motion.video
-        ref={primaryRef}
-        loop={loop}
-        muted
-        playsInline
-        preload="auto"
-        onEnded={handlePrimaryEnded}
-        className={cn(
-          "size-full object-contain brightness-110 saturate-110 -translate-y-10 drop-shadow-2xl scale-110 relative",
-          className,
-        )}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: showSecondary ? 0 : 1, scale: 1 }}
-        transition={{ duration: 0 }}
-        style={tiltStyle}
-      >
-        {VIDEO_SOURCES.primary.map((source, idx) => (
-          <source key={idx} src={source.src} type={source.type} />
-        ))}
-      </motion.video>
     </div>
   );
 };
