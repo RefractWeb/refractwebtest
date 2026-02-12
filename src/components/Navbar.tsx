@@ -139,7 +139,7 @@ export const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-background/90 z-60 md:hidden flex flex-col"
+            className="fixed inset-0 bg-background/90 backdrop-blur-3xl z-60 md:hidden flex flex-col"
           >
             <div className="flex-1 flex flex-col justify-center px-10 gap-6 border-y">
               {navItems.map((item, index) => (

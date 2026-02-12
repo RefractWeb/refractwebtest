@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Linkedin, Mail } from "lucide-react";
 import type { StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
+import BgGrad from "../ui/bg-grad";
 
 export type Member = {
   name: string;
