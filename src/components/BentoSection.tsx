@@ -101,7 +101,7 @@ export const BentoSection = () => {
               placeholder="blur"
               loading="lazy"
               alt="Web Development Illustration"
-              className="object-cover opacity-60 md:opacity-100 group-hover:scale-105 transition-all duration-700 absolute top-4 left-1/2 -translate-x-1/2 md:translate-x-0 md:right-[-12%] md:top-[-6%] w-auto h-36 xs:h-52 sm:h-64 md:h-75 pointer-events-none select-none rounded-2xl overflow-hidden"
+              className="object-cover opacity-60 md:opacity-100 group-hover:scale-105 transition-transform duration-700 absolute top-4 left-1/2 -translate-x-1/2 md:translate-x-0 md:right-[-12%] md:top-[-6%] w-auto h-36 xs:h-52 sm:h-64 md:h-75 pointer-events-none select-none rounded-2xl overflow-hidden transform-gpu"
             />
           </motion.div>
 
@@ -218,7 +218,7 @@ export const BentoSection = () => {
                 placeholder="blur"
                 loading="lazy"
                 alt="3D Animation Illustration"
-                className="h-full group-hover:scale-125 transition-all duration-700 object-contain scale-110 md:scale-120 opacity-100"
+                className="h-full group-hover:scale-125 transition-transform duration-700 object-contain scale-110 md:scale-120 opacity-100 transform-gpu"
               />
             </div>
           </motion.div>

@@ -131,7 +131,7 @@ export const DraggableMarquee = ({
         onDrag={(_, info) => {
           baseX.set(baseX.get() + info.delta.x);
         }}
-        className="flex shrink-0 whitespace-nowrap"
+        className="flex shrink-0 whitespace-nowrap transform-gpu will-change-transform"
       >
         <div
           ref={contentRef}
