@@ -143,7 +143,7 @@ export const Footer = () => {
       </div>
 
       {/* Ambient Corner Glows for Footer */}
-      <div className="absolute -bottom-65 right-40 size-125 bg-blue-700 opacity-20 blur-[150px] pointer-events-none" />
+      <div className="absolute -bottom-65 right-40 size-125 bg-blue-700 opacity-20 blur-[150px] pointer-events-none blur-gpu" />
     </footer>
   );
 };

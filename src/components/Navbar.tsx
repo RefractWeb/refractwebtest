@@ -61,7 +61,7 @@ export const Navbar = () => {
       </Link>
 
       {/* Desktop Pill Menu */}
-      <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-saturate-180 backdrop-brightness-120 backdrop-blur-lg border border-white/5 border-b-white/20 rounded-full p-2 items-center gap-8 shadow-xl shadow-black/10">
+      <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-saturate-180 backdrop-brightness-120 backdrop-blur-lg border border-white/5 border-b-white/20 rounded-full p-2 items-center gap-8 shadow-xl shadow-black/10 blur-gpu">
         <Link href="/">
           <div className="button h-9">
             <span>
@@ -102,7 +102,7 @@ export const Navbar = () => {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex items-center justify-center size-10 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 text-white transition-all active:scale-95 hover:bg-white/10"
+          className="md:hidden flex items-center justify-center size-10 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 text-white transition-all active:scale-95 hover:bg-white/10 blur-gpu"
           aria-label="Toggle menu"
         >
           <AnimatePresence mode="wait">

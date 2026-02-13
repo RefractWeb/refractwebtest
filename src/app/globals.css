@@ -173,6 +173,14 @@
     @apply bg-clip-text text-transparent bg-linear-to-br from-foreground to-foreground via-neutral-400/90 from-10% via-60% to-90% w-fit;
   }
 
+  /* GPU acceleration for blur elements (Safari performance fix) */
+  .blur-gpu {
+    @apply will-change-transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
   /* SplitText masking styles */
   .line,
   .word,

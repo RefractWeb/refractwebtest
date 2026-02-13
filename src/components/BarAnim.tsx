@@ -25,7 +25,7 @@ const AnimatedBar = ({
           ease: "easeInOut",
           delay: index * 0.5,
         }}
-        className="absolute bottom-0 w-6 pointer-events-none"
+        className="absolute bottom-0 w-6 pointer-events-none blur-gpu"
         style={{
           background:
             "radial-gradient(circle at center, var(--primary2) 0%, transparent 70%)",

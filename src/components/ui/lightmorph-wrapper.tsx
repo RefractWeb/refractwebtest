@@ -50,7 +50,7 @@ const LightMorphWrapper = ({
         >
           <div
             className={cn(
-              "opacity-75 z-10 size-1/2 rounded-full -bottom-[13%] absolute -left-[13%] group-hover:opacity-100 transition-opacity duration-300",
+              "opacity-75 z-10 size-1/2 rounded-full -bottom-[13%] absolute -left-[13%] group-hover:opacity-100 transition-opacity duration-300 blur-gpu",
               gardient1,
               blurOnGradients,
             )}
@@ -58,7 +58,7 @@ const LightMorphWrapper = ({
 
           <div
             className={cn(
-              "opacity-75 z-10 size-1/2 rounded-full -top-[13%] absolute -right-[13%] group-hover:opacity-100 transition-opacity duration-300",
+              "opacity-75 z-10 size-1/2 rounded-full -top-[13%] absolute -right-[13%] group-hover:opacity-100 transition-opacity duration-300 blur-gpu",
               gradient2,
               blurOnGradients,
             )}

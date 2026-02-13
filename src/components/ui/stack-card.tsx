@@ -131,7 +131,7 @@ function SoftwareVisual() {
 function ThreeDVisual() {
   return (
     <div className="w-full h-full relative rounded-2xl overflow-hidden flex items-center justify-center">
-      <div className="absolute -bottom-20 -right-10 blur-2xl size-80 bg-[#1E2E5E] opacity-50 rounded-full pointer-events-none" />
+      <div className="absolute -bottom-20 -right-10 blur-2xl size-80 bg-[#1E2E5E] opacity-50 rounded-full pointer-events-none blur-gpu" />
       <Image
         src={img3d}
         alt="3D Animation"
