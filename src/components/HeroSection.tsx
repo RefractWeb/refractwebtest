@@ -46,7 +46,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
 
         <AnimatedChip
           containerClassName="w-full md:w-1/2 isolate perspective-[1000px] min-h-[40vh]"
-          className="md:-translate-x-12"
+          className="md:translate-x-0 xl:-translate-x-12"
           isStarted={isStarted}
         />
       </main>

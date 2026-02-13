@@ -6,15 +6,20 @@ import img1 from "@/assets/works/Landing page 1.jpg";
 import ActionButtons from "./ActionButtons";
 import BarAnim from "./BarAnim";
 import ChartAnim from "./ChartAnim";
+import { useSafari } from "@/hooks/useSafari";
+import { cn } from "@/lib/utils";
 
 export const ImpactSection = () => {
+  const isSafari = useSafari();
   return (
     <section className="relative py-24 px-6">
-      {/* <div className="absolute top-[-10%] left-[15%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-50 blur-[220px] blur-gpu" />
-      <div className="absolute top-[-14%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-50 blur-[250px] blur-gpu" />
+      <div className={cn(isSafari ? "hidden md:block" : "")}>
+        <div className="absolute top-[-10%] left-[15%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-50 blur-[220px] blur-gpu" />
+        <div className="absolute top-[-14%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-50 blur-[250px] blur-gpu" />
 
-      <div className="absolute bottom-[-30%] right-[15%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-50 blur-[220px] blur-gpu" />
-      <div className="absolute bottom-[-34%] -right-[20%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-50 blur-[250px] blur-gpu" /> */}
+        <div className="absolute bottom-[-30%] right-[15%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-50 blur-[220px] blur-gpu" />
+        <div className="absolute bottom-[-34%] -right-[20%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-50 blur-[250px] blur-gpu" />
+      </div>
 
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
@@ -48,9 +53,9 @@ export const ImpactSection = () => {
               boxShadow: "0 0 18px rgba(0,0,0, 0.45)",
             }}
           >
-            {/* <div className="absolute -top-10 right-[2%] w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-3xl hidden md:block blur-gpu" />
+            <div className="absolute -top-10 right-[2%] w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-3xl hidden md:block blur-gpu" />
             <div className="absolute top-[-30%] left-[10%] w-90 h-90 rounded-full bg-[#3150aa] opacity-60 blur-[100px] blur-gpu" />
-            <div className="absolute bottom-[-30%] -left-[20%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px] blur-gpu" /> */}
+            <div className="absolute bottom-[-30%] -left-[20%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px] blur-gpu" />
             <div className="relative z-10 flex flex-col justify-between h-80 md:min-h-72">
               <div className="flex flex-col gap-3">
                 <h3 className="text-grad text-lg mb-2 md:mb-6">
@@ -81,9 +86,9 @@ export const ImpactSection = () => {
               boxShadow: "0 0 18px rgba(0,0,0, 0.45)",
             }}
           >
-            {/* <div className="absolute -top-10 right-[2%] w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-3xl hidden md:block blur-gpu" />
+            <div className="absolute -top-10 right-[2%] w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-3xl hidden md:block blur-gpu" />
             <div className="absolute top-[-30%] left-[10%] w-90 h-90 rounded-full bg-[#3150aa] opacity-60 blur-[100px] blur-gpu" />
-            <div className="absolute bottom-[-30%] -left-[20%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px] blur-gpu" /> */}
+            <div className="absolute bottom-[-30%] -left-[20%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px] blur-gpu" />
             <div className="relative z-10 flex flex-col justify-between h-80 md:min-h-72">
               <div className="flex flex-col h-full gap-3 relative z-10">
                 <h3 className="text-grad text-lg mb-2 md:mb-6">
@@ -120,9 +125,9 @@ export const ImpactSection = () => {
               boxShadow: "0 0 18px rgba(0,0,0, 0.45)",
             }}
           >
-            {/* <div className="absolute -top-10 right-[2%] w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-3xl hidden md:block blur-gpu" />
+            <div className="absolute -top-10 right-[2%] w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-3xl hidden md:block blur-gpu" />
             <div className="absolute top-[-30%] left-[10%] w-90 h-90 rounded-full bg-[#3150aa] opacity-60 blur-[100px] blur-gpu" />
-            <div className="absolute bottom-[-20%] -left-[10%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px] blur-gpu" /> */}
+            <div className="absolute bottom-[-20%] -left-[10%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px] blur-gpu" />
             <div className="flex flex-col h-full gap-3 relative z-10">
               <h3 className="text-grad text-lg mb-2 md:mb-6">Enterprise DNA</h3>
               <div className="text-6xl font-medium tracking-tighter text-grad px-1">
