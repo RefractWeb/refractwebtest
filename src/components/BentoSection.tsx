@@ -47,9 +47,9 @@ export const BentoSection = () => {
       id="services"
       className="py-24 md:pt-40 px-6 md:px-12 lg:px-24 tracking-tight relative"
     >
-      <div className="absolute pointer-events-none top-[10%] -left-[20%] size-170 rounded-full bg-[#253a7a] opacity-50 blur-[200px] hidden md:block blur-gpu" />
+      {/* <div className="absolute pointer-events-none top-[10%] -left-[20%] size-170 rounded-full bg-[#253a7a] opacity-50 blur-[200px] hidden md:block blur-gpu" />
       <div className="absolute pointer-events-none top-[14%] left-[20%] size-170 rounded-full bg-[#B05D41] opacity-60 blur-[240px] hidden md:block blur-gpu" />
-      <div className="absolute pointer-events-none top-[35%] -right-[20%] size-170 rounded-full bg-[#253a7a] opacity-40 blur-[200px] hidden md:block blur-gpu" />
+      <div className="absolute pointer-events-none top-[35%] -right-[20%] size-170 rounded-full bg-[#253a7a] opacity-40 blur-[200px] hidden md:block blur-gpu" /> */}
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col items-center text-center mb-16">

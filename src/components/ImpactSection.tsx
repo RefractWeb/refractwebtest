@@ -48,9 +48,9 @@ export const ImpactSection = () => {
               boxShadow: "0 0 18px rgba(0,0,0, 0.45)",
             }}
           >
-            <div className="absolute -top-10 right-[2%] w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-3xl hidden md:block blur-gpu" />
+            {/* <div className="absolute -top-10 right-[2%] w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-3xl hidden md:block blur-gpu" />
             <div className="absolute top-[-30%] left-[10%] w-90 h-90 rounded-full bg-[#3150aa] opacity-60 blur-[100px] blur-gpu" />
-            <div className="absolute bottom-[-30%] -left-[20%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px] blur-gpu" />
+            <div className="absolute bottom-[-30%] -left-[20%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px] blur-gpu" /> */}
             <div className="relative z-10 flex flex-col justify-between h-80 md:min-h-72">
               <div className="flex flex-col gap-3">
                 <h3 className="text-grad text-lg mb-2 md:mb-6">
