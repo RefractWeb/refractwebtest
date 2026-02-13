@@ -83,7 +83,7 @@ export function AnimatedLogoStroke({
         strokeLinejoin="round"
         strokeLinecap="round"
         vectorEffect="non-scaling-stroke"
-        filter="url(#softGlow)"
+        className="safari-glow-fix"
         initial={{ pathLength: 1, pathSpacing: 0.18, pathOffset: 0 }}
         animate={{ pathOffset: 1 }}
         transition={{ duration: durationSec, ease: "linear", repeat: Infinity }}

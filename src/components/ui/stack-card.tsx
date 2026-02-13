@@ -168,9 +168,10 @@ export default function StackCards() {
           },
         });
 
-        timeline.set(ref, { willChange: "opacity" }).to(ref, {
+        timeline.set(ref, { willChange: "opacity", force3D: true }).to(ref, {
           ease: "none",
           opacity: isLast ? 1 : 0,
+          force3D: true,
         });
       });
     });
@@ -190,7 +191,7 @@ export default function StackCards() {
             ref={(el) => {
               cardRefs.current[index] = el;
             }}
-            className="sticky w-full max-w-6xl mx-auto h-[140vw] md:h-[75vh] top-[25vw] md:top-[12.5vh]"
+            className="sticky w-full max-w-6xl mx-auto h-[140vw] md:h-[75vh] top-[25vw] md:top-[12.5vh] transform-gpu"
           >
             <div className="relative group h-full">
               <div

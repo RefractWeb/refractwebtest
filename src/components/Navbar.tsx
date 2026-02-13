@@ -46,7 +46,7 @@ export const Navbar = () => {
     <nav className="fixed top-4 md:top-8 px-6 z-100 w-full flex justify-between items-center">
       {/* Mobile Logo */}
       <Link href="/" className="md:hidden z-70 relative">
-        <div className="text-white border border-muted/60 rounded-full text-sm px-4 py-2 font-medium inline-flex items-center justify-center tracking-tight cursor-pointer transition-all h-9 backdrop-blur-md bg-linear-to-b from-muted/50 via-background/20 to-muted/20">
+        <div className="text-white border border-muted/60 rounded-full text-sm px-4 py-2 font-medium inline-flex items-center justify-center tracking-tight cursor-pointer transition-all h-9 backdrop-blur-md bg-linear-to-b from-muted/50 via-background/20 to-muted/20 transform-gpu">
           <span>
             <Image
               src={"/logo.svg"}
@@ -61,7 +61,7 @@ export const Navbar = () => {
       </Link>
 
       {/* Desktop Pill Menu */}
-      <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-saturate-180 backdrop-brightness-120 backdrop-blur-md border border-white/5 border-b-white/20 rounded-full p-2 items-center gap-8 shadow-xl shadow-black/10">
+      <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-saturate-180 backdrop-brightness-120 backdrop-blur-md border border-white/5 border-b-white/20 rounded-full p-2 items-center gap-8 shadow-xl shadow-black/10 transform-gpu">
         <Link href="/">
           <div className="button h-9 active:scale-98">
             <span>
@@ -102,7 +102,7 @@ export const Navbar = () => {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex items-center justify-center size-10 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white transition-all active:scale-95 hover:bg-white/10 "
+          className="md:hidden flex items-center justify-center size-10 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white transition-all active:scale-95 hover:bg-white/10 transform-gpu"
           aria-label="Toggle menu"
         >
           <AnimatePresence mode="wait">
@@ -139,7 +139,7 @@ export const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-background z-60 md:hidden flex flex-col"
+            className="fixed inset-0 bg-background z-60 md:hidden flex flex-col transform-gpu"
           >
             <div className="flex-1 flex flex-col justify-center px-10 gap-6 border-y">
               {navItems.map((item, index) => (
