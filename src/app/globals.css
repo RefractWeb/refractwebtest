@@ -174,7 +174,7 @@
   }
 
   /* GPU acceleration for elements (Safari performance fix) */
-  .transform-gpu {
+  .transform-gpu-blur {
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     perspective: 1000px;
@@ -189,11 +189,17 @@
     opacity: 0.2 !important; */
   }
 
-  .is-safari [class*="blur-["] {
+  .is-safari .blur-min{
+    filter: blur(60px) !important;
+    opacity: 0.5 !important;
+  }
+
+  /* .is-safari [class*="blur-["] {
     display: none !important;
 
-    /* filter: blur(30px) !important; */
-  }
+    filter: blur(60px) !important;
+    opacity: 0.3 !important;
+  } */
 
   .is-safari [class*="backdrop-blur"] {
     -webkit-backdrop-filter: blur(2px) !important;

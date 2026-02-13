@@ -106,7 +106,7 @@ export default function CodeEditorReplica() {
       )}
 
       <div
-        className="relative w-full pr-10 py-2 rounded-md max-w-sm bg-[#0C112DED] rounded-bl-xl overflow-hidden shadow-lg border border-border/50 group transform-gpu cursor-crosshair hover:scale-101 transition-all duration-500"
+        className="relative w-full pr-10 py-2 rounded-md max-w-sm bg-[#0C112DED] rounded-bl-xl overflow-hidden shadow-lg border border-border/50 group transform-gpu-blur cursor-crosshair hover:scale-101 transition-all duration-500"
         style={{
           boxShadow: "-15px 15px 115px rgba(245, 151, 104, 0.12)",
         }}

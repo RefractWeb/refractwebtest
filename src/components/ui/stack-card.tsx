@@ -191,7 +191,7 @@ export default function StackCards() {
             ref={(el) => {
               cardRefs.current[index] = el;
             }}
-            className="sticky w-full max-w-6xl mx-auto h-[140vw] md:h-[75vh] top-[25vw] md:top-[12.5vh] transform-gpu"
+            className="sticky w-full max-w-6xl mx-auto h-[140vw] md:h-[75vh] top-[25vw] md:top-[12.5vh] transform-gpu-blur"
           >
             <div className="relative group h-full">
               <div

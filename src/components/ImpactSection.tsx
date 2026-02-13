@@ -59,7 +59,7 @@ export const ImpactSection = () => {
             )}
             <div className="relative z-10 flex flex-col justify-between h-80 md:min-h-72">
               <div className="flex flex-col gap-3">
-                <h3 className="text-grad text-lg mb-2 md:mb-6">
+                <h3 className="text-grad text-lg mb-2 md:mb-4">
                   Revenue Supported
                 </h3>
                 <div className="text-6xl font-medium tracking-tighter text-grad">
@@ -96,7 +96,7 @@ export const ImpactSection = () => {
             )}
             <div className="relative z-10 flex flex-col justify-between h-80 md:min-h-72">
               <div className="flex flex-col h-full gap-3 relative z-10">
-                <h3 className="text-grad text-lg mb-2 md:mb-6">
+                <h3 className="text-grad text-lg mb-2 md:mb-4">
                   Assets Deployed
                 </h3>
                 <div className="text-6xl font-medium tracking-tighter text-grad">
@@ -138,7 +138,7 @@ export const ImpactSection = () => {
               </>
             )}
             <div className="flex flex-col h-full gap-3 relative z-10">
-              <h3 className="text-grad text-lg mb-2 md:mb-6">Enterprise DNA</h3>
+              <h3 className="text-grad text-lg mb-2 md:mb-4">Enterprise DNA</h3>
               <div className="text-6xl font-medium tracking-tighter text-grad px-1">
                 $2.65B
               </div>
