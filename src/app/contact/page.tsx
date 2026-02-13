@@ -5,6 +5,7 @@ import SmoothContainer from "@/lib/SmoothContainer";
 import AnimatedLogoCloud from "@/components/LogoCloud";
 import { AnimatedText } from "@/components/ui/animated-text";
 import { AnimatedChip } from "@/components/AnimatedChip";
+import BgGrad from "@/components/ui/bg-grad";
 
 const CONTACT_METHODS = [
   {
@@ -37,6 +38,7 @@ const ContactPage = () => {
   return (
     <SmoothContainer>
       <div className="relative min-h-screen flex flex-col bg-background">
+        <BgGrad />
         {/* Background Elements */}
         <div className="absolute hidden md:block inset-0 z-0 pointer-events-none">
           <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[240px] blur-gpu" />
@@ -67,7 +69,7 @@ const ContactPage = () => {
             </div>
 
             {/* Contact Cards */}
-            <div className="flex flex-col gap-3 max-w-lg">
+            <div className="flex flex-col gap-2 sm:gap-3 max-w-lg">
               {CONTACT_METHODS.map((method, idx) => (
                 <ContactCard
                   key={idx}
