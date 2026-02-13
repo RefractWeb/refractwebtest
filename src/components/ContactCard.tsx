@@ -63,7 +63,7 @@ export const ContactCard = ({
       onClick={onClick}
       type={isLink ? undefined : "button"}
       target={isLink ? "_blank" : undefined}
-      className="group relative bg-white/2 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition-all duration-300 cursor-pointer overflow-hidden w-full text-left backdrop-blur-md blur-gpu"
+      className="group relative bg-white/2 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition-all duration-300 cursor-pointer overflow-hidden w-full text-left backdrop-blur-md"
       style={{
         boxShadow:
           "rgb(193 193 193 / 10%) -3px -4px 20px inset, rgb(0 0 0 / 25%) 6px 7px 20px inset",
