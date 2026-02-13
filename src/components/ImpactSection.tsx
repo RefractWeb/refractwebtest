@@ -10,11 +10,11 @@ import ChartAnim from "./ChartAnim";
 export const ImpactSection = () => {
   return (
     <section className="relative py-24 px-6">
-      <div className="absolute top-[-10%] left-[15%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-50 blur-[220px] blur-gpu" />
+      {/* <div className="absolute top-[-10%] left-[15%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-50 blur-[220px] blur-gpu" />
       <div className="absolute top-[-14%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-50 blur-[250px] blur-gpu" />
 
       <div className="absolute bottom-[-30%] right-[15%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-50 blur-[220px] blur-gpu" />
-      <div className="absolute bottom-[-34%] -right-[20%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-50 blur-[250px] blur-gpu" />
+      <div className="absolute bottom-[-34%] -right-[20%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-50 blur-[250px] blur-gpu" /> */}
 
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
