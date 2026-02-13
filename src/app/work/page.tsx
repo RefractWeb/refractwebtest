@@ -20,7 +20,7 @@ const page = () => {
     <SmoothContainer>
       <div className="overflow-hidden">
         <section className="py-32 px-6 relative">
-          <div className="absolute inset-0 z-0 pointer-events-none">
+          <div className="absolute hidden md:block inset-0 z-0 pointer-events-none">
             <div className="absolute pointer-events-none top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[200px] blur-gpu" />
             <div className="absolute pointer-events-none top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[230px] blur-gpu" />
             <div className="absolute pointer-events-none -bottom-40 left-[10%] size-150 rounded-full bg-[#d6795a] opacity-40 blur-[200px] blur-gpu" />

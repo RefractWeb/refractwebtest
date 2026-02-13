@@ -7,7 +7,7 @@ import Image from "next/image";
 import { Mail, Linkedin } from "lucide-react";
 import adamImg from "@/assets/adam.png";
 import jakeImg from "@/assets/jake.png";
-import TeamMember, { Member } from "./MemberCard";
+import { Member } from "./MemberCard";
 import { AnimatedText } from "../ui/animated-text";
 import ActionButtons from "../ActionButtons";
 import { useEffect, useRef } from "react";
@@ -17,28 +17,27 @@ import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const members: Member[] = [
+  {
+    name: "Adam Guarino",
+    role: "Co-Founder and COO",
+    bio: "Adam orchestrates creative strategy and production for high-growth organizations and enterprise partners. He bridges the gap between ambitious visual concepts and operational reality, driving projects from direction to delivery. Trusted to execute in high-stakes environments, he brings the structure required to turn digital initiatives into commercial impact.",
+    email: "adam@refractweb.com",
+    linkedin: "https://www.linkedin.com/in/adam-guarino/",
+    img: adamImg,
+  },
+  {
+    name: "Jake Young",
+    role: "Co-Founder and CEO",
+    bio: "Jake operates across major creative markets including San Diego and London, contributing to work built for global visibility and commercial impact. He works alongside creative and marketing teams to move projects from direction to delivery, supporting brand and campaign platforms where precision, judgment, and reliability matter.",
+    email: "jake@refractweb.com",
+    linkedin: "https://www.linkedin.com/in/jacob-young9/",
+    img: jakeImg,
+  },
+];
 export default function Teams() {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [imagesLoaded, setImagesLoaded] = useState(false);
-
-  const members: Member[] = [
-    {
-      name: "Adam Guarino",
-      role: "Co-Founder and COO",
-      bio: "Adam orchestrates creative strategy and production for high-growth organizations and enterprise partners. He bridges the gap between ambitious visual concepts and operational reality, driving projects from direction to delivery. Trusted to execute in high-stakes environments, he brings the structure required to turn digital initiatives into commercial impact.",
-      email: "adam@refractweb.com",
-      linkedin: "https://www.linkedin.com/in/adam-guarino/",
-      img: adamImg,
-    },
-    {
-      name: "Jake Young",
-      role: "Co-Founder and CEO",
-      bio: "Jake operates across major creative markets including San Diego and London, contributing to work built for global visibility and commercial impact. He works alongside creative and marketing teams to move projects from direction to delivery, supporting brand and campaign platforms where precision, judgment, and reliability matter.",
-      email: "jake@refractweb.com",
-      linkedin: "https://www.linkedin.com/in/jacob-young9/",
-      img: jakeImg,
-    },
-  ];
 
   // Preload images
   useEffect(() => {
@@ -101,7 +100,7 @@ export default function Teams() {
 
   return (
     <section className="py-32 md:py-40 px-6 relative">
-      <div className="absolute inset-0 z-0 pointer-events-none hidden md:block">
+      <div className="absolute hidden md:block inset-0 z-0 pointer-events-none">
         <div className="absolute pointer-events-none top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[200px] -z-10 blur-gpu" />
         <div className="absolute pointer-events-none top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[230px] -z-10 blur-gpu" />
       </div>
@@ -135,7 +134,11 @@ export default function Teams() {
                 ref={(el) => {
                   itemRefs.current[baseIndex] = el;
                 }}
-                className={cn(m.gradientClass ?? "saturate-110 bg-linear-to-b to-[#f59566] from-[#0C112D]", "flex flex-col rounded-2xl overflow-hidden group relative")}
+                className={cn(
+                  m.gradientClass ??
+                    "saturate-110 bg-linear-to-b to-[#f59566] from-[#0C112D]",
+                  "flex flex-col rounded-2xl overflow-hidden group relative",
+                )}
                 style={{ willChange: "transform, opacity" }}
               >
                 <Image
@@ -148,8 +151,12 @@ export default function Teams() {
                 />
                 <div className="absolute bottom-0 inset-x-0 h-1/3 bg-linear-to-t from-background via-background/60" />
                 <div className="absolute bottom-6 left-6">
-                  <h3 className="text-2xl font-bold tracking-tight">{m.name}</h3>
-                  <p className="text-muted-foreground text-xs font-medium">{m.role}</p>
+                  <h3 className="text-2xl font-bold tracking-tight">
+                    {m.name}
+                  </h3>
+                  <p className="text-muted-foreground text-xs font-medium">
+                    {m.role}
+                  </p>
                 </div>
               </div>,
               // Bio Card
@@ -165,8 +172,12 @@ export default function Teams() {
                 }}
               >
                 <div className="space-y-4">
-                  <h3 className="text-xl xl:text-2xl font-bold tracking-tight mb-12 md:mb-62">{m.name}</h3>
-                  <p className="text-foreground/90 text-xs xl:text-[12.5px] font-medium">{m.bio}</p>
+                  <h3 className="text-xl xl:text-2xl font-bold tracking-tight mb-12 md:mb-62">
+                    {m.name}
+                  </h3>
+                  <p className="text-foreground/90 text-xs xl:text-[12.5px] font-medium">
+                    {m.bio}
+                  </p>
                 </div>
                 <div className="flex gap-4 mt-4">
                   <Link
