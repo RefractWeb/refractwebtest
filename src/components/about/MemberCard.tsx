@@ -43,7 +43,7 @@ export function TeamMember({ member }: { member: Member }) {
 
       {/* Bio Card */}
       <div
-        className="flex flex-col bg-neutral-800/70 rounded-2xl p-6 justify-between hover:border-white/10 transition-all duration-500 relative backdrop-blur blur-gpu"
+        className="flex flex-col bg-neutral-800/70 rounded-2xl p-6 justify-between hover:border-white/10 transition-all duration-500 relative backdrop-blur-sm"
         style={{
           boxShadow: "0px 0px 30px rgba(0, 0, 0,0.5) inset",
         }}

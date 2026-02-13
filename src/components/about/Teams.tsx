@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, Linkedin } from "lucide-react";
@@ -77,17 +76,14 @@ export default function Teams() {
           rotate: 0,
           opacity: 1,
           duration: 1.2,
-          delay: 0,
-          ease: "power3.out",
+          delay: 0.1 + index * 0.15,
+          ease: "power4.out",
           scrollTrigger: {
             trigger: item,
             start: "top 85%",
             end: "top 60%",
             toggleActions: "play none none none",
             markers: false,
-            onEnter: () => {
-              console.log(`Card ${index} animation triggered`);
-            },
           },
         });
       });
@@ -146,7 +142,7 @@ export default function Teams() {
                   alt={m.name}
                   draggable={false}
                   loading="eager"
-                  className="object-cover mt-auto group-hover:scale-105 transition-all duration-700 brightness-110 select-none"
+                  className="object-cover mt-auto group-hover:scale-105 transition-all duration-700 brightness-110 select-none w-full"
                   preload
                 />
                 <div className="absolute bottom-0 inset-x-0 h-1/3 bg-linear-to-t from-background via-background/60" />

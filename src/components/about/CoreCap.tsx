@@ -19,7 +19,7 @@ export default function () {
             useScrollTrigger={true}
             animationType="slideUp"
             splitType="lines"
-            delay={0.1}
+            delay={0.2}
             className="text-base md:text-xl max-w-md mx-auto md:leading-relaxed"
           >
             Integrated execution. We blend strategy, design, and code to build

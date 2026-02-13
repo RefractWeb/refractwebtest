@@ -70,10 +70,6 @@ export default function RootLayout({
     <html lang="en" className="overflow-x-hidden">
       {process.env.NODE_ENV === "production" && <Clarity />}
       <head>
-        <link
-          href="https://assets.calendly.com/assets/external/widget.css"
-          rel="stylesheet"
-        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

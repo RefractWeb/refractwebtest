@@ -57,7 +57,7 @@ export const WorkSection = () => {
             useScrollTrigger={true}
             animationType="slideUp"
             splitType="lines"
-            delay={0.1}
+            delay={0.2}
             className="text-muted-foreground text-lg max-w-2xl mx-auto"
           >
             Redefining the standard. We sharpen clarity, elevate design, and

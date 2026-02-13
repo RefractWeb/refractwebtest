@@ -54,7 +54,7 @@ const page = () => {
                   <DraggableMarquee speed={1.2} direction="right">
                     {projects.map((project, i) => (
                       <MarqueeItem key={i}>
-                        <div className="p-3 rounded-2xl bg-linear-to-br from-white/5 to-gray-200/10 border border-white/10 backdrop-blur-lg backdrop-saturate-180 backdrop-brightness-120 shadow-xl blur-gpu">
+                        <div className="p-3 rounded-2xl bg-linear-to-br from-white/5 to-gray-200/10 border border-white/10 backdrop-blur backdrop-saturate-180 backdrop-brightness-120 shadow-xl">
                           <Image
                             src={project}
                             alt={project + " " + i}
@@ -73,7 +73,7 @@ const page = () => {
                   <DraggableMarquee speed={2} direction="left">
                     {projects.map((project, i) => (
                       <MarqueeItem key={i}>
-                        <div className="p-3 rounded-2xl bg-linear-to-br from-white/5 to-gray-200/10 border border-white/10">
+                        <div className="p-3 rounded-2xl bg-linear-to-br from-white/5 to-gray-200/10 border border-white/10 backdrop-blur backdrop-saturate-180 backdrop-brightness-120 shadow-xl">
                           <Image
                             src={project}
                             alt={project + " " + i}

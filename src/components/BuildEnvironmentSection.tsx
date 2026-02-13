@@ -19,9 +19,9 @@ export const BuildEnvironmentSection = () => {
             }}
           /> */}
 
-          {/* <div className="absolute -top-10 left-100 w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-3xl hidden md:block blur-gpu" />
+          <div className="absolute -top-10 left-100 w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-3xl hidden md:block blur-gpu" />
           <div className="absolute top-[-30%] left-[5%] w-90 h-90 rounded-full bg-[#3150aa] opacity-60 blur-[100px] blur-gpu" />
-          <div className="absolute bottom-[-20%] -left-[10%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px] hidden md:block blur-gpu" /> */}
+          <div className="absolute bottom-[-20%] -left-[10%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px] hidden md:block blur-gpu" />
 
           {/* Left Content */}
           <div className="relative flex flex-col justify-center z-10 max-w-lg space-y-6 px-10 pb-6 md:py-36 items-center text-center md:items-start md:text-left md:pl-12 md:pr-0">
