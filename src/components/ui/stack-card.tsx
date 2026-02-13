@@ -41,7 +41,11 @@ type CapabilityCard = {
   title: string;
   description: string;
   icon: React.ReactNode;
-  visual: "webdev" | "branding" | "software" | "3d";
+  visual:
+    | "webdev"
+    | "branding"
+    //  | "software"
+    | "3d";
 };
 
 const CARDS: CapabilityCard[] = [
@@ -59,13 +63,13 @@ const CARDS: CapabilityCard[] = [
     icon: <Palette className="size-5 text-foreground/70" />,
     visual: "branding",
   },
-  {
-    title: "Software / AI",
-    description:
-      "We replace manual processes with intelligent software tailored to your specific operations. Custom tools and AI solutions engineered to give you an edge.",
-    icon: <Code className="size-5 text-foreground/70" />,
-    visual: "software",
-  },
+  // {
+  //   title: "Software / AI",
+  //   description:
+  //     "We replace manual processes with intelligent software tailored to your specific operations. Custom tools and AI solutions engineered to give you an edge.",
+  //   icon: <Code className="size-5 text-foreground/70" />,
+  //   visual: "software",
+  // },
   {
     title: "3D Animation",
     description:
@@ -94,7 +98,7 @@ function BrandingVisual() {
   return (
     <div className="w-full h-full relative rounded-2xl overflow-hidden flex items-center justify-center">
       <div className="absolute inset-0 bg-linear-to-br from-primary/10 to-primary2/10" />
-      {/* <div className="absolute bottom-0 left-1/2 -translate-x-1/2 blur-[100px] size-80 bg-primary/40 rounded-full pointer-events-none" /> */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 blur-[100px] size-80 bg-primary/40 rounded-full pointer-events-none blur-gpu" />
       <div className="w-full relative z-10">
         <Marquee>
           <DraggableMarquee speed={0.5} direction="right" gap={10}>
@@ -145,7 +149,7 @@ function ThreeDVisual() {
 const VISUALS: Record<CapabilityCard["visual"], React.FC> = {
   webdev: WebDevVisual,
   branding: BrandingVisual,
-  software: SoftwareVisual,
+  // software: SoftwareVisual,
   "3d": ThreeDVisual,
 };
 

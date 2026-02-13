@@ -155,7 +155,7 @@ export const BentoSection = () => {
             className="md:row-span-2 relative bg-[#0E111B] border border-border/50 rounded-2xl overflow-hidden group flex flex-col items-center justify-end min-h-158 md:min-h-0 transform-gpu"
           >
             <div className="absolute -bottom-50 left-1/2 -translate-x-1/2 blur-[120px] size-120 bg-secondary2/60 rounded-full pointer-events-none blur-gpu" />
-            <CodeEditorReplica />
+            {/* <CodeEditorReplica /> */}
             <div className="relative z-10 p-6 md:p-14 flex flex-col gap-4 w-full">
               <Code className="size-6 text-foreground/80" />
 
