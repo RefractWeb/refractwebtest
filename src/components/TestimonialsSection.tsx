@@ -45,11 +45,11 @@ export const TestimonialsSection = () => {
 
   return (
     <section className="relative flex items-center justify-center py-16 md:py-24 md:min-h-200">
-      <div className="absolute -top-10 left-100 w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-[100px] z-10" />
-      <div className="absolute top-[-30%] left-[5%] w-50 h-50 rounded-full bg-[#3150aa] opacity-60 blur-[120px] -z-10" />
+      <div className="absolute -top-10 left-100 w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-[100px] z-10 blur-gpu" />
+      <div className="absolute top-[-30%] left-[5%] w-50 h-50 rounded-full bg-[#3150aa] opacity-60 blur-[120px] -z-10 blur-gpu" />
 
-      <div className="absolute -bottom-3 right-100 w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-[100px] -z-10" />
-      <div className="absolute bottom-0 right-[5%] w-50 h-50 rounded-full bg-[#3150aa] opacity-60 blur-[120px] -z-10" />
+      <div className="absolute -bottom-3 right-100 w-30 h-30 rounded-full bg-[#dd7857] opacity-60 blur-[100px] -z-10 blur-gpu" />
+      <div className="absolute bottom-0 right-[5%] w-50 h-50 rounded-full bg-[#3150aa] opacity-60 blur-[120px] -z-10 blur-gpu" />
       <div className="container max-w-5xl px-6 md:px-10 relative z-10">
         <div className="relative">
           {/* Desktop Navigation Arrows */}

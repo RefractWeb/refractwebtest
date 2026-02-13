@@ -102,8 +102,8 @@ export default function CodeEditorReplica() {
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* Glow */}
-        <div className="absolute z-5 bg-[#B05D41] blur-3xl opacity-80 size-70 -bottom-40 right-0"></div>
-        <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-primary2/10 blur-[60px] rounded-full pointer-events-none z-0" />
+        <div className="absolute z-5 bg-[#B05D41] blur-3xl opacity-80 size-70 -bottom-40 right-0 blur-gpu"></div>
+        <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-primary2/10 blur-[60px] rounded-full pointer-events-none z-0 blur-gpu" />
 
         <div className="relative z-10 flex flex-row pt-3 pb-2 px-3">
           {/* Line Numbers */}

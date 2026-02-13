@@ -39,8 +39,8 @@ const ContactPage = () => {
       <div className="relative min-h-screen flex flex-col bg-background">
         {/* Background Elements */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[240px]" />
-          <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[250px]" />
+          <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[240px] blur-gpu" />
+          <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[250px] blur-gpu" />
         </div>
 
         {/* Main Content */}

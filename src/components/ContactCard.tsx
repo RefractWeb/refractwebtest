@@ -63,7 +63,7 @@ export const ContactCard = ({
       onClick={onClick}
       type={isLink ? undefined : "button"}
       target={isLink ? "_blank" : undefined}
-      className="group relative bg-white/2 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition-all duration-300 cursor-pointer overflow-hidden w-full text-left backdrop-blur-md"
+      className="group relative bg-white/2 hover:bg-white/10 border border-white/10 rounded-2xl p-4 transition-all duration-300 cursor-pointer overflow-hidden w-full text-left backdrop-blur-md blur-gpu"
       style={{
         boxShadow:
           "rgb(193 193 193 / 10%) -3px -4px 20px inset, rgb(0 0 0 / 25%) 6px 7px 20px inset",
@@ -87,7 +87,7 @@ export const ContactCard = ({
     return (
       <Dialog>
         <DialogTrigger asChild>{Card}</DialogTrigger>
-        <DialogContent className="sm:max-w-7xl md:h-180 max-h-[90vh] h-[80vh] p-1 md:p-4 overflow-hidden border border-white/20 bg-muted/10 backdrop-blur-lg rounded-2xl">
+        <DialogContent className="sm:max-w-7xl md:h-180 max-h-[90vh] h-[80vh] p-1 md:p-4 overflow-hidden border border-white/20 bg-muted/10 backdrop-blur-lg rounded-2xl blur-gpu">
           <CalendlyFrame src={calendlyLink} />
         </DialogContent>
       </Dialog>

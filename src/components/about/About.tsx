@@ -10,8 +10,8 @@ export default function () {
           backgroundSize: "80px 80px",
         }}
       />
-      <div className="absolute pointer-events-none -z-10 top-[8%] -right-[2%] w-200 h-200 rounded-full bg-[#253a7a] opacity-30 blur-[200px]" />
-      <div className="absolute pointer-events-none -z-10 top-[20%] -right-[24%] w-200 h-200 rounded-full bg-[#B05D41] opacity-40 blur-[200px] hidden md:block" />
+      <div className="absolute pointer-events-none -z-10 top-[8%] -right-[2%] w-200 h-200 rounded-full bg-[#253a7a] opacity-30 blur-[200px] blur-gpu" />
+      <div className="absolute pointer-events-none -z-10 top-[20%] -right-[24%] w-200 h-200 rounded-full bg-[#B05D41] opacity-40 blur-[200px] hidden md:block blur-gpu" />
       <div className="container mx-auto max-w-5xl text-center relative z-10">
         <AnimatedText
           useScrollTrigger={true}
