@@ -145,7 +145,7 @@ export default function Teams() {
                   className="object-cover mt-auto group-hover:scale-105 transition-all duration-700 brightness-110 select-none w-full"
                   preload
                 />
-                <div className="absolute bottom-0 inset-x-0 h-1/3 bg-linear-to-t from-background via-background/60" />
+                <div className="absolute bottom-0 inset-x-0 h-1/3 bg-linear-to-t from-background via-background/60 backdrop-blur-2xl mask-t-from-20%" />
                 <div className="absolute bottom-6 left-6">
                   <h3 className="text-2xl font-bold tracking-tight">
                     {m.name}
