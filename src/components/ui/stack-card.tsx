@@ -12,6 +12,11 @@ import { DraggableMarquee, Marquee, MarqueeItem } from "./marquee";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 const SeeMore = ({ className }: { className?: string }) => (
   <Link href={"/contact"}>
     <div
@@ -145,21 +150,51 @@ const VISUALS: Record<CapabilityCard["visual"], React.FC> = {
 };
 
 export default function StackCards() {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      cardRefs.current.forEach((ref, position) => {
+        if (!ref) return;
+
+        const isLast = position === cardRefs.current.length - 1;
+
+        const timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: ref,
+            start: "center center",
+            end: "+=100%",
+            scrub: true,
+          },
+        });
+
+        timeline.set(ref, { willChange: "opacity" }).to(ref, {
+          ease: "none",
+          opacity: isLast ? 1 : 0,
+        });
+      });
+    });
+
+    return () => {
+      ctx.revert();
+    };
+  }, []);
+
   return (
-    <div className="relative">
-      {/* <div className="absolute  -inset-10 bg-linear-to-r from-primary/20 to-primary2/20 blur-[120px] opacity-40 transition-opacity" /> */}
+    <div className="w-full flex flex-col gap-0 md:gap-[6.25vh]">
       {CARDS.map((card, index) => {
-        const topOffset = 120 + index * 60;
         const Visual = VISUALS[card.visual];
         return (
           <div
             key={index}
-            className="sticky w-full max-w-6xl mx-auto flex flex-col mt-10"
-            style={{ top: topOffset, zIndex: index }}
+            ref={(el) => {
+              cardRefs.current[index] = el;
+            }}
+            className="sticky w-full max-w-6xl mx-auto h-[140vw] md:h-[75vh] top-[25vw] md:top-[12.5vh]"
           >
-            <div className="relative group">
+            <div className="relative group h-full">
               <div
-                className="relative bg-[#0E111B] rounded-3xl p-6 md:p-10 flex flex-col lg:flex-row gap-8 items-center"
+                className="relative bg-[#0E111B] rounded-3xl p-6 md:p-10 flex flex-col lg:flex-row gap-8 items-center h-full"
                 style={{
                   boxShadow: "#02071861 0px 2px 20px",
                 }}
