@@ -1,17 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { Clipboard, Maximize2 } from "lucide-react";
+import { useSafari } from "@/hooks/useSafari";
 
 export default function CodeEditorReplica() {
   const codeRef = useRef<HTMLElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const isSafari = useSafari();
   const charsRef = useRef<HTMLSpanElement[]>([]);
   const isPrepared = useRef(false);
-  const animationTimeouts = useRef<NodeJS.Timeout[]>([]);
+  const rafRef = useRef<number | null>(null);
 
-  // Prepare spans on mount
   useEffect(() => {
     const codeContainer = codeRef.current;
-    if (!codeContainer || isPrepared.current) return;
+    if (!codeContainer || isPrepared.current || isSafari) return;
 
     function prepareTextForTyping(element: Node): void {
       const children = Array.from(element.childNodes);
@@ -28,7 +29,7 @@ export default function CodeEditorReplica() {
             const span = document.createElement("span");
             span.textContent = char;
             span.className = "typing-char";
-            span.style.opacity = "1"; // Initially visible
+            span.style.opacity = "1";
             fragment.appendChild(span);
           });
 
@@ -48,225 +49,155 @@ export default function CodeEditorReplica() {
     charsRef.current = allChars;
     isPrepared.current = true;
 
-    // Cleanup on unmount
     return () => {
-      animationTimeouts.current.forEach(clearTimeout);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, []);
+  }, [isSafari]);
 
-  // Animate on hover
   useEffect(() => {
-    if (!isHovered || charsRef.current.length === 0) return;
+    if (isSafari || !isHovered || charsRef.current.length === 0) return;
 
-    // Clear any existing animation
-    animationTimeouts.current.forEach(clearTimeout);
-    animationTimeouts.current = [];
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
 
-    // Reset all to hidden
     charsRef.current.forEach((char) => {
       char.style.opacity = "0";
     });
 
     let index = 0;
+    let lastTime = 0;
+    const BATCH_SIZE = 3;
 
-    function typeChar(): void {
+    function typeFrame(timestamp: number): void {
+      if (index >= charsRef.current.length) return;
+
+      const elapsed = timestamp - lastTime;
+      if (elapsed < 1) {
+        rafRef.current = requestAnimationFrame(typeFrame);
+        return;
+      }
+      lastTime = timestamp;
+
+      const end = Math.min(index + BATCH_SIZE, charsRef.current.length);
+      for (let i = index; i < end; i++) {
+        charsRef.current[i].style.opacity = "1";
+      }
+      index = end;
+
       if (index < charsRef.current.length) {
-        const charSpan = charsRef.current[index];
-        charSpan.style.opacity = "1";
-
-        const delay = charSpan.textContent === " " ? 0 : Math.random();
-        const timeoutId = setTimeout(typeChar, delay);
-        animationTimeouts.current.push(timeoutId);
-        index++;
+        rafRef.current = requestAnimationFrame(typeFrame);
       }
     }
 
-    const initialTimeout = setTimeout(typeChar, 100);
-    animationTimeouts.current.push(initialTimeout);
-  }, [isHovered]);
+    rafRef.current = requestAnimationFrame(typeFrame);
+
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [isHovered, isSafari]);
 
   return (
     <div className="absolute top-0 right-0 object-cover">
-      <style>{`
-        .typing-char {
-          transition: opacity 0.05s ease;
-        }
-      `}</style>
+      {!isSafari && (
+        <style>{`
+          .typing-char {
+            transition: opacity 0.05s ease;
+          }
+        `}</style>
+      )}
 
-      <div /* Code block */
-        className="relative w-full max-w-sm bg-[#0C112DED] rounded-bl-xl overflow-hidden shadow-lg border border-border/50 group"
+      <div
+        className="relative w-full pr-10 py-2 rounded-md max-w-sm bg-[#0C112DED] rounded-bl-xl overflow-hidden shadow-lg border border-border/50 group transform-gpu cursor-crosshair hover:scale-101 transition-all duration-500"
         style={{
           boxShadow: "-15px 15px 115px rgba(245, 151, 104, 0.12)",
         }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Glow */}
         <div className="absolute z-5 bg-[#B05D41] blur-3xl opacity-80 size-70 -bottom-40 right-0 blur-gpu"></div>
         <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-primary2/10 blur-[60px] rounded-full pointer-events-none z-0 blur-gpu" />
 
         <div className="relative z-10 flex flex-row pt-3 pb-2 px-3">
-          {/* Line Numbers */}
           <div className="flex flex-col text-right pr-3 select-none text-muted-foreground/30 text-xs shrink-0">
             {Array.from({ length: 22 }, (_, i) => (
-              <div key={i}>{i + 9}</div>
+              <div key={i}>{i + 15}</div>
             ))}
           </div>
 
-          {/* Code */}
           <div className="flex-1 overflow-x-hidden relative">
             <code
               ref={codeRef}
-              className="block text-xs text-muted-foreground whitespace-pre"
+              className="block text-xs md:text-sm text-muted-foreground whitespace-pre"
             >
               {"\t"}
-              <span className="text-primary2">removeChildren</span>
-              <span className="text-foreground/80">(</span>
-              <span className="text-[#C478FF]">gutters</span>
-              <span className="text-foreground/80">);</span>
+              <span className="text-rose-400">async function</span>
+              <span className="text-foreground/80"> </span>
+              <span className="text-primary2">initiateAgent</span>
+              <span className="text-foreground/80">() {"{"}</span>
+              {"\n"}
+              {"\t"} {"\t"}
+              <span className="text-rose-400">const</span>
+              <span className="text-foreground/80"> </span>
+              <span className="text-[#C478FF]">agent</span>
+              <span className="text-foreground/80"> = </span>
+              <span className="text-rose-400">new</span>
+              <span className="text-foreground/80"> </span>
+              <span className="text-[#1AC69C]">RefractAI</span>
+              <span className="text-foreground/80">({"{"}</span>
+              {"\n"}
+              {"\t"} {"\t"} {"\t"}
+              <span className="text-[#C478FF]">model</span>
+              <span className="text-foreground/80">: </span>
+              <span className="text-[#3FA4FF]">"intelligence-v1"</span>
+              <span className="text-foreground/80">,</span>
+              {"\n"}
+              {"\t"} {"\t"} {"\t"}
+              <span className="text-[#C478FF]">context</span>
+              <span className="text-foreground/80">: </span>
+              <span className="text-[#3FA4FF]">"orchestration"</span>
+              {"\n"}
+              {"\t"} {"\t"}
+              <span className="text-foreground/80">{"});"}</span>
               {"\n\n"}
-              {"\t"}
-              <span className="text-[#FF32C6]">for</span>
-              <span className="text-foreground/80"> (</span>
-              <span className="text-[#FF32C6]">var</span>
+              {"\t"} {"\t"}
+              <span className="text-rose-400">const</span>
               <span className="text-foreground/80"> </span>
-              <span className="text-[#C478FF]">i</span>
+              <span className="text-[#C478FF]">analysis</span>
               <span className="text-foreground/80"> = </span>
-              <span className="text-[#3FA4FF]">0</span>
-              <span className="text-foreground/80">; </span>
-              <span className="text-[#C478FF]">i</span>
-              <span className="text-foreground/80"> &lt; </span>
-              <span className="text-[#C478FF]">specs</span>
+              <span className="text-rose-400">await</span>
+              <span className="text-foreground/80"> </span>
+              <span className="text-[#C478FF]">agent</span>
               <span className="text-foreground/80">.</span>
-              <span className="text-[#1AC69C]">length</span>
-              <span className="text-foreground/80">; ++</span>
-              <span className="text-[#C478FF]">i</span>
-              <span className="text-foreground/80">) {"{"}</span>
+              <span className="text-primary2">analyze</span>
+              <span className="text-foreground/80">({"{"}</span>
               {"\n"}
-              {"\t"} {"\t"}
-              <span className="text-[#FF32C6]">var</span>
-              <span className="text-foreground/80"> </span>
-              <span className="text-[#C478FF]">gutterClass</span>
-              <span className="text-foreground/80"> = </span>
-              <span className="text-[#C478FF]">specs</span>
-              <span className="text-foreground/80">[</span>
-              <span className="text-[#C478FF]">i</span>
-              <span className="text-foreground/80">];</span>
-              {"\n"}
-              {"\t"} {"\t"}
-              <span className="text-[#FF32C6]">var</span>
-              <span className="text-foreground/80"> </span>
-              <span className="text-[#C478FF]">gElt</span>
-              <span className="text-foreground/80"> = </span>
-              <span className="text-[#C478FF]">gutters</span>
-              <span className="text-foreground/80">.</span>
-              <span className="text-[#1AC69C]">appendChild</span>
-              <span className="text-foreground/80">(</span>
-              {"\n"}
-              {"\t"} {"\t"}
-              {"\t"}
-              <span className="text-primary2">elt</span>
-              <span className="text-foreground/80">(</span>
-              {"\n"}
-              {"\t"} {"\t"}
-              {"\t"} {"\t"}
-              <span className="text-[#3FA4FF]">"div"</span>
+              {"\t"} {"\t"} {"\t"}
+              <span className="text-[#C478FF]">input</span>
+              <span className="text-foreground/80">: </span>
+              <span className="text-[#C478FF]">strategy</span>
               <span className="text-foreground/80">,</span>
               {"\n"}
-              {"\t"} {"\t"}
-              {"\t"} {"\t"}
-              <span className="text-[#FF32C6]">null</span>
-              <span className="text-foreground/80">,</span>
+              {"\t"} {"\t"} {"\t"}
+              <span className="text-[#C478FF]">optimizeFor</span>
+              <span className="text-foreground/80">: </span>
+              <span className="text-[#3FA4FF]">"authority"</span>
               {"\n"}
               {"\t"} {"\t"}
+              <span className="text-foreground/80">{"});"}</span>
+              {"\n\n"}
               {"\t"} {"\t"}
-              <span className="text-[#3FA4FF]">"CodeMirror-gutter "</span>
-              <span className="text-foreground/80"> + </span>
-              <span className="text-[#C478FF]">gutterClass</span>
-              {"\n"}
-              {"\t"} {"\t"}
-              {"\t"}
-              <span className="text-foreground/80">)</span>
-              {"\n"}
-              {"\t"} {"\t"}
-              <span className="text-foreground/80">);</span>
-              {"\n"}
-              {"\t"} {"\t"}
-              <span className="text-[#FF32C6]">if</span>
-              <span className="text-foreground/80"> (</span>
-              <span className="text-[#C478FF]">gutterClass</span>
-              <span className="text-foreground/80"> == </span>
-              <span className="text-[#3FA4FF]">"CodeMirror-linenumbers"</span>
-              <span className="text-foreground/80">) {"{"}</span>
-              {"\n"}
-              {"\t"} {"\t"}
-              {"\t"}
-              <span className="text-[#C478FF]">cm</span>
+              <span className="text-rose-400">return</span>
+              <span className="text-foreground/80"> </span>
+              <span className="text-[#C478FF]">analysis</span>
               <span className="text-foreground/80">.</span>
-              <span className="text-[#1AC69C]">display</span>
-              <span className="text-foreground/80">.</span>
-              <span className="text-[#1AC69C]">lineGutter</span>
-              <span className="text-foreground/80"> = </span>
-              <span className="text-[#C478FF]">gElt</span>
-              <span className="text-foreground/80">;</span>
-              {"\n"}
-              {"\t"} {"\t"}
-              {"\t"}
-              <span className="text-[#C478FF]">gElt</span>
-              <span className="text-foreground/80">.</span>
-              <span className="text-[#1AC69C]">style</span>
-              <span className="text-foreground/80">.</span>
-              <span className="text-[#1AC69C]">width</span>
-              <span className="text-foreground/80"> = (</span>
-              <span className="text-[#C478FF]">cm</span>
-              <span className="text-foreground/80">.</span>
-              <span className="text-[#1AC69C]">display</span>
-              <span className="text-foreground/80">.</span>
-              <span className="text-[#1AC69C]">lineNumWidth</span>
-              <span className="text-foreground/80"> || </span>
-              <span className="text-[#3FA4FF]">1</span>
-              <span className="text-foreground/80">) + </span>
-              <span className="text-[#3FA4FF]">"px"</span>
-              <span className="text-foreground/80">;</span>
-              {"\n"}
-              {"\t"} {"\t"}
-              <span className="text-foreground/80">{"}"}</span>
+              <span className="text-primary2">execute</span>
+              <span className="text-foreground/80">();</span>
               {"\n"}
               {"\t"}
               <span className="text-foreground/80">{"}"}</span>
-              {"\n\n"}
-              {"\t"}
-              <span className="text-[#C478FF]">gutters</span>
-              <span className="text-foreground/80">.</span>
-              <span className="text-[#1AC69C]">style</span>
-              <span className="text-foreground/80">.</span>
-              <span className="text-[#1AC69C]">display</span>
-              <span className="text-foreground/80"> = </span>
-              <span className="text-[#C478FF]">i</span>
-              <span className="text-foreground/80"> ? </span>
-              <span className="text-[#3FA4FF]">""</span>
-              <span className="text-foreground/80"> : </span>
-              <span className="text-[#3FA4FF]">"none"</span>
-              <span className="text-foreground/80">;</span>
-              {"\n"}
-              {"\t"}
-              <span className="text-primary2">updateGutterSpace</span>
-              <span className="text-foreground/80">(</span>
-              <span className="text-[#C478FF]">cm</span>
-              <span className="text-foreground/80">);</span>
-              {"\n\n"}
-              {"\t"}
-              <span className="text-[#FF32C6]">return</span>
-              <span className="text-foreground/80"> </span>
-              <span className="text-[#FF32C6]">false</span>
-              <span className="text-foreground/80">;</span>
-              {"\n"}
-              <span className="text-foreground">{"}"}</span>
             </code>
           </div>
         </div>
 
-        {/* Footer */}
         <div className="flex items-center gap-3 pb-4 px-6">
           <button className="text-muted-foreground hover:text-foreground transition">
             <Clipboard size={13} strokeWidth={1.5} />

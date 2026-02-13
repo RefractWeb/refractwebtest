@@ -41,11 +41,7 @@ type CapabilityCard = {
   title: string;
   description: string;
   icon: React.ReactNode;
-  visual:
-    | "webdev"
-    | "branding"
-    //  | "software"
-    | "3d";
+  visual: "webdev" | "branding" | "software" | "3d";
 };
 
 const CARDS: CapabilityCard[] = [
@@ -63,13 +59,13 @@ const CARDS: CapabilityCard[] = [
     icon: <Palette className="size-5 text-foreground/70" />,
     visual: "branding",
   },
-  // {
-  //   title: "Software / AI",
-  //   description:
-  //     "We replace manual processes with intelligent software tailored to your specific operations. Custom tools and AI solutions engineered to give you an edge.",
-  //   icon: <Code className="size-5 text-foreground/70" />,
-  //   visual: "software",
-  // },
+  {
+    title: "Software / AI",
+    description:
+      "We replace manual processes with intelligent software tailored to your specific operations. Custom tools and AI solutions engineered to give you an edge.",
+    icon: <Code className="size-5 text-foreground/70" />,
+    visual: "software",
+  },
   {
     title: "3D Animation",
     description:
@@ -149,7 +145,7 @@ function ThreeDVisual() {
 const VISUALS: Record<CapabilityCard["visual"], React.FC> = {
   webdev: WebDevVisual,
   branding: BrandingVisual,
-  // software: SoftwareVisual,
+  software: SoftwareVisual,
   "3d": ThreeDVisual,
 };
 
