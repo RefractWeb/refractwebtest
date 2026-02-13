@@ -46,7 +46,7 @@ export const Navbar = () => {
     <nav className="fixed top-4 md:top-8 px-6 z-100 w-full flex justify-between items-center">
       {/* Mobile Logo */}
       <Link href="/" className="md:hidden z-70 relative">
-        <div className="text-white border border-muted/60 rounded-full text-sm px-4 py-2 font-medium inline-flex items-center justify-center tracking-tight cursor-pointer transition-all h-9 backdrop-blur-sm bg-linear-to-b from-muted/50 via-background/20 to-muted/20">
+        <div className="text-white border border-muted/60 rounded-full text-sm px-4 py-2 font-medium inline-flex items-center justify-center tracking-tight cursor-pointer transition-all h-9 backdrop-blur-md bg-linear-to-b from-muted/50 via-background/20 to-muted/20">
           <span>
             <Image
               src={"/logo.svg"}
