@@ -87,7 +87,7 @@ export const ContactCard = ({
     return (
       <Dialog>
         <DialogTrigger asChild>{Card}</DialogTrigger>
-        <DialogContent className="sm:max-w-6xl md:h-180 max-h-[70vh] h-[65vh] p-1 md:p-4 overflow-hidden border border-white/20 bg-muted/10 backdrop-blur-lg rounded-2xl">
+        <DialogContent className="sm:max-w-6xl md:h-180 max-h-[80vh] h-[75vh] p-1 md:p-4 overflow-hidden border border-white/20 bg-muted/10 backdrop-blur-lg rounded-2xl">
           <CalendlyFrame src={calendlyLink} />
         </DialogContent>
       </Dialog>
