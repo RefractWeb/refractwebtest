@@ -137,23 +137,23 @@ export default function CodeEditorReplica() {
               {"\t"} {"\t"}
               <span className="text-rose-400">const</span>
               <span className="text-foreground/80"> </span>
-              <span className="text-[#C478FF]">agent</span>
+              <span className="text-violet-400">agent</span>
               <span className="text-foreground/80"> = </span>
               <span className="text-rose-400">new</span>
               <span className="text-foreground/80"> </span>
-              <span className="text-[#1AC69C]">RefractAI</span>
+              <span className="text-teal-300">RefractAI</span>
               <span className="text-foreground/80">({"{"}</span>
               {"\n"}
               {"\t"} {"\t"} {"\t"}
-              <span className="text-[#C478FF]">model</span>
+              <span className="text-violet-400">model</span>
               <span className="text-foreground/80">: </span>
-              <span className="text-[#3FA4FF]">"intelligence-v1"</span>
+              <span className="text-sky-400">"intelligence-v1"</span>
               <span className="text-foreground/80">,</span>
               {"\n"}
               {"\t"} {"\t"} {"\t"}
-              <span className="text-[#C478FF]">context</span>
+              <span className="text-violet-400">context</span>
               <span className="text-foreground/80">: </span>
-              <span className="text-[#3FA4FF]">"orchestration"</span>
+              <span className="text-sky-400">"orchestration"</span>
               {"\n"}
               {"\t"} {"\t"}
               <span className="text-foreground/80">{"});"}</span>
@@ -161,25 +161,25 @@ export default function CodeEditorReplica() {
               {"\t"} {"\t"}
               <span className="text-rose-400">const</span>
               <span className="text-foreground/80"> </span>
-              <span className="text-[#C478FF]">analysis</span>
+              <span className="text-violet-400">analysis</span>
               <span className="text-foreground/80"> = </span>
               <span className="text-rose-400">await</span>
               <span className="text-foreground/80"> </span>
-              <span className="text-[#C478FF]">agent</span>
+              <span className="text-violet-400">agent</span>
               <span className="text-foreground/80">.</span>
               <span className="text-primary2">analyze</span>
               <span className="text-foreground/80">({"{"}</span>
               {"\n"}
               {"\t"} {"\t"} {"\t"}
-              <span className="text-[#C478FF]">input</span>
+              <span className="text-violet-400">input</span>
               <span className="text-foreground/80">: </span>
-              <span className="text-[#C478FF]">strategy</span>
+              <span className="text-violet-400">strategy</span>
               <span className="text-foreground/80">,</span>
               {"\n"}
               {"\t"} {"\t"} {"\t"}
-              <span className="text-[#C478FF]">optimizeFor</span>
+              <span className="text-violet-400">optimizeFor</span>
               <span className="text-foreground/80">: </span>
-              <span className="text-[#3FA4FF]">"authority"</span>
+              <span className="text-sky-400">"authority"</span>
               {"\n"}
               {"\t"} {"\t"}
               <span className="text-foreground/80">{"});"}</span>
@@ -187,7 +187,7 @@ export default function CodeEditorReplica() {
               {"\t"} {"\t"}
               <span className="text-rose-400">return</span>
               <span className="text-foreground/80"> </span>
-              <span className="text-[#C478FF]">analysis</span>
+              <span className="text-violet-400">analysis</span>
               <span className="text-foreground/80">.</span>
               <span className="text-primary2">execute</span>
               <span className="text-foreground/80">();</span>
