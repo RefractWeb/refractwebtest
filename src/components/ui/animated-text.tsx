@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useSafari } from "@/hooks/useSafari";
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
@@ -75,6 +76,7 @@ export const AnimatedText = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const inView = useInView(containerRef, { once: true, amount: 0.1 });
+  const isSafari = useSafari();
 
   // Helper to determine animation targets
   const getTargets = (instance: SplitText) => {
@@ -159,7 +161,10 @@ export const AnimatedText = ({
                 config.opacity = 0;
                 break;
               case "blurIn":
-                config.filter = "blur(12px)";
+                // Skip blur effect in Safari
+                if (!isSafari) {
+                  config.filter = "blur(12px)";
+                }
                 config.yPercent = 30;
                 config.opacity = 0;
                 break;

@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState, useMemo, useCallback } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
 import { useMousePosition } from "@/hooks/useMousePosition";
+import { useSafari } from "@/hooks/useSafari";
 
 const PATH_D =
   "M48.7041 447C93.2848 268.788 138.872 223.443 175.182 220.595C240.298 215.524 275.632 347.456 346.482 342.968C433.933 337.475 454.367 131.887 540.923 126.786C611.944 122.62 642.097 258.505 712.223 254.612C801.173 249.642 826.497 26.9192 904.611 24.1423C934.04 23.096 974.204 53.1585 1024.93 179.144";
@@ -26,6 +27,7 @@ const ChartAnim = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [pathLength, setPathLength] = useState<number>(0);
   const [isHovered, setIsHovered] = useState(false);
+  const isSafari = useSafari();
 
   const progress = useMotionValue(0);
   const targetProgress = useMotionValue(0);
@@ -157,24 +159,26 @@ const ChartAnim = () => {
     [],
   );
 
-  // Memoize blur layers
+  // Memoize blur layers - conditionally disable in Safari
   const blurLayers = useMemo(
     () =>
-      [0, 1, 2, 3].map((i) => (
-        <g
-          key={i}
-          filter={`url(#filter${i})`}
-          style={{ mixBlendMode: "plus-lighter" }}
-        >
-          <path
-            d={PATH_D}
-            stroke="#F59768"
-            strokeWidth="10.0611"
-            strokeMiterlimit="10"
-          />
-        </g>
-      )),
-    [],
+      isSafari
+        ? null
+        : [0, 1, 2, 3].map((i) => (
+            <g
+              key={i}
+              filter={`url(#filter${i})`}
+              style={{ mixBlendMode: "plus-lighter" }}
+            >
+              <path
+                d={PATH_D}
+                stroke="#F59768"
+                strokeWidth="10.0611"
+                strokeMiterlimit="10"
+              />
+            </g>
+          )),
+    [isSafari],
   );
 
   return (
@@ -240,7 +244,9 @@ const ChartAnim = () => {
             scale: { type: "spring", stiffness: 300, damping: 20 },
           }}
           style={{
-            filter: "drop-shadow(0px 0px 8px rgba(245, 151, 104, 0.8))",
+            filter: isSafari
+              ? "none"
+              : "drop-shadow(0px 0px 8px rgba(245, 151, 104, 0.8))",
           }}
         />
 

@@ -3,6 +3,7 @@
 import { ReactNode } from "react";
 import { motion, Variants } from "motion/react";
 import { cn } from "@/lib/utils";
+import { useSafari } from "@/hooks/useSafari";
 
 type AnimationVariant =
   | "fadeIn"
@@ -261,16 +262,33 @@ export function Animate({
   variants,
   viewportAmount = 0.2,
 }: AnimateProps) {
+  const isSafari = useSafari();
   const selectedVariants = variants || animationVariants[animation];
+
+  // Remove blur effects for Safari
+  const processedVariants = isSafari
+    ? {
+        hidden: {
+          ...selectedVariants.hidden,
+          filter: undefined,
+        },
+        show: {
+          ...selectedVariants.show,
+          filter: undefined,
+        },
+      }
+    : selectedVariants;
 
   // Apply custom duration and delay
   const finalVariants: Variants = {
-    hidden: selectedVariants.hidden,
+    hidden: processedVariants.hidden,
     show: {
-      ...selectedVariants.show,
+      ...processedVariants.show,
       transition: {
-        ...(typeof selectedVariants.show === 'object' && selectedVariants.show !== null && 'transition' in selectedVariants.show
-          ? selectedVariants.show.transition
+        ...(typeof processedVariants.show === "object" &&
+        processedVariants.show !== null &&
+        "transition" in processedVariants.show
+          ? processedVariants.show.transition
           : {}),
         ...(duration && { duration }),
         delay,

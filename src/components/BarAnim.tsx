@@ -1,4 +1,7 @@
+"use client";
+
 import { motion } from "motion/react";
+import { useSafari } from "@/hooks/useSafari";
 
 // Heights (in px) scaled so the maximum matches container height h = 224px
 const DATA = [163, 110, 171, 224, 171, 224, 110, 48, 171, 224];
@@ -11,6 +14,7 @@ const AnimatedBar = ({
   index: number;
 }) => {
   const duration = 8 + Math.random();
+  const isSafari = useSafari();
 
   return (
     <div className="relative flex flex-col items-center justify-end h-full">
@@ -29,7 +33,7 @@ const AnimatedBar = ({
         style={{
           background:
             "radial-gradient(circle at center, var(--primary2) 0%, transparent 70%)",
-          filter: "blur(14px)",
+          filter: isSafari ? "none" : "blur(14px)",
           transformOrigin: "bottom",
         }}
       />

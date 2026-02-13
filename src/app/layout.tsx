@@ -74,6 +74,18 @@ export default function RootLayout({
           href="https://assets.calendly.com/assets/external/widget.css"
           rel="stylesheet"
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+                if (isSafari) {
+                  document.documentElement.classList.add('is-safari');
+                }
+              })();
+            `,
+          }}
+        />
       </head>
       <body className={inter.className + " " + geistMono.variable}>
         <BgGrad />

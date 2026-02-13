@@ -181,6 +181,20 @@
     perspective: 1000px;
   }
 
+  /* Disable heavy blur effects in Safari for performance */
+  .is-safari .blur-gpu {
+    filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .is-safari [class*="blur-["] {
+    filter: none !important;
+  }
+
+  .is-safari [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+  }
+
   /* SplitText masking styles */
   .line,
   .word,
