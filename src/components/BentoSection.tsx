@@ -85,7 +85,7 @@ export const BentoSection = () => {
             className="md:col-span-2 relative bg-[#0E111B] border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 md:min-h-0 transform-gpu-blur"
           >
             <div className="absolute -bottom-20 right-40 size-80 rounded-full bg-[#253a7a] blur-3xl pointer-events-none blur-gpu" />
-            <div className="relative z-10 flex flex-col justify-center md:justify-start gap-4 mt-40 sm:mt-52 md:mt-0">
+            <div className="relative z-10 flex flex-col justify-center md:justify-start gap-4 mt-52 md:mt-0">
               <Globe className="size-6 text-foreground/80" />
               <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-grad">
                 Web Development
@@ -101,7 +101,7 @@ export const BentoSection = () => {
               placeholder="blur"
               loading="lazy"
               alt="Web Development Illustration"
-              className="object-cover opacity-60 md:opacity-100 group-hover:scale-105 transition-transform duration-700 absolute top-4 left-1/2 -translate-x-1/2 md:translate-x-0 md:right-[-12%] md:top-[-6%] w-auto h-36 xs:h-52 sm:h-64 md:h-75 pointer-events-none select-none rounded-2xl overflow-hidden transform-gpu-blur"
+              className="object-cover opacity-60 md:opacity-100 group-hover:scale-105 transition-transform duration-700 absolute top-4 left-1/2 -translate-x-1/2 md:translate-x-0 md:right-[-12%] md:top-[-6%] w-11/12 sm:w-auto sm:h-64 md:h-75 pointer-events-none select-none rounded-2xl overflow-hidden transform-gpu-blur"
             />
           </motion.div>
 
