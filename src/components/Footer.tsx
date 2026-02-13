@@ -38,7 +38,7 @@ const SOCIAL_LINKS = [
 
 export const Footer = () => {
   return (
-    <footer className="relative bg-linear-to-t from-black py-20 overflow-hidden">
+    <footer className="relative bg-linear-to-t from-black pt-20 pb-10 overflow-hidden">
       <Image
         src={"/logo.svg"}
         alt="logo"
@@ -52,7 +52,7 @@ export const Footer = () => {
         <Image
           src={text}
           alt="RefractWeb"
-          className="w-[120vw] h-auto px-6 md:px-1 scale-110 mx-auto select-none pointer-events-none drop-shadow-2xl drop-shadow-primary/5"
+          className="w-full h-auto px-6 md:px-1 mx-auto select-none pointer-events-none drop-shadow-2xl drop-shadow-primary/5"
           width={2000}
           height={400}
         />
