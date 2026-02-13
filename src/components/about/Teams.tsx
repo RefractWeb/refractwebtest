@@ -1,12 +1,26 @@
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
+import { Mail, Linkedin } from "lucide-react";
 import adamImg from "@/assets/adam.png";
 import jakeImg from "@/assets/jake.png";
 import TeamMember, { Member } from "./MemberCard";
 import { AnimatedText } from "../ui/animated-text";
 import ActionButtons from "../ActionButtons";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { cn } from "@/lib/utils";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Teams() {
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
   const members: Member[] = [
     {
       name: "Adam Guarino",
@@ -25,6 +39,65 @@ export default function Teams() {
       img: jakeImg,
     },
   ];
+
+  // Preload images
+  useEffect(() => {
+    const preloadImages = async () => {
+      const imagePromises = members.map((member) => {
+        return new Promise((resolve) => {
+          const img = new window.Image();
+          img.src = member.img.src;
+          img.onload = resolve;
+          img.onerror = resolve;
+        });
+      });
+      await Promise.all(imagePromises);
+      setImagesLoaded(true);
+    };
+    preloadImages();
+  }, []);
+
+  useEffect(() => {
+    const items = itemRefs.current.filter((el) => el !== null);
+    if (items.length === 0) return;
+
+    // Set initial state immediately
+    items.forEach((item) => {
+      gsap.set(item, {
+        scaleX: 0,
+        rotate: 10,
+        opacity: 0,
+        transformOrigin: "center center",
+      });
+    });
+
+    const ctx = gsap.context(() => {
+      items.forEach((item, index) => {
+        gsap.to(item, {
+          scaleX: 1,
+          rotate: 0,
+          opacity: 1,
+          duration: 1.2,
+          delay: 0,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: item,
+            start: "top 85%",
+            end: "top 60%",
+            toggleActions: "play none none none",
+            markers: false,
+            onEnter: () => {
+              console.log(`Card ${index} animation triggered`);
+            },
+          },
+        });
+      });
+    });
+
+    return () => {
+      ctx.revert();
+    };
+  }, [imagesLoaded]);
 
   return (
     <section className="py-32 md:py-40 px-6 relative">
@@ -53,9 +126,65 @@ export default function Teams() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-          {members.map((m) => (
-            <TeamMember key={m.name} member={m} />
-          ))}
+          {members.flatMap((m, memberIndex) => {
+            const baseIndex = memberIndex * 2;
+            return [
+              // Photo Card
+              <div
+                key={`${m.name}-photo`}
+                ref={(el) => {
+                  itemRefs.current[baseIndex] = el;
+                }}
+                className={cn(m.gradientClass ?? "saturate-110 bg-linear-to-b to-[#f59566] from-[#0C112D]", "flex flex-col rounded-2xl overflow-hidden group relative")}
+                style={{ willChange: "transform, opacity" }}
+              >
+                <Image
+                  src={m.img}
+                  alt={m.name}
+                  draggable={false}
+                  loading="eager"
+                  className="object-cover mt-auto group-hover:scale-105 transition-all duration-700 brightness-110 select-none"
+                  preload
+                />
+                <div className="absolute bottom-0 inset-x-0 h-1/3 bg-linear-to-t from-background via-background/60" />
+                <div className="absolute bottom-6 left-6">
+                  <h3 className="text-2xl font-bold tracking-tight">{m.name}</h3>
+                  <p className="text-muted-foreground text-xs font-medium">{m.role}</p>
+                </div>
+              </div>,
+              // Bio Card
+              <div
+                key={`${m.name}-bio`}
+                ref={(el) => {
+                  itemRefs.current[baseIndex + 1] = el;
+                }}
+                className="flex flex-col bg-neutral-800/70 rounded-2xl p-6 justify-between relative backdrop-blur blur-gpu"
+                style={{
+                  boxShadow: "0px 0px 30px rgba(0, 0, 0,0.5) inset",
+                  willChange: "transform, opacity",
+                }}
+              >
+                <div className="space-y-4">
+                  <h3 className="text-xl xl:text-2xl font-bold tracking-tight mb-12 md:mb-62">{m.name}</h3>
+                  <p className="text-foreground/90 text-xs xl:text-[12.5px] font-medium">{m.bio}</p>
+                </div>
+                <div className="flex gap-4 mt-4">
+                  <Link
+                    href={`mailto:${m.email}`}
+                    className="text-foreground/90 hover:text-primary transition-colors duration-300"
+                  >
+                    <Mail className="size-4" />
+                  </Link>
+                  <Link
+                    href={m.linkedin ?? "https://linkedin.com"}
+                    className="text-foreground/90 hover:text-primary transition-colors duration-300"
+                  >
+                    <Linkedin className="size-4" />
+                  </Link>
+                </div>
+              </div>,
+            ];
+          })}
         </div>
       </div>
     </section>
