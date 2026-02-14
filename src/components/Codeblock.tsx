@@ -1,8 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Clipboard, Maximize2 } from "lucide-react";
 import { useSafari } from "@/hooks/useSafari";
-import { useIsMobile } from "@/hooks/useMobile";
-import { cn } from "@/lib/utils";
 
 export default function CodeEditorReplica({
   className,
@@ -12,12 +10,9 @@ export default function CodeEditorReplica({
   const codeRef = useRef<HTMLElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const isSafari = useSafari();
-  const isMobile = useIsMobile();
   const charsRef = useRef<HTMLSpanElement[]>([]);
   const isPrepared = useRef(false);
   const rafRef = useRef<number | null>(null);
-  const isAnimating = useRef(false);
-  const hasAnimatedThisSession = useRef(false);
 
   useEffect(() => {
     const codeContainer = codeRef.current;
@@ -63,14 +58,10 @@ export default function CodeEditorReplica({
     };
   }, [isSafari]);
 
-  // Animation function defined separately to avoid cleanup issues
-  const startAnimation = useCallback(() => {
-    if (isSafari || charsRef.current.length === 0) return;
-    
-    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+  useEffect(() => {
+    if (isSafari || !isHovered || charsRef.current.length === 0) return;
 
-    isAnimating.current = true;
-    hasAnimatedThisSession.current = true;
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
 
     charsRef.current.forEach((char) => {
       char.style.opacity = "0";
@@ -81,18 +72,7 @@ export default function CodeEditorReplica({
     const BATCH_SIZE = 3;
 
     function typeFrame(timestamp: number): void {
-      if (index >= charsRef.current.length) {
-        // Animation complete
-        isAnimating.current = false;
-        
-        // On mobile, reset hover state after animation
-        if (isMobile) {
-          setIsHovered(false);
-          hasAnimatedThisSession.current = false;
-        }
-        // No auto-restart - animation only runs once per hover session
-        return;
-      }
+      if (index >= charsRef.current.length) return;
 
       const elapsed = timestamp - lastTime;
       if (elapsed < 1) {
@@ -107,31 +87,17 @@ export default function CodeEditorReplica({
       }
       index = end;
 
-      rafRef.current = requestAnimationFrame(typeFrame);
+      if (index < charsRef.current.length) {
+        rafRef.current = requestAnimationFrame(typeFrame);
+      }
     }
 
     rafRef.current = requestAnimationFrame(typeFrame);
-  }, [isSafari, isMobile]);
 
-  useEffect(() => {
-    if (isSafari || charsRef.current.length === 0) return;
-
-    if (isHovered) {
-      // Only start animation if not currently animating and haven't animated this session
-      if (!isAnimating.current && !hasAnimatedThisSession.current) {
-        startAnimation();
-      }
-    } else {
-      // Reset session flag when unhovered
-      hasAnimatedThisSession.current = false;
-    }
-  }, [isHovered, isSafari, startAnimation]);
-
-  const handleMobileClick = () => {
-    if (!isAnimating.current && !hasAnimatedThisSession.current) {
-      setIsHovered(true);
-    }
-  };
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [isHovered, isSafari]);
 
   return (
     <div className={className}>
@@ -144,19 +110,12 @@ export default function CodeEditorReplica({
       )}
 
       <div
-        className={cn(
-          "relative w-full pr-10 py-2 rounded-md max-w-lg bg-[#0C112DED] rounded-bl-xl overflow-hidden shadow-lg border border-border/50 group transform-gpu-blur hover:scale-101 transition-all duration-500",
-          isMobile ? "cursor-pointer" : "cursor-crosshair"
-        )}
+        className="relative w-full pr-10 py-2 rounded-md max-w-lg bg-[#0C112DED] rounded-bl-xl overflow-hidden shadow-lg border border-border/50 group transform-gpu-blur cursor-crosshair hover:scale-101 transition-all duration-500"
         style={{
           boxShadow: "-15px 15px 115px rgba(245, 151, 104, 0.12)",
         }}
-        {...(isMobile
-          ? { onClick: handleMobileClick }
-          : {
-              onMouseEnter: () => setIsHovered(true),
-              onMouseLeave: () => setIsHovered(false),
-            })}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
         <div className="absolute z-5 bg-[#B05D41] blur-3xl opacity-80 size-70 -bottom-40 right-0 blur-gpu"></div>
         <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-primary2/10 blur-[60px] rounded-full pointer-events-none z-0 blur-gpu" />
