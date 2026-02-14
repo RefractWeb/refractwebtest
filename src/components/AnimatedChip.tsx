@@ -35,7 +35,7 @@ export const AnimatedChip = ({
   const primaryRef = useRef<HTMLVideoElement>(null);
   const secondaryRef = useRef<HTMLVideoElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.1 });
-  const { rotateX, rotateY } = useMouseTilt();
+  // const { rotateX, rotateY } = useMouseTilt();
 
   useEffect(() => {
     if (isStarted && isInView && primaryRef.current) {
@@ -50,11 +50,11 @@ export const AnimatedChip = ({
     }
   };
 
-  const tiltStyle = {
-    rotateX,
-    rotateY,
-    transformStyle: "preserve-3d" as const,
-  };
+  // const tiltStyle = {
+  //   rotateX,
+  //   rotateY,
+  //   transformStyle: "preserve-3d" as const,
+  // };
 
   return (
     <div
@@ -78,7 +78,7 @@ export const AnimatedChip = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: showSecondary ? 1 : 0 }}
         transition={{ duration: 0 }}
-        style={tiltStyle}
+        // style={tiltStyle}
       >
         {VIDEO_SOURCES.secondary.map((source, idx) => (
           <source key={idx} src={source.src} type={source.type} />
@@ -100,7 +100,7 @@ export const AnimatedChip = ({
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: showSecondary ? 0 : 1, scale: 1 }}
         transition={{ duration: 0 }}
-        style={tiltStyle}
+        // style={tiltStyle}
       >
         {VIDEO_SOURCES.primary.map((source, idx) => (
           <source key={idx} src={source.src} type={source.type} />
