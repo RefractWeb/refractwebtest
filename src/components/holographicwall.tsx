@@ -34,8 +34,14 @@ const TECH_ICONS = [
   { name: "vercel", path: "/icons/6.svg" },
   { name: "Figma", path: "/icons/3.svg" },
   { name: "Blender", path: "/icons/5.svg" },
-  { name: "PS", path: "/icons/2.svg" },
+  { name: "After Effects", path: "/icons/ae.svg" },
   { name: "NextJS", path: "/icons/4.svg" },
+  { name: "React", path: "/icons/react.svg" },
+  { name: "GSAP", path: "/icons/gsap.svg" },
+  { name: "Typescript", path: "/icons/ts.svg" },
+  { name: "Hotjar", path: "/icons/Hotjar.svg" },
+  { name: "AdobeCreativeCloud", path: "/icons/adobe-cloud.svg" },
+  { name: "Notion", path: "/icons/notion.svg" },
 ];
 
 export function HolographicWall({
