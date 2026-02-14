@@ -13,7 +13,8 @@ const CONTACT_METHODS = [
     content: "Start the Conversation",
     isLink: false,
     href: null,
-    calendlyLink: "https://calendly.com/d/ctmb-trz-z3c/introduction",
+    calendlyLink:
+      "https://calendly.com/d/ctmb-trz-z3c/introduction?embed_type=Inline&hide_gdpr_banner=1&background_color=15191d&text_color=ffffff&primary_color=f59768",
   },
   {
     label: "Email",
