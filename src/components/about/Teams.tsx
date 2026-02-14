@@ -161,11 +161,7 @@ export default function Teams() {
                 ref={(el) => {
                   itemRefs.current[baseIndex + 1] = el;
                 }}
-                className="flex flex-col bg-neutral-800/70 rounded-2xl p-6 justify-between relative backdrop-blur"
-                style={{
-                  boxShadow: "0px 0px 30px rgba(0, 0, 0,0.5) inset",
-                  willChange: "transform, opacity",
-                }}
+                className="flex flex-col bg-neutral-800/70 rounded-2xl p-6 justify-between relative backdrop-blur transition-all duration-500 cursor-pointer glass-1"
               >
                 <div className="space-y-4">
                   <h3 className="text-xl xl:text-2xl font-bold tracking-tight mb-12 md:mb-62">

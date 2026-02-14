@@ -2,7 +2,7 @@ import { AnimatedText } from "../ui/animated-text";
 
 export default function () {
   return (
-    <section className="relative py-20 md:pt-40 md:pb-32 px-6 overflow-x-clip">
+    <section className="relative py-20 md:py-32 px-6 overflow-x-clip">
       <div
         className="absolute inset-0 mask-radial-at-top mask-t-from-80% mask-radial-to-60% opacity-50 pointer-events-none"
         style={{
