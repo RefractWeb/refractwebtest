@@ -1,7 +1,7 @@
 import { ArrowRight, Code, Globe, Palette, Video } from "lucide-react";
 import Image from "next/image";
 import { motion } from "motion/react";
-import img1 from "@/assets/works/Landing page 3.jpg";
+import img1 from "@/assets/works/Landing page 5.png";
 import img4 from "@/assets/3danim.png";
 import { AnimatedText } from "./ui/animated-text";
 import ActionButtons from "./ActionButtons";

@@ -19,7 +19,12 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
       {/* Hero Content */}
       <main className="relative z-10 container px-6 pt-20 md:pt-16 grow flex-col-reverse flex md:flex-row items-center mx-auto">
         <div className="w-full lg:w-1/2 text-left space-y-5 md:space-y-8 pl-4 lg:pl-10">
-          <div className="z-10 flex">
+          <motion.div
+            className="z-10 flex"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isStarted ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0, ease: "easeOut" }}
+          >
             <span className="inline-flex cursor-pointer bg-neutral-900/30 backdrop-blur-sm border border-black/10 rounded-full items-center gap-1 px-3 md:px-6 py-1 -mb-2">
               <div className="relative size-4">
                 <span className="size-2 rounded-full bg-primary2 shrink-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
@@ -38,7 +43,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
               </ShimmerBulgeText>
               <ArrowRightIcon className="size-3 shrink-0" />
             </span>
-          </div>
+          </motion.div>
           <AnimatedText
             animationType="slideUp"
             splitType="lines"
