@@ -4,6 +4,8 @@ import { AnimatedText } from "./ui/animated-text";
 import ActionButtons from "./ActionButtons";
 import { AnimatedChip } from "./AnimatedChip";
 import { motion } from "motion/react";
+import { ShimmerBulgeText } from "./ui/shimmer-bulge-text";
+import { ArrowRightIcon } from "lucide-react";
 
 export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
   return (
@@ -17,6 +19,26 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
       {/* Hero Content */}
       <main className="relative z-10 container px-6 pt-20 md:pt-16 grow flex-col-reverse flex md:flex-row items-center mx-auto">
         <div className="w-full lg:w-1/2 text-left space-y-5 md:space-y-8 pl-4 lg:pl-10">
+          <div className="z-10 flex">
+            <span className="inline-flex cursor-pointer bg-neutral-900/30 backdrop-blur-sm border border-black/10 rounded-full items-center gap-1 px-3 md:px-6 py-1 -mb-2">
+              <div className="relative size-4">
+                <span className="size-2 rounded-full bg-primary2 shrink-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                <span className="size-2 blur rounded-full bg-primary2 shrink-0 animate-pulse absolute top-0 left-0" />
+              </div>
+              <ShimmerBulgeText
+                shouldAnimate={isStarted}
+                duration={0.35}
+                each={0.04}
+                scale={1.15}
+                endColor="#f59768"
+                glowColor="rgba(245, 151, 104, 0.5)"
+                repeatDelay={3.5}
+              >
+                {"2 Spots Remaining"}
+              </ShimmerBulgeText>
+              <ArrowRightIcon className="size-3 shrink-0" />
+            </span>
+          </div>
           <AnimatedText
             animationType="slideUp"
             splitType="lines"

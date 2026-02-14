@@ -21,10 +21,6 @@ const navItems = [
     label: "Works",
     href: "/work",
   },
-  {
-    label: "Contact",
-    href: "/contact",
-  },
 ];
 
 export const Navbar = () => {
@@ -47,7 +43,7 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-4 md:top-10 px-6 z-100 w-full flex justify-between items-center">
+    <nav className="fixed top-4 md:top-8 px-6 z-100 w-full flex justify-between items-center">
       {/* Mobile Logo */}
       <Link href="/" className="md:hidden z-70 relative">
         <div className="text-white border border-muted/60 rounded-full text-sm px-4 py-2 font-medium inline-flex items-center justify-center tracking-tight cursor-pointer transition-all h-9 backdrop-blur-sm bg-linear-to-b from-muted/50 via-background/20 to-muted/20 transform-gpu-blur">
@@ -65,7 +61,7 @@ export const Navbar = () => {
       </Link>
 
       {/* Desktop Pill Menu */}
-      <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-brightness-110 backdrop-blur-md border border-white/5 border-b-white/20 rounded-full p-2 items-center gap-8 shadow-xl shadow-black/10 transform-gpu-blur">
+      <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-brightness-110 backdrop-blur border border-white/5 border-b-white/20 rounded-full p-2 items-center gap-8 shadow-xl shadow-black/10 transform-gpu-blur">
         <Link href="/">
           <div className="button h-9 active:scale-98">
             <span>

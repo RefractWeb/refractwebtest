@@ -1,3 +1,4 @@
+"use client";
 import {
   Marquee,
   MarqueeItem,
@@ -12,6 +13,7 @@ import { CTASection } from "@/components/CTASection";
 import SmoothContainer from "@/lib/SmoothContainer";
 import { AnimatedText } from "@/components/ui/animated-text";
 import ActionButtons from "@/components/ActionButtons";
+import { motion } from "motion/react";
 
 const projects = [project1, project2, project3, project4];
 
@@ -45,7 +47,13 @@ const page = () => {
               >
                 Let’s discuss scope, timing, and fit.
               </AnimatedText>
-              <ActionButtons className="justify-center pt-4" />
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.6, ease: "easeOut" }}
+              >
+                <ActionButtons className="justify-center " />
+              </motion.div>
             </div>
 
             <div className="relative group">

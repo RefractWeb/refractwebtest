@@ -11,6 +11,7 @@ import { AnimatedText } from "../ui/animated-text";
 import ActionButtons from "../ActionButtons";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { motion } from "motion/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
 
@@ -117,7 +118,13 @@ export default function Teams() {
           >
             Across media, technology, and high-visibility environments.
           </AnimatedText>
-          <ActionButtons />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          >
+            <ActionButtons />
+          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -161,13 +168,16 @@ export default function Teams() {
                 ref={(el) => {
                   itemRefs.current[baseIndex + 1] = el;
                 }}
-                className="flex flex-col rounded-2xl p-6 justify-between relative backdrop-blur cursor-pointer"
-                style={{
-                  boxShadow:
-                    "rgb(193 193 193 / 10%) -3px -4px 20px inset,rgb(0 0 0 / 30%) 6px 7px 20px inset",
-                  border: "1px solid rgba(255, 255, 255, 0.07)",
-                }}
+                className="flex flex-col rounded-2xl p-6 justify-between relative backdrop-blur cursor-pointer overflow-clip group"
               >
+                <div
+                  className="absolute inset-0 size-full bg-neutral-800/50 group-hover:bg-neutral-800/70 transition-all duration-300 -z-10"
+                  style={{
+                    boxShadow:
+                      "rgb(193 193 193 / 10%) -3px -4px 20px inset,rgb(0 0 0 / 30%) 6px 7px 20px inset",
+                    border: "1px solid rgba(255, 255, 255, 0.07)",
+                  }}
+                />
                 <div className="space-y-4">
                   <h3 className="text-xl xl:text-2xl font-bold tracking-tight mb-12 md:mb-62">
                     {m.name}

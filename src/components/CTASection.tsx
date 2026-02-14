@@ -3,6 +3,7 @@
 import { AnimatedText } from "./ui/animated-text";
 import ActionButtons from "./ActionButtons";
 import { AnimatedChip } from "./AnimatedChip";
+import { motion } from "motion/react";
 
 export const CTASection = () => {
   return (

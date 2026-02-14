@@ -50,7 +50,7 @@ export const ContactCard = ({
       className="group relative bg-white/2 hover:bg-white/5 border border-white/10 rounded-2xl p-4 transition-all duration-300 cursor-pointer overflow-hidden w-full text-left backdrop-blur-md glass-1"
     >
       <div className="relative z-10">
-        <span className="text-xs text-muted-foreground uppercase tracking-wide block mb-1">
+        <span className="text-xs text-muted-foreground uppercase tracking-wide block md:mb-1">
           {label}
         </span>
         <div className="text-lg font-medium text-foreground group-hover:text-primary2 transition-colors flex items-center gap-2">

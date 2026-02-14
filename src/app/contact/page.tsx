@@ -6,6 +6,7 @@ import AnimatedLogoCloud from "@/components/LogoCloud";
 import { AnimatedText } from "@/components/ui/animated-text";
 import { AnimatedChip } from "@/components/AnimatedChip";
 import BgGrad from "@/components/ui/bg-grad";
+import { motion } from "motion/react";
 
 const CONTACT_METHODS = [
   {
@@ -47,7 +48,7 @@ const ContactPage = () => {
         </div>
 
         {/* Main Content */}
-        <main className="relative z-10 container mx-auto px-6 pt-32 grow flex flex-col lg:flex-row items-center gap-12 overflow-x-clip">
+        <main className="relative z-10 container mx-auto px-4 pt-32 grow flex flex-col lg:flex-row items-center gap-8 overflow-x-clip max-w-8xl">
           {/* Left Section */}
           <div className="w-full lg:w-1/2 space-y-8">
             <div className="space-y-4">
