@@ -65,7 +65,7 @@ export const Navbar = () => {
       </Link>
 
       {/* Desktop Pill Menu */}
-      <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-saturate-180 backdrop-brightness-120 backdrop-blur-md border border-white/5 border-b-white/20 rounded-full p-2 items-center gap-8 shadow-xl shadow-black/10 transform-gpu-blur">
+      <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-brightness-110 backdrop-blur-md border border-white/5 border-b-white/20 rounded-full p-2 items-center gap-8 shadow-xl shadow-black/10 transform-gpu-blur">
         <Link href="/">
           <div className="button h-9 active:scale-98">
             <span>
