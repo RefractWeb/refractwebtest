@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "RefractWeb",
-    short_name: "Refract",
+    short_name: "RefractWeb",
     description:
       "Defining Digital Identity - We merge the precision of code with the power of design.",
     start_url: "/",
