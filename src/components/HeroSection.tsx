@@ -39,7 +39,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
                 glowColor="rgba(245, 151, 104, 0.5)"
                 repeatDelay={3.5}
               >
-                {"2 Spots Remaining"}
+                {"2 Spots available"}
               </ShimmerBulgeText>
               <ArrowRightIcon className="size-3 shrink-0" />
             </span>
