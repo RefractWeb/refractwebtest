@@ -21,6 +21,10 @@ const navItems = [
     label: "Works",
     href: "/work",
   },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
 ];
 
 export const Navbar = () => {
@@ -167,7 +171,7 @@ export const Navbar = () => {
               ))}
             </div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
@@ -179,7 +183,7 @@ export const Navbar = () => {
                   Work With Us
                 </Button>
               </Link>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         )}
       </AnimatePresence>

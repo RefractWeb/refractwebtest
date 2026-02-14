@@ -161,10 +161,10 @@ export default function Teams() {
                 ref={(el) => {
                   itemRefs.current[baseIndex + 1] = el;
                 }}
-                className="flex flex-col bg-neutral-800/70 rounded-2xl p-6 justify-between relative backdrop-blur cursor-pointer"
+                className="flex flex-col rounded-2xl p-6 justify-between relative backdrop-blur cursor-pointer"
                 style={{
                   boxShadow:
-                    "rgb(193 193 193 / 10%) -3px -4px 20px inset,rgb(0 0 0 / 25%) 6px 7px 20px inset",
+                    "rgb(193 193 193 / 10%) -3px -4px 20px inset,rgb(0 0 0 / 30%) 6px 7px 20px inset",
                   border: "1px solid rgba(255, 255, 255, 0.07)",
                 }}
               >

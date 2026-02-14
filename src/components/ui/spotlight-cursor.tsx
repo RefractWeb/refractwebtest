@@ -1,6 +1,6 @@
-'use client';
-import { HTMLAttributes } from 'react';
-import useSpotlightEffect from '@/hooks/useSpotlightEffect';
+"use client";
+import { HTMLAttributes } from "react";
+import useSpotlightEffect from "@/hooks/useSpotlightEffect";
 
 // Define an interface for the spotlight configuration
 interface SpotlightConfig {
@@ -24,7 +24,7 @@ const SpotlightCursor = ({
   const spotlightConfig = {
     radius: 200,
     brightness: 0.15,
-    color: '#ffffff',
+    color: "#ffffff",
     smoothing: 0.1,
     ...config,
   };
