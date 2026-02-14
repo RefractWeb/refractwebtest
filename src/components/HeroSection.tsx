@@ -16,7 +16,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
 
       {/* Hero Content */}
       <main className="relative z-10 container px-6 pt-20 md:pt-16 grow flex-col-reverse flex md:flex-row items-center mx-auto">
-        <div className="w-full lg:w-1/2 text-left space-y-6 md:space-y-8 pl-4 lg:pl-10">
+        <div className="w-full lg:w-1/2 text-left space-y-5 md:space-y-8 pl-4 lg:pl-10">
           <AnimatedText
             animationType="slideUp"
             splitType="lines"

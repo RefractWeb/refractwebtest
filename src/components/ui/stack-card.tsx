@@ -120,9 +120,9 @@ function BrandingVisual() {
 function SoftwareVisual() {
   return (
     <div className="w-full h-full relative rounded-2xl overflow-hidden flex items-center justify-center">
-      {/* <div className="absolute bottom-0 left-1/2 blur-[100px] size-80 bg-secondary2/50 rounded-full pointer-events-none" /> */}
-      <div className="relative z-10 size-full translate-y-10 scale-80 md:scale-120 translate-x-12 md:-translate-x-34 rounded-2xl">
-        <CodeEditorReplica />
+      <div className="absolute bottom-0 left-1/2 blur-[100px] size-80 bg-secondary2/50 rounded-full pointer-events-none blur-gpu" />
+      <div className="relative z-10 size-full md:translate-y-10 scale-65 md:scale-110">
+        <CodeEditorReplica className="absolute top-0 left-1/2 -translate-x-1/2" />
       </div>
     </div>
   );

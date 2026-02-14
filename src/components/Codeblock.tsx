@@ -1,8 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Clipboard, Maximize2 } from "lucide-react";
 import { useSafari } from "@/hooks/useSafari";
+import { cn } from "@/lib/utils";
 
-export default function CodeEditorReplica() {
+export default function CodeEditorReplica({
+  className,
+}: {
+  className?: string;
+}) {
   const codeRef = useRef<HTMLElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const isSafari = useSafari();
@@ -96,7 +101,7 @@ export default function CodeEditorReplica() {
   }, [isHovered, isSafari]);
 
   return (
-    <div className="absolute top-0 right-0 object-cover">
+    <div className={className}>
       {!isSafari && (
         <style>{`
           .typing-char {
@@ -106,7 +111,7 @@ export default function CodeEditorReplica() {
       )}
 
       <div
-        className="relative w-full pr-10 py-2 rounded-md max-w-sm bg-[#0C112DED] rounded-bl-xl overflow-hidden shadow-lg border border-border/50 group transform-gpu-blur cursor-crosshair hover:scale-101 transition-all duration-500"
+        className="relative w-full pr-10 py-2 rounded-md max-w-lg bg-[#0C112DED] rounded-bl-xl overflow-hidden shadow-lg border border-border/50 group transform-gpu-blur cursor-crosshair hover:scale-101 transition-all duration-500"
         style={{
           boxShadow: "-15px 15px 115px rgba(245, 151, 104, 0.12)",
         }}
@@ -126,7 +131,7 @@ export default function CodeEditorReplica() {
           <div className="flex-1 overflow-x-hidden relative">
             <code
               ref={codeRef}
-              className="block text-xs md:text-sm text-muted-foreground whitespace-pre"
+              className="block text-xs md:text-[13px] text-muted-foreground whitespace-pre"
             >
               {"\t"}
               <span className="text-rose-400">async function</span>
@@ -185,12 +190,44 @@ export default function CodeEditorReplica() {
               <span className="text-foreground/80">{"});"}</span>
               {"\n\n"}
               {"\t"} {"\t"}
-              <span className="text-rose-400">return</span>
+              <span className="text-rose-400">const</span>
+              <span className="text-foreground/80"> </span>
+              <span className="text-violet-400">result</span>
+              <span className="text-foreground/80"> = </span>
+              <span className="text-rose-400">await</span>
               <span className="text-foreground/80"> </span>
               <span className="text-violet-400">analysis</span>
               <span className="text-foreground/80">.</span>
               <span className="text-primary2">execute</span>
               <span className="text-foreground/80">();</span>
+              {"\n\n"}
+              {"\t"} {"\t"}
+              <span className="text-rose-400">await</span>
+              <span className="text-foreground/80"> </span>
+              <span className="text-violet-400">agent</span>
+              <span className="text-foreground/80">.</span>
+              <span className="text-primary2">dispatch</span>
+              <span className="text-foreground/80">({"{"}</span>
+              {"\n"}
+              {"\t"} {"\t"} {"\t"}
+              <span className="text-violet-400">target</span>
+              <span className="text-foreground/80">: </span>
+              <span className="text-sky-400">"production"</span>
+              <span className="text-foreground/80">,</span>
+              {"\n"}
+              {"\t"} {"\t"} {"\t"}
+              <span className="text-violet-400">data</span>
+              <span className="text-foreground/80">: </span>
+              <span className="text-violet-400">result</span>
+              <span className="text-foreground/80">,</span>
+              {"\n"}
+              {"\t"} {"\t"} {"\t"}
+              <span className="text-violet-400">mode</span>
+              <span className="text-foreground/80">: </span>
+              <span className="text-sky-400">"autonomous"</span>
+              {"\n"}
+              {"\t"} {"\t"}
+              <span className="text-foreground/80">{"});"}</span>
               {"\n"}
               {"\t"}
               <span className="text-foreground/80">{"}"}</span>
