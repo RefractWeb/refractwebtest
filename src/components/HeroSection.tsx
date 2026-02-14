@@ -17,7 +17,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
       </div>
 
       {/* Hero Content */}
-      <main className="relative z-10 container px-6 pt-20 md:pt-16 grow flex-col-reverse flex md:flex-row items-center mx-auto">
+      <main className="relative z-10 container px-4 md:pl-6 pt-20 md:pt-16 grow flex-col-reverse flex md:flex-row items-center mx-auto">
         <div className="w-full lg:w-1/2 text-left space-y-5 md:space-y-8 pl-4 lg:pl-10">
           <motion.div
             className="z-10 flex"
@@ -25,10 +25,10 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
             animate={isStarted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0, ease: "easeOut" }}
           >
-            <span className="inline-flex cursor-pointer bg-neutral-900/30 backdrop-blur-sm border border-black/10 rounded-full items-center gap-1 px-3 md:px-6 py-1 -mb-2">
+            <span className="inline-flex cursor-pointer bg-neutral-900/30 backdrop-blur-sm border border-black/10 rounded-full items-center gap-1 px-3 md:px-6 py-1 -mb-2 md:-mb-3 ">
               <div className="relative size-4">
                 <span className="size-2 rounded-full bg-primary2 shrink-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                <span className="size-2 blur rounded-full bg-primary2 shrink-0 animate-pulse absolute top-0 left-0" />
+                <span className="size-2 blur rounded-full bg-primary2 shrink-0 animate-pulse absolute top-1 left-1" />
               </div>
               <ShimmerBulgeText
                 shouldAnimate={isStarted}
@@ -39,7 +39,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
                 glowColor="rgba(245, 151, 104, 0.5)"
                 repeatDelay={3.5}
               >
-                {"2 Spots available"}
+                {"2 spots available"}
               </ShimmerBulgeText>
               <ArrowRightIcon className="size-3 shrink-0" />
             </span>
@@ -57,7 +57,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
             splitType="lines"
             shouldAnimate={isStarted}
             delay={0.4}
-            className="text-base md:text-lg lg:text-xl max-w-md leading-tight"
+            className="text-base md:text-lg lg:text-xl max-w-md leading-tight -mt-2 md:-mt-3 pr-2"
           >
             We merge the precision of code with the power of design,
             orchestrating a single identity that signals authority everywhere.
