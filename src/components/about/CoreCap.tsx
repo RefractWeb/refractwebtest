@@ -4,7 +4,10 @@ import HowItWorks from "../ui/stack-card";
 
 export default function () {
   return (
-    <section className="py-32 px-6 relative" id="core-capabilities">
+    <section
+      className="md:py-32 pt-28 pb-16 px-6 relative"
+      id="core-capabilities"
+    >
       <div className="container mx-auto max-w-6xl">
         <div className="text-center space-y-6 mb-24">
           <AnimatedText

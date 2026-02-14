@@ -42,21 +42,29 @@ const logos = [
 
 const AnimatedLogoCloud = ({ className }: { className?: string }) => {
   return (
-    <div className={cn("w-full pb-6 pt-10 max-w-8xl mx-auto", className)}>
+    <div
+      draggable={false}
+      className={cn(
+        "w-full pb-6 pt-10 max-w-8xl mx-auto select-none",
+        className,
+      )}
+    >
       <div className="mx-auto w-full px-4 md:px-8">
         <div className="group relative mt-6 flex gap-6 overflow-hidden p-2 mask-x-from-80%">
           {Array(5)
             .fill(null)
             .map((_, index) => (
               <div
+                draggable={false}
                 key={index}
-                className="flex shrink-0 animate-logo-cloud flex-row justify-around gap-5 md:gap-8"
+                className="flex cursor-pointer shrink-0 animate-logo-cloud flex-row justify-around gap-5 md:gap-8"
               >
                 {logos.map((logo, key) => (
                   <img
                     key={key}
                     src={logo.url}
-                    className="h-8 w-30 select-none pointer-events-none px-2"
+                    draggable={false}
+                    className="h-8 w-30 select-none px-2 hover:scale-110 transition-all duration-700"
                     alt={`${logo.name}`}
                   />
                 ))}

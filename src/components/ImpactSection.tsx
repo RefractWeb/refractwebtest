@@ -45,7 +45,7 @@ export const ImpactSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1: Revenue Supported */}
           <div
-            className="relative group bg-linear-to-br from-[#121420] to-[#0A0A0A] rounded-3xl p-8 overflow-hidden"
+            className="relative group bg-linear-to-br from-[#121420] to-[#0A0A0A] rounded-3xl md:p-8 p-6 overflow-hidden"
             style={{
               boxShadow: "0 0 18px rgba(0,0,0, 0.45)",
             }}
@@ -58,7 +58,7 @@ export const ImpactSection = () => {
               </>
             )}
             <div className="relative z-10 flex flex-col justify-between h-80 md:min-h-72">
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2 md:gap-3">
                 <h3 className="text-grad text-lg mb-2 md:mb-4">
                   Revenue Supported
                 </h3>
@@ -82,7 +82,7 @@ export const ImpactSection = () => {
 
           {/* Card 2: Assets Deployed */}
           <div
-            className="relative group bg-linear-to-bl from-[#15192b] to-[#0A0A0A] rounded-3xl p-8 overflow-hidden"
+            className="relative group bg-linear-to-bl from-[#15192b] to-[#0A0A0A] rounded-3xl md:p-8 p-6 overflow-hidden"
             style={{
               boxShadow: "0 0 18px rgba(0,0,0, 0.45)",
             }}
@@ -95,7 +95,7 @@ export const ImpactSection = () => {
               </>
             )}
             <div className="relative z-10 flex flex-col justify-between h-80 md:min-h-72">
-              <div className="flex flex-col h-full gap-3 relative z-10">
+              <div className="flex flex-col h-full gap-2 md:gap-3 relative z-10">
                 <h3 className="text-grad text-lg mb-2 md:mb-4">
                   Assets Deployed
                 </h3>
@@ -125,7 +125,7 @@ export const ImpactSection = () => {
 
           {/* Card 3: Enterprise DNA (Full Width) */}
           <div
-            className="relative group md:col-span-2 bg-linear-to-r from-[#0d0d14] to-[#0A0A0A] rounded-3xl p-8 overflow-hidden h-100"
+            className="relative group md:col-span-2 bg-linear-to-r from-[#0d0d14] to-[#0A0A0A] rounded-3xl md:p-8 p-6 overflow-hidden h-100"
             style={{
               boxShadow: "0 0 18px rgba(0,0,0, 0.45)",
             }}
@@ -137,7 +137,7 @@ export const ImpactSection = () => {
                 <div className="absolute bottom-[-20%] -left-[10%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px]" />
               </>
             )}
-            <div className="flex flex-col h-full gap-3 relative z-10">
+            <div className="flex flex-col h-full gap-2 md:gap-3 relative z-10">
               <h3 className="text-grad text-lg mb-2 md:mb-4">Enterprise DNA</h3>
               <div className="text-6xl font-medium tracking-tighter text-grad px-1">
                 $2.65B

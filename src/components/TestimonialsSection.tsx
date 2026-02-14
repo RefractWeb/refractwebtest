@@ -84,7 +84,7 @@ export const TestimonialsSection = () => {
               </AnimatedText>
             </div>
 
-            <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-6 md:gap-8">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIndex}

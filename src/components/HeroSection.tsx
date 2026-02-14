@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 
 export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
   return (
-    <div className="relative md:min-h-screen flex flex-col">
+    <div className="relative md:min-h-dvh flex flex-col">
       {/* Background Elements */}
       <div className="absolute hidden md:block inset-0 z-0 pointer-events-none">
         <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[240px] blur-gpu" />
@@ -50,7 +50,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
           isStarted={isStarted}
         />
       </main>
-      <AnimatedLogoCloud className="xl:-translate-x-12" />
+      <AnimatedLogoCloud className="lg:-translate-y-12" />
     </div>
   );
 };

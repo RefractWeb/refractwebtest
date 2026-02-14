@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { useSafari } from "@/hooks/useSafari";
 
 // Heights (in px) scaled so the maximum matches container height h = 224px
-const DATA = [163, 110, 171, 224, 171, 224, 110, 48, 171, 224];
+const DATA = [163, 110, 171, 224, 171, 224, 115, 130, 171, 224];
 
 const AnimatedBar = ({
   initialHeight,

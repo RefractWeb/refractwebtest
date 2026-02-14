@@ -19,7 +19,7 @@ const page = () => {
   return (
     <SmoothContainer>
       <div className="overflow-hidden">
-        <section className="py-32 px-6 relative">
+        <section className="md:py-32 pt-28 pb-16 px-6 relative">
           <div className="absolute hidden md:block inset-0 z-0 pointer-events-none">
             <div className="absolute pointer-events-none top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[200px] blur-gpu" />
             <div className="absolute pointer-events-none top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[230px] blur-gpu" />
@@ -29,7 +29,7 @@ const page = () => {
             <div className="absolute pointer-events-none bottom-[-14%] -right-[10%] w-200 h-200 rounded-full bg-[#d6795a] opacity-30 blur-[170px] -z-10 blur-gpu" />
           </div>
           <div className="container mx-auto max-w-8xl">
-            <div className="text-center space-y-4 mb-24">
+            <div className="text-center space-y-4 mb-12 md:mb-24">
               <AnimatedText
                 animationType="slideUp"
                 splitType="lines"

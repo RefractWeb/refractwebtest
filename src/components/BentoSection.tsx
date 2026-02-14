@@ -85,7 +85,7 @@ export const BentoSection = () => {
             className="md:col-span-2 relative bg-[#0E111B] border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 md:min-h-0 transform-gpu-blur"
           >
             <div className="absolute -bottom-20 right-40 size-80 rounded-full bg-[#253a7a] blur-3xl pointer-events-none blur-gpu" />
-            <div className="relative z-10 flex flex-col justify-center md:justify-start gap-4 mt-52 md:mt-0">
+            <div className="relative z-10 flex flex-col justify-center md:justify-start gap-2 md:gap-4 mt-52 md:mt-0">
               <Globe className="size-6 text-foreground/80" />
               <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-grad">
                 Web Development
@@ -112,7 +112,7 @@ export const BentoSection = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="md:row-span-2 relative bg-[#0E111B] border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 min-h-100 md:min-h-0 transform-gpu-blur"
           >
-            <div className="relative z-10 flex flex-col h-full gap-4">
+            <div className="relative z-10 flex flex-col h-full gap-2 md:gap-4">
               <Palette className="size-6 text-foreground/80" />
               <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-grad">
                 Branding
@@ -156,7 +156,7 @@ export const BentoSection = () => {
           >
             <div className="absolute -bottom-50 left-1/2 -translate-x-1/2 blur-[120px] size-120 bg-secondary2/60 rounded-full pointer-events-none blur-gpu" />
             <CodeEditorReplica />
-            <div className="relative z-10 p-6 md:p-14 flex flex-col gap-4 w-full">
+            <div className="relative z-10 p-6 md:p-14 flex flex-col gap-2 md:gap-4 w-full">
               <Code className="size-6 text-foreground/80" />
 
               <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-grad">
@@ -199,7 +199,7 @@ export const BentoSection = () => {
             className="md:col-span-1 lg:col-span-2 relative bg-[#0E111B] border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 min-h-100 md:min-h-0 transform-gpu-blur"
           >
             <div className="absolute -bottom-60 -right-24 blur-[100px] size-120 bg-[#1E2E5E]/70 rounded-full pointer-events-none blur-gpu" />
-            <div className="relative z-10 flex flex-col gap-4">
+            <div className="relative z-10 flex flex-col gap-2 md:gap-4">
               <Video className="size-6 text-foreground/80" />
               <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-grad">
                 3D Animation
