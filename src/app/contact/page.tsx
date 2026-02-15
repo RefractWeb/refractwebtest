@@ -6,7 +6,6 @@ import AnimatedLogoCloud from "@/components/LogoCloud";
 import { AnimatedText } from "@/components/ui/animated-text";
 import { AnimatedChip } from "@/components/AnimatedChip";
 import BgGrad from "@/components/ui/bg-grad";
-import { motion } from "motion/react";
 
 const CONTACT_METHODS = [
   {
