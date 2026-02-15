@@ -5,15 +5,14 @@ import ActionButtons from "./ActionButtons";
 import { AnimatedChip } from "./AnimatedChip";
 import { motion } from "motion/react";
 import { ShimmerBulgeText } from "./ui/shimmer-bulge-text";
-import { ArrowRightIcon } from "lucide-react";
 
 export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
   return (
     <div className="relative md:min-h-dvh flex flex-col">
       {/* Background Elements */}
       <div className="absolute hidden md:block inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[240px] blur-gpu" />
-        <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[250px] blur-gpu" />
+        <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[240px] transform-gpu-blur" />
+        <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[250px] transform-gpu-blur" />
       </div>
 
       {/* Hero Content */}
@@ -25,7 +24,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
             animate={isStarted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0, ease: "easeOut" }}
           >
-            <span className="inline-flex cursor-pointer bg-neutral-900/30 backdrop-blur-sm border border-black/10 rounded-full items-center gap-1 px-3 md:px-6 py-1 -mb-2 md:-mb-3 ">
+            <span className="inline-flex cursor-pointer bg-neutral-900/30 backdrop-blur-sm border border-muted/40 hover:scale-101 active:scale-99 transition-all duration-500 hover:translate-x-3 rounded-full items-center gap-1  pl-2 pr-4 py-1 -mb-2 md:-mb-3 ">
               <div className="relative size-4">
                 <span className="size-2 rounded-full bg-primary2 shrink-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                 <span className="size-2 blur rounded-full bg-primary2 shrink-0 animate-pulse absolute top-1 left-1" />
@@ -34,14 +33,13 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
                 shouldAnimate={isStarted}
                 duration={0.35}
                 each={0.04}
-                scale={1.15}
+                scale={1.2}
                 endColor="#f59768"
                 glowColor="rgba(245, 151, 104, 0.5)"
                 repeatDelay={3.5}
               >
-                {"2 spots available"}
+                {"2 more Q1 spots available"}
               </ShimmerBulgeText>
-              <ArrowRightIcon className="size-3 shrink-0" />
             </span>
           </motion.div>
           <AnimatedText

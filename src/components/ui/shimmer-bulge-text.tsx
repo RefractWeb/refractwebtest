@@ -123,7 +123,7 @@ export const ShimmerBulgeText = ({
     <span
       ref={containerRef}
       className={cn(
-        "relative inline-flex items-center text-sm md:text-base",
+        "relative inline-flex items-center text-xs md:text-sm",
         className,
       )}
     >

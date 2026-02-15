@@ -98,8 +98,8 @@ export default function Teams() {
   return (
     <section className="py-32 md:py-40 px-6 relative">
       <div className="absolute hidden md:block inset-0 z-0 pointer-events-none">
-        <div className="absolute pointer-events-none top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[200px] -z-10 blur-gpu" />
-        <div className="absolute pointer-events-none top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[230px] -z-10 blur-gpu" />
+        <div className="absolute pointer-events-none top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[200px] -z-10 transform-gpu-blur" />
+        <div className="absolute pointer-events-none top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[230px] -z-10 transform-gpu-blur" />
       </div>
       <div className="container mx-auto max-w-7xl">
         <div className="space-y-6 mb-16">

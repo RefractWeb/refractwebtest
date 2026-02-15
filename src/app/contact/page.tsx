@@ -43,15 +43,15 @@ const ContactPage = () => {
         <BgGrad />
         {/* Background Elements */}
         <div className="absolute hidden md:block inset-0 z-0 pointer-events-none">
-          <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[240px] blur-gpu" />
-          <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[250px] blur-gpu" />
+          <div className="absolute top-[-10%] -left-[20%] w-[50vw] h-[50vw] rounded-full bg-[#3150aa] opacity-45 blur-[240px] transform-gpu-blur" />
+          <div className="absolute top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[250px] transform-gpu-blur" />
         </div>
 
         {/* Main Content */}
-        <main className="relative z-10 container mx-auto px-4 pt-32 grow flex flex-col lg:flex-row items-center gap-8 overflow-x-clip max-w-8xl">
+        <main className="relative z-10 container mx-auto px-4 pt-26 grow flex flex-col lg:flex-row items-center gap-10 md:gap-0 overflow-x-clip max-w-8xl">
           {/* Left Section */}
-          <div className="w-full lg:w-1/2 space-y-8">
-            <div className="space-y-4">
+          <div className="flex flex-col items-start px-0 md:px-8 justify-center md:w-1/2 gap-4 md:gap-6">
+            <div className="space-y-3 md:space-y-4 max-w-md">
               <AnimatedText
                 animationType="slideUp"
                 splitType="lines"
@@ -63,7 +63,7 @@ const ContactPage = () => {
                 animationType="slideUp"
                 splitType="lines"
                 delay={0.2}
-                className="text-lg lg:text-xl leading-relaxed max-w-md"
+                className="text-lg lg:text-xl leading-relaxed"
               >
                 Have a vision in mind? Let's explore how we can bring it to
                 life.
@@ -71,7 +71,7 @@ const ContactPage = () => {
             </div>
 
             {/* Contact Cards */}
-            <div className="flex flex-col gap-2 sm:gap-3 max-w-lg">
+            <div className="flex w-full flex-col gap-2 sm:gap-3 max-w-md">
               {CONTACT_METHODS.map((method, idx) => (
                 <ContactCard
                   key={idx}
