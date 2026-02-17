@@ -89,7 +89,7 @@ export const TestimonialsSection = () => {
                 <motion.div
                   key={activeIndex}
                   layout
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
                   className="inline-flex items-center gap-3 bg-linear-to-b from-background to-card rounded-full px-2 py-2 md:py-2.5 pr-6 md:pr-8 border shadow-sm"
                 >
                   <Image

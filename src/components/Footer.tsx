@@ -52,7 +52,7 @@ export const Footer = () => {
         <Image
           src={text}
           alt="RefractWeb"
-          className="w-full h-auto px-6 md:px-1 mx-auto select-none pointer-events-none"
+          className="w-full h-auto px-6 mx-auto select-none pointer-events-none"
           style={{
             filter: "drop-shadow(0 0 16px lab(47 40.83 41.61 / 0.35))",
           }}

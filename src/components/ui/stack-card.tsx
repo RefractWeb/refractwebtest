@@ -191,11 +191,11 @@ export default function StackCards() {
             ref={(el) => {
               cardRefs.current[index] = el;
             }}
-            className="sticky w-full max-w-6xl mx-auto h-[140vw] md:h-[75vh] top-[25vw] md:top-[12.5vh] transform-gpu-blur"
+            className="sticky w-full max-w-6xl mx-auto top-[25vw] md:top-[12.5vh] transform-gpu-blur"
           >
             <div className="relative group h-full">
               <div
-                className="relative bg-[#0E111B] rounded-3xl p-6 md:p-10 flex flex-col lg:flex-row gap-8 items-center h-full"
+                className="relative bg-[#0E111B] rounded-3xl p-6 md:px-10 md:py-14 lg:px-12 lg:py-20 flex flex-col lg:flex-row gap-8 items-center h-full"
                 style={{
                   boxShadow: "#02071861 0px 2px 20px",
                 }}

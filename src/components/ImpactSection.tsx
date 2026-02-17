@@ -59,14 +59,12 @@ export const ImpactSection = () => {
             )}
             <div className="relative z-10 flex flex-col justify-between h-80 md:min-h-72">
               <div className="flex flex-col gap-2 md:gap-3">
-                <h3 className="text-grad text-lg mb-2 md:mb-4">
-                  Revenue Supported
-                </h3>
+                <h3 className="text-grad text-lg mb-1">Revenue Supported</h3>
                 <div className="text-6xl font-medium tracking-tighter text-grad">
                   $100M+
                 </div>
                 <div className="max-w-xs">
-                  <p className="text-grad text-sm leading-relaxed">
+                  <p className="text-grad text-sm xl:text-base leading-relaxed">
                     Systems backing nine-figure revenue. When performance is
                     non-negotiable, we deliver.
                   </p>
@@ -96,21 +94,19 @@ export const ImpactSection = () => {
             )}
             <div className="relative z-10 flex flex-col justify-between h-80 md:min-h-72">
               <div className="flex flex-col h-full gap-2 md:gap-3 relative z-10">
-                <h3 className="text-grad text-lg mb-2 md:mb-4">
-                  Assets Deployed
-                </h3>
+                <h3 className="text-grad text-lg mb-1">Assets Deployed</h3>
                 <div className="text-6xl font-medium tracking-tighter text-grad">
                   100+
                 </div>
-                <div className="max-w-xs">
-                  <p className="text-grad text-sm leading-relaxed">
+                <div className="max-w-sm">
+                  <p className="text-grad text-sm xl:text-base text-pretty leading-relaxed">
                     Production-ready assets for every channel. Ship campaigns
                     and launches with confidence.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="bg-white/5 p-2 rounded-lg overflow-hidden absolute md:-right-50 md:top-26 right-6 -bottom-8 w-5/6 md:w-3/4 -rotate-6 hover:-rotate-3 hover:scale-110 transition-all duration-500 cursor-pointer z-30">
+            <div className="bg-white/5 p-2 rounded-lg overflow-hidden absolute md:-right-50 md:top-40 right-6 -bottom-8 w-5/6 md:w-3/4 -rotate-6 hover:-rotate-3 hover:scale-110 transition-all duration-500 cursor-pointer z-30">
               <Image
                 src={img1}
                 width={400}
@@ -138,11 +134,11 @@ export const ImpactSection = () => {
               </>
             )}
             <div className="flex flex-col h-full gap-2 md:gap-3 relative z-10">
-              <h3 className="text-grad text-lg mb-2 md:mb-4">Enterprise DNA</h3>
+              <h3 className="text-grad text-lg mb-1">Enterprise DNA</h3>
               <div className="text-6xl font-medium tracking-tighter text-grad px-1">
                 $2.65B
               </div>
-              <p className="text-grad text-sm leading-relaxed max-w-xs">
+              <p className="text-grad text-sm xl:text-base leading-relaxed max-w-sm">
                 Applying the architectural standards of a multi-billion dollar
                 valuation to your brand.
               </p>
