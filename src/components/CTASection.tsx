@@ -31,8 +31,8 @@ export const CTASection = () => {
           <ActionButtons />
         </div>
 
-        <div className="w-full h-full md:w-1/2 flex justify-center md:justify-end relative isolate">
-          <div className="hidden md:block absolute inset-0 z-10 pointer-events-none">
+        <div className="w-full h-full md:w-1/2 flex justify-center md:justify-end relative isolate md:mb-10 mb-20">
+          <div className="absolute inset-0 z-10 pointer-events-none">
             <div
               className="absolute inset-0 origin-center translate-x-60 -translate-y-10"
               style={{ transform: "rotate(25deg)" }}
@@ -41,14 +41,14 @@ export const CTASection = () => {
               <div className="absolute h-[0.5%] rounded-full bg-linear-to-r to-white via-white z-10 w-[200%] mix-blend-soft-light blur-[2px] right-[90%] top-[80%] transform-gpu-blur"></div>
               {/* Top glow */}
               <div className="absolute w-[200%] h-full -top-[20%] right-[75%] overflow-hidden">
-                <div className="absolute w-[42%] aspect-square rounded-full bg-primary2 z-10 -bottom-[70%] left-1/2 -translate-x-1/2 blur-[120px] blur-min"></div>
+                <div className="absolute w-60 sm:w-[42%] aspect-square rounded-full bg-primary2 z-10 -bottom-[70%] left-1/2 -translate-x-1/2 blur-[120px] blur-min"></div>
               </div>
 
               {/* Bottom light streak */}
               <div className="absolute h-[0.5%] rounded-full bg-linear-to-l to-white via-white z-10 w-[200%] mix-blend-soft-light blur-[2px] top-[80%] -left-[10%] transform-gpu-blur"></div>
               {/* Bottom glow */}
               <div className="absolute w-[150%] h-[70%] top-[80%] left-[10%] overflow-hidden">
-                <div className="absolute w-[42%] aspect-square rounded-full bg-[#4661BE] z-10 -top-[80%] left-1/2 -translate-x-1/2 blur-[120px] blur-min"></div>
+                <div className="absolute w-60 sm:w-[42%] aspect-square rounded-full bg-[#4661BE] z-10 -top-[80%] left-1/2 -translate-x-1/2 blur-[120px] blur-min"></div>
               </div>
             </div>
           </div>
