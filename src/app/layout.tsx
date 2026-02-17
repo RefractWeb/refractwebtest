@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import BgGrad from "@/components/ui/bg-grad";
 import Clarity from "@/lib/Clarity";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter_Tight({
   variable: "--font-inter-sans",
@@ -89,6 +90,7 @@ export default function RootLayout({
         {children}
         <Footer />
       </body>
+      <GoogleAnalytics gaId="G-L1N9QVJ4FX" />
     </html>
   );
 }
