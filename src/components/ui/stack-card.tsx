@@ -168,9 +168,8 @@ export default function StackCards() {
           },
         });
 
-        timeline.set(ref, { willChange: "opacity", force3D: true }).to(ref, {
+        timeline.set(ref, { force3D: true }).to(ref, {
           ease: "none",
-          opacity: isLast ? 1 : 0,
           force3D: true,
         });
       });
