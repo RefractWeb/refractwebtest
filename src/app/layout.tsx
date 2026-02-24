@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import BgGrad from "@/components/ui/bg-grad";
 import Clarity from "@/lib/Clarity";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Awards from "@/components/Awards";
 
 const inter = Inter_Tight({
   variable: "--font-inter-sans",
@@ -85,6 +86,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className + " " + geistMono.variable}>
+        {/* <Awards /> */}
         <BgGrad />
         <Navbar />
         {children}
