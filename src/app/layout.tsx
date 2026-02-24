@@ -86,7 +86,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className + " " + geistMono.variable}>
-        {/* <Awards /> */}
+        <Awards />
         <BgGrad />
         <Navbar />
         {children}
