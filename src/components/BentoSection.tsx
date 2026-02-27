@@ -82,7 +82,7 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="md:col-span-2 relative bg-[#0E111B] border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 md:min-h-0 transform-gpu-blur"
+            className="md:col-span-2 relative bg-[#0E111B] rounded-2xl overflow-hidden group p-6 md:p-14 md:min-h-0 transform-gpu-blur"
           >
             <div className="absolute -bottom-20 right-40 size-80 rounded-full bg-[#253a7a] blur-3xl pointer-events-none blur-gpu" />
             <div className="relative z-10 flex flex-col justify-center md:justify-start gap-2 md:gap-4 mt-52 md:mt-0">
@@ -110,7 +110,7 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="md:row-span-2 relative bg-[#0E111B] border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 min-h-100 md:min-h-0 transform-gpu-blur"
+            className="md:row-span-2 relative bg-[#0E111B] rounded-2xl overflow-hidden group p-6 md:p-14 min-h-100 md:min-h-0 transform-gpu-blur"
           >
             <div className="relative z-10 flex flex-col h-full gap-2 md:gap-4">
               <Palette className="size-6 text-foreground/80" />
@@ -152,7 +152,7 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="md:row-span-2 relative bg-[#0E111B] border border-border/50 rounded-2xl overflow-hidden group flex flex-col items-center justify-end min-h-158 md:min-h-0 transform-gpu-blur"
+            className="md:row-span-2 relative bg-[#0E111B] rounded-2xl overflow-hidden group flex flex-col items-center justify-end min-h-158 md:min-h-0 transform-gpu-blur"
           >
             <div className="absolute -bottom-50 left-1/2 -translate-x-1/2 blur-[120px] size-120 bg-secondary2/60 rounded-full pointer-events-none blur-gpu" />
             <CodeEditorReplica className="absolute top-0 left-3 md:left-10 w-full md:w-fit" />
@@ -177,7 +177,7 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative bg-[#0E111B] border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 flex items-center justify-center text-center min-h-63 md:min-h-0 transform-gpu-blur"
+            className="relative bg-[#0E111B] rounded-2xl overflow-hidden group p-6 md:p-14 flex items-center justify-center text-center min-h-63 md:min-h-0 transform-gpu-blur"
           >
             <AnimatedLogoStroke className="absolute top-1/2 left-1/2 -translate-x-[46%] -translate-y-1/2 object-contain scale-75 md:scale-100 opacity-50 md:opacity-100" />
             <div className="relative z-10">
@@ -196,7 +196,7 @@ export const BentoSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="md:col-span-1 lg:col-span-2 relative bg-[#0E111B] border border-border/50 rounded-2xl overflow-hidden group p-6 md:p-14 min-h-100 md:min-h-0 transform-gpu-blur"
+            className="md:col-span-1 lg:col-span-2 relative bg-[#0E111B] rounded-2xl overflow-hidden group p-6 md:p-14 min-h-100 md:min-h-0 transform-gpu-blur"
           >
             <div className="absolute -bottom-60 -right-24 blur-[100px] size-120 bg-[#1E2E5E]/70 rounded-full pointer-events-none blur-gpu" />
             <div className="relative z-10 flex flex-col gap-2 md:gap-4">

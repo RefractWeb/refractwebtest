@@ -3,13 +3,12 @@
 import { AnimatedText } from "./ui/animated-text";
 import ActionButtons from "./ActionButtons";
 import { AnimatedChip } from "./AnimatedChip";
-import { motion } from "motion/react";
 
 export const CTASection = () => {
   return (
-    <section className="pt-16 md:py-24 md:mb-10 px-6 flex justify-center relative">
+    <section className="pt-16 md:py-24 md:mb-20 px-6 flex justify-center relative">
       <div className="container max-w-6xl relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
-        <div className="w-full md:w-1/2 space-y-5 md:space-y-8">
+        <div className="w-full md:w-1/2 space-y-5 md:space-y-6">
           <AnimatedText
             useScrollTrigger={true}
             animationType="slideUp"
@@ -41,14 +40,14 @@ export const CTASection = () => {
               <div className="absolute h-[0.5%] rounded-full bg-linear-to-r to-white via-white z-10 w-[200%] mix-blend-soft-light blur-[2px] right-[90%] top-[80%] transform-gpu-blur"></div>
               {/* Top glow */}
               <div className="absolute w-[200%] h-full -top-[20%] right-[75%] overflow-hidden">
-                <div className="absolute w-60 sm:w-[42%] aspect-square rounded-full bg-primary2 z-10 -bottom-[70%] left-1/2 -translate-x-1/2 blur-[120px] blur-min"></div>
+                <div className="absolute w-60 sm:w-[42%] aspect-square rounded-full bg-primary2 z-10 -bottom-[65%] left-1/2 -translate-x-1/2 blur-[120px] blur-min"></div>
               </div>
 
               {/* Bottom light streak */}
               <div className="absolute h-[0.5%] rounded-full bg-linear-to-l to-white via-white z-10 w-[200%] mix-blend-soft-light blur-[2px] top-[80%] -left-[10%] transform-gpu-blur"></div>
               {/* Bottom glow */}
-              <div className="absolute w-[150%] h-[70%] top-[80%] left-[10%] overflow-hidden">
-                <div className="absolute w-60 sm:w-[42%] aspect-square rounded-full bg-[#4661BE] z-10 -top-[80%] left-1/2 -translate-x-1/2 blur-[120px] blur-min"></div>
+              <div className="absolute w-[200%] sm:w-[150%] sm:h-[70%] h-full top-[80%] sm:left-[10%] overflow-hidden">
+                <div className="absolute w-48 sm:w-[42%] aspect-square rounded-full bg-[#4661BE] z-10 -top-[60%] left-26 sm:left-1/2 sm:-translate-x-1/2 sm:-top-[75%] blur-[120px] blur-min"></div>
               </div>
             </div>
           </div>

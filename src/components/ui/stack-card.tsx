@@ -168,10 +168,16 @@ export default function StackCards() {
           },
         });
 
-        timeline.set(ref, { force3D: true }).to(ref, {
-          ease: "none",
-          force3D: true,
-        });
+        timeline.set(ref, { force3D: true });
+
+        if (!isLast) {
+          timeline.to(ref, {
+            scale: 0.9,
+            filter: "blur(6px)",
+            ease: "none",
+            force3D: true,
+          });
+        }
       });
     });
 

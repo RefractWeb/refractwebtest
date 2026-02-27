@@ -107,7 +107,7 @@ export function SmoothCarousel({
         >
           <div className="flex gap-6 w-full">
             {/* Left spacing */}
-            <div className="shrink-0 w-[5vw]" />
+            <div className="shrink-0 md:w-[5vw]" />
 
             {slides.map((child, index) => (
               <div

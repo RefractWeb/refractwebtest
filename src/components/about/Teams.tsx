@@ -105,7 +105,7 @@ export default function Teams() {
         <div className="space-y-6 mb-16">
           <AnimatedText
             animationType="slideUp"
-            splitType="lines"
+            splitType="words,lines"
             className="text-4xl md:text-6xl font-semibold tracking-tighter leading-[1.15]"
           >
             Working with those <br /> who set the standard

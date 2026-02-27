@@ -24,7 +24,7 @@ export const BuildEnvironmentSection = () => {
           <div className="absolute bottom-[-20%] -left-[10%] w-80 h-80 rounded-full bg-[#d6795a] opacity-50 blur-[100px] hidden md:block blur-min" />
 
           {/* Left Content */}
-          <div className="relative flex flex-col justify-center z-10 max-w-lg space-y-2 md:space-y-6 px-10 pb-6 py-4 md:py-36 items-center text-center md:items-start md:text-left md:pl-12 md:pr-0">
+          <div className="relative flex flex-col justify-center z-10 max-w-lg space-y-2 md:space-y-6 px-10 pb-6 py-2 md:py-36 items-center text-center md:items-start md:text-left md:pl-12 md:pr-0">
             <AnimatedText
               useScrollTrigger={true}
               animationType="slideUp"
