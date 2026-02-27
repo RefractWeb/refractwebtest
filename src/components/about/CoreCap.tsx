@@ -12,8 +12,8 @@ export default function () {
         <div className="text-center space-y-6 mb-24">
           <AnimatedText
             useScrollTrigger={true}
-            animationType="slideUp"
-            splitType="lines"
+            animationType="wordReveal"
+            stagger={0.07}
             className="text-4xl md:text-6xl font-semibold tracking-tighter"
           >
             Core capabilities

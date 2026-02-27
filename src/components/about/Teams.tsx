@@ -104,8 +104,8 @@ export default function Teams() {
       <div className="container mx-auto max-w-7xl">
         <div className="space-y-6 mb-16">
           <AnimatedText
-            animationType="slideUp"
-            splitType="words,lines"
+            animationType="wordReveal"
+            stagger={0.065}
             className="text-4xl md:text-6xl font-semibold tracking-tighter leading-[1.15]"
           >
             Working with those <br /> who set the standard

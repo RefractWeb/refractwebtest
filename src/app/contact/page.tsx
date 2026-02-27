@@ -52,8 +52,8 @@ const ContactPage = () => {
           <div className="flex flex-col items-start px-0 md:px-8 justify-center md:w-1/2 gap-4 md:gap-6">
             <div className="space-y-3 md:space-y-4 max-w-md">
               <AnimatedText
-                animationType="slideUp"
-                splitType="lines"
+                animationType="wordReveal"
+                stagger={0.08}
                 className="text-5xl lg:text-6xl font-bold tracking-tight"
               >
                 Work With Us
@@ -61,7 +61,7 @@ const ContactPage = () => {
               <AnimatedText
                 animationType="slideUp"
                 splitType="lines"
-                delay={0.2}
+                delay={0.24}
                 className="text-lg lg:text-xl leading-relaxed"
               >
                 Have a vision in mind? Let's explore how we can bring it to

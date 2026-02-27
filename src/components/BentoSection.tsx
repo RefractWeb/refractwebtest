@@ -55,8 +55,8 @@ export const BentoSection = () => {
         <div className="flex flex-col items-center text-center mb-16">
           <AnimatedText
             useScrollTrigger={true}
-            animationType="slideUp"
-            splitType="lines"
+            animationType="wordReveal"
+            stagger={0.06}
             className="text-4xl md:text-5xl lg:text-5xl tracking-tight font-semibold mb-6"
           >
             The full spectrum of core capabilities

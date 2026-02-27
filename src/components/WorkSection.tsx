@@ -47,8 +47,8 @@ export const WorkSection = () => {
         <div className="text-center mb-4 md:mb-16 space-y-4">
           <AnimatedText
             useScrollTrigger={true}
-            animationType="slideUp"
-            splitType="lines"
+            animationType="wordReveal"
+            stagger={0.07}
             className="text-4xl lg:text-5xl font-bold tracking-tight mx-auto"
           >
             Selected work

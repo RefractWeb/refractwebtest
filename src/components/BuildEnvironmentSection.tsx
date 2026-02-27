@@ -27,8 +27,8 @@ export const BuildEnvironmentSection = () => {
           <div className="relative flex flex-col justify-center z-10 max-w-lg space-y-2 md:space-y-6 px-10 pb-6 py-2 md:py-36 items-center text-center md:items-start md:text-left md:pl-12 md:pr-0">
             <AnimatedText
               useScrollTrigger={true}
-              animationType="slideUp"
-              splitType="lines"
+              animationType="wordReveal"
+              stagger={0.08}
               className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter"
             >
               The build environment.

@@ -43,8 +43,8 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
             </span>
           </motion.div>
           <AnimatedText
-            animationType="slideUp"
-            splitType="lines"
+            animationType="wordReveal"
+            stagger={0.08}
             shouldAnimate={isStarted}
             className="hero-text font-bold tracking-tight text-balance leading-[1.18]"
           >

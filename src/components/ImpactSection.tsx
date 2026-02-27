@@ -23,8 +23,8 @@ export const ImpactSection = () => {
         <div className="text-center mb-16 space-y-4">
           <AnimatedText
             useScrollTrigger={true}
-            animationType="slideUp"
-            splitType="lines"
+            animationType="wordReveal"
+            stagger={0.07}
             className="text-4xl lg:text-5xl font-bold tracking-tight text-center mx-auto"
           >
             Impact at scale
@@ -33,7 +33,7 @@ export const ImpactSection = () => {
             useScrollTrigger={true}
             animationType="slideUp"
             splitType="lines"
-            delay={0.15}
+            delay={0.17}
             className="text-lg"
           >
             Design is subjective. Performance is not.

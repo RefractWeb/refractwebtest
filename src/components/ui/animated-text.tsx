@@ -34,6 +34,7 @@ export interface AnimatedTextOptions {
     | "blurIn"
     | "skewIn"
     | "tiltIn"
+    | "wordReveal"
     | "custom";
   customAnimation?: (
     instance: SplitText,
@@ -78,11 +79,19 @@ export const AnimatedText = ({
   const inView = useInView(containerRef, { once: true, amount: 0.1 });
   const isSafari = useSafari();
 
+  // For wordReveal, we always need words split with line masks regardless of props
+  const effectiveSplitType =
+    animationType === "wordReveal" ? ("words,lines" as const) : splitType;
+  const effectiveMaskType =
+    animationType === "wordReveal" ? ("lines" as const) : maskType;
+
   // Helper to determine animation targets
   const getTargets = (instance: SplitText) => {
-    if (splitType.includes("chars") && instance.chars.length > 0)
+    // wordReveal always targets words inside line masks
+    if (animationType === "wordReveal") return instance.words;
+    if (effectiveSplitType.includes("chars") && instance.chars.length > 0)
       return instance.chars;
-    if (splitType.includes("words") && instance.words.length > 0)
+    if (effectiveSplitType.includes("words") && instance.words.length > 0)
       return instance.words;
     return instance.lines;
   };
@@ -101,12 +110,16 @@ export const AnimatedText = ({
       gsap.set(textRef.current, { opacity: 1 });
 
       // Create SplitText with autoSplit and onSplit callback
+      // For wordReveal: line containers must NOT get the "line" class — it has
+      // color:transparent + bg-clip which inherits to child word spans, making them invisible.
+      const isWordReveal = animationType === "wordReveal";
       SplitText.create(textRef.current, {
-        type: splitType,
-        linesClass: maskType === "lines" ? "line" : undefined,
-        wordsClass: maskType === "words" ? "word" : undefined,
-        charsClass: maskType === "chars" ? "char" : undefined,
-        mask: maskType === false ? undefined : maskType,
+        type: effectiveSplitType,
+        linesClass:
+          !isWordReveal && effectiveMaskType === "lines" ? "line" : undefined,
+        wordsClass: effectiveMaskType === "words" ? "word" : undefined,
+        charsClass: effectiveMaskType === "chars" ? "char" : undefined,
+        mask: effectiveMaskType === false ? undefined : effectiveMaskType,
         autoSplit: true,
         onSplit: (instance) => {
           const targets = getTargets(instance);
@@ -180,6 +193,11 @@ export const AnimatedText = ({
                 // Add perspective for 3D effect
                 gsap.set(targets, { transformPerspective: 1000 });
                 break;
+              case "wordReveal":
+                // Each word slides up within its line's overflow-hidden mask
+                config.yPercent = 115;
+                config.opacity = 0;
+                break;
               case "fadeIn":
                 config.opacity = 0;
                 break;
@@ -212,6 +230,7 @@ export const AnimatedText = ({
         useScrollTrigger,
         children,
         shouldAnimate,
+        animationType,
       ],
       revertOnUpdate: true,
     },

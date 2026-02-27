@@ -33,8 +33,8 @@ const page = () => {
           <div className="container mx-auto max-w-8xl">
             <div className="text-center space-y-4 mb-12 md:mb-24">
               <AnimatedText
-                animationType="slideUp"
-                splitType="lines"
+                animationType="wordReveal"
+                stagger={0.07}
                 className="text-5xl md:text-6xl font-semibold tracking-tighter px-2"
               >
                 Recent Works

@@ -11,8 +11,8 @@ export const CTASection = () => {
         <div className="w-full md:w-1/2 space-y-5 md:space-y-6">
           <AnimatedText
             useScrollTrigger={true}
-            animationType="slideUp"
-            splitType="lines"
+            animationType="wordReveal"
+            stagger={0.07}
             className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.2]"
           >
             Ready for <br />
