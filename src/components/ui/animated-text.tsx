@@ -81,14 +81,14 @@ export const AnimatedText = ({
 
   // For wordReveal, we always need words split with line masks regardless of props
   const effectiveSplitType =
-    animationType === "wordReveal" ? ("words,lines" as const) : splitType;
+    animationType === "wordReveal" ? ("lines" as const) : splitType;
   const effectiveMaskType =
     animationType === "wordReveal" ? ("lines" as const) : maskType;
 
   // Helper to determine animation targets
   const getTargets = (instance: SplitText) => {
     // wordReveal always targets words inside line masks
-    if (animationType === "wordReveal") return instance.words;
+    // if (animationType === "wordReveal") return instance.words;
     if (effectiveSplitType.includes("chars") && instance.chars.length > 0)
       return instance.chars;
     if (effectiveSplitType.includes("words") && instance.words.length > 0)
@@ -112,7 +112,7 @@ export const AnimatedText = ({
       // Create SplitText with autoSplit and onSplit callback
       // For wordReveal: line containers must NOT get the "line" class — it has
       // color:transparent + bg-clip which inherits to child word spans, making them invisible.
-      // const isWordReveal = animationType === "wordReveal";
+      const isWordReveal = animationType === "wordReveal";
       SplitText.create(textRef.current, {
         type: effectiveSplitType,
         linesClass: effectiveMaskType === "lines" ? "line" : undefined,
