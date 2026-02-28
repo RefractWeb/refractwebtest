@@ -112,11 +112,10 @@ export const AnimatedText = ({
       // Create SplitText with autoSplit and onSplit callback
       // For wordReveal: line containers must NOT get the "line" class — it has
       // color:transparent + bg-clip which inherits to child word spans, making them invisible.
-      const isWordReveal = animationType === "wordReveal";
+      // const isWordReveal = animationType === "wordReveal";
       SplitText.create(textRef.current, {
         type: effectiveSplitType,
-        linesClass:
-          !isWordReveal && effectiveMaskType === "lines" ? "line" : undefined,
+        linesClass: effectiveMaskType === "lines" ? "line" : undefined,
         wordsClass: effectiveMaskType === "words" ? "word" : undefined,
         charsClass: effectiveMaskType === "chars" ? "char" : undefined,
         mask: effectiveMaskType === false ? undefined : effectiveMaskType,
