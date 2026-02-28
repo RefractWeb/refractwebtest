@@ -79,16 +79,14 @@ export const AnimatedText = ({
   const inView = useInView(containerRef, { once: true, amount: 0.1 });
   const isSafari = useSafari();
 
-  // For wordReveal, we always need words split with line masks regardless of props
-  const effectiveSplitType =
-    animationType === "wordReveal" ? ("lines" as const) : splitType;
-  const effectiveMaskType =
-    animationType === "wordReveal" ? ("lines" as const) : maskType;
+  // For wordReveal, split into words+lines so we can animate words within line masks
+  const isWordReveal = animationType === "wordReveal";
+  const effectiveSplitType = isWordReveal ? "words,lines" : splitType;
+  const effectiveMaskType = isWordReveal ? "lines" : maskType;
 
   // Helper to determine animation targets
   const getTargets = (instance: SplitText) => {
-    // wordReveal always targets words inside line masks
-    // if (animationType === "wordReveal") return instance.words;
+    if (isWordReveal) return instance.words;
     if (effectiveSplitType.includes("chars") && instance.chars.length > 0)
       return instance.chars;
     if (effectiveSplitType.includes("words") && instance.words.length > 0)
@@ -110,18 +108,36 @@ export const AnimatedText = ({
       gsap.set(textRef.current, { opacity: 1 });
 
       // Create SplitText with autoSplit and onSplit callback
-      // For wordReveal: line containers must NOT get the "line" class — it has
-      // color:transparent + bg-clip which inherits to child word spans, making them invisible.
-      const isWordReveal = animationType === "wordReveal";
       SplitText.create(textRef.current, {
         type: effectiveSplitType,
-        linesClass: effectiveMaskType === "lines" ? "line" : undefined,
-        wordsClass: effectiveMaskType === "words" ? "word" : undefined,
+        // For wordReveal: no classes on lines/words — gradient applied via JS per-word
+        // positioned to span the full line width for a continuous per-line gradient
+        linesClass:
+          !isWordReveal && effectiveMaskType === "lines" ? "line" : undefined,
+        wordsClass:
+          !isWordReveal && effectiveMaskType === "words" ? "word" : undefined,
         charsClass: effectiveMaskType === "chars" ? "char" : undefined,
         mask: effectiveMaskType === false ? undefined : effectiveMaskType,
         autoSplit: true,
         onSplit: (instance) => {
           const targets = getTargets(instance);
+
+          if (isWordReveal) {
+            for (const w of instance.words) {
+              const word = w as HTMLElement;
+              const line = word.parentElement;
+              if (!line) continue;
+              const lineWidth = line.offsetWidth;
+              Object.assign(word.style, {
+                backgroundImage: `linear-gradient(to bottom right, var(--foreground) 10%, oklch(0.72 0.00 0 / 0.9) 60%, var(--foreground) 90%)`,
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                color: "transparent",
+                backgroundSize: `${lineWidth}px 100%`,
+                backgroundPosition: `-${word.offsetLeft}px 0`,
+              });
+            }
+          }
 
           // Prepare ScrollTrigger config if enabled
           let scrollTrigger: any = null;
