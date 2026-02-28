@@ -1,6 +1,6 @@
 // @ts-nocheck
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const useSpotlightEffect = (config = {}) => {
   const {
@@ -16,7 +16,6 @@ const useSpotlightEffect = (config = {}) => {
   const spotlightPos = useRef({ x: 0, y: 0 });
   const targetPos = useRef({ x: 0, y: 0 });
   const animationFrame = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -34,11 +33,6 @@ const useSpotlightEffect = (config = {}) => {
 
     const handleMouseMove = (e) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
-      setIsHovered(true);
-    };
-
-    const handleMouseLeave = () => {
-      setIsHovered(false);
     };
 
     const render = () => {
@@ -127,13 +121,11 @@ const useSpotlightEffect = (config = {}) => {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
     document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseleave", handleMouseLeave);
     render();
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
-      document.addEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("mousemove", handleMouseMove);
       if (animationFrame.current) {
         cancelAnimationFrame(animationFrame.current);
       }
