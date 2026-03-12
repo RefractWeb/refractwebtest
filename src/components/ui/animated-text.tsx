@@ -133,6 +133,7 @@ export const AnimatedText = ({
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 color: "transparent",
+                padding: "0 2px",
                 backgroundSize: `${lineWidth}px 100%`,
                 backgroundPosition: `-${word.offsetLeft}px 0`,
               });
