@@ -22,7 +22,7 @@ const Awards = () => {
       <DialogTrigger asChild>
         <button
           type="button"
-          className="fixed bottom-20 right-0 bg-black/80 backdrop-blur-sm pr-6 pl-2.5 py-4 cursor-pointer rounded-l-md z-50 translate-x-4 transition-all duration-500 hover:translate-x-1 h-52 hidden sm:flex flex-col items-center gap-3 group"
+          className="fixed bottom-16 right-0 bg-black/80 backdrop-blur-sm pr-6 pl-2.5 py-4 cursor-pointer rounded-l-md z-50 translate-x-4 transition-all duration-500 hover:translate-x-1 h-48 hidden sm:flex flex-col items-center gap-3 group"
           style={{
             boxShadow:
               "inset rgb(157 136 113 / 18%) 1px 2px 30px 3px, 0 0 0 1px rgb(157 136 113 / 12%)",
