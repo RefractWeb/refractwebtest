@@ -55,7 +55,6 @@ export const metadata: Metadata = {
     siteName: "RefractWeb",
     locale: "en_US",
     type: "website",
-    // ✅ No images array needed — Next.js auto-picks up opengraph-image.jpeg from /app
   },
   twitter: {
     card: "summary_large_image",
@@ -63,7 +62,6 @@ export const metadata: Metadata = {
     description:
       "RefractWeb merges precision engineering with powerful design to build your digital identity — websites, branding, and software that signal authority everywhere.",
     creator: "@refractweb",
-    // ✅ No images array needed here either — Next.js handles it via twitter-image or opengraph-image
   },
   robots: {
     index: true,
