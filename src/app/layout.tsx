@@ -52,6 +52,14 @@ export const metadata: Metadata = {
     siteName: "RefractWeb",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://refractweb.com/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "RefractWeb — Defining Your Digital Identity Online",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -59,6 +67,7 @@ export const metadata: Metadata = {
     description:
       "RefractWeb merges precision engineering with powerful design to build your digital identity — websites, branding, and software that signal authority everywhere.",
     creator: "@refractweb",
+    images: ["https://refractweb.com/og-image.jpeg"],
   },
   robots: {
     index: true,
