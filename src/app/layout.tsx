@@ -23,11 +23,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "RefractWeb - Defining Digital Identity",
+    default: "RefractWeb — Defining Your Digital Identity Online",
     template: "%s | RefractWeb",
   },
   description:
-    "We merge the precision of code with the power of design, orchestrating a single identity that signals authority everywhere.",
+    "RefractWeb merges precision engineering with powerful design to build your digital identity — websites, branding, and software that signal authority everywhere.",
   metadataBase: new URL("https://refractweb.com"),
   alternates: {
     canonical: "https://refractweb.com",
@@ -48,18 +48,22 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "RefractWeb - Defining Digital Identity",
-    description: "We merge the precision of code with the power of design.",
+    title: "RefractWeb — Defining Your Digital Identity Online",
+    description:
+      "RefractWeb merges precision engineering with powerful design to build your digital identity — websites, branding, and software that signal authority everywhere.",
     url: "https://refractweb.com",
     siteName: "RefractWeb",
     locale: "en_US",
     type: "website",
+    // ✅ No images array needed — Next.js auto-picks up opengraph-image.jpeg from /app
   },
   twitter: {
     card: "summary_large_image",
-    title: "RefractWeb - Defining Digital Identity",
-    description: "We merge the precision of code with the power of design.",
+    title: "RefractWeb — Defining Your Digital Identity Online",
+    description:
+      "RefractWeb merges precision engineering with powerful design to build your digital identity — websites, branding, and software that signal authority everywhere.",
     creator: "@refractweb",
+    // ✅ No images array needed here either — Next.js handles it via twitter-image or opengraph-image
   },
   robots: {
     index: true,
