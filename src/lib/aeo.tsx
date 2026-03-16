@@ -34,16 +34,28 @@ export function OrganizationSchema() {
             "@type": "OfferCatalog",
             name: "Services",
             itemListElement: [
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Development" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Branding" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Software / AI" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "3D Animation" } },
+              {
+                "@type": "Offer",
+                itemOffered: { "@type": "Service", name: "Web Development" },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: { "@type": "Service", name: "Branding" },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: { "@type": "Service", name: "Software / AI" },
+              },
+              {
+                "@type": "Offer",
+                itemOffered: { "@type": "Service", name: "3D Animation" },
+              },
             ],
           },
         }),
       }}
     />
-  )
+  );
 }
 
 export function WebSiteSchema() {
@@ -59,5 +71,5 @@ export function WebSiteSchema() {
         }),
       }}
     />
-  )
+  );
 }
