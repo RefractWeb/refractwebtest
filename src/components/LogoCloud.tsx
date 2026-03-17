@@ -64,7 +64,7 @@ const AnimatedLogoCloud = ({ className }: { className?: string }) => {
                     key={key}
                     src={logo.url}
                     draggable={false}
-                    className="h-8 w-30 select-none px-2 hover:scale-110 transition-all duration-700"
+                    className="h-8 w-30 select-none px-2 hover:scale-110 transition-all duration-700 pointer-events-none"
                     alt={`${logo.name}`}
                   />
                 ))}

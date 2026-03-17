@@ -1,17 +1,23 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
+import {
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useTransform,
+} from "motion/react";
+import Image from "next/image";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 // Award assets
 import awwwardsHonors from "@/assets/awards/AWWWARDS HONORS.png";
+import bestInnovation from "@/assets/awards/BEST INNOVATION.png";
 import bestUi from "@/assets/awards/BEST UI DESIGN.png";
 import bestUx from "@/assets/awards/BEST UX DESIGN.png";
-import bestInnovation from "@/assets/awards/BEST INNOVATION.png";
 import specialKudos from "@/assets/awards/SPCIAL KUDOS.png";
 import AnimatedText from "./ui/animated-text";
+import { Button } from "./ui/button";
 
 interface Award {
   id: number;
@@ -32,9 +38,10 @@ const awards: Award[] = [
     image: awwwardsHonors,
     category: "Awwwards",
     title: "Honors",
-    subtitle: "March 1, 2026",
+    subtitle:
+      "Recognized by Awwwards with Honors among the world’s top digital work.",
     issuer: "Awwwards",
-    date: "2026",
+    date: "Mar 1, 2026",
     href: "https://www.awwwards.com/sites/refractweb",
     accentColor: "#E08060",
     bgColor: "rgba(224, 128, 96, 0.08)",
@@ -44,7 +51,8 @@ const awards: Award[] = [
     image: bestUi,
     category: "CSSDA",
     title: "Best UI Design",
-    subtitle: "CSS Design Awards",
+    subtitle:
+      "Recognized by CSSDA for excellence in interface design and digital craft",
     issuer: "CSS Design Awards",
     date: "Feb 20, 2026",
     href: "https://cssdesignawards.com/sites/refractweb/48905",
@@ -56,7 +64,8 @@ const awards: Award[] = [
     image: bestUx,
     category: "CSSDA",
     title: "Best UX Design",
-    subtitle: "CSS Design Awards",
+    subtitle:
+      "Recognized by CSSDA for best-in-class UX that delivers clarity, flow, and impact",
     issuer: "CSS Design Awards",
     date: "Feb 20, 2026",
     href: "https://cssdesignawards.com/sites/refractweb/48905",
@@ -68,7 +77,8 @@ const awards: Award[] = [
     image: bestInnovation,
     category: "CSSDA",
     title: "Best Innovation",
-    subtitle: "CSS Design Awards",
+    subtitle:
+      "Recognized by CSSDA for innovation at the intersection of design and technology",
     issuer: "CSS Design Awards",
     date: "Feb 20, 2026",
     href: "https://cssdesignawards.com/sites/refractweb/48905",
@@ -80,7 +90,8 @@ const awards: Award[] = [
     image: specialKudos,
     category: "CSSDA",
     title: "Special Kudos",
-    subtitle: "CSS Design Awards",
+    subtitle:
+      "Top-tier recognition from CSSDA for exceptional work across UI, UX, and innovation",
     issuer: "CSS Design Awards",
     date: "Feb 20, 2026",
     href: "https://cssdesignawards.com/sites/refractweb/48905",
@@ -89,37 +100,68 @@ const awards: Award[] = [
   },
 ];
 
-const INTERVAL_MS = 3000;
+const INTERVAL_MS = 3200;
 
 export const AwardsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isInView, setIsInView] = useState(false);
   //   const [isHovered, setIsHovered] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const dragX = useMotionValue(0);
+  const dragRotate = useTransform(dragX, [-220, 0, 220], [-9, 0, 9]);
 
   const advance = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % awards.length);
   }, []);
 
+  const retreat = useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + awards.length) % awards.length);
+  }, []);
+
   const startInterval = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
+    if (!isInView) return;
     intervalRef.current = setInterval(advance, INTERVAL_MS);
-  }, [advance]);
+  }, [advance, isInView]);
 
   useEffect(() => {
-    // if (!isHovered) {
-    startInterval();
-    // } else {
-    //   if (intervalRef.current) clearInterval(intervalRef.current);
-    // }
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      {
+        threshold: 0.25,
+      },
+    );
+
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isInView) {
+      startInterval();
+    } else if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [startInterval]);
+  }, [isInView, startInterval]);
 
   const active = awards[activeIndex];
 
   return (
-    <section className="relative py-20 md:py-28 px-6">
+    <section ref={sectionRef} className="relative py-20 md:py-28 px-6">
       {/* Background glows */}
       <div
         className="absolute inset-0 pointer-events-none blur-gpu"
@@ -137,12 +179,12 @@ export const AwardsSection = () => {
 
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Header */}
-        <div className="mb-14 md:mb-20">
+        {/* <div className="mb-14 md:mb-20">
           <AnimatedText
             animationType="slideUp"
             delay={0.2}
             useScrollTrigger
-            className="text-xs uppercase tracking-[0.35em] text-muted-foreground/70 mb-3 text-center"
+            className="text-xs uppercase scale-80 md:scale-100 tracking-[0.35em] text-muted-foreground/70 mb-3 text-center"
           >
             World&apos;s Most Prestigious
           </AnimatedText>
@@ -150,24 +192,21 @@ export const AwardsSection = () => {
             animationType="wordReveal"
             stagger={0.08}
             useScrollTrigger
-            className="hero-text font-bold tracking-tight text-grad leading-[1.1] text-center w-full"
+            className="text-4xl lg:text-5xl font-bold tracking-tight text-grad leading-[1.1] text-center w-full"
           >
             Awards & Honors
           </AnimatedText>
-        </div>
+        </div> */}
 
         {/* Main layout */}
         <div
-          className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-10 md:gap-20 lg:gap-32 items-center"
+          className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-12 lg:gap-20 xl:gap-32 items-center"
           //   onMouseEnter={() => setIsHovered(true)}
           //   onMouseLeave={() => setIsHovered(false)}
         >
           {/* Left — stacked thumbnails */}
           <div className="flex items-center justify-center lg:justify-end">
-            <div
-              className="relative w-75 h-120 md:w-110 md:h-150"
-              aria-label="Award certificate thumbnails"
-            >
+            <div className="relative w-75 h-98 md:w-110 md:h-150">
               {awards.map((award, i) => {
                 const offset = i - activeIndex;
                 const normalised =
@@ -185,6 +224,7 @@ export const AwardsSection = () => {
                 const opacity = isActive
                   ? 1
                   : Math.max(0.35, 1 - Math.abs(stackPos) * 0.2);
+                const isDraggableCard = isActive;
 
                 return (
                   <motion.button
@@ -192,7 +232,40 @@ export const AwardsSection = () => {
                     type="button"
                     aria-label={`View ${award.title}`}
                     onClick={() => setActiveIndex(i)}
-                    className="absolute inset-0 rounded-3xl overflow-hidden cursor-pointer"
+                    drag={isDraggableCard ? "x" : false}
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.5}
+                    dragSnapToOrigin
+                    onDragStart={() => {
+                      if (intervalRef.current)
+                        clearInterval(intervalRef.current);
+                    }}
+                    onDragEnd={(_, info) => {
+                      if (!isDraggableCard) return;
+
+                      const swipeDistance = info.offset.x;
+                      const swipeVelocity = info.velocity.x;
+                      const swipePower =
+                        Math.abs(swipeDistance) + Math.abs(swipeVelocity) * 0.2;
+                      const crossedThreshold = swipePower > 145;
+
+                      dragX.set(0);
+
+                      if (crossedThreshold) {
+                        if (swipeDistance < 0) {
+                          advance();
+                        } else {
+                          retreat();
+                        }
+                      }
+
+                      startInterval();
+                    }}
+                    className={`absolute inset-0 rounded-3xl overflow-hidden ${
+                      isDraggableCard
+                        ? "cursor-grab active:cursor-grabbing"
+                        : "cursor-pointer"
+                    }`}
                     animate={{
                       y: yShift,
                       rotate: rotDeg,
@@ -206,6 +279,8 @@ export const AwardsSection = () => {
                       damping: 28,
                     }}
                     style={{
+                      x: isDraggableCard ? dragX : 0,
+                      rotate: isDraggableCard ? dragRotate : undefined,
                       boxShadow: isActive
                         ? `0 24px 60px -8px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.08)`
                         : "0 8px 24px -4px rgba(0,0,0,0.5)",
@@ -261,7 +336,8 @@ export const AwardsSection = () => {
                   <AnimatedText
                     animationType="wordReveal"
                     stagger={0.08}
-                    className="hero-text font-bold tracking-tight leading-[1.15] w-full"
+                    delay={0.01}
+                    className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] w-full"
                   >
                     {active.title}
                   </AnimatedText>
@@ -272,22 +348,16 @@ export const AwardsSection = () => {
                     stagger={0.045}
                     className="mt-2 text-sm text-muted-foreground leading-relaxed"
                   >
-                    {active.subtitle === "CSS Design Awards"
-                      ? "Proudly awarded by CSS Design Awards for outstanding digital craftsmanship."
-                      : "Recognised by Awwwards for exceptional design, creativity, and innovation."}
+                    {active.subtitle}
                   </AnimatedText>
                 </div>
 
                 {/* Visit link */}
-                <a
-                  href={active.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button group inline-flex items-center gap-2 text-xs px-5! py-2.5! mt-2"
-                  aria-label={`Visit ${active.issuer} award page`}
-                >
-                  Visit
-                  <ArrowUpRight className="size-3.5 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <a href={active.href} target="_blank" rel="noopener noreferrer">
+                  <Button size={"lg"}>
+                    Visit
+                    <ArrowUpRight className="size-3.5 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </Button>
                 </a>
               </motion.div>
             </AnimatePresence>

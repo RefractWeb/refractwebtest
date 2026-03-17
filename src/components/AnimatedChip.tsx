@@ -72,7 +72,7 @@ export const AnimatedChip = ({
         loop
         preload="auto"
         className={cn(
-          "absolute inset-0 size-full object-contain brightness-110 saturate-110 -translate-y-10 md:translate-y-0 drop-shadow-2xl scale-110",
+          "absolute inset-0 size-full object-contain brightness-110 saturate-110 -translate-y-10 md:translate-y-0 drop-shadow-2xl scale-110 pointer-events-none",
           className,
         )}
         initial={{ opacity: 0 }}
@@ -94,7 +94,7 @@ export const AnimatedChip = ({
         preload="auto"
         onEnded={handlePrimaryEnded}
         className={cn(
-          "size-full object-contain brightness-110 saturate-110 -translate-y-10 md:translate-y-0 drop-shadow-2xl scale-110 relative",
+          "size-full object-contain brightness-110 saturate-110 -translate-y-10 md:translate-y-0 drop-shadow-2xl scale-110 relative pointer-events-none",
           className,
         )}
         initial={{ opacity: 0, scale: 0.8 }}
