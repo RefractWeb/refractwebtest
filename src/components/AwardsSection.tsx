@@ -206,7 +206,7 @@ export const AwardsSection = () => {
         >
           {/* Left — stacked thumbnails */}
           <div className="flex items-center justify-center lg:justify-end">
-            <div className="relative w-75 h-98 md:w-110 md:h-150">
+            <div className="relative w-75 h-100 md:w-110 md:h-150">
               {awards.map((award, i) => {
                 const offset = i - activeIndex;
                 const normalised =
@@ -326,8 +326,8 @@ export const AwardsSection = () => {
                   >
                     {active.issuer}
                   </span>
-                  <span className="text-xs text-muted-foreground/60 tracking-[0.15em] uppercase">
-                    · {active.date}
+                  <span className="text-xs text-muted-foreground/60 tracking-[0.15em] uppercase py-1 px-4 bg-linear-to-br from-gray-500/15 via-gray-600/15 to-gray-700/30 rounded-full">
+                    {active.date}
                   </span>
                 </div>
 
@@ -354,10 +354,7 @@ export const AwardsSection = () => {
 
                 {/* Visit link */}
                 <a href={active.href} target="_blank" rel="noopener noreferrer">
-                  <Button size={"lg"}>
-                    Visit
-                    <ArrowUpRight className="size-3.5 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </Button>
+                  <Button size={"lg"}>Visit</Button>
                 </a>
               </motion.div>
             </AnimatePresence>
@@ -382,10 +379,7 @@ export const AwardsSection = () => {
                   className="relative h-1 rounded-full overflow-hidden transition-all duration-500 cursor-pointer"
                   style={{
                     width: i === activeIndex ? 50 : 26,
-                    background:
-                      i === activeIndex
-                        ? "transparent"
-                        : "rgba(255,255,255,0.15)",
+                    background: "rgba(255,255,255,0.12)",
                   }}
                 >
                   {i === activeIndex && (
