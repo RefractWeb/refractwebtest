@@ -5,6 +5,7 @@ import { ImpactSection } from "@/components/ImpactSection";
 import { BentoSection } from "@/components/BentoSection";
 import { WorkSection } from "@/components/WorkSection";
 import { BuildEnvironmentSection } from "@/components/BuildEnvironmentSection";
+import { AwardsSection } from "@/components/AwardsSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CTASection } from "@/components/CTASection";
 import SmoothContainer from "@/lib/SmoothContainer";
@@ -35,6 +36,7 @@ const App = () => {
         <HeroSection isStarted={!loading} />
         <BentoSection />
         <WorkSection />
+        <AwardsSection />
         <ImpactSection />
         <BuildEnvironmentSection />
         <TestimonialsSection />
