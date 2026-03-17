@@ -41,7 +41,7 @@ const awards: Award[] = [
     subtitle:
       "Recognized by Awwwards with Honors among the world’s top digital work.",
     issuer: "Awwwards",
-    date: "Mar 1, 2026",
+    date: "Mar 11, 2026",
     href: "https://www.awwwards.com/sites/refractweb",
     accentColor: "#E08060",
     bgColor: "rgba(224, 128, 96, 0.08)",
@@ -52,7 +52,7 @@ const awards: Award[] = [
     category: "CSSDA",
     title: "Best UI Design",
     subtitle:
-      "Recognized by CSSDA for excellence in interface design and digital craft",
+      "Recognized by CSSDA for excellence in interface design and digital craft.",
     issuer: "CSS Design Awards",
     date: "Feb 20, 2026",
     href: "https://cssdesignawards.com/sites/refractweb/48905",
@@ -65,7 +65,7 @@ const awards: Award[] = [
     category: "CSSDA",
     title: "Best UX Design",
     subtitle:
-      "Recognized by CSSDA for best-in-class UX that delivers clarity, flow, and impact",
+      "Recognized by CSSDA for best-in-class UX that delivers clarity, flow, and impact.",
     issuer: "CSS Design Awards",
     date: "Feb 20, 2026",
     href: "https://cssdesignawards.com/sites/refractweb/48905",
@@ -78,7 +78,7 @@ const awards: Award[] = [
     category: "CSSDA",
     title: "Best Innovation",
     subtitle:
-      "Recognized by CSSDA for innovation at the intersection of design and technology",
+      "Recognized by CSSDA for innovation at the intersection of design and technology.",
     issuer: "CSS Design Awards",
     date: "Feb 20, 2026",
     href: "https://cssdesignawards.com/sites/refractweb/48905",
@@ -91,7 +91,7 @@ const awards: Award[] = [
     category: "CSSDA",
     title: "Special Kudos",
     subtitle:
-      "Top-tier recognition from CSSDA for exceptional work across UI, UX, and innovation",
+      "Top-tier recognition from CSSDA for exceptional work across UI, UX, and innovation.",
     issuer: "CSS Design Awards",
     date: "Feb 20, 2026",
     href: "https://cssdesignawards.com/sites/refractweb/48905",
