@@ -38,7 +38,7 @@ export const HeroSection = ({ isStarted = true }: { isStarted?: boolean }) => {
                 glowColor="rgba(245, 151, 104, 0.5)"
                 repeatDelay={3.5}
               >
-                {"2 more Q1 spots available"}
+                {"2 more Q2 spots available"}
               </ShimmerBulgeText>
             </span>
           </motion.div>
