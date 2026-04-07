@@ -1,13 +1,16 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { ArrowRight } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  X,
+} from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { isValidElement, type ReactNode } from "react";
 import remarkGfm from "remark-gfm";
-import { Button } from "@/components/ui/button";
 import { type BlogPost, blogPosts, getBlogPost } from "@/lib/blog-posts";
 import SmoothContainer from "@/lib/SmoothContainer";
 
@@ -101,14 +104,19 @@ export default async function BlogPage({ params }: BlogPageProps) {
           <div className="mx-auto grid max-w-5xl gap-10 md:grid-cols-[5rem_minmax(0,1fr)]">
             <aside className="hidden md:block">
               <div className="sticky top-28 flex flex-col items-center gap-4 text-sm text-muted-foreground">
-                {["ig", "in", "x", "f", "p"].map((item) => (
+                {[
+                  { icon: Instagram, label: "Instagram", href: "#" },
+                  { icon: Linkedin, label: "LinkedIn", href: "#" },
+                  { icon: X, label: "X", href: "#" },
+                  { icon: Facebook, label: "Facebook", href: "#" }
+                ].map(({ icon: Icon, label, href }) => (
                   <a
-                    key={item}
-                    href="https://refractweb.com"
-                    className="flex size-7 items-center justify-center rounded-full border border-white/10 bg-card/40 uppercase transition-colors hover:text-primary2"
-                    aria-label={`Share on ${item}`}
+                    key={label}
+                    href={href}
+                    className="flex size-7 items-center justify-center rounded-full border border-white/10 bg-card/40 transition-colors hover:text-primary2"
+                    aria-label={`Share on ${label}`}
                   >
-                    {item}
+                    <Icon className="size-4" />
                   </a>
                 ))}
               </div>
