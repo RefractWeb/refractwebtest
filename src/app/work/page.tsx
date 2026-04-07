@@ -1,45 +1,18 @@
-"use client";
-
-import { CTASection } from "@/components/CTASection";
-import SmoothContainer from "@/lib/SmoothContainer";
-import { AnimatedText } from "@/components/ui/animated-text";
 import ActionButtons from "@/components/ActionButtons";
-import { WorkCarousel, type WorkCarouselItem } from "@/components/WorkCarousel";
-import Work1 from "@/assets/works/Landing page 1.jpg";
-import Work2 from "@/assets/works/Landing page 2.jpg";
-import Work3 from "@/assets/works/Landing page 3.jpg";
-import Work4 from "@/assets/works/Landing page 4.jpg";
 import AwardsSection from "@/components/AwardsSection";
+import { CTASection } from "@/components/CTASection";
+import { AnimatedText } from "@/components/ui/animated-text";
+import { WorkCarousel, type WorkCarouselItem } from "@/components/WorkCarousel";
+import { blogPosts } from "@/lib/blog-posts";
+import SmoothContainer from "@/lib/SmoothContainer";
 
-const works: WorkCarouselItem[] = [
-  {
-    title: "PROJECT AETHER",
-    category: "VISUAL ENGINEERING",
-    description: "Zero-latency WebGL rendering for immersive luxury commerce.",
-    image: Work1,
-  },
-  {
-    title: "PROJECT SENTINEL",
-    category: "SYSTEM ARCHITECTURE",
-    description:
-      "Trustless biometric authentication protocols with fluid user experience.",
-    image: Work2,
-  },
-  {
-    title: "PROJECT CORTEX",
-    category: "INTELLIGENT INTERFACES",
-    description:
-      "Adaptive dashboard logic designed to visualize complex AI outputs.",
-    image: Work3,
-  },
-  {
-    title: "PROJECT FLUX",
-    category: "IDENTITY SYSTEMS",
-    description:
-      "A molecular design system engineered for infinite digital scale.",
-    image: Work4,
-  },
-];
+const blogItems: WorkCarouselItem[] = blogPosts.map((post) => ({
+  title: post.title,
+  category: post.eyebrow,
+  description: post.excerpt,
+  image: post.image,
+  href: `/blogs/${post.id}`,
+}));
 
 const page = () => {
   return (
@@ -51,7 +24,7 @@ const page = () => {
             <div className="absolute pointer-events-none top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[230px] transform-gpu-blur" />
             <div className="absolute pointer-events-none -bottom-40 left-[10%] size-150 rounded-full bg-[#d6795a] opacity-40 blur-[200px] blur-gpu" />
           </div>
-          <div className="container mx-auto max-w-8xl pb-20">
+          {/* <div className="container mx-auto max-w-8xl pb-20">
             <div className="text-center mb-4 md:mb-16 space-y-4">
               <AnimatedText
                 animationType="wordReveal"
@@ -73,10 +46,10 @@ const page = () => {
             </div>
 
             <WorkCarousel
-              items={works}
+              items={blogItems}
               slideClassName="w-[85vw] md:w-[60vw] lg:w-[32.5rem]"
             />
-          </div>
+          </div> */}
 
           <AwardsSection />
 
@@ -104,7 +77,7 @@ const page = () => {
             </div>
 
             <WorkCarousel
-              items={works}
+              items={blogItems}
               slideClassName="w-[85vw] md:w-[60vw] lg:w-[32.5rem]"
             />
           </div>

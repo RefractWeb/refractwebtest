@@ -232,6 +232,95 @@
     will-change: transform;
   }
 
+  .blog-markdown {
+    @apply space-y-8 text-base leading-8 text-muted-foreground md:text-lg;
+  }
+
+  .blog-markdown :is(h2, h3, h4, h5, h6) {
+    @apply scroll-mt-28 font-bold tracking-tight text-foreground;
+  }
+
+  .blog-markdown h2 {
+    @apply mt-14 text-3xl md:text-4xl;
+  }
+
+  .blog-markdown h3 {
+    @apply mt-10 text-2xl md:text-[1.75rem];
+  }
+
+  .blog-markdown p {
+    @apply text-base leading-8 text-muted-foreground md:text-lg;
+  }
+
+  .blog-markdown p + p {
+    @apply mt-5;
+  }
+
+  .blog-markdown :is(ul, ol) {
+    @apply space-y-3 pl-6;
+  }
+
+  .blog-markdown ul {
+    @apply list-disc;
+  }
+
+  .blog-markdown ol {
+    @apply list-decimal;
+  }
+
+  .blog-markdown li {
+    @apply leading-7 text-muted-foreground;
+  }
+
+  .blog-markdown li::marker {
+    @apply text-primary2;
+  }
+
+  .blog-markdown blockquote {
+    @apply rounded-lg border border-primary2/30 bg-primary2/10 px-6 py-5 text-xl font-medium leading-relaxed text-foreground md:px-8 md:py-6 md:text-2xl;
+  }
+
+  .blog-markdown strong {
+    @apply font-semibold text-foreground;
+  }
+
+  .blog-markdown a {
+    @apply text-primary2 underline decoration-primary2/40 underline-offset-4 transition-colors hover:text-primary;
+  }
+
+  .blog-markdown hr {
+    @apply border-white/10;
+  }
+
+  .blog-markdown code {
+    @apply rounded bg-white/5 px-1.5 py-0.5 font-mono text-[0.92em] text-foreground;
+  }
+
+  .blog-markdown pre {
+    @apply overflow-x-auto rounded-xl border border-white/10 bg-card/60 p-4 text-sm leading-7 text-foreground;
+  }
+
+  .blog-markdown pre code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+
+  .blog-markdown table {
+    @apply w-full border-collapse overflow-hidden rounded-xl border border-white/10 text-left;
+  }
+
+  .blog-markdown thead {
+    @apply bg-card/70;
+  }
+
+  .blog-markdown th,
+  .blog-markdown td {
+    @apply border-b border-white/10 px-4 py-3 align-top;
+  }
+
+  .blog-markdown img {
+    @apply rounded-xl border border-white/10;
+  }
+
   /* SplitText masking styles */
   .line,
   .word,

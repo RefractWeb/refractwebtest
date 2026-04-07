@@ -1,4 +1,3 @@
-// app/llms.txt/route.ts
 export const dynamic = "force-static";
 
 export async function GET() {
