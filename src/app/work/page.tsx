@@ -24,7 +24,7 @@ const page = () => {
             <div className="absolute pointer-events-none top-[-14%] left-[10%] w-[50vw] h-[50vw] rounded-full bg-[#d6795a] opacity-45 blur-[230px] transform-gpu-blur" />
             <div className="absolute pointer-events-none -bottom-40 left-[10%] size-150 rounded-full bg-[#d6795a] opacity-40 blur-[200px] blur-gpu" />
           </div>
-          {/* <div className="container mx-auto max-w-8xl pb-20">
+          <div className="container mx-auto max-w-8xl pb-20">
             <div className="text-center mb-4 md:mb-16 space-y-4">
               <AnimatedText
                 animationType="wordReveal"
@@ -49,7 +49,7 @@ const page = () => {
               items={blogItems}
               slideClassName="w-[85vw] md:w-[60vw] lg:w-[32.5rem]"
             />
-          </div> */}
+          </div>
 
           <AwardsSection />
 

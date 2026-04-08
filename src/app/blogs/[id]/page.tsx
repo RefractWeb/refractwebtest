@@ -7,12 +7,14 @@ import {
   X,
 } from "lucide-react";
 import type { Metadata } from "next";
+import img1 from "@/assets/blogs/1.png";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { isValidElement, type ReactNode } from "react";
 import remarkGfm from "remark-gfm";
 import { type BlogPost, blogPosts, getBlogPost } from "@/lib/blog-posts";
 import SmoothContainer from "@/lib/SmoothContainer";
+import Image from "next/image";
 
 type BlogPageProps = {
   params: Promise<{
@@ -181,35 +183,14 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
 function HeroVisual({ title, eyebrow }: { title: string; eyebrow: string }) {
   return (
-    <div className="mx-auto mt-16 max-w-5xl rounded-lg border border-white/10 bg-background/80 p-4 shadow-2xl shadow-black/40 md:p-8">
-      <div className="relative h-68 overflow-hidden rounded-lg bg-[radial-gradient(circle_at_30%_30%,var(--primary)_0%,transparent_26%),radial-gradient(circle_at_70%_45%,var(--secondary2)_0%,transparent_28%),linear-gradient(135deg,var(--card),var(--background)_68%)] md:h-104">
-        <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.08),transparent)]" />
-        <div className="absolute left-1/2 top-1/2 flex w-[92%] max-w-3xl -translate-x-1/2 -translate-y-1/2 items-center justify-center">
-          <div className="-mr-8 rotate-[-13deg] rounded-lg border border-white/20 bg-[radial-gradient(circle_at_35%_25%,var(--primary2),var(--primary))] p-8 shadow-2xl shadow-black/40 md:p-12">
-            <span className="block text-4xl font-bold text-white md:text-7xl">
-              R
-            </span>
-          </div>
-          <div className="z-10 rounded-lg border border-white/20 bg-[radial-gradient(circle_at_50%_25%,var(--primary2),var(--primary)_72%)] p-8 shadow-2xl shadow-black/50 md:p-12">
-            <span className="block text-4xl font-bold text-white md:text-7xl">
-              AI
-            </span>
-          </div>
-          <div className="-ml-8 rotate-13 rounded-lg border border-white/20 bg-[radial-gradient(circle_at_40%_20%,#ffffff,var(--primary2)_42%,var(--primary))] p-8 shadow-2xl shadow-black/40 md:p-12">
-            <span className="block text-4xl font-bold text-background md:text-7xl">
-              *
-            </span>
-          </div>
-        </div>
-        <div className="absolute bottom-5 left-5 right-5 flex flex-col gap-1 rounded-lg border border-white/10 bg-background/55 p-4 backdrop-blur-md md:left-8 md:right-auto md:w-80">
-          <span className="text-xs uppercase tracking-[0.24em] text-primary2">
-            {eyebrow}
-          </span>
-          <span className="line-clamp-2 text-sm font-medium text-white">
-            {title}
-          </span>
-        </div>
-      </div>
+    <div className="mx-auto mt-16 max-w-5xl rounded-3xl border border-white/10 bg-background/80 shadow-2xl shadow-black/40">
+      <Image
+        src={img1}
+        alt={`${title} - ${eyebrow}`}
+        width={1200}
+        height={630}
+        className="size-full object-cover"
+      />
     </div>
   );
 }
