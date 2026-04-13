@@ -7,6 +7,8 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import Image from "next/image";
 import LetterSwapForward from "./ui/LetterSwap";
+import { useLenis } from "lenis/react";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   {
@@ -25,6 +27,14 @@ const navItems = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const lenis = useLenis();
+  const pathname = usePathname();
+
+  const handleNavClick = (href: string) => {
+    if (pathname === href) {
+      lenis?.scrollTo(0, { immediate: true });
+    }
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -73,7 +83,8 @@ export const Navbar = () => {
                 height={12}
               />
             </span>
-            <span className="leading-none font-bold">efractWeb</span>
+            <sonClick={() => handleNavClick(item.href)}
+              pan className="leading-none font-bold">efractWeb</span>
           </div>
         </Link>
         <div className="flex items-center gap-8 px-4 text-sm font-medium text-muted-foreground">
@@ -156,7 +167,10 @@ export const Navbar = () => {
                   }}
                 >
                   <Link
-                    href={item.href}
+                    href={item.href{
+                      setIsOpen(false);
+                      handleNavClick(item.href);
+                    }
                     onClick={() => setIsOpen(false)}
                     className="text-5xl font-semibold tracking-tighter text-grad px-1 transition-all inline-block"
                   >

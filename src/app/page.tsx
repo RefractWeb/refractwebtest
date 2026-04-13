@@ -7,7 +7,6 @@ import { WorkSection } from "@/components/WorkSection";
 import { BuildEnvironmentSection } from "@/components/BuildEnvironmentSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CTASection } from "@/components/CTASection";
-import SmoothContainer from "@/lib/SmoothContainer";
 import SVGPreloader from "@/components/SVGPreloader";
 
 let hasLoaded = false;
@@ -17,7 +16,7 @@ const App = () => {
   const [isPreloaderVisible, setIsPreloaderVisible] = useState(!hasLoaded);
 
   return (
-    <SmoothContainer>
+    <>
       {isPreloaderVisible && (
         <SVGPreloader
           onCompleteAction={() => {
@@ -40,7 +39,7 @@ const App = () => {
         <TestimonialsSection />
         <CTASection />
       </div>
-    </SmoothContainer>
+    </>
   );
 };
 
