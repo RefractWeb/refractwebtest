@@ -24,11 +24,11 @@ export const blogPosts: BlogPost[] = [
     eyebrow: "GEO",
     excerpt:
       "Ranking is not the goal anymore. Being included in the answer is what actually drives visibility now.",
-    author: "Adam Guarino",
-    date: "April 2026",
+    author: "Jake Young",
+    date: "April 4, 2026",
     readTime: "6 min read",
     image: Work2,
-    contentPath: "src/content/blogs/geo-visibility.md",
+    contentPath: "src/content/blogs/refractweb-blog1-geo.md",
   },
   {
     id: "website-losing-leads",
@@ -37,10 +37,10 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "The leak is not always at the top of the funnel. It is often in the middle, where visitors leave before your offer gets a chance.",
     author: "Adam Guarino",
-    date: "April 2026",
+    date: "April 2, 2026",
     readTime: "9 min read",
     image: Work1,
-    contentPath: "src/content/blogs/website-losing-leads.md",
+    contentPath: "src/content/blogs/refractweb-blog2-conversion-killers.md",
   },
   {
     id: "design-craft",
@@ -49,10 +49,10 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Fine websites are everywhere. The sites that perform are built through hundreds of better decisions, not a template with better colors.",
     author: "Adam Guarino",
-    date: "April 2026",
+    date: "April 3, 2026",
     readTime: "7 min read",
     image: Work5,
-    contentPath: "src/content/blogs/design-craft.md",
+    contentPath: "src/content/blogs/refractweb-blog3-design-standards.md",
   },
   {
     id: "mobile-traffic",
@@ -61,10 +61,10 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Mobile optimization is not a bonus feature. It is the baseline, and most websites are still failing it.",
     author: "Adam Guarino",
-    date: "April 2026",
+    date: "April 5, 2026",
     readTime: "8 min read",
     image: Work3,
-    contentPath: "src/content/blogs/mobile-traffic.md",
+    contentPath: "src/content/blogs/refractweb-blog4-mobile.md",
   },
   {
     id: "site-credibility",
@@ -76,7 +76,7 @@ export const blogPosts: BlogPost[] = [
     date: "April 4, 2026",
     readTime: "8 min read",
     image: Work4,
-    contentPath: "src/content/blogs/site-credibility.md",
+    contentPath: "src/content/blogs/refractweb-blog0-50ms.md",
   },
 ];
 
