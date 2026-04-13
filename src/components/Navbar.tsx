@@ -72,8 +72,8 @@ export const Navbar = () => {
 
       {/* Desktop Pill Menu */}
       <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-brightness-110 backdrop-blur border border-white/5 border-b-white/20 rounded-full p-2 items-center gap-8 shadow-xl shadow-black/10 transform-gpu-blur">
-        <Link href="/">
-          <div className="button h-9 active:scale-98">
+        <Link href="/" onClick={() => handleNavClick("/")}>
+          <div className="button h-9 active:scale-98 flex items-center gap-2">
             <span>
               <Image
                 src={"/logo.svg"}
@@ -83,8 +83,7 @@ export const Navbar = () => {
                 height={12}
               />
             </span>
-            <sonClick={() => handleNavClick(item.href)}
-              pan className="leading-none font-bold">efractWeb</span>
+            <span className="leading-none font-bold">efractWeb</span>
           </div>
         </Link>
         <div className="flex items-center gap-8 px-4 text-sm font-medium text-muted-foreground">
@@ -167,11 +166,11 @@ export const Navbar = () => {
                   }}
                 >
                   <Link
-                    href={item.href{
+                    href={item.href}
+                    onClick={() => {
                       setIsOpen(false);
                       handleNavClick(item.href);
-                    }
-                    onClick={() => setIsOpen(false)}
+                    }}
                     className="text-5xl font-semibold tracking-tighter text-grad px-1 transition-all inline-block"
                   >
                     {item.label}
