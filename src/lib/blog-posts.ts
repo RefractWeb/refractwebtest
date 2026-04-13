@@ -1,9 +1,9 @@
 import type { StaticImageData } from "next/image";
-import Work1 from "@/assets/works/Landing page 1.jpg";
-import Work2 from "@/assets/works/Landing page 2.jpg";
-import Work3 from "@/assets/works/Landing page 3.jpg";
-import Work4 from "@/assets/works/Landing page 4.jpg";
-import Work5 from "@/assets/works/Landing page 5.png";
+import Work2 from "@/assets/blogs/Frame 2147225119.png";
+import Work1 from "@/assets/blogs/Frame 2147225119(1).png";
+import Work3 from "@/assets/blogs/Frame 2147225119(2).png";
+import Work4 from "@/assets/blogs/Frame 2147225119(3).png";
+import Work5 from "@/assets/blogs/Frame 2147225119(4).png";
 
 export type BlogPost = {
   id: string;
@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
     author: "Adam Guarino",
     date: "April 2026",
     readTime: "6 min read",
-    image: Work5,
+    image: Work2,
     contentPath: "src/content/blogs/geo-visibility.md",
   },
   {
@@ -51,7 +51,7 @@ export const blogPosts: BlogPost[] = [
     author: "Adam Guarino",
     date: "April 2026",
     readTime: "7 min read",
-    image: Work2,
+    image: Work5,
     contentPath: "src/content/blogs/design-craft.md",
   },
   {

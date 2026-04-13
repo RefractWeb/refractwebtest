@@ -5,6 +5,9 @@ import { AnimatedText } from "@/components/ui/animated-text";
 import { WorkCarousel, type WorkCarouselItem } from "@/components/WorkCarousel";
 import { blogPosts } from "@/lib/blog-posts";
 import SmoothContainer from "@/lib/SmoothContainer";
+import img1 from "@/assets/works/Screenshot_2026-04-13_22-43-36.png";
+import img2 from "@/assets/works/Screenshot_2026-04-13_22-43-50.png";
+import img3 from "@/assets/works/Screenshot_2026-04-13_22-44-09.png";
 
 const blogItems: WorkCarouselItem[] = blogPosts.map((post) => ({
   title: post.title,
@@ -13,6 +16,35 @@ const blogItems: WorkCarouselItem[] = blogPosts.map((post) => ({
   image: post.image,
   href: `/blogs/${post.id}`,
 }));
+
+const workItems: WorkCarouselItem[] = [
+  {
+    title: "Left Coast Design Studio",
+    category: "Branding",
+    description:
+      "San Francisco's leading studio for luxury hospitality and retail design.",
+    image: img1,
+    href: "#",
+    video: "/thumbnail.webm",
+  },
+  {
+    title: "Cobe Construction",
+    category: "Branding",
+    description:
+      "Premier Bay Area commercial construction for high performance spaces.",
+    image: img2,
+    video: "/thumbnail.webm",
+    href: "#",
+  },
+  {
+    title: "Kirusushi",
+    category: "Branding",
+    description: "Precision Crafted Sushi for Elevated Dining Experiences.",
+    image: img3,
+    href: "#",
+    video: "/thumbnail.webm",
+  },
+];
 
 const page = () => {
   return (
@@ -46,7 +78,7 @@ const page = () => {
             </div>
 
             <WorkCarousel
-              items={blogItems}
+              items={workItems}
               slideClassName="w-[85vw] md:w-[60vw] lg:w-[32.5rem]"
             />
           </div>

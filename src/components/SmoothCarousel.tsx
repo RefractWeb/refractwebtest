@@ -131,7 +131,7 @@ export function SmoothCarousel({
           <div className="flex justify-between items-center w-full">
             {/* Progress Bar */}
             <div
-              className="rounded-full bg-secondary relative h-1.5 w-32 md:w-[50vw] overflow-hidden ml-6"
+              className="rounded-full bg-secondary/40 relative h-1.5 w-32 md:w-[50vw] overflow-hidden ml-6"
               role="progressbar"
               aria-label="Carousel progress"
               aria-valuenow={Math.round(scrollProgress)}

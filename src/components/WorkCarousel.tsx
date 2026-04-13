@@ -5,12 +5,14 @@ import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import Link from "next/link";
 import { SmoothCarousel } from "./SmoothCarousel";
+import { cn } from "@/lib/utils";
 
 export type WorkCarouselItem = {
   title: string;
   category: string;
   description: string;
   image: StaticImageData;
+  video?: string;
   href?: string;
 };
 
@@ -44,20 +46,35 @@ export function WorkCarousel({
 function CarouselCard({ work }: { work: WorkCarouselItem }) {
   const content = (
     <>
-      <div className="h-52 md:h-76 relative overflow-hidden rounded-t-2xl">
+      <div className="h-52 md:h-76 relative overflow-hidden rounded-t-2xl group">
         <Image
           src={work.image}
           alt={work.title}
           placeholder="blur"
           loading="lazy"
-          className="object-cover object-left translate-x-4 md:translate-x-6 transition-transform duration-700 group-hover:scale-105 rounded-bl-2xl select-none pointer-events-none bg-background"
+          className={cn(
+            "object-cover object-left translate-x-4 md:translate-x-6 transition-all duration-500 rounded-bl-2xl select-none pointer-events-none bg-background",
+            work.video
+              ? "group-hover:opacity-0"
+              : "opacity-100 group-hover:scale-105",
+          )}
           fill
           draggable={false}
         />
+        {work.video && (
+          <video
+            src={work.video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 size-full object-cover translate-x-4 md:translate-x-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-bl-2xl"
+          />
+        )}
       </div>
       <div className="p-6 lg:p-8 flex flex-col items-start h-full">
         <div className="flex flex-col-reverse md:flex-row justify-center items-start mb-4">
-          <h4 className="text-white font-bold text-base md:text-xl lg:text-2xl group-hover:text-gray-300 transition-colors">
+          <h4 className="font-semibold text-grad text-base md:text-xl lg:text-2xl group-hover:text-gray-300 transition-colors">
             {work.title}
           </h4>
           {/* <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest pt-1">
