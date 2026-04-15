@@ -8,6 +8,14 @@ import img1 from "@/assets/works/Screenshot_2026-04-13_22-43-36.png";
 import img2 from "@/assets/works/Screenshot_2026-04-13_22-43-50.png";
 import img3 from "@/assets/works/Screenshot_2026-04-13_22-44-09.png";
 
+const ctaCard: WorkCarouselItem = {
+  title: "Build something that performs",
+  category: "Contact us",
+  description: "Your website starts here",
+  isCtaCard: true,
+  href: "/contact",
+};
+
 const blogItems: WorkCarouselItem[] = blogPosts.map((post) => ({
   title: post.title,
   category: post.eyebrow,
@@ -76,7 +84,7 @@ const page = () => {
           </div>
 
           <WorkCarousel
-            items={workItems}
+            items={[...workItems, ctaCard]}
             slideClassName="w-[85vw] md:w-[60vw] lg:w-[32.5rem]"
           />
         </div>

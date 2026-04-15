@@ -6,14 +6,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { SmoothCarousel } from "./SmoothCarousel";
 import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
+import imgbg from "@/assets/bg.svg";
 
 export type WorkCarouselItem = {
   title: string;
   category: string;
   description: string;
-  image: StaticImageData;
+  image?: StaticImageData;
   video?: string;
   href?: string;
+  isCtaCard?: boolean;
 };
 
 interface WorkCarouselProps {
@@ -37,6 +40,7 @@ export function WorkCarousel({
           transition={{ type: "spring", stiffness: 400, damping: 30 }}
         >
           <CarouselCard work={work} />
+
         </motion.div>
       ))}
     </SmoothCarousel>
@@ -44,11 +48,46 @@ export function WorkCarousel({
 }
 
 function CarouselCard({ work }: { work: WorkCarouselItem }) {
+  if (work.isCtaCard) {
+    return (
+      <Link
+        href={work.href || "#"}
+        className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary2"
+      >
+        <div className="h-full rounded-2xl border transition-all duration-300 p-8 flex flex-col items-center justify-center text-center gap-6 relative overflow-hidden">
+          <div
+            className="absolute inset-0 mask-radial-at-top-right mask-radial-to-40% opacity-70 pointer-events-none"
+            style={{
+              backgroundImage: `linear-gradient(to right, #333 1px, transparent 1px), linear-gradient(to bottom, #333 1px, transparent 1px)`,
+              backgroundSize: "45px 45px",
+            }}
+          />
+          <Image
+            src={imgbg}
+            alt="background"
+            className="absolute inset-0 size-full object-cover pointer-events-none scale-150"
+          />
+          <div className="absolute pointer-events-none top-[-10%] right-[30%] size-32 rounded-full bg-[#3150aa] opacity-45 blur-[60px] transform-gpu-blur" />
+          <div className="absolute pointer-events-none top-[-14%] right-[-5%] size-40 rounded-full bg-[#d6795a] opacity-45 blur-[60px] transform-gpu-blur" />
+          <div className="space-y-4 relative z-10">
+            <p className="text-muted-foreground text-base lg:text-lg max-w-xs mx-auto">
+              {work.description}
+            </p>
+            <h4 className="font-semibold text-grad text-2xl lg:text-3xl group-hover:text-gray-300 transition-colors capitalize">
+              {work.title}
+            </h4>
+          </div>
+          <Button size={"lg"}>{work.category}</Button>
+        </div>
+      </Link>
+    );
+  }
+
   const content = (
     <>
       <div className="h-52 md:h-76 relative overflow-hidden rounded-t-2xl group">
         <Image
-          src={work.image}
+          src={work.image!}
           alt={work.title}
           placeholder="blur"
           loading="lazy"
