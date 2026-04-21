@@ -1,6 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { motion } from "motion/react";
 import { ContactCard } from "@/components/ContactCard";
 import AnimatedLogoCloud from "@/components/LogoCloud";
 import { AnimatedText } from "@/components/ui/animated-text";
@@ -39,6 +42,9 @@ const CONTACT_METHODS = [
 ];
 
 const ContactPage = () => {
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const logoCloudRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (
       !document.querySelector<HTMLScriptElement>(
@@ -52,8 +58,41 @@ const ContactPage = () => {
     }
   }, []);
 
+  useGSAP(() => {
+    const cards = cardsRef.current?.querySelectorAll(
+      ":scope > button, :scope > a",
+    );
+    if (cards && cards.length > 0) {
+      gsap.fromTo(
+        cards,
+        { opacity: 0, y: 24 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.45,
+          ease: "expo.out",
+          stagger: 0.06,
+          delay: 0.3,
+        },
+      );
+    }
+
+    if (logoCloudRef.current) {
+      gsap.fromTo(
+        logoCloudRef.current,
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 1.2,
+          ease: "power2.out",
+          delay: 1.6,
+        },
+      );
+    }
+  }, []);
+
   return (
-    <div className="relative min-h-screen flex flex-col bg-background">
+    <div className="relative md:min-h-dvh flex flex-col bg-background">
       <link rel="preconnect" href="https://calendly.com" crossOrigin="" />
       <link
         rel="preconnect"
@@ -68,29 +107,30 @@ const ContactPage = () => {
       </div>
 
       {/* Main Content */}
-      <main className="relative z-10 container mx-auto px-6 md:px-4 pt-26 grow flex flex-col lg:flex-row items-start lg:items-center gap-10 md:gap-0 overflow-x-clip max-w-8xl">
+      <main className="relative z-10 container px-4 md:pl-6 pt-20 md:pt-16 grow flex flex-col md:flex-row items-center mx-auto">
         {/* Left Section */}
-        <div className="flex flex-col items-start px-0 md:px-8 justify-center md:w-1/2 gap-4 md:gap-6">
-          <div className="space-y-3 md:space-y-4 max-w-md">
-            <AnimatedText
-              animationType="wordReveal"
-              stagger={0.08}
-              className="text-5xl lg:text-6xl font-bold tracking-tight"
-            >
-              Work With Us
-            </AnimatedText>
-            <AnimatedText
-              animationType="slideUp"
-              splitType="lines"
-              delay={0.24}
-              className="text-lg lg:text-xl leading-relaxed"
-            >
-              Have a vision in mind? Let's explore how we can bring it to life.
-            </AnimatedText>
-          </div>
+        <div className="w-full lg:w-1/2 text-left space-y-5 md:space-y-8 pl-4 lg:pl-10">
+          <AnimatedText
+            animationType="wordReveal"
+            stagger={0.08}
+            className="text-5xl lg:text-6xl font-bold tracking-tight"
+          >
+            Work With Us
+          </AnimatedText>
+          <AnimatedText
+            animationType="slideUp"
+            splitType="lines"
+            delay={0.24}
+            className="text-base md:text-lg lg:text-xl max-w-md leading-tight -mt-2 md:-mt-3 pr-2 text-pretty"
+          >
+            Have a vision in mind? Let's explore how we can bring it to life.
+          </AnimatedText>
 
           {/* Contact Cards */}
-          <div className="flex w-full flex-col gap-2 sm:gap-3 max-w-md">
+          <div
+            ref={cardsRef}
+            className="flex w-full flex-col gap-2 sm:gap-3 max-w-md [&>button]:opacity-0 [&>a]:opacity-0"
+          >
             {CONTACT_METHODS.map((method, idx) => (
               <ContactCard
                 key={idx}
@@ -106,10 +146,22 @@ const ContactPage = () => {
         </div>
 
         {/* Right Section - Video */}
-        <AnimatedChip containerClassName="w-full md:w-1/2 isolate perspective-[1000px] min-h-[40vh]" />
+        <motion.div
+          className="w-full md:w-1/2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.4, ease: "easeOut", delay: 0.2 }}
+        >
+          <AnimatedChip
+            containerClassName="w-full isolate perspective-[1000px] min-h-[40vh]"
+            className="xl:-translate-x-12"
+          />
+        </motion.div>
       </main>
 
-      <AnimatedLogoCloud className="md:-translate-y-12" />
+      <div ref={logoCloudRef} className="opacity-0">
+        <AnimatedLogoCloud className="lg:-translate-y-12" />
+      </div>
     </div>
   );
 };

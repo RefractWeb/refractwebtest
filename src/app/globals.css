@@ -128,7 +128,7 @@
       transform: translateX(0);
     }
     to {
-      transform: translateX(calc(-100% - 4rem));
+      transform: translateX(calc(-100% - 1.5rem));
     }
   }
 
