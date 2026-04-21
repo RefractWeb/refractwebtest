@@ -1,10 +1,22 @@
 "use client";
 
-import { Twitter, Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
+import type { SVGProps } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import text from "@/assets/footer.svg";
 import LetterSwapForward from "./ui/LetterSwap";
+
+const XIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+    {...props}
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 const WEBSITE_LINKS = [
   { label: "HOME", href: "/" },
   { label: "SERVICES", href: "/#services" },
@@ -21,7 +33,7 @@ const LEGAL_LINKS = [
 const SOCIAL_LINKS = [
   {
     href: "https://x.com/RefractWeb",
-    icon: Twitter,
+    icon: XIcon,
     label: "RefractWeb on X",
   },
   {

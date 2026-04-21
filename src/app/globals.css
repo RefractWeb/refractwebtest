@@ -149,6 +149,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html,
+  body {
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+  }
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground min-h-screen;
     -webkit-tap-highlight-color: transparent;
