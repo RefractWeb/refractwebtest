@@ -129,7 +129,7 @@ const ContactPage = () => {
           {/* Contact Cards */}
           <div
             ref={cardsRef}
-            className="flex w-full flex-col gap-2 sm:gap-3 max-w-md [&>button]:opacity-0 [&>a]:opacity-0"
+            className="flex w-full flex-col gap-2 sm:gap-3 max-w-md pt-6 md:pt-0 [&>button]:opacity-0 [&>a]:opacity-0"
           >
             {CONTACT_METHODS.map((method, idx) => (
               <ContactCard
