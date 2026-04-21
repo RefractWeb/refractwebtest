@@ -151,6 +151,9 @@
   }
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground min-h-screen;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   /*

@@ -1,25 +1,130 @@
 "use client";
 
-import { Calendar } from "lucide-react";
-import { ReactNode } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@/components/animate-ui/components/radix/dialog";
+import { Calendar, X } from "lucide-react";
+import { motion } from "motion/react";
+import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (opts: {
+        url: string;
+        parentElement: HTMLElement;
+      }) => void;
+    };
+  }
+}
+
+const CALENDLY_SCRIPT_SRC =
+  "https://assets.calendly.com/assets/external/widget.js";
 
 const CalendlyFrame = ({ src }: { src: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let cancelled = false;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+
+    const init = () => {
+      if (cancelled) return;
+      if (ref.current && ref.current.childElementCount > 0) return;
+      if (window.Calendly && ref.current) {
+        window.Calendly.initInlineWidget({
+          url: src,
+          parentElement: ref.current,
+        });
+        return;
+      }
+      timeoutId = setTimeout(init, 100);
+    };
+
+    if (
+      !document.querySelector<HTMLScriptElement>(
+        `script[src="${CALENDLY_SCRIPT_SRC}"]`,
+      )
+    ) {
+      const script = document.createElement("script");
+      script.src = CALENDLY_SCRIPT_SRC;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    init();
+
+    return () => {
+      cancelled = true;
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [src]);
+
+  return <div ref={ref} className="w-full h-full overflow-hidden rounded-2xl" />;
+};
+
+const CalendlyModal = ({
+  src,
+  isOpen,
+  onClose,
+}: {
+  src: string;
+  isOpen: boolean;
+  onClose: () => void;
+}) => {
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) setHasMounted(true);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [isOpen, onClose]);
+
   return (
-    <div className="w-full h-full">
-      <iframe
-        src={src}
-        width="100%"
-        height="100%"
-        frameBorder="0"
-        className="rounded-2xl"
-        title="Select a Date & Time - Calendly"
-      />
-    </div>
+    <motion.div
+      role="dialog"
+      aria-modal="true"
+      aria-hidden={!isOpen}
+      onClick={onClose}
+      initial={false}
+      animate={{ opacity: isOpen ? 1 : 0 }}
+      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+      style={{ pointerEvents: isOpen ? "auto" : "none" }}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+    >
+      <motion.div
+        onClick={(e) => e.stopPropagation()}
+        initial={false}
+        animate={{
+          opacity: isOpen ? 1 : 0,
+          scale: isOpen ? 1 : 0.96,
+          y: isOpen ? 0 : 12,
+        }}
+        transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+        className="relative w-full sm:max-w-[420px] h-[580px] max-h-[85dvh] bg-[#15191d] rounded-2xl overflow-hidden border border-white/10 shadow-2xl will-change-transform"
+      >
+        {hasMounted && <CalendlyFrame src={src} />}
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className="absolute top-3 right-3 bg-white/10 hover:bg-white/20 text-white rounded-full size-7 flex items-center justify-center cursor-pointer transition-colors"
+        >
+          <X className="size-4" />
+        </button>
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -42,13 +147,16 @@ export const ContactCard = ({
   onClick,
   calendlyLink,
 }: ContactCardProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleClose = useCallback(() => setIsOpen(false), []);
+
   const CardComponent = isLink && href ? "a" : "button";
   const cardProps = isLink && href ? { href } : {};
 
   const Card = (
     <CardComponent
       {...cardProps}
-      onClick={onClick}
+      onClick={calendlyLink ? () => setIsOpen(true) : onClick}
       type={isLink ? undefined : "button"}
       target={isLink ? "_blank" : undefined}
       className="group relative bg-white/2 hover:bg-white/5 border border-white/10 rounded-2xl p-4 transition-all duration-300 cursor-pointer overflow-hidden w-full text-left backdrop-blur-md glass-1"
@@ -69,12 +177,14 @@ export const ContactCard = ({
 
   if (calendlyLink) {
     return (
-      <Dialog>
-        <DialogTrigger asChild>{Card}</DialogTrigger>
-        <DialogContent className="sm:max-w-5xl md:h-170 max-h-[80vh] h-[75vh] p-1 md:p-4 overflow-hidden border border-white/20 bg-muted/10 backdrop-blur-lg rounded-2xl">
-          <CalendlyFrame src={calendlyLink} />
-        </DialogContent>
-      </Dialog>
+      <>
+        {Card}
+        <CalendlyModal
+          src={calendlyLink}
+          isOpen={isOpen}
+          onClose={handleClose}
+        />
+      </>
     );
   }
 

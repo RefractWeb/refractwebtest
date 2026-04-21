@@ -31,7 +31,7 @@ const workItems: WorkCarouselItem[] = [
     description:
       "San Francisco's leading studio for luxury hospitality and retail design.",
     image: img1,
-    href: "#",
+    href: "/work/left-coast-design-studio",
     video: "/thumbnail.webm",
   },
   {
@@ -41,14 +41,14 @@ const workItems: WorkCarouselItem[] = [
       "Premier Bay Area commercial construction for high performance spaces.",
     image: img2,
     video: "/thumbnail.webm",
-    href: "#",
+    href: "/work/cobe-construction",
   },
   {
     title: "Kirusushi",
     category: "Branding",
     description: "Precision Crafted Sushi for Elevated Dining Experiences.",
     image: img3,
-    href: "#",
+    href: "/work/kirusushi",
     video: "/thumbnail.webm",
   },
 ];

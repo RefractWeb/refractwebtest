@@ -1,10 +1,14 @@
 "use client";
 
+import { useEffect } from "react";
 import { ContactCard } from "@/components/ContactCard";
 import AnimatedLogoCloud from "@/components/LogoCloud";
 import { AnimatedText } from "@/components/ui/animated-text";
 import { AnimatedChip } from "@/components/AnimatedChip";
 import BgGrad from "@/components/ui/bg-grad";
+
+const CALENDLY_SCRIPT_SRC =
+  "https://assets.calendly.com/assets/external/widget.js";
 
 const CONTACT_METHODS = [
   {
@@ -13,7 +17,7 @@ const CONTACT_METHODS = [
     isLink: false,
     href: null,
     calendlyLink:
-      "https://calendly.com/d/ctmb-trz-z3c/introduction?embed_type=Inline&hide_gdpr_banner=1&background_color=15191d&text_color=ffffff&primary_color=f59768",
+      "https://calendly.com/d/ctmb-trz-z3c/introduction?embed_type=Inline&hide_gdpr_banner=1&hide_event_type_details=1&hide_landing_page_details=1&background_color=15191d&text_color=ffffff&primary_color=f59768",
   },
   {
     label: "Email",
@@ -35,8 +39,27 @@ const CONTACT_METHODS = [
 ];
 
 const ContactPage = () => {
+  useEffect(() => {
+    if (
+      !document.querySelector<HTMLScriptElement>(
+        `script[src="${CALENDLY_SCRIPT_SRC}"]`,
+      )
+    ) {
+      const script = document.createElement("script");
+      script.src = CALENDLY_SCRIPT_SRC;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <div className="relative min-h-screen flex flex-col bg-background">
+      <link rel="preconnect" href="https://calendly.com" crossOrigin="" />
+      <link
+        rel="preconnect"
+        href="https://assets.calendly.com"
+        crossOrigin=""
+      />
       <BgGrad />
       {/* Background Elements */}
       <div className="absolute hidden md:block inset-0 z-0 pointer-events-none">
@@ -45,7 +68,7 @@ const ContactPage = () => {
       </div>
 
       {/* Main Content */}
-      <main className="relative z-10 container mx-auto px-4 pt-26 grow flex flex-col lg:flex-row items-center gap-10 md:gap-0 overflow-x-clip max-w-8xl">
+      <main className="relative z-10 container mx-auto px-6 md:px-4 pt-26 grow flex flex-col lg:flex-row items-start lg:items-center gap-10 md:gap-0 overflow-x-clip max-w-8xl">
         {/* Left Section */}
         <div className="flex flex-col items-start px-0 md:px-8 justify-center md:w-1/2 gap-4 md:gap-6">
           <div className="space-y-3 md:space-y-4 max-w-md">

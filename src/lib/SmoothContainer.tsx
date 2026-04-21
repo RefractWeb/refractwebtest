@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ReactLenis, type LenisRef } from "lenis/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,17 +14,27 @@ export default function SmoothContainer({
   children: React.ReactNode;
 }) {
   const lenisRef = useRef<LenisRef>(null);
+  const [useLenis, setUseLenis] = useState(false);
 
   useEffect(() => {
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    const isInAppBrowser =
+      /FBAN|FBAV|Instagram|Line|WhatsApp|Messenger|Twitter|TikTok/i.test(
+        navigator.userAgent,
+      );
+    setUseLenis(!isTouch && !isInAppBrowser);
+  }, []);
+
+  useEffect(() => {
+    if (!useLenis) return;
+
     function update(time: number) {
       lenisRef.current?.lenis?.raf(time * 1000);
     }
     gsap.ticker.add(update);
 
-    // Refresh after initial layout settles (fonts, images, etc.)
     const initTimeout = setTimeout(() => ScrollTrigger.refresh(), 100);
 
-    // Debounced resize refresh — prevents stale pin/trigger positions
     let resizeTimer: ReturnType<typeof setTimeout>;
     const handleResize = () => {
       clearTimeout(resizeTimer);
@@ -38,7 +48,11 @@ export default function SmoothContainer({
       clearTimeout(resizeTimer);
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [useLenis]);
+
+  if (!useLenis) {
+    return <>{children}</>;
+  }
 
   return (
     <ReactLenis

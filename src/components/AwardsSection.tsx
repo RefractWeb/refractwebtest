@@ -218,21 +218,19 @@ export const AwardsSection = () => {
                     : normalised - awards.length;
                 const isActive = i === activeIndex;
                 const zIndex = awards.length - Math.abs(stackPos);
-                const yShift = stackPos * -14;
-                const rotDeg = stackPos * 3.5;
-                const scale = isActive ? 1 : 1 - Math.abs(stackPos) * 0.04;
+                const yShift = stackPos * -24;
+                const rotDeg = stackPos * 6;
+                const scale = isActive ? 1 : 1 - Math.abs(stackPos) * 0.05;
                 const opacity = isActive
                   ? 1
                   : Math.max(0.35, 1 - Math.abs(stackPos) * 0.2);
-                const isDraggableCard = isActive;
-
                 return (
                   <motion.button
                     key={award.id}
                     type="button"
                     aria-label={`View ${award.title}`}
                     onClick={() => setActiveIndex(i)}
-                    drag={isDraggableCard ? "x" : false}
+                    drag={isActive ? "x" : false}
                     dragConstraints={{ left: 0, right: 0 }}
                     dragElastic={0.5}
                     dragSnapToOrigin
@@ -241,31 +239,30 @@ export const AwardsSection = () => {
                         clearInterval(intervalRef.current);
                     }}
                     onDragEnd={(_, info) => {
-                      if (!isDraggableCard) return;
-
+                      if (!isActive) return;
                       const swipeDistance = info.offset.x;
                       const swipeVelocity = info.velocity.x;
                       const swipePower =
                         Math.abs(swipeDistance) + Math.abs(swipeVelocity) * 0.2;
-                      const crossedThreshold = swipePower > 145;
-
-                      dragX.set(0);
-
-                      if (crossedThreshold) {
-                        if (swipeDistance < 0) {
-                          advance();
-                        } else {
-                          retreat();
-                        }
+                      if (swipePower > 145) {
+                        if (swipeDistance < 0) advance();
+                        else retreat();
                       }
-
+                      dragX.set(0);
                       startInterval();
                     }}
                     className={`absolute inset-0 rounded-3xl overflow-hidden ${
-                      isDraggableCard
+                      isActive
                         ? "cursor-grab active:cursor-grabbing"
                         : "cursor-pointer"
                     }`}
+                    initial={{
+                      y: yShift,
+                      rotate: rotDeg,
+                      scale,
+                      opacity,
+                      zIndex,
+                    }}
                     animate={{
                       y: yShift,
                       rotate: rotDeg,
@@ -279,8 +276,8 @@ export const AwardsSection = () => {
                       damping: 28,
                     }}
                     style={{
-                      x: isDraggableCard ? dragX : 0,
-                      rotate: isDraggableCard ? dragRotate : undefined,
+                      x: isActive ? dragX : 0,
+                      rotate: isActive ? dragRotate : undefined,
                       boxShadow: isActive
                         ? `0 24px 60px -8px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.08)`
                         : "0 8px 24px -4px rgba(0,0,0,0.5)",

@@ -17,6 +17,7 @@ export type WorkCarouselItem = {
   video?: string;
   href?: string;
   isCtaCard?: boolean;
+  newTab?: boolean;
 };
 
 interface WorkCarouselProps {
@@ -131,6 +132,8 @@ function CarouselCard({ work }: { work: WorkCarouselItem }) {
     return (
       <Link
         href={work.href}
+        target={work.newTab ? "_blank" : undefined}
+        rel={work.newTab ? "noopener noreferrer" : undefined}
         className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary2"
       >
         {content}
