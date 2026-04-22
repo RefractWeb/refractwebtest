@@ -112,16 +112,16 @@ const CalendlyModal = ({
           y: isOpen ? 0 : 12,
         }}
         transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-        className="relative contact-modal bg-[#15191d] overflow-hidden border border-white/10 shadow-2xl will-change-transform opacity-0"
+        className="relative w-full sm:max-w-[420px] h-[580px] max-h-[85dvh] bg-[#15191d] rounded-2xl overflow-hidden border border-white/10 shadow-2xl will-change-transform opacity-0"
       >
         {hasMounted && <CalendlyFrame src={src} />}
         <button
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="contact-modal-close bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center cursor-pointer transition-colors"
+          className="absolute top-3 right-3 bg-white/10 hover:bg-white/20 text-white rounded-full size-7 flex items-center justify-center cursor-pointer transition-colors"
         >
-          <X className="size-[0.9em]" />
+          <X className="size-4" />
         </button>
       </motion.div>
     </motion.div>
@@ -159,16 +159,16 @@ export const ContactCard = ({
       onClick={calendlyLink ? () => setIsOpen(true) : onClick}
       type={isLink ? undefined : "button"}
       target={isLink ? "_blank" : undefined}
-      className="group relative bg-white/2 hover:bg-white/5 border border-white/10 contact-card-pad transition-all duration-300 cursor-pointer overflow-hidden w-full text-left backdrop-blur-md glass-1"
+      className="group relative bg-white/2 hover:bg-white/5 border border-white/10 rounded-2xl p-4 transition-all duration-300 cursor-pointer overflow-hidden w-full text-left backdrop-blur-md glass-1"
     >
       <div className="relative z-10">
-        <span className="contact-card-label text-muted-foreground uppercase block md:mb-1">
+        <span className="text-xs text-muted-foreground uppercase tracking-wide block md:mb-1">
           {label}
         </span>
-        <div className="contact-card-text font-medium text-foreground group-hover:text-primary2 transition-colors flex items-center gap-2">
+        <div className="text-lg font-medium text-foreground group-hover:text-primary2 transition-colors flex items-center gap-2">
           {content}
           {(isLink && icon) || calendlyLink ? (
-            <Calendar className="size-[0.9em] opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
+            <Calendar className="size-4 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
           ) : null}
         </div>
       </div>
