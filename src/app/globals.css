@@ -209,32 +209,59 @@
   }
 
   /* ============ Contact page fluid typography ============
-     clamp() curves calibrated so sizes MATCH home at 320 & 1024
-     but scale smoothly in between and continue to grow past 1024
-     up to a sensible cap. Layout and padding stay as home. */
+     Below 1024: pinned to home's Tailwind sizes so the page loads
+     visually identical to home.
+     1024+: dialedweb-style aggressive vw scaling with a clamp floor
+     so sizes never fall below home's text-6xl/text-xl/etc., and a
+     ceiling so they don't go absurd on 4K. */
 
-  /* 48px at 320  ->  60px at 1024  ->  up to 80px */
   .contact-heading {
-    font-size: clamp(3rem, 2.66rem + 1.7vw, 5rem);
+    font-size: 3rem; /* 48px == text-5xl, matches home mobile */
     line-height: 1.1;
     letter-spacing: -0.02em;
   }
+  @media (min-width: 1024px) {
+    .contact-heading {
+      /* floor 60px (home text-6xl), 5vw fluid, ceiling 6rem (96px, matches dialedweb at 1920) */
+      font-size: clamp(3.75rem, 5vw, 6rem);
+    }
+  }
 
-  /* 16px at 320  ->  20px at 1024  ->  up to 24px */
   .contact-body {
-    font-size: clamp(1rem, 0.886rem + 0.568vw, 1.5rem);
+    font-size: 1rem; /* text-base */
     line-height: 1.3;
   }
-
-  /* 12px at 320  ->  13.5px at 1024  ->  up to 16px */
-  .contact-card-label {
-    font-size: clamp(0.75rem, 0.705rem + 0.227vw, 1rem);
-    letter-spacing: 0.05em;
+  @media (min-width: 768px) {
+    .contact-body {
+      font-size: 1.125rem; /* text-lg */
+    }
+  }
+  @media (min-width: 1024px) {
+    .contact-body {
+      /* floor 20px (home text-xl), 1.5vw fluid, ceiling 2rem */
+      font-size: clamp(1.25rem, 1.5vw, 2rem);
+    }
   }
 
-  /* 18px at 320  ->  20px at 1024  ->  up to 24px */
+  .contact-card-label {
+    font-size: 0.75rem; /* text-xs */
+    letter-spacing: 0.05em;
+  }
+  @media (min-width: 1024px) {
+    .contact-card-label {
+      /* floor 12px (home text-xs), 0.85vw fluid, ceiling 1rem */
+      font-size: clamp(0.75rem, 0.85vw, 1rem);
+    }
+  }
+
   .contact-card-text {
-    font-size: clamp(1.125rem, 1.069rem + 0.284vw, 1.5rem);
+    font-size: 1.125rem; /* text-lg */
+  }
+  @media (min-width: 1024px) {
+    .contact-card-text {
+      /* floor 18px (home text-lg), 1.3vw fluid, ceiling 1.75rem */
+      font-size: clamp(1.125rem, 1.3vw, 1.75rem);
+    }
   }
 
   /* Refined Safari performance handling */
