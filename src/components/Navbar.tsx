@@ -71,14 +71,14 @@ export const Navbar = () => {
       </Link>
 
       {/* Desktop Pill Menu */}
-      <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-brightness-110 backdrop-blur border border-white/5 border-b-white/20 rounded-full p-2 items-center gap-8 shadow-xl shadow-black/10 transform-gpu-blur">
+      <div className="nav-pill absolute left-1/2 -translate-x-1/2 hidden md:flex bg-linear-to-b from-white/5 to-white/10 backdrop-brightness-110 backdrop-blur border border-white/5 border-b-white/20 rounded-full items-center shadow-xl shadow-black/10 transform-gpu-blur">
         <Link href="/" onClick={() => handleNavClick("/")}>
-          <div className="button h-9 active:scale-98 flex items-center gap-2">
+          <div className="nav-logo-pill button active:scale-98 flex items-center">
             <span>
               <Image
                 src={"/logo.svg"}
                 alt="logo"
-                className="size-2.75 -translate-y-[0.5px] translate-x-px"
+                className="nav-logo-icon -translate-y-[0.5px] translate-x-px"
                 width={12}
                 height={12}
               />
@@ -86,7 +86,7 @@ export const Navbar = () => {
             <span className="leading-none font-bold">efractWeb</span>
           </div>
         </Link>
-        <div className="flex items-center gap-8 px-4 text-sm font-medium text-muted-foreground">
+        <div className="nav-links flex items-center font-medium text-muted-foreground">
           {navItems.map((item) => (
             <Link
               key={item.label}
@@ -107,7 +107,7 @@ export const Navbar = () => {
       {/* Action Buttons & Hamburger */}
       <div className="ml-auto flex items-center gap-3 relative z-70">
         <Link href="/contact" className="hidden md:inline-flex">
-          <Button>Work With Us</Button>
+          <Button className="nav-cta">Work With Us</Button>
         </Link>
 
         <button

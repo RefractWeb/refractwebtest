@@ -264,6 +264,40 @@
     }
   }
 
+  /* ============ Navbar fluid scaling (desktop ≥ 768) ============
+     Mobile nav stays at current hamburger sizes; desktop pill + CTA
+     grow with viewport like dialedweb. All floors match current sizes
+     so nothing shrinks; ceilings cap at ~1.25x on ultra-wide. */
+  @media (min-width: 768px) {
+    .nav-pill {
+      padding: clamp(0.5rem, 0.55vw, 0.875rem);
+      gap: clamp(2rem, 2.2vw, 3.5rem);
+    }
+    .nav-logo-pill {
+      height: clamp(2.25rem, 2.5vw, 3.25rem);
+      font-size: clamp(0.875rem, 0.95vw, 1.15rem);
+      padding-left: clamp(1rem, 1.1vw, 1.75rem);
+      padding-right: clamp(1rem, 1.1vw, 1.75rem);
+      gap: clamp(0.5rem, 0.5vw, 0.75rem);
+    }
+    .nav-logo-icon {
+      width: clamp(0.6875rem, 0.8vw, 1.05rem);
+      height: clamp(0.6875rem, 0.8vw, 1.05rem);
+    }
+    .nav-links {
+      gap: clamp(2rem, 2.2vw, 3.5rem);
+      padding-left: clamp(1rem, 1vw, 1.75rem);
+      padding-right: clamp(1rem, 1vw, 1.75rem);
+      font-size: clamp(0.875rem, 0.95vw, 1.15rem);
+    }
+    .nav-cta {
+      height: clamp(2.25rem, 2.5vw, 3.25rem) !important;
+      font-size: clamp(0.875rem, 0.95vw, 1.15rem) !important;
+      padding-left: clamp(1rem, 1.2vw, 1.75rem) !important;
+      padding-right: clamp(1rem, 1.2vw, 1.75rem) !important;
+    }
+  }
+
   /* Refined Safari performance handling */
   .is-safari .blur-gpu {
     display: none !important;
