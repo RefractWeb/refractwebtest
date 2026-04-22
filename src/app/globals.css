@@ -259,6 +259,26 @@
     }
   }
 
+  /* ============ Contact page: deterministic layout widths ============
+     Cross-browser parity: Chrome was rendering the left column wider than Safari
+     because nothing pinned an explicit max-width. These rules fix the geometry so
+     the heading, description, cards, and chip compute to the same sizes in every
+     browser regardless of scrollbar-width or container-utility differences. */
+  @media (min-width: 768px) {
+    .contact-main {
+      max-width: 1440px;
+    }
+    .contact-main > div:first-of-type {
+      max-width: 38rem;
+    }
+    .contact-body {
+      max-width: 26rem !important;
+    }
+    .contact-chip-wrapper {
+      max-width: 36rem;
+    }
+  }
+
   /* ============ Contact page: natural flow for logo cloud ============
      The social-proof bar sits BELOW the cards/chip in normal flow, so it can never
      overlap them regardless of viewport size. A consistent top margin (vh-clamped)
