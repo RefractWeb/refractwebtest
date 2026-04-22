@@ -288,17 +288,27 @@
       padding-top: clamp(4rem, 10vh, 5rem) !important;
       padding-bottom: 0;
     }
-    /* Chip never exceeds a fraction of viewport height so it can't push the cards
-       off-screen and the logo cloud always stays below */
+    /* Chip: explicit height (not just max-height) so Chrome and Safari compute
+       the same flex child dimensions. Without this, Chrome's webm (1080x1080)
+       can render at a different flex-resolved height than Safari's HEVC even
+       though both sources have identical intrinsic dims. */
     .contact-chip-wrapper {
-      max-height: clamp(14rem, 45vh, 28rem);
+      height: clamp(14rem, 45vh, 28rem);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      flex-shrink: 0;
+    }
+    .contact-chip-wrapper > div {
+      width: 100%;
+      height: 100%;
+      min-height: 0 !important;
     }
     .contact-chip-wrapper video {
-      max-height: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
   }
 
