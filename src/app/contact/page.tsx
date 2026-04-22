@@ -113,7 +113,7 @@ const ContactPage = () => {
           <AnimatedText
             animationType="wordReveal"
             stagger={0.08}
-            className="text-5xl lg:text-6xl font-bold tracking-tight"
+            className="contact-heading font-bold"
           >
             Work With Us
           </AnimatedText>
@@ -121,7 +121,7 @@ const ContactPage = () => {
             animationType="slideUp"
             splitType="lines"
             delay={0.24}
-            className="text-base md:text-lg lg:text-xl max-w-md leading-tight -mt-2 md:-mt-3 pr-2 text-pretty"
+            className="contact-body max-w-md -mt-2 md:-mt-3 pr-2 text-pretty"
           >
             Have a vision in mind? Let's explore how we can bring it to life.
           </AnimatedText>
