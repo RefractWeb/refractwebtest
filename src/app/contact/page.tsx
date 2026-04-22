@@ -107,13 +107,13 @@ const ContactPage = () => {
       </div>
 
       {/* Main Content */}
-      <main className="relative z-10 container px-4 md:pl-6 pt-20 md:pt-16 grow flex flex-col md:flex-row items-center mx-auto">
+      <main className="relative z-10 grow flex flex-col md:flex-row items-center mx-auto contact-hero contact-col-gap w-full">
         {/* Left Section */}
-        <div className="w-full lg:w-1/2 text-left space-y-5 md:space-y-8 pl-4 lg:pl-10">
+        <div className="w-full md:w-1/2 text-left flex flex-col contact-text-stack">
           <AnimatedText
             animationType="wordReveal"
             stagger={0.08}
-            className="text-5xl lg:text-6xl font-bold tracking-tight"
+            className="contact-heading font-bold"
           >
             Work With Us
           </AnimatedText>
@@ -121,7 +121,7 @@ const ContactPage = () => {
             animationType="slideUp"
             splitType="lines"
             delay={0.24}
-            className="text-base md:text-lg lg:text-xl max-w-md leading-tight -mt-2 md:-mt-3 pr-2 text-pretty"
+            className="contact-body text-pretty"
           >
             Have a vision in mind? Let's explore how we can bring it to life.
           </AnimatedText>
@@ -129,7 +129,7 @@ const ContactPage = () => {
           {/* Contact Cards */}
           <div
             ref={cardsRef}
-            className="flex w-full flex-col gap-2 sm:gap-3 max-w-md pt-6 md:pt-0 [&>button]:opacity-0 [&>a]:opacity-0"
+            className="flex w-full flex-col contact-card-stack [&>button]:opacity-0 [&>a]:opacity-0"
           >
             {CONTACT_METHODS.map((method, idx) => (
               <ContactCard
@@ -147,13 +147,13 @@ const ContactPage = () => {
 
         {/* Right Section - Video */}
         <motion.div
-          className="w-full md:w-1/2 opacity-0"
+          className="w-full md:w-1/2 opacity-0 contact-chip"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, ease: "easeOut", delay: 0.2 }}
         >
           <AnimatedChip
-            containerClassName="w-full isolate perspective-[1000px] min-h-[40vh]"
+            containerClassName="w-full isolate perspective-[1000px]"
             className="xl:-translate-x-12"
           />
         </motion.div>
