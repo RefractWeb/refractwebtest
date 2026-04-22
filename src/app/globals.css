@@ -260,30 +260,60 @@
   }
 
   /* ============ Contact page: pin social-proof logo cloud to viewport bottom ============
-     On desktop (md+) the logo cloud is position: fixed so it's visible at the viewport
-     bottom regardless of window height. A gradient background fades it into the content
-     above so it doesn't look like a pasted-on bar. On mobile it flows normally. */
+     Fixed at viewport bottom on md+. Padding, images, and main's reserved space all use
+     vh-based clamp so short windows produce a compact bar that doesn't eat the content.
+     translate3d + will-change push to a compositor layer so scrolling stays smooth. */
   @media (min-width: 768px) {
     .contact-logo-cloud {
       position: fixed;
       inset-inline: 0;
       bottom: 0;
       z-index: 20;
-      padding-top: 4rem;
+      padding-top: clamp(1.5rem, 5vh, 4rem);
       background: linear-gradient(
         to top,
         var(--background) 0%,
-        var(--background) 40%,
+        var(--background) 45%,
         transparent 100%
       );
       pointer-events: none;
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+      contain: layout paint;
     }
     .contact-logo-cloud > * {
       pointer-events: auto;
     }
-    /* Reserve space at bottom of main so content isn't hidden under the fixed cloud */
+    /* Compact the inner LogoCloud paddings so short windows get a short bar */
+    .contact-logo-cloud .pt-10 {
+      padding-top: clamp(0.5rem, 2vh, 2.5rem) !important;
+    }
+    .contact-logo-cloud .pb-6 {
+      padding-bottom: clamp(0.5rem, 1.5vh, 1.5rem) !important;
+    }
+    .contact-logo-cloud .mt-6 {
+      margin-top: clamp(0.25rem, 1vh, 1.5rem) !important;
+    }
+    .contact-logo-cloud img {
+      height: clamp(1.25rem, 3.5vh, 2rem) !important;
+    }
+    /* Main's top/bottom padding scales with viewport height, leaving the right amount
+       of breathing room above nav and clearance below for the fixed cloud */
     .contact-main {
-      padding-bottom: clamp(6rem, 12vh, 10rem);
+      padding-top: clamp(4rem, 10vh, 5rem) !important;
+      padding-bottom: clamp(5rem, 18vh, 9rem);
+    }
+    /* Chip never exceeds a fraction of viewport height — prevents it from blowing up
+       on short windows and dominating the layout */
+    .contact-chip-wrapper {
+      max-height: clamp(14rem, 45vh, 28rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .contact-chip-wrapper video {
+      max-height: 100%;
     }
   }
 

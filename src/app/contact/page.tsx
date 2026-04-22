@@ -147,7 +147,7 @@ const ContactPage = () => {
 
         {/* Right Section - Video */}
         <motion.div
-          className="w-full md:w-1/2 opacity-0"
+          className="w-full md:w-1/2 opacity-0 contact-chip-wrapper"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, ease: "easeOut", delay: 0.2 }}
