@@ -259,6 +259,34 @@
     }
   }
 
+  /* ============ Contact page: pin social-proof logo cloud to viewport bottom ============
+     On desktop (md+) the logo cloud is position: fixed so it's visible at the viewport
+     bottom regardless of window height. A gradient background fades it into the content
+     above so it doesn't look like a pasted-on bar. On mobile it flows normally. */
+  @media (min-width: 768px) {
+    .contact-logo-cloud {
+      position: fixed;
+      inset-inline: 0;
+      bottom: 0;
+      z-index: 20;
+      padding-top: 4rem;
+      background: linear-gradient(
+        to top,
+        var(--background) 0%,
+        var(--background) 40%,
+        transparent 100%
+      );
+      pointer-events: none;
+    }
+    .contact-logo-cloud > * {
+      pointer-events: auto;
+    }
+    /* Reserve space at bottom of main so content isn't hidden under the fixed cloud */
+    .contact-main {
+      padding-bottom: clamp(6rem, 12vh, 10rem);
+    }
+  }
+
   /* ============ Navbar fluid scaling (desktop ≥ 768) ============
      Mobile nav stays at current hamburger sizes; desktop pill + CTA
      grow with viewport like dialedweb. All floors match current sizes

@@ -107,7 +107,7 @@ const ContactPage = () => {
       </div>
 
       {/* Main Content */}
-      <main className="relative z-10 container px-4 md:pl-6 pt-20 md:pt-16 grow flex flex-col md:flex-row items-center mx-auto">
+      <main className="relative z-10 container px-4 md:pl-6 pt-20 md:pt-16 grow flex flex-col md:flex-row items-center mx-auto contact-main">
         {/* Left Section */}
         <div className="w-full lg:w-1/2 text-left space-y-5 md:space-y-8 pl-4 lg:pl-10">
           <AnimatedText
@@ -159,7 +159,7 @@ const ContactPage = () => {
         </motion.div>
       </main>
 
-      <div ref={logoCloudRef} className="opacity-0">
+      <div ref={logoCloudRef} className="opacity-0 contact-logo-cloud">
         <AnimatedLogoCloud className="lg:-translate-y-12" />
       </div>
     </div>
